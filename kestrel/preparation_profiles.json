@@ -1242,7 +1242,7 @@
     },
     {
       "path": "feedback/Hunter Motors feedback 25-26.xlsx",
-      "dealer": null,
+      "dealer": "NSW05",
       "encoding": "utf-8-sig",
       "delimiter": ",",
       "sheets": [
@@ -1289,7 +1289,7 @@
         }
       ],
       "dealer_candidate": "NSW05",
-      "dealer_status": "unresolved_alias",
+      "dealer_status": "assumed_mapping",
       "expected_individual_records": 303
     },
     {

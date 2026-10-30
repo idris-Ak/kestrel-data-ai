@@ -126,12 +126,21 @@ class NormalisationTests(unittest.TestCase):
             self.assertEqual((event['department'], event['department_subtype'], event['department_raw']),
                              ('Sales', subtype, value))
 
-    def test_unconfirmed_dealer_and_department_are_only_candidates(self):
-        event, _ = normalise(observation('Hunter', date=datetime(2026, 1, 8)), {})
-        self.assertEqual((event['dealer_code'], event['dealer_candidate'], event['business_join_eligible']), (None, 'NSW05', 0))
-        event, _ = normalise(observation('bendigo', date='8 Jan 26', department='SV', rating='★★★★☆'), {})
-        self.assertEqual((event['department'], event['department_candidate'], event['business_join_eligible']), (None, 'Service', 0))
+    def test_assumed_dealer_and_department_mappings_are_flagged(self):
+        event, problems = normalise(observation('Hunter', date=datetime(2026, 1, 8)), {})
+        self.assertEqual((event['dealer_code'], event['dealer_candidate'], event['dealer_status'], event['business_join_eligible']),
+                         ('NSW05', 'NSW05', 'assumed_mapping', 1))
+        self.assertEqual([p[0] for p in problems], ['ASSUMED_DEALER_MAPPING'])
+        event, problems = normalise(observation('bendigo', date='8 Jan 26', department='SV', rating='★★★★☆'), {})
+        self.assertEqual((event['department'], event['department_candidate'], event['department_raw'], event['department_status'],
+                          event['business_join_eligible']), ('Service', 'Service', 'SV', 'assumed_code', 1))
+        self.assertEqual([p[0] for p in problems], ['ASSUMED_DEPARTMENT_CODE'])
         self.assertEqual((event['text_eligible'], event['rating_valid']), (1, 1))
+
+    def test_unknown_bendigo_code_stays_unresolved(self):
+        event, problems = normalise(observation('bendigo', date='8 Jan 26', department='X', rating='★★★★☆'), {})
+        self.assertEqual((event['department'], event['department_status'], event['business_join_eligible']), (None, 'unresolved', 0))
+        self.assertIn('UNRESOLVED_DEPARTMENT', [p[0] for p in problems])
 
     def test_after_closure_date_is_preserved_and_not_corrected(self):
         event, problems = normalise(observation('Shepparton', date='09/10/2026'), {'VIC09': '2026-03-31'})
@@ -161,19 +170,19 @@ class PrivacyRulesTests(unittest.TestCase):
         text = 'Cust noted that the bill was $175 in 2026.'
         self.assertEqual(Redactor({}).redact(text), (text, {}, []))
 
-    def test_ambiguous_known_name_withholds_instead_of_erasing_meaning(self):
+    def test_ambiguous_known_name_is_replaced_only_in_a_name_position(self):
         text, counts, reasons = Redactor({'name': {'Will'}}).redact('Will was helpful; I will return.')
-        self.assertEqual(text, 'Will was helpful; I will return.')
-        self.assertEqual(counts, {})
-        self.assertIn('AMBIGUOUS_KNOWN_NAME', reasons)
+        self.assertEqual((text, counts, reasons), ('[NAME] was helpful; I will return.', {'NAME': 1}, []))
 
-    def test_unknown_and_partial_names_require_review(self):
+    def test_unknown_and_partial_names_are_replaced_without_review(self):
         redactor = Redactor({'name': {'Avery'}})
-        for text, reason in [('Avery Unseen - was helpful.', 'PARTIAL_NAME_RESIDUAL'),
-                             ('I commend arha for the help.', 'PERSON_CONTEXT_RESIDUAL'),
-                             ('Unknown Person helped.', 'POSSIBLE_PERSON_NAME')]:
-            with self.subTest(reason=reason):
-                self.assertIn(reason, redactor.redact(text)[2])
+        for raw, expected in [('Avery Unseen - was helpful.', '[NAME] - was helpful.'),
+                              ('I commend arha for the help.', 'I commend [NAME] for the help.'),
+                              ('Tobias Wrenfield helped.', '[NAME] helped.')]:
+            with self.subTest(expected=expected):
+                text, counts, reasons = redactor.redact(raw)
+                self.assertEqual((text, reasons), (expected, []))
+                self.assertGreaterEqual(counts['NAME'], 1)
 
     def test_numeric_ids_without_context_are_withheld_not_confused_with_price(self):
         redactor = Redactor({'id': {'009812', '2026'}})
@@ -384,9 +393,11 @@ class CompletePreparationTests(unittest.TestCase):
         self.assertEqual(sorted(r[1] for r in groups), [2, 2, 3])
         self.assertEqual(self.scalar("SELECT COUNT(*) FROM quality_issues WHERE rule_id='POSSIBLE_DUPLICATE'"), 7)
 
-    def test_unknown_aliases_and_dates_are_not_silently_promoted(self):
-        self.assertEqual(self.scalar("SELECT COUNT(*) FROM feedback_events WHERE dealer_code IS NULL AND dealer_candidate='NSW05' AND business_join_eligible=0"), 303)
-        self.assertEqual(self.scalar("SELECT COUNT(*) FROM feedback_events WHERE dealer_code='VIC08' AND department IS NULL AND department_candidate IS NOT NULL AND business_join_eligible=0"), 144)
+    def test_assumed_mappings_and_uncertain_dates_stay_visible(self):
+        self.assertEqual(self.scalar("SELECT COUNT(*) FROM feedback_events WHERE dealer_code='NSW05' AND dealer_candidate='NSW05' AND dealer_status='assumed_mapping'"), 303)
+        self.assertEqual(self.scalar("SELECT COUNT(*) FROM feedback_events WHERE dealer_status='assumed_mapping' AND business_join_eligible=1"), 303)
+        self.assertEqual(self.scalar("SELECT COUNT(*) FROM feedback_events WHERE dealer_code='VIC08' AND department_status='assumed_code' AND department=department_candidate AND department_raw IN ('S','SV','P')"), 144)
+        self.assertEqual(self.scalar("SELECT COUNT(*) FROM quality_issues WHERE rule_id IN ('UNRESOLVED_DEALER','UNRESOLVED_DEPARTMENT') AND observation_id IN (SELECT canonical_observation_id FROM feedback_events WHERE dealer_code IN ('NSW05','VIC08'))"), 0)
         self.assertEqual(self.scalar("SELECT COUNT(*) FROM feedback_events WHERE date_precision='month' AND feedback_date IS NULL AND time_eligible=1"), 8)
         self.assertEqual(self.scalar("SELECT COUNT(*) FROM feedback_events WHERE date_basis='uncertain_month' AND feedback_month IS NULL AND time_eligible=0"), 2)
         self.assertEqual(self.scalar("SELECT COUNT(*) FROM feedback_events WHERE dealer_code='VIC09' AND feedback_date>='2026-10-01' AND time_eligible=0"), 6)
@@ -447,7 +458,8 @@ class CompletePreparationTests(unittest.TestCase):
             self.assertIsNone(PHONE.search(row['text']))
         excluded = {r[0] for r in self.db.execute("SELECT event_id FROM feedback_events WHERE privacy_status IN ('withheld','external_channel_held')")}
         self.assertFalse(excluded & {r['event_id'] for r in rows})
-        self.assertGreater(self.scalar("SELECT COUNT(*) FROM feedback_events WHERE privacy_status='withheld' AND privacy_reasons_json!='[]'"), 0)
+        self.assertEqual(self.scalar("SELECT COUNT(*) FROM feedback_events WHERE privacy_status='withheld' AND privacy_reasons_json='[]'"), 0)
+        self.assertEqual(self.scalar("SELECT SUM(model_eligible) FROM feedback_events"), 5349)
         self.assertEqual(self.scalar("SELECT COUNT(*) FROM feedback_events WHERE population='external_review' AND model_eligible=1"), 0)
 
     def test_reviewed_difficult_examples_keep_their_reviewed_text_and_status(self):
