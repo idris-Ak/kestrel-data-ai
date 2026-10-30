@@ -531,12 +531,11 @@ def rating_band(value, scale, kind, direction):
     return "negative" if five <= 2 else "neutral" if five == 3 else "positive"
 
 
-def rating_agreement(config_name, split="test", root=ROOT):
-    """Compare predicted overall sentiment with the customer's own rating band (no labels involved)."""
+def band_agreement(records, rows, database):
+    """Compare predicted overall sentiment with each customer's rating band (no reference labels involved)."""
     import sqlite3
-    records = split_records(root, split)
-    rows = {r["event_id"]: r for r in cached_rows(CONFIGS[config_name], records, Path(root) / PILOT_DIR / "cache")}
-    db = sqlite3.connect(f"file:{Path(root) / FROZEN_RUN / 'prepared.sqlite'}?mode=ro", uri=True)
+    rows = {r["event_id"]: r for r in rows}
+    db = sqlite3.connect(f"file:{Path(database)}?mode=ro", uri=True)
     try:
         ratings = {e: (v, s, k, d, path) for e, v, s, k, d, path in db.execute(
             """SELECT e.event_id, e.rating_value, e.rating_scale_max, e.rating_kind, e.rating_direction, f.path
@@ -557,7 +556,14 @@ def rating_agreement(config_name, split="test", root=ROOT):
             source["agree"] += band == predicted
     comparable = sum(n for (b, p), n in pairs.items() if b in ("positive", "negative") and p in ("positive", "negative"))
     agree = sum(n for (b, p), n in pairs.items() if b == p and b in ("positive", "negative"))
-    return {"config": config_name, "split": split, "comparable": comparable, "agree": agree,
+    return {"comparable": comparable, "agree": agree,
             "agreement": round(agree / comparable, 3) if comparable else None, "agreement_ci": wilson(agree, comparable),
             "pairs": {f"{b}->{p}": n for (b, p), n in sorted(pairs.items())},
             "disagreeing_sources": {s: dict(c) for s, c in sorted(by_source.items()) if c["comparable"] > c["agree"]}}
+
+
+def rating_agreement(config_name, split="test", root=ROOT):
+    records = split_records(root, split)
+    rows = cached_rows(CONFIGS[config_name], records, Path(root) / PILOT_DIR / "cache")
+    return {"config": config_name, "split": split,
+            **band_agreement(records, rows, Path(root) / FROZEN_RUN / "prepared.sqlite")}

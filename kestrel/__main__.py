@@ -8,7 +8,7 @@ from .pilot import PilotError, run_pilot
 from .preparation import run_preparation
 
 AI_COMMANDS = ["pilot-sample", "pilot-sheet", "pilot-import", "pilot-freeze", "pilot-run", "pilot-score",
-               "pilot-agree", "pilot-adjudicate"]
+               "pilot-agree", "pilot-adjudicate", "classify"]
 
 
 def run_ai_command(args):
@@ -46,6 +46,17 @@ def run_ai_command(args):
             raise PilotError("Pass annotation A, annotation B and the adjudication with --file, --file2 and --file3")
         path, value = ai_pilot.run_adjudication(args.file, args.file2, args.file3, root, args.split)
         print(f"Reference labels written ({sum(l['reference_source'] == 'adjudicated' for l in value['labels'])} adjudicated): {path}")
+    elif args.command == "classify":
+        from .classify_run import run_classification
+        if not args.run:
+            raise PilotError("Pass the prepared run directory with --run")
+        out, summary = run_classification(args.run, names[0] if names else "haiku-5.5", root, cap_usd=args.cap)
+        check = summary["rating_band_check"]
+        print(f"Classified {summary['classified']}/{summary['eligible']} comments ({summary['failed']} failed) "
+              f"with {summary['config']}; US${summary['cost_usd_this_config']:.4f} for this config, "
+              f"US${summary['pilot_and_stage4_spend_usd']:.4f} total of US${args.cap:.2f} cap")
+        print(f"Rating-band agreement: {check['agree']}/{check['comparable']} clear-cut cases")
+        print(f"Labels: {out / 'labels.jsonl'}")
     elif args.command == "pilot-score":
         report = ai_pilot.write_scorecard(args.split, names, root)
         print(f"Scored {len(report['scores'])} configuration(s) on {report['labelled']} labels. "
@@ -66,6 +77,7 @@ def main():
     parser.add_argument("--file3", type=Path, default=None, help="Adjudication file (pilot-adjudicate)")
     parser.add_argument("--replace", action="store_true", help="Replace previously imported labels")
     parser.add_argument("--cap", type=float, default=10.0, help="Pilot spending cap in USD")
+    parser.add_argument("--run", type=Path, default=None, help="Prepared run directory to classify (classify)")
     args = parser.parse_args()
     if args.command in AI_COMMANDS:
         try:

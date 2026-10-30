@@ -45,6 +45,14 @@ Classifying every comment from the next prepared run means about 5,350 comments:
 
 The pilot's US$10 cap doesn't cover the Sonnet run. The rule picks Sonnet; spending above the cap is the user's call.
 
+**Decision (user, 30 October): Haiku 5.5 for the full run.** This is a deliberate, documented deviation from the predeclared rule, for budget reasons. Rationale:
+- Haiku meets every acceptance target.
+- Its gap to Sonnet is mostly one measured error: on the test it found all 9 waiting-time complaints and added 4 false ones. Its other themes are close to Sonnet's.
+- The business questions compare themes, sites, departments and periods, where a consistent over-count matters less than in absolute shares.
+- It agreed with customers' rating bands in all 85 clear-cut test cases.
+
+The report states the waiting-time over-count wherever that theme's share is quoted. A Sonnet re-check of Haiku's waiting-time tags (about US$4–5) was offered and declined to keep the work lean.
+
 ## How it was built (reproducible)
 
 - **Frozen splits.** `pilot-sample` checks the export hash `4f1db5d6…`, then draws 100 test comments first, then 20 calibration and 80 design (seed `20261030`). The manifest holds IDs and hashes only.
@@ -62,3 +70,15 @@ The pilot's US$10 cap doesn't cover the Sonnet run. The rule picks Sonnet; spend
 Commands: `uv run --locked python -m kestrel pilot-sample | pilot-sheet | pilot-import | pilot-freeze | pilot-run | pilot-agree | pilot-adjudicate | pilot-score` (see `--help`).
 
 **Frozen input:** `outputs/prepared/runs/ec6f5be3bf88fff169456310a93d249704fab9b3553b9611833d522b7f6b3b3f/`. Pilot outputs live in `outputs/ai_pilot/`, ignored by Git because they hold redacted comment text: scorecards, labels, caches and the spend ledger.
+
+## Stage 4 handoff (30 October)
+
+State at handoff:
+- Rebuilt run `5b074a08a2745a111dc5fc931d3183f263c62fc76b39c948e0822457a30b7bad`: D3/D4 mappings plus redaction rules-3, 122/122 checks pass. It holds 5,349 model-eligible comments: the 4,802 from the frozen run, byte-identical, plus the 547 that rules-3 released.
+- Haiku 5.5 classification was in progress, with 2,267/5,349 labels cached. Results are cached by comment hash, so rerunning resumes and never re-bills finished comments. Spend: US$2.55 of the US$10 cap; the remainder should cost about US$0.75.
+
+To finish stage 4:
+```bash
+uv run --locked python -m kestrel classify --run outputs/prepared/runs/5b074a08a2745a111dc5fc931d3183f263c62fc76b39c948e0822457a30b7bad --configs haiku-5.5
+```
+This verifies the export against the run manifest. It writes `outputs/classified/<run_id>/labels.jsonl` (one row per comment: overall sentiment, themes with verbatim evidence, status) and `summary.json` (counts, cost, and the rating-band check against customers' own ratings). Failed outputs stay recorded as failures. Report coverage, the rating-band agreement, and the waiting-time over-count caveat.
