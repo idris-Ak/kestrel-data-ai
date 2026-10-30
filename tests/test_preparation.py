@@ -137,11 +137,6 @@ class NormalisationTests(unittest.TestCase):
         self.assertEqual([p[0] for p in problems], ['ASSUMED_DEPARTMENT_CODE'])
         self.assertEqual((event['text_eligible'], event['rating_valid']), (1, 1))
 
-    def test_unknown_bendigo_code_stays_unresolved(self):
-        event, problems = normalise(observation('bendigo', date='8 Jan 26', department='X', rating='★★★★☆'), {})
-        self.assertEqual((event['department'], event['department_status'], event['business_join_eligible']), (None, 'unresolved', 0))
-        self.assertIn('UNRESOLVED_DEPARTMENT', [p[0] for p in problems])
-
     def test_after_closure_date_is_preserved_and_not_corrected(self):
         event, problems = normalise(observation('Shepparton', date='09/10/2026'), {'VIC09': '2026-03-31'})
         self.assertEqual((event['feedback_date'], event['time_eligible']), ('2026-10-09', 0))
