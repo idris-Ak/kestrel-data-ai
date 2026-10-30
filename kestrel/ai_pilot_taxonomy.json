@@ -1,0 +1,111 @@
+{
+  "taxonomy_version": "themes-2",
+  "basis": "Drafted from 80 design-split comments (redacted text only); the test and calibration splits were not read. Examples below are paraphrased, not customer text. themes-2 (30 Oct) sharpened theme boundaries after calibration review: no label space change.",
+  "overall_sentiment": {
+    "positive": "Only favourable points.",
+    "negative": "Only unfavourable points.",
+    "mixed": "At least one favourable and one unfavourable point.",
+    "neutral": "No clear favourable or unfavourable point (for example a bare fact or an unclear note)."
+  },
+  "themes": {
+    "communication": {
+      "label": "Communication and follow-up",
+      "definition": "Updates during the job, returning calls or messages, passing messages on, responsiveness to enquiries.",
+      "examples": [
+        "Had to ring three times for an update.",
+        "They texted me at each step."
+      ]
+    },
+    "timeliness": {
+      "label": "Timeliness and waiting",
+      "definition": "Speed of service, waiting or queueing, finishing when promised, part or car ready on the agreed day.",
+      "examples": [
+        "Promised by noon, collected at five.",
+        "In and out within the hour."
+      ]
+    },
+    "staff_attitude": {
+      "label": "Staff attitude",
+      "definition": "Friendliness, courtesy, helpfulness, respect and effort of the people involved.",
+      "examples": [
+        "Lovely team at the front desk.",
+        "The salesperson was dismissive."
+      ]
+    },
+    "explanation": {
+      "label": "Explanation and advice",
+      "definition": "How clearly work, invoices, options or vehicle features were explained, including handover education such as charging an EV.",
+      "examples": [
+        "Each item on the invoice was explained.",
+        "Nobody showed me how to use the charger."
+      ]
+    },
+    "price_value": {
+      "label": "Price and value",
+      "definition": "Price level, fairness or value for money (not unexpected or unapproved charges, which are billing).",
+      "examples": [
+        "Cheaper than I expected.",
+        "Too expensive for what was done."
+      ]
+    },
+    "billing": {
+      "label": "Billing accuracy",
+      "definition": "Charges that differ from the quote, unapproved add-ons, unexplained fees or invoice errors.",
+      "examples": [
+        "An extra fee appeared that nobody mentioned.",
+        "Paid more than the quote."
+      ]
+    },
+    "work_quality": {
+      "label": "Work quality",
+      "definition": "Whether the repair or service was done correctly: fault not fixed, damage, missed steps, rework.",
+      "examples": [
+        "Same noise is still there.",
+        "A cover was left unclipped."
+      ]
+    },
+    "parts_availability": {
+      "label": "Parts availability",
+      "definition": "Whether parts or accessories were in stock or obtainable.",
+      "examples": [
+        "Part out of stock again.",
+        "They had it on the shelf."
+      ]
+    },
+    "sales_pressure": {
+      "label": "Sales pressure",
+      "definition": "Pushing finance, insurance, extended warranties or other add-ons, or pressure to buy.",
+      "examples": [
+        "Forty minutes of insurance pitch.",
+        "No pushy upselling at all."
+      ]
+    },
+    "process_ease": {
+      "label": "Ease of process",
+      "definition": "How easy booking, drop-off, paperwork or the purchase process was overall.",
+      "examples": [
+        "Booking took three calls.",
+        "Smooth and hassle-free from start to finish."
+      ]
+    },
+    "vehicle_handover": {
+      "label": "Vehicle readiness at handover",
+      "definition": "Whether a sold vehicle was ready, complete and clean at delivery: missing items, not prepared, not ready on time for collection.",
+      "examples": [
+        "Spare key and mats were missing.",
+        "Car was detailed and ready to go."
+      ]
+    }
+  },
+  "rules": [
+    "Assign every theme the comment supports; a comment can have several themes, and the same theme cannot be both positive and negative.",
+    "Judge the meaning, not single words: sarcasm such as 'Oh brilliant, another day of silence' is negative.",
+    "A purely generic remark ('Top job', 'Welcoming') takes staff_attitude only when it describes the people; otherwise use overall sentiment with no theme.",
+    "Placeholders such as [NAME] or [REGO] are redactions; ignore them.",
+    "Some comments are staff notes about a customer ('Cust said...'); label the customer's view.",
+    "Explanation is about how well something was explained when the customer was told, or a failure to explain at handover or when asked in person. A promised call-back or reply that never came is communication; an unexplained or unexpected charge is billing. Do not add explanation on top of those.",
+    "Waiting, including on hold, is timeliness; not being answered or called back is communication.",
+    "Do not infer a theme from the absence of a problem ('nothing to chase up') unless the customer is clearly commenting on that aspect.",
+    "Each theme takes one sentiment. If the customer is both positive and negative about the same theme, record the one that dominates."
+  ]
+}
