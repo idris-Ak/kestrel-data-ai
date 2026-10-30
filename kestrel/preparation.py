@@ -205,6 +205,9 @@ def normalise(observation,closed_dates):
         dealer_status='reviewed_source_alias' if dealer else 'unresolved_alias'
     elif p.get('dealer_status'):dealer_status=p['dealer_status']
     if dealer is None:problems.append(('UNRESOLVED_DEALER','Site alias lacks a confirmed reference mapping','Retained; excluded from dealer/business comparisons'))
+    if dealer_status=='assumed_mapping':
+        # Decision D3: workbook title, the only dealership without another file, Hunter region, and comment brands matching only NSW05.
+        problems.append(('ASSUMED_DEALER_MAPPING','"Hunter Motors" alias assumed to be NSW05 Kestrel Newcastle (sole dealer without another file; Hunter region; comment brands Altura/Kodiak/Voltra match only NSW05)','Mapped with assumed status; alias retained; exclude for sensitivity'))
     raw_dept=s.get('department_constant') or o.get('department')
     dept,subtype=department(raw_dept)
     if str(raw_dept).strip().casefold()=='parts & accessories':dept,subtype='Parts','Parts & Accessories'
@@ -213,8 +216,10 @@ def normalise(observation,closed_dates):
         dept,subtype='Sales',sales_subtypes[str(raw_dept).strip().casefold()]
     dept_candidate=None;dept_status='reviewed_alias' if dept else 'unresolved'
     if 'bendigo' in p['path']:
+        # Decision D4: comment keywords align with each code and the Service share matches the group pattern.
         dept_candidate={'s':'Sales','sv':'Service','p':'Parts'}.get(str(raw_dept).casefold())
-        dept,subtype,dept_status=None,None,'provisional_code'
+        dept,subtype,dept_status=dept_candidate,None,'assumed_code' if dept_candidate else 'unresolved'
+        if dept:problems.append(('ASSUMED_DEPARTMENT_CODE','Bendigo code S/SV/P assumed to be Sales/Service/Parts (comment keywords align with each code; Service share matches the group)','Mapped with assumed status; raw code retained; exclude for sensitivity'))
     if dept is None and o.kind!='external_review':problems.append(('UNRESOLVED_DEPARTMENT','Department needs an explicit mapping decision','Retained; excluded from department/business comparisons'))
     day,month,precision,basis,candidate_month=interpreted_date(o.get('date'),s,o.epoch)
     time_ok=bool(month and s['period_start'][:7]<=month<s['period_end'][:7])
@@ -418,8 +423,12 @@ def validate_prepared(db,observations,profiles,originals_unchanged):
         ('External reviews not model inputs',"SELECT COUNT(*) FROM feedback_events WHERE population='external_review' AND model_eligible=1",0),
         ('Withheld comments not model inputs',"SELECT COUNT(*) FROM feedback_events WHERE privacy_status='withheld' AND model_eligible=1",0),
         ('Approximate dates have no invented day',"SELECT COUNT(*) FROM feedback_events WHERE date_precision='month' AND feedback_date IS NOT NULL",0),
-        ('Unresolved dealer aliases visible',"SELECT COUNT(*) FROM feedback_events WHERE dealer_code IS NULL AND dealer_candidate='NSW05'",303),
-        ('Provisional Bendigo department codes visible',"SELECT COUNT(*) FROM feedback_events WHERE dealer_code='VIC08' AND department IS NULL AND department_candidate IS NOT NULL",144),
+        ('Assumed Hunter dealer mapping visible',"SELECT COUNT(*) FROM feedback_events WHERE dealer_code='NSW05' AND dealer_candidate='NSW05' AND dealer_status='assumed_mapping'",303),
+        ('Assumed Hunter mapping findings',"SELECT COUNT(*) FROM quality_issues WHERE rule_id='ASSUMED_DEALER_MAPPING'",303),
+        ('No unresolved Hunter dealer aliases',"SELECT COUNT(*) FROM feedback_events WHERE dealer_code IS NULL AND dealer_candidate='NSW05'",0),
+        ('Assumed Bendigo department codes visible',"SELECT COUNT(*) FROM feedback_events WHERE dealer_code='VIC08' AND department_status='assumed_code' AND department=department_candidate AND department_raw IN ('S','SV','P')",144),
+        ('Assumed Bendigo code findings',"SELECT COUNT(*) FROM quality_issues WHERE rule_id='ASSUMED_DEPARTMENT_CODE'",144),
+        ('No unresolved Bendigo departments',"SELECT COUNT(*) FROM feedback_events WHERE dealer_code='VIC08' AND department IS NULL",0),
         ('Incorrect Shepparton dates excluded from periods',"SELECT COUNT(*) FROM feedback_events WHERE dealer_code='VIC09' AND feedback_date>='2026-10-01' AND time_eligible=0",6),
         ('Missing rating and comment retained',"SELECT COUNT(*) FROM feedback_events WHERE rating_valid=0 AND has_text=0",2),
         ('Empty responses contribute no analytical counts',"SELECT COUNT(*) FROM feedback_events WHERE rating_valid=0 AND has_text=0 AND business_join_eligible=1",0),
@@ -461,10 +470,10 @@ def report_data(db,checks,run_id):
             'counts':counts,'sources':sources,'issues':issues,'privacy':privacy,'eligibility':eligible,
             'privacy_review_reasons':dict(sorted(reasons.items())),'coverage':coverage,'checks':checks,
             'limitations':['Automated redaction plus targeted review is not guaranteed anonymity or independent human privacy certification.',
-              'Hunter/Newcastle and Bendigo department-code mappings remain candidates, excluded from affected default comparisons.',
+              'Hunter Motors -> NSW05 Newcastle (D3) and Bendigo S/SV/P -> Sales/Service/Parts (D4) are evidence-based assumptions, flagged by status and quality finding with raw values retained; rerun results without them as a sensitivity check.',
               'Native scales and unknown directions remain separate; no negative bands or cross-scale means are inferred.',
               'Copied Google reviews have unknown capture dates/overlap and remain a separate population.',
-              'Conservative privacy triggers also withhold harmless wording; model-input coverage is incomplete and can differ by source or comment style.',
+              'Redaction rules-3 replaces residual names it can locate with [NAME] and withholds only remaining contact, identifier or name signals; unknown single first names without a person cue can still pass.',
               'Missing feedback, collection bias, ambiguous duplicates and uncertain dates remain visible.',
               'No AI labels, human reference annotations, causal effects or financial uplift have been produced.']}
 

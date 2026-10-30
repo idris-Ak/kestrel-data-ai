@@ -1,345 +1,345 @@
 {
-  "reviewer": "Codex agent; no independent human review",
-  "method": "One automated-pass comment per source file with text; eight highest redaction counts; four longest; first example of each withholding reason. Deduplicated by event ID. Plus one email-redaction example.",
-  "cases": [
-    {
-      "event_id": "0004755d979860f63f3e77e42b8ce50faaedc9732f31e1b0efa253558fe6238c",
-      "redacted_text_sha256": "cecea91dc308090f4e89422f69a5b7c13858d58cee5efe89bd5c7f56b92530d5",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "00078bf55860eaf746a3ef4763db9fa078fddc3078f0bff07207ec50caf53a0f",
-      "redacted_text_sha256": "b7b1bf87091607976d7bdbdbd787759ef91087c92a33c062bff573d5a9aa9db6",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "000976e8dc765fa6dd41274fff49fb3ddcfa16d653937a074a93c63946ab47dc",
-      "redacted_text_sha256": "1f9a81692958eeb5149d8bac6ac43b5e2befd9cded3ec1bcdc2a4bf7583485e4",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "000a10f27b3c0d0af86ce106d174dc202650895bb8d53433e378c7cdd34aeb10",
-      "redacted_text_sha256": "85db422f528b8ed1f79c7e30c275a8b59526453f2eedd3ba2611f418634d5b24",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "000cf012abe6b4fa5a2b4f623b7844924b2a594aca7a4a6a6de4999dd1897b8e",
-      "redacted_text_sha256": "55d73bb445c3b867cbff40b0de2217cf5dff4f3a8006a7fbc33ee3f28e81247d",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "0012502cf95c01026c2fbcdec5a96e60fb83103539dedce16e952b336932eb01",
-      "redacted_text_sha256": "673221e66f6c65a9fe84abb0ddd7d2a59829deb293cfdf94f91b246dcfed7769",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "0042644b3423163e5824fb69c9302b1079a24079527d7232470627b84dc96b57",
-      "redacted_text_sha256": "81a5eea13158573f20aaf2d8cf480ac106a4743fb31ae7dcb585c84af22cdb59",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "00438923f8c86e8077e42ee5274839bb1ab38d55d81e6b2c2afca164fa3a45df",
-      "redacted_text_sha256": "9d565845ce6bc1a81e1a87b0fa669e03c8bfcde1f824dccac412a556b98d8df2",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "0045202829f826d63e256850335d512881683ae5eeb2ec3aea2a1017e1a8b497",
-      "redacted_text_sha256": "76a06af974ae0f3d434325dc3fb5a7e152af50841ab795415d1131aacb96637e",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "0046036c1cc0ee713e4923223d6dbadd4b86e08dd2a98274084e4eed0e4bd66d",
-      "redacted_text_sha256": "7e6b55b003500a4fae27723ae5fa812b8ad00e90bb5a350ba9729142c42c3dc0",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "00460d00a3ab72439d526a2de42818f385889a3671b77f9dd28f6e24211cb7df",
-      "redacted_text_sha256": "3a99a2af1ba4fa739ef8fe653ef2d2d80b7e86db64e57d77208ada96d09ec42b",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "004e83986872809c08300d06e795c89211177d84f0f97a3750d2a700fed366da",
-      "redacted_text_sha256": "3c4d1db56b5b31a650c0e564b34e4375f2e80f6d713b0d493ff14035af6c9ed1",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "0082def0d1707a8a413f0aa22667b47e87b427cc70dde11b6c578c7e467d1bb2",
-      "redacted_text_sha256": "7538b2d58b5a0ca0d0dfa3c2c5c0cb3b4c0be57d0ba253cd21a2eaeb98692542",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "0092a03893e9130abe0ff13776acc7d51ab74b776abff9876d149cddb79fefcf",
-      "redacted_text_sha256": "a6258cc07f6cd7e722fa9fc4e17ea1da76e76b19fdc6f65c4cc41fd39ff0867e",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "00aef9355f89725427957b36c92ffdb68e301790c0e4165b7a709f27e2e49c31",
-      "redacted_text_sha256": "0646b043e1a46cf3a45f9f551d61d6c46b2aa2200465509506666fc337c0b954",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "00d2d3b4e8ef4723adae5a3c8328f8f51996124346e011a95914164c33a51ae4",
-      "redacted_text_sha256": "77d8b03dbdf9465339602fdbb9682b04d751fee8bfbb783e4c75edc14a6c690e",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "00f0281a6d2cb2e3bf88b8d078b648f40eb6779f72044629cec94e266b1ffd57",
-      "redacted_text_sha256": "c7bd34ecfb6ab6d5d819531c06d0811e2fb7821074e95d771a45c0cb66790580",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "00ffe98f9653fb4b3de3f505283cdb90d673af48f65fb549acb9f47ef0dad088",
-      "redacted_text_sha256": "639ec9d4ecf05fc3bd9fa76c846383f3a1d3ea5fc0a8fdeeec7fac4858fd89f2",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "0107a0a778667338fa9464c8dc18aa31594045fc173454a5e310731ed4470d03",
-      "redacted_text_sha256": "20382751b93a2abfdd3332d7e2171c35e5c2bd3d01c86931c1ab580a0059d24b",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "0110662d7cb3687f34875c3d3fffed275cae9fc2d9487a2f2a59a6ac839a5174",
-      "redacted_text_sha256": "23eb4d65b4c0d8652ae339f93bdb73cfe098abce8af43cc3b1100e17b2e89935",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "013a9c67e4b2e06a6b8583bddc2f4fcfcef2f2c75f40ca508209285eb0c647dd",
-      "redacted_text_sha256": "9462ed71fc2b48d08a6cbd8ad1cb46da3b0392ef6c1aa4611c7b0c1dfaddd2c2",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "0154e33ee1d6b5c1730c9e9e3f10ac2d1003a0f7a730f20bae14c872f3ca94c6",
-      "redacted_text_sha256": "1ecb5b58bf4bb74c5d6e1fa066b7972f03bb000394ed7866e691c505cb2dc04c",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "016edf92402baa913afe26c42fe491a4d76119e069058955ac49eddda9dcd35c",
-      "redacted_text_sha256": "b3ef4f88a5139c6c0b38db468e8431494dcb27c3255b5a9dc13506c0c527b3a5",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "01a087e4915bb6b229ed3a5c44822c8ccb9528c377242bfe8c1aeaacadaa3301",
-      "redacted_text_sha256": "8100a9fb4a4291d354915db179c13affa0dce741e5ec5d7237c45775c9e5b55d",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "01c2a1b441ea2db8025d1f8fce44d9c4df1f5d6eacddad4749db2a5b29095e87",
-      "redacted_text_sha256": "ed47db16b6e7ee4eec684b7107f178723aa6772d344c98742f506cba63877ce1",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "01cdf1083fb978dac058d1af25b97a9b5975430a8cba93001b4808c6e6e00307",
-      "redacted_text_sha256": "48dbb8ceb9ae6bf408feb693e6f1f2cf07847a88d2d32c35752139639e5003ba",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "01e5ebae1d4ea92b70dd2230abacf9538b45508029fb0b837704fb1c01543149",
-      "redacted_text_sha256": "9f78e0f20cad92408845884a4aeb0bf453b245c10930d232360a0cd5f6bcf9c2",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "01ef01625c8c94f2edd0ed05bba0a4c9dc033afe2ad372f350f05387caee28c6",
-      "redacted_text_sha256": "98a40055bf005873d532bffeeda46a2f409a04ea0f1165941e45f8dcb77b28c8",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "0241fa578b21294030bcd6fb34ce6a9d9ae991b3efae8f8730241adbc9e74638",
-      "redacted_text_sha256": "bd4e00e6ddd29e0c636112a2c695ab5c7ee80e77d62ab4790ec6f34ffd7c57e5",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "02523671e6acb2d25ee49c5423e92c84a35ed19cdbd0e25737d8a3b70382a846",
-      "redacted_text_sha256": "ea2a16c67798d2dc74e0e000c86a4765ba95d575768cdc81daedc7cd35db4d21",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "02d4bf81c0c80e31c02b0de49c8f9d338bd4fc4d67223dce64cfa0f547fc26f9",
-      "redacted_text_sha256": "d01337866d689cadd077a9a5dc785a99c8d243f6c39de3d1f530afdbc7e7e28b",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "03151f377732aa77d899b37121efd792bd40e6c6f25a0f65f8520b0943f7abef",
-      "redacted_text_sha256": "2bb034e8bd7f55afe04f0d402ac62b4fd70fe13c1918a4961a8bc0a76f480cf6",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "031a748019ddedd3dc4ae5b919abd5e3afa2c8042f9cd7db22f287aef76689b3",
-      "redacted_text_sha256": "f262ad7ae72da3c244d829fcca9d25b06dd62d318053dbcc7663b720a62a7595",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "0341c2fc66d6df0152e2b91d3f247ae217193e1a0ebc706a51d7c879b0741444",
-      "redacted_text_sha256": "a77c047e5d80f37f1b7749cb273abbaa3e89e31d5a8c8b03fad09b4ee21fe654",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "037776b8201101e84f6465e7f0aa8ed9a5f28c9d6660da122854ac8a0aa65bd9",
-      "redacted_text_sha256": "8311af524cf411b1a5d1191d05206c168eb2e4dafdaf7d4a219278becfe2f8fc",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "040d37e56b7e53d50da0e866cfaad90270d1365c5799bdd7fc4084730eb044e8",
-      "redacted_text_sha256": "c8c21bc46b615fc61c05cceaddd4bd38133e6855abed6c486fd6ab39996b37a0",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "0488bef11184032b0e641631d20b66af9832b9a8889dbf7abc2c2a65ae24a444",
-      "redacted_text_sha256": "b8f429bef4dcc7560a25be0c60137a097e2ccf757d65d3e67ea285a02248a7e7",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "0497fed904998b28a12bc165eb67d8431e1a3a06e1f627aeca78067af02ea034",
-      "redacted_text_sha256": "30124952ab681056b2784c78f3d49257c5936d73fa382702cc187510291bfe67",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "04e5f30fb279fa2a5f6b5d5538792793114e238b981e0269f39c3ec4172a9b30",
-      "redacted_text_sha256": "205c3438568a2058ab2566cfd0d83750034deff2872bb550fb3144779689ddc4",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "05bb1ed6546eb39d44ea6417c923ec75d9bd6e01554d72d34388b413a8fbfeee",
-      "redacted_text_sha256": "6eb9157dfd7dd8b4d10762a902bcc6912f96691c0b131d18b197e6da91e55652",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "0688d6383ab0f18b1c11042e7e351fed608eea11ce8b9324f44ad4e7b173c16b",
-      "redacted_text_sha256": "0f7c5124c7b87adfeaad7f6c41f1867fedf8e7fc09eda6e6e3bc729bd3b57c9e",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "070104215e50eec86b2efc9fff575c495e0801abc9e5ff1a5ef6742c2452f11a",
-      "redacted_text_sha256": "ed692601a88606b9b5a5fd93ed5727a4f045ff5c5ebf9952ec83032e83555349",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "074b75a414f3b393527de5adb25e5ca1d9a9c1e450c136e3f94980f281db0815",
-      "redacted_text_sha256": "9c80003ef35ad823913711c2722fb5dd8010b58b6d4087f6f8cb17da6e6ad1f2",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "080479e9f957c7c404d2f5f6e24609ddcf271cb54c0dcee82d0b924bc54601f2",
-      "redacted_text_sha256": "44d4abc8e7256a57b7bee0b52cb19a86eb10b94839253266ac970a070e41ffbb",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "0846fdf39365a3dc4002a6fac1fd4749efd477a776f135835f7deb1753c2c121",
-      "redacted_text_sha256": "1b14a3cc4bf32896a6f3b3ee5071888cbc4f01ee90a2b7fa891a3d812c83536e",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "0ae881362797b835d97dca5a2d1f71ac6b0dda64ef2db374ef50006ae1c025b1",
-      "redacted_text_sha256": "8bc3726ee2d0ef05e66d4b37863ad4e40ecb7eb6a8b888de059ecdac1c4f77c9",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "0be591a570815d6457e4a0716b65aa5817f5082a188735dee58775949ed3e968",
-      "redacted_text_sha256": "2de5313612f4f85d1b9d2b7226f090bb11837354697a84071d15c1bf0f781f70",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "0c019794f25e4a032629cf719cd59d7fa259b01e42a3d27eb66b2678a361e9a7",
-      "redacted_text_sha256": "caa1bc8c3e9ac7441a7571aaecefd333f898e97b1c198362c972eb326f173edd",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "0cb7e0777b2ea05137253affddd1ac0d57186d315fb21ddf8e53cfd0621081e3",
-      "redacted_text_sha256": "da61db3dc09275f11a78872c79d05fb5a81aa042e9cea2a9ae5fad5959bcbb1a",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "22076ceb8e44447af89e4c8e597fe6836706e82f62be82da044fbe6604e8c998",
-      "redacted_text_sha256": "3a7819d6041bbb5dd1fe883af38175a91906e20d30ffa8097bda3b5a49a2db3c",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "01ec2915ccb6c35a3381569cc70ff1f16ee167e7f42dedadc18e596df583861a",
-      "redacted_text_sha256": "4879887c6012b046ae2791a1257427d11d31affa7544b06637d92cd8d72db635",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "0491afbbe917d35832ebbc48dea0c6932708a393a27408ee98a80718bdcfc49a",
-      "redacted_text_sha256": "95b2627b3a273f71cebad1ed906a5c009b9563bf652e9108659904073eec8240",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "0a762452be14762b6a3d10a3b48e5401c5f74a67eb8a04ace376c213f0a6a604",
-      "redacted_text_sha256": "5f3fe035ed3b88886c07f7a209e4872ff5c50241056c10e8da97f53c2c6e82d9",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "0aefe31e28b867e753c2699fdd4d8b725abb9e7c9e4b123dd3d9641b30f84687",
-      "redacted_text_sha256": "a9b6330961dc324169919146ec2d61755a493901b2fd6d69875543324734b759",
-      "privacy_status": "withheld"
-    },
-    {
-      "event_id": "0d4848b511923676cf23a102fa5387cb0f3175240091b5ac55601476953aa198",
-      "redacted_text_sha256": "950f8717ac49bb7b4058991a44d566dcfe7fa6d572ea092b8a87a421829c5c62",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "0f36bc9a1a64e68859d19c516c5824394df589dba252f23c85fdd717753e4f0a",
-      "redacted_text_sha256": "f8a1dbfe676ef2e459d050cb89f44d4e56f4440820acf570997485028a265d53",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "107e5e994733f1075a8b78fd379040e327cf7056fda0f1eeb4f748498adba6b9",
-      "redacted_text_sha256": "12e2d03a108bcde25fd26dbfde8e09268f5f2c73d47c1ed07973d42e1efb3b0c",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "10a8123cc4e003af5eaab17379960d55017173fb29b72e235b5271afb44b2ea7",
-      "redacted_text_sha256": "532369a1232a2066e50637909c30675a5145fbf6d6d6f0ce58e3327895fc6d1e",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "ba6dad6d952bf4640621c550be3076f5948acffcd905d883bf9e1bc3db9bbc8d",
-      "redacted_text_sha256": "b9e613784d26f3c617d32124efa2157d3d4064313d1e95814d012f3fecc91aee",
-      "privacy_status": "withheld"
-    },
-    {
-      "event_id": "88aed3bfaf173039c6fb447eebfe57a711364fe6028c0aa50a15dc13ea528d56",
-      "redacted_text_sha256": "ba8f7f5c27da2425400294ca287f6fa07268f33a498cba0ecee9b25c7a28f5ab",
-      "privacy_status": "withheld"
-    },
-    {
-      "event_id": "7eb8fbd51fd792a0bf97a786ee47ad684fbb05846355d1261e32c798e0b1cfdc",
-      "redacted_text_sha256": "c82676a78405adbca8badb0c3733645300174df1a6cecbd0454c503b4d0015eb",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "81e49436b6044910b2d55f9fef64c1cfe4058fd255b5971160fb62309830f1a1",
-      "redacted_text_sha256": "b70397c96ed9a367c8b7e969da9d2ebdb02e20b8bf73d389ea9b293a981a2369",
-      "privacy_status": "automated_pass"
-    },
-    {
-      "event_id": "0027899e3556b827678fa897ad7eae690e4c51461d3bccd221c0e25b5345bbdc",
-      "redacted_text_sha256": "f059e2996ed29226e67d3e1ed48f63454186f82d2a8021941ff22fb9a6bb5257",
-      "privacy_status": "withheld"
-    },
-    {
-      "event_id": "0244c68d5ae6c583f9f3706e23563b66dde00a520b2aed21b5f4d36c403c4e04",
-      "redacted_text_sha256": "5d8d45fed94493adf5f746b7c966e191e37244dc9d0cfc4c3a11f0bbe41d457d",
-      "privacy_status": "withheld"
-    },
-    {
-      "event_id": "04afbaaf184dc97f23d4b45430d3dd009992e606ba31e6c644602792e83dee7b",
-      "redacted_text_sha256": "33759c9cdd79c359ce9bcd155775274885a679f28bad4db102a6063fa6e663b8",
-      "privacy_status": "withheld"
-    },
-    {
-      "event_id": "0bdf76e2522aecdf87f39e0e5a6a526971348d0605895923f407d3b505d1b051",
-      "redacted_text_sha256": "7ea57c121258b29a890c816077bdef5bf1005a6ae54e56bd8c7e71debc46c76e",
-      "privacy_status": "withheld"
-    },
-    {
-      "event_id": "0c7b303c55d05b44074fb9962d28e2ae05f14863e12adf16eb3ac9d9d2e8208c",
-      "redacted_text_sha256": "bab36691a1a2da8f429bed3081d3526c6e2b6dce92c2cf73c336e58eb75689f5",
-      "privacy_status": "automated_pass"
-    }
-  ],
-  "input_snapshot": "6a48c384afbd1a19b711dd90a4796e4c1d8774ded8084afefba9e97c6772c1fc",
-  "redaction_version": "rules-2",
-  "scope": "Targeted local spot-review for leakage and meaning preservation; not a statistically representative privacy audit or independent human approval.",
-  "observed": "No direct identifier was noticed in the automated-pass examples reviewed. Conservative false positives remain withheld. Earlier over-redaction of ordinary words and partial-name leakage were corrected and regression-tested."
+ "reviewer": "Codex agent; no independent human review; rules-3 statuses/hashes recomputed by privacy workstream",
+ "method": "One automated-pass comment per source file with text; eight highest redaction counts; four longest; first example of each withholding reason. Deduplicated by event ID. Plus one email-redaction example.",
+ "cases": [
+  {
+   "event_id": "0004755d979860f63f3e77e42b8ce50faaedc9732f31e1b0efa253558fe6238c",
+   "redacted_text_sha256": "cecea91dc308090f4e89422f69a5b7c13858d58cee5efe89bd5c7f56b92530d5",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "00078bf55860eaf746a3ef4763db9fa078fddc3078f0bff07207ec50caf53a0f",
+   "redacted_text_sha256": "b7b1bf87091607976d7bdbdbd787759ef91087c92a33c062bff573d5a9aa9db6",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "000976e8dc765fa6dd41274fff49fb3ddcfa16d653937a074a93c63946ab47dc",
+   "redacted_text_sha256": "1f9a81692958eeb5149d8bac6ac43b5e2befd9cded3ec1bcdc2a4bf7583485e4",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "000a10f27b3c0d0af86ce106d174dc202650895bb8d53433e378c7cdd34aeb10",
+   "redacted_text_sha256": "85db422f528b8ed1f79c7e30c275a8b59526453f2eedd3ba2611f418634d5b24",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "000cf012abe6b4fa5a2b4f623b7844924b2a594aca7a4a6a6de4999dd1897b8e",
+   "redacted_text_sha256": "55d73bb445c3b867cbff40b0de2217cf5dff4f3a8006a7fbc33ee3f28e81247d",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "0012502cf95c01026c2fbcdec5a96e60fb83103539dedce16e952b336932eb01",
+   "redacted_text_sha256": "673221e66f6c65a9fe84abb0ddd7d2a59829deb293cfdf94f91b246dcfed7769",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "0042644b3423163e5824fb69c9302b1079a24079527d7232470627b84dc96b57",
+   "redacted_text_sha256": "81a5eea13158573f20aaf2d8cf480ac106a4743fb31ae7dcb585c84af22cdb59",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "00438923f8c86e8077e42ee5274839bb1ab38d55d81e6b2c2afca164fa3a45df",
+   "redacted_text_sha256": "9d565845ce6bc1a81e1a87b0fa669e03c8bfcde1f824dccac412a556b98d8df2",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "0045202829f826d63e256850335d512881683ae5eeb2ec3aea2a1017e1a8b497",
+   "redacted_text_sha256": "76a06af974ae0f3d434325dc3fb5a7e152af50841ab795415d1131aacb96637e",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "0046036c1cc0ee713e4923223d6dbadd4b86e08dd2a98274084e4eed0e4bd66d",
+   "redacted_text_sha256": "7e6b55b003500a4fae27723ae5fa812b8ad00e90bb5a350ba9729142c42c3dc0",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "00460d00a3ab72439d526a2de42818f385889a3671b77f9dd28f6e24211cb7df",
+   "redacted_text_sha256": "3a99a2af1ba4fa739ef8fe653ef2d2d80b7e86db64e57d77208ada96d09ec42b",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "004e83986872809c08300d06e795c89211177d84f0f97a3750d2a700fed366da",
+   "redacted_text_sha256": "3c4d1db56b5b31a650c0e564b34e4375f2e80f6d713b0d493ff14035af6c9ed1",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "0082def0d1707a8a413f0aa22667b47e87b427cc70dde11b6c578c7e467d1bb2",
+   "redacted_text_sha256": "7538b2d58b5a0ca0d0dfa3c2c5c0cb3b4c0be57d0ba253cd21a2eaeb98692542",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "0092a03893e9130abe0ff13776acc7d51ab74b776abff9876d149cddb79fefcf",
+   "redacted_text_sha256": "a6258cc07f6cd7e722fa9fc4e17ea1da76e76b19fdc6f65c4cc41fd39ff0867e",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "00aef9355f89725427957b36c92ffdb68e301790c0e4165b7a709f27e2e49c31",
+   "redacted_text_sha256": "0646b043e1a46cf3a45f9f551d61d6c46b2aa2200465509506666fc337c0b954",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "00d2d3b4e8ef4723adae5a3c8328f8f51996124346e011a95914164c33a51ae4",
+   "redacted_text_sha256": "77d8b03dbdf9465339602fdbb9682b04d751fee8bfbb783e4c75edc14a6c690e",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "00f0281a6d2cb2e3bf88b8d078b648f40eb6779f72044629cec94e266b1ffd57",
+   "redacted_text_sha256": "c7bd34ecfb6ab6d5d819531c06d0811e2fb7821074e95d771a45c0cb66790580",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "00ffe98f9653fb4b3de3f505283cdb90d673af48f65fb549acb9f47ef0dad088",
+   "redacted_text_sha256": "639ec9d4ecf05fc3bd9fa76c846383f3a1d3ea5fc0a8fdeeec7fac4858fd89f2",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "0107a0a778667338fa9464c8dc18aa31594045fc173454a5e310731ed4470d03",
+   "redacted_text_sha256": "20382751b93a2abfdd3332d7e2171c35e5c2bd3d01c86931c1ab580a0059d24b",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "0110662d7cb3687f34875c3d3fffed275cae9fc2d9487a2f2a59a6ac839a5174",
+   "redacted_text_sha256": "23eb4d65b4c0d8652ae339f93bdb73cfe098abce8af43cc3b1100e17b2e89935",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "013a9c67e4b2e06a6b8583bddc2f4fcfcef2f2c75f40ca508209285eb0c647dd",
+   "redacted_text_sha256": "9462ed71fc2b48d08a6cbd8ad1cb46da3b0392ef6c1aa4611c7b0c1dfaddd2c2",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "0154e33ee1d6b5c1730c9e9e3f10ac2d1003a0f7a730f20bae14c872f3ca94c6",
+   "redacted_text_sha256": "1ecb5b58bf4bb74c5d6e1fa066b7972f03bb000394ed7866e691c505cb2dc04c",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "016edf92402baa913afe26c42fe491a4d76119e069058955ac49eddda9dcd35c",
+   "redacted_text_sha256": "b3ef4f88a5139c6c0b38db468e8431494dcb27c3255b5a9dc13506c0c527b3a5",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "01a087e4915bb6b229ed3a5c44822c8ccb9528c377242bfe8c1aeaacadaa3301",
+   "redacted_text_sha256": "8100a9fb4a4291d354915db179c13affa0dce741e5ec5d7237c45775c9e5b55d",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "01c2a1b441ea2db8025d1f8fce44d9c4df1f5d6eacddad4749db2a5b29095e87",
+   "redacted_text_sha256": "ed47db16b6e7ee4eec684b7107f178723aa6772d344c98742f506cba63877ce1",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "01cdf1083fb978dac058d1af25b97a9b5975430a8cba93001b4808c6e6e00307",
+   "redacted_text_sha256": "48dbb8ceb9ae6bf408feb693e6f1f2cf07847a88d2d32c35752139639e5003ba",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "01e5ebae1d4ea92b70dd2230abacf9538b45508029fb0b837704fb1c01543149",
+   "redacted_text_sha256": "9f78e0f20cad92408845884a4aeb0bf453b245c10930d232360a0cd5f6bcf9c2",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "01ef01625c8c94f2edd0ed05bba0a4c9dc033afe2ad372f350f05387caee28c6",
+   "redacted_text_sha256": "98a40055bf005873d532bffeeda46a2f409a04ea0f1165941e45f8dcb77b28c8",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "0241fa578b21294030bcd6fb34ce6a9d9ae991b3efae8f8730241adbc9e74638",
+   "redacted_text_sha256": "bd4e00e6ddd29e0c636112a2c695ab5c7ee80e77d62ab4790ec6f34ffd7c57e5",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "02523671e6acb2d25ee49c5423e92c84a35ed19cdbd0e25737d8a3b70382a846",
+   "redacted_text_sha256": "ea2a16c67798d2dc74e0e000c86a4765ba95d575768cdc81daedc7cd35db4d21",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "02d4bf81c0c80e31c02b0de49c8f9d338bd4fc4d67223dce64cfa0f547fc26f9",
+   "redacted_text_sha256": "d01337866d689cadd077a9a5dc785a99c8d243f6c39de3d1f530afdbc7e7e28b",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "03151f377732aa77d899b37121efd792bd40e6c6f25a0f65f8520b0943f7abef",
+   "redacted_text_sha256": "2bb034e8bd7f55afe04f0d402ac62b4fd70fe13c1918a4961a8bc0a76f480cf6",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "031a748019ddedd3dc4ae5b919abd5e3afa2c8042f9cd7db22f287aef76689b3",
+   "redacted_text_sha256": "f262ad7ae72da3c244d829fcca9d25b06dd62d318053dbcc7663b720a62a7595",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "0341c2fc66d6df0152e2b91d3f247ae217193e1a0ebc706a51d7c879b0741444",
+   "redacted_text_sha256": "a77c047e5d80f37f1b7749cb273abbaa3e89e31d5a8c8b03fad09b4ee21fe654",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "037776b8201101e84f6465e7f0aa8ed9a5f28c9d6660da122854ac8a0aa65bd9",
+   "redacted_text_sha256": "8311af524cf411b1a5d1191d05206c168eb2e4dafdaf7d4a219278becfe2f8fc",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "040d37e56b7e53d50da0e866cfaad90270d1365c5799bdd7fc4084730eb044e8",
+   "redacted_text_sha256": "c8c21bc46b615fc61c05cceaddd4bd38133e6855abed6c486fd6ab39996b37a0",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "0488bef11184032b0e641631d20b66af9832b9a8889dbf7abc2c2a65ae24a444",
+   "redacted_text_sha256": "b8f429bef4dcc7560a25be0c60137a097e2ccf757d65d3e67ea285a02248a7e7",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "0497fed904998b28a12bc165eb67d8431e1a3a06e1f627aeca78067af02ea034",
+   "redacted_text_sha256": "30124952ab681056b2784c78f3d49257c5936d73fa382702cc187510291bfe67",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "04e5f30fb279fa2a5f6b5d5538792793114e238b981e0269f39c3ec4172a9b30",
+   "redacted_text_sha256": "205c3438568a2058ab2566cfd0d83750034deff2872bb550fb3144779689ddc4",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "05bb1ed6546eb39d44ea6417c923ec75d9bd6e01554d72d34388b413a8fbfeee",
+   "redacted_text_sha256": "6eb9157dfd7dd8b4d10762a902bcc6912f96691c0b131d18b197e6da91e55652",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "0688d6383ab0f18b1c11042e7e351fed608eea11ce8b9324f44ad4e7b173c16b",
+   "redacted_text_sha256": "0f7c5124c7b87adfeaad7f6c41f1867fedf8e7fc09eda6e6e3bc729bd3b57c9e",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "070104215e50eec86b2efc9fff575c495e0801abc9e5ff1a5ef6742c2452f11a",
+   "redacted_text_sha256": "ed692601a88606b9b5a5fd93ed5727a4f045ff5c5ebf9952ec83032e83555349",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "074b75a414f3b393527de5adb25e5ca1d9a9c1e450c136e3f94980f281db0815",
+   "redacted_text_sha256": "9c80003ef35ad823913711c2722fb5dd8010b58b6d4087f6f8cb17da6e6ad1f2",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "080479e9f957c7c404d2f5f6e24609ddcf271cb54c0dcee82d0b924bc54601f2",
+   "redacted_text_sha256": "44d4abc8e7256a57b7bee0b52cb19a86eb10b94839253266ac970a070e41ffbb",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "0846fdf39365a3dc4002a6fac1fd4749efd477a776f135835f7deb1753c2c121",
+   "redacted_text_sha256": "1b14a3cc4bf32896a6f3b3ee5071888cbc4f01ee90a2b7fa891a3d812c83536e",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "0ae881362797b835d97dca5a2d1f71ac6b0dda64ef2db374ef50006ae1c025b1",
+   "redacted_text_sha256": "8bc3726ee2d0ef05e66d4b37863ad4e40ecb7eb6a8b888de059ecdac1c4f77c9",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "0be591a570815d6457e4a0716b65aa5817f5082a188735dee58775949ed3e968",
+   "redacted_text_sha256": "2de5313612f4f85d1b9d2b7226f090bb11837354697a84071d15c1bf0f781f70",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "0c019794f25e4a032629cf719cd59d7fa259b01e42a3d27eb66b2678a361e9a7",
+   "redacted_text_sha256": "caa1bc8c3e9ac7441a7571aaecefd333f898e97b1c198362c972eb326f173edd",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "0cb7e0777b2ea05137253affddd1ac0d57186d315fb21ddf8e53cfd0621081e3",
+   "redacted_text_sha256": "da61db3dc09275f11a78872c79d05fb5a81aa042e9cea2a9ae5fad5959bcbb1a",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "22076ceb8e44447af89e4c8e597fe6836706e82f62be82da044fbe6604e8c998",
+   "redacted_text_sha256": "3a7819d6041bbb5dd1fe883af38175a91906e20d30ffa8097bda3b5a49a2db3c",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "01ec2915ccb6c35a3381569cc70ff1f16ee167e7f42dedadc18e596df583861a",
+   "redacted_text_sha256": "4879887c6012b046ae2791a1257427d11d31affa7544b06637d92cd8d72db635",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "0491afbbe917d35832ebbc48dea0c6932708a393a27408ee98a80718bdcfc49a",
+   "redacted_text_sha256": "95b2627b3a273f71cebad1ed906a5c009b9563bf652e9108659904073eec8240",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "0a762452be14762b6a3d10a3b48e5401c5f74a67eb8a04ace376c213f0a6a604",
+   "redacted_text_sha256": "5f3fe035ed3b88886c07f7a209e4872ff5c50241056c10e8da97f53c2c6e82d9",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "0aefe31e28b867e753c2699fdd4d8b725abb9e7c9e4b123dd3d9641b30f84687",
+   "redacted_text_sha256": "a9b6330961dc324169919146ec2d61755a493901b2fd6d69875543324734b759",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "0d4848b511923676cf23a102fa5387cb0f3175240091b5ac55601476953aa198",
+   "redacted_text_sha256": "950f8717ac49bb7b4058991a44d566dcfe7fa6d572ea092b8a87a421829c5c62",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "0f36bc9a1a64e68859d19c516c5824394df589dba252f23c85fdd717753e4f0a",
+   "redacted_text_sha256": "f8a1dbfe676ef2e459d050cb89f44d4e56f4440820acf570997485028a265d53",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "107e5e994733f1075a8b78fd379040e327cf7056fda0f1eeb4f748498adba6b9",
+   "redacted_text_sha256": "12e2d03a108bcde25fd26dbfde8e09268f5f2c73d47c1ed07973d42e1efb3b0c",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "10a8123cc4e003af5eaab17379960d55017173fb29b72e235b5271afb44b2ea7",
+   "redacted_text_sha256": "532369a1232a2066e50637909c30675a5145fbf6d6d6f0ce58e3327895fc6d1e",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "ba6dad6d952bf4640621c550be3076f5948acffcd905d883bf9e1bc3db9bbc8d",
+   "redacted_text_sha256": "b9e613784d26f3c617d32124efa2157d3d4064313d1e95814d012f3fecc91aee",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "88aed3bfaf173039c6fb447eebfe57a711364fe6028c0aa50a15dc13ea528d56",
+   "redacted_text_sha256": "ba8f7f5c27da2425400294ca287f6fa07268f33a498cba0ecee9b25c7a28f5ab",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "7eb8fbd51fd792a0bf97a786ee47ad684fbb05846355d1261e32c798e0b1cfdc",
+   "redacted_text_sha256": "c82676a78405adbca8badb0c3733645300174df1a6cecbd0454c503b4d0015eb",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "81e49436b6044910b2d55f9fef64c1cfe4058fd255b5971160fb62309830f1a1",
+   "redacted_text_sha256": "b70397c96ed9a367c8b7e969da9d2ebdb02e20b8bf73d389ea9b293a981a2369",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "0027899e3556b827678fa897ad7eae690e4c51461d3bccd221c0e25b5345bbdc",
+   "redacted_text_sha256": "02f34a8bb855ff30928b5f29efc0b23d88994ec8988e53b97469321a0cffa0c9",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "0244c68d5ae6c583f9f3706e23563b66dde00a520b2aed21b5f4d36c403c4e04",
+   "redacted_text_sha256": "5d8d45fed94493adf5f746b7c966e191e37244dc9d0cfc4c3a11f0bbe41d457d",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "04afbaaf184dc97f23d4b45430d3dd009992e606ba31e6c644602792e83dee7b",
+   "redacted_text_sha256": "33759c9cdd79c359ce9bcd155775274885a679f28bad4db102a6063fa6e663b8",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "0bdf76e2522aecdf87f39e0e5a6a526971348d0605895923f407d3b505d1b051",
+   "redacted_text_sha256": "7ea57c121258b29a890c816077bdef5bf1005a6ae54e56bd8c7e71debc46c76e",
+   "privacy_status": "automated_pass"
+  },
+  {
+   "event_id": "0c7b303c55d05b44074fb9962d28e2ae05f14863e12adf16eb3ac9d9d2e8208c",
+   "redacted_text_sha256": "bab36691a1a2da8f429bed3081d3526c6e2b6dce92c2cf73c336e58eb75689f5",
+   "privacy_status": "automated_pass"
+  }
+ ],
+ "input_snapshot": "6a48c384afbd1a19b711dd90a4796e4c1d8774ded8084afefba9e97c6772c1fc",
+ "redaction_version": "rules-3",
+ "scope": "Targeted local spot-review for leakage and meaning preservation; not a statistically representative privacy audit or independent human approval.",
+ "observed": "No direct identifier was noticed in the automated-pass examples reviewed. Conservative false positives remain withheld. Earlier over-redaction of ordinary words and partial-name leakage were corrected and regression-tested."
 }
