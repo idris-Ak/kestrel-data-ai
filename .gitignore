@@ -1,0 +1,21 @@
+.venv/
+.uv-cache/
+__pycache__/
+*.py[cod]
+outputs/
+.DS_Store
+# The supplied pack and generated database contain personal information.
+feedback/
+reference/
+archive/
+PS_Data_AI_Assignment.pdf
+# Local databases, exports and credentials must not enter commit history.
+*.sqlite
+*.sqlite3
+*.db
+*.sqlite-*
+*.sqlite3-*
+*.db-*
+.env
+.env.*
+!.env.example
