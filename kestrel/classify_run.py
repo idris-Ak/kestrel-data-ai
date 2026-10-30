@@ -1,7 +1,7 @@
-"""Stage four: classify every model-eligible comment of a prepared run.
+"""Classify every model-eligible comment of a prepared run.
 
 The run is identified by its own manifest; the model-input export must match
-the artifact hash recorded there. Classification reuses the pilot's validated
+the artifact hash recorded there. Classification reuses the validated
 runner, cache and spending ledger, so successful identical requests are reused.
 """
 
@@ -10,11 +10,14 @@ import hashlib
 import json
 from pathlib import Path
 
-from .ai_pilot import PILOT_DIR, ROOT, band_agreement
+from .evaluation import band_agreement
 from .classifier import CONFIGS, Budget, run_config
 from .pilot import PilotError
 
 CLASSIFIED_DIR = "outputs/classified"
+ROOT = Path(__file__).resolve().parents[1]
+# Preserve the state path so cached requests and cumulative spend survive.
+PILOT_DIR = "outputs/ai_pilot"
 
 
 def load_run_input(run_dir):

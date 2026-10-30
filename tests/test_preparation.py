@@ -1,7 +1,7 @@
-"""Stage-two controls and adversarial fixtures; originals are never edited.
+"""Complete-preparation controls and adversarial fixtures; originals are never edited.
 
-Population controls come from the archived discovery audit, independently of
-the production registry. Failure fixtures use temporary files or in-memory
+Population controls were frozen independently of the production registry.
+Failure fixtures use temporary files or in-memory
 workbooks. Assertions avoid displaying real customer content.
 """
 from copy import deepcopy
@@ -481,7 +481,9 @@ class CompletePreparationTests(unittest.TestCase):
         self.assertIsNone(PHONE.search(report))
         manifest = json.loads(self.output['manifest'].read_text())
         self.assertEqual(manifest['model_calls'], 0)
-        self.assertIn('pending', manifest['model_input_status'])
+        self.assertIn('automatically_checked', manifest['model_input_status'])
+        self.assertIn('privacy_screen_is_not_human_certification', manifest['model_input_status'])
+        self.assertNotIn('pending', manifest['model_input_status'])
         for name, digest in manifest['artifacts'].items():
             self.assertEqual(hashlib.sha256((self.output['manifest'].parent / name).read_bytes()).hexdigest(), digest)
         self.assertEqual(manifest['source_sha256'], self.before)

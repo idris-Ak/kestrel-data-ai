@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Rating-based negative-feedback metrics (stage 5, Kestrel take-home).
+"""Rating-based negative-feedback metrics.
 
 Usage:
     python3 -I analysis/metrics.py [--db PATH] [--policy PATH] [--out DIR]
@@ -23,7 +23,6 @@ REPO = HERE.parent
 DEPTS = ("Sales", "Service", "Parts")
 MONTHS = ["2025-10", "2025-11", "2025-12", "2026-01", "2026-02", "2026-03",
           "2026-04", "2026-05", "2026-06", "2026-07", "2026-08", "2026-09"]
-QUARTERS = ["2025Q4", "2026Q1", "2026Q2", "2026Q3"]
 MIN_N = 30      # D5: report a rate only when n >= 30
 LOW_N = 50      # 30-49 flagged low precision
 Z = 1.959963984540054
@@ -462,95 +461,49 @@ def main():
     # 3. Dealer x department --------------------------------------------------
     t = tally(rows, lambda r: (r["dealer"], r["dept"]))
     assert sum(v[0] for v in t.values()) == total_n(rows)
-    simple, detail = [], []
-    ranking = cell_ranking(rows)
+    simple = []
     for (code, d) in sorted(t):
         n, x = t[(code, d)]
         rc = rate_cols(n, x)
         simple.append({"dealer_code": code, "department": d, **rc})
-        dr = rates_dept[d]
-        vs = ("higher" if rc["ci_low"] > dr else "lower" if rc["ci_high"] < dr else "not distinguishable")
-        detail.append({"dealer_code": code, "dealership_name": meta[code]["name"], "state": meta[code]["state"],
-                       "region": meta[code]["region"], "department": d, **rc, "department_rate": dr,
-                       "ratio_to_department": (x / n) / dr if dr else None,
-                       "vs_department": vs if n >= MIN_N else "n<30",
-                       "ranked": int((code, d) in ranking), "precision": precision(n),
-                       "notes": dealer_notes(code, [r for r in by_dealer[code] if r["dept"] == d])})
-    for d in DEPTS:
-        cells = sorted((c for c in ranking if c[1] == d), key=lambda c: -ranking[c])
-        pos = {c: i for i, c in enumerate(cells, 1)}
-        for rec in detail:
-            if rec["department"] == d:
-                rec["rank_in_department"] = pos.get((rec["dealer_code"], d))
-                rec["cells_ranked_in_department"] = len(cells)
     write_csv(out, "neg_rate_dealer_dept.csv", simple,
               ["dealer_code", "department", "n", "negative", "rate", "ci_low", "ci_high"])
-    write_csv(out, "neg_rate_dealer_dept_detail.csv", detail,
-              ["dealer_code", "dealership_name", "state", "region", "department", "n", "negative", "rate",
-               "ci_low", "ci_high", "department_rate", "ratio_to_department", "vs_department",
-               "rank_in_department", "cells_ranked_in_department", "ranked", "precision", "notes"])
     files["neg_rate_dealer_dept.csv"] = ("dealer x department negative rate, all 24 dealers incl. Noosa and n<30 "
-                                         "cells (fixed columns for the value workstream; filter n>=30, drop QLD05)")
-    files["neg_rate_dealer_dept_detail.csv"] = "same cells with precision, ranking within department and flags"
+                                         "cells (value-model input; filter n>=30, drop QLD05)")
 
-    # 4. Region / state -------------------------------------------------------
+    # 4. Monthly series -------------------------------------------------------
     recs = []
-    for level in ("state", "region"):
-        groups = sorted({r[level] for r in A})
-        for g in groups:
-            rs = [r for r in A if r[level] == g]
-            for d in ("All",) + DEPTS:
-                sub = rs if d == "All" else [r for r in rs if r["dept"] == d]
-                n, x = total_n(sub), sum(r["w"] * r["neg"] for r in sub)
-                if n == 0:
-                    continue
-                e = expected_neg(sub, rates_dept)
-                rc = rate_cols(n, x)
-                recs.append({"level": level, "group": g, "department": d, **rc,
-                             "dealers": len({r["dealer"] for r in sub}), "expected_negative": e,
-                             "oe_ratio": x / e, "oe_ci_low": rc["ci_low"] * n / e, "oe_ci_high": rc["ci_high"] * n / e,
-                             "dept_adjusted_rate": (x / e) * group_rate if d == "All" else None,
-                             "precision": precision(n)})
-        assert sum(rec["n"] for rec in recs if rec["level"] == level and rec["department"] == "All") == N_A
-    write_csv(out, "neg_rate_region_state.csv", recs, list(recs[0]))
-    files["neg_rate_region_state.csv"] = "by state and region, all departments and each department (Noosa excluded)"
-
-    # 5. Series ---------------------------------------------------------------
-    for period, plist, fname in (("month", MONTHS, "month"), ("quarter", QUARTERS, "quarter")):
-        recs = []
-        t = tally(A, lambda r: (r[period], r["dept"]))
-        tall = tally(A, lambda r: r[period])
-        for p in plist:
-            for d in DEPTS + ("All",):
-                n, x = tall[p] if d == "All" else t[(p, d)]
-                recs.append({period: p, "department": d, **rate_cols(n, x), "precision": precision(n)})
-        assert sum(rec["n"] for rec in recs if rec["department"] == "All") == N_A
-        write_csv(out, f"series_{fname}_department.csv", recs, list(recs[0]))
-        recs = []
-        for code in sorted(by_dealer):
-            rs = by_dealer[code]
-            t = tally(rs, lambda r: r[period])
-            five = tally([r for r in rs if r["scale"] == 5], lambda r: r[period])
-            sums = defaultdict(float)
-            for r in rs:
-                if r["scale"] == 5:
-                    sums[r[period]] += r["w"] * r["rating"]
-            for p in plist:
-                n, x = t[p]
-                if n == 0:
-                    continue
-                n5 = five[p][0]
-                recs.append({"dealer_code": code, period: p, **rate_cols(n, x),
-                             "mean_rating_5pt": sums[p] / n5 if n5 else None, "n_5pt": n5,
-                             "precision": precision(n), "ranked": int(code != "QLD05")})
-        assert sum(rec["n"] for rec in recs) == total_n(rows)
-        write_csv(out, f"series_{fname}_dealer.csv", recs, list(recs[0]))
+    t = tally(A, lambda r: (r["month"], r["dept"]))
+    tall = tally(A, lambda r: r["month"])
+    for month in MONTHS:
+        for d in DEPTS + ("All",):
+            n, x = tall[month] if d == "All" else t[(month, d)]
+            recs.append({"month": month, "department": d, **rate_cols(n, x), "precision": precision(n)})
+    assert sum(rec["n"] for rec in recs if rec["department"] == "All") == N_A
+    write_csv(out, "series_month_department.csv", recs, list(recs[0]))
+    recs = []
+    for code in sorted(by_dealer):
+        rs = by_dealer[code]
+        t = tally(rs, lambda r: r["month"])
+        five = tally([r for r in rs if r["scale"] == 5], lambda r: r["month"])
+        sums = defaultdict(float)
+        for r in rs:
+            if r["scale"] == 5:
+                sums[r["month"]] += r["w"] * r["rating"]
+        for month in MONTHS:
+            n, x = t[month]
+            if n == 0:
+                continue
+            n5 = five[month][0]
+            recs.append({"dealer_code": code, "month": month, **rate_cols(n, x),
+                         "mean_rating_5pt": sums[month] / n5 if n5 else None, "n_5pt": n5,
+                         "precision": precision(n), "ranked": int(code != "QLD05")})
+    assert sum(rec["n"] for rec in recs) == total_n(rows)
+    write_csv(out, "series_month_dealer.csv", recs, list(recs[0]))
     files["series_month_department.csv"] = "monthly negative rate by department and All (Noosa excluded)"
-    files["series_quarter_department.csv"] = "quarterly negative rate by department and All (Noosa excluded)"
     files["series_month_dealer.csv"] = "monthly negative rate and 5-point mean rating by dealer (all dealers)"
-    files["series_quarter_dealer.csv"] = "quarterly negative rate and 5-point mean rating by dealer (all dealers)"
 
-    # 6. H1 vs H2 change ------------------------------------------------------
+    # 5. H1 vs H2 change -------------------------------------------------------
     cells = change_cells(A, lambda r: (r["dealer"], r["dept"]))
     group_adj, contrib = mix_adjusted(cells)
     month_t = tally(A, lambda r: (r["dealer"], r["dept"], r["month"]))
@@ -632,42 +585,7 @@ def main():
                                          "department (fixed dealer mix), state/region, dealer (fixed dept mix; "
                                          "BH q across dealers)")
 
-    # 7. Movers ---------------------------------------------------------------
-    movers = []
-
-    def tier(p, q):
-        return ("robust (BH q<0.05)" if q < 0.05 else "suggestive (BH q<0.10)" if q < 0.10
-                else "nominal only (p<0.05, not significant after BH)")
-
-    for rec in tested:
-        if rec["p_value"] < 0.05:
-            movers.append({"level": "dealer_x_department", "dealer_code": rec["dealer_code"],
-                           "department": rec["department"], "n_h1": rec["n_h1"], "rate_h1": rec["rate_h1"],
-                           "n_h2": rec["n_h2"], "rate_h2": rec["rate_h2"], "diff": rec["diff"],
-                           "diff_ci_low": rec["diff_ci_low"], "diff_ci_high": rec["diff_ci_high"],
-                           "p_value": rec["p_value"], "q_value_bh": rec["q_value_bh"],
-                           "bonferroni_sig": rec["bonferroni_sig"], "tests_in_family": len(tested),
-                           "expected_false_positives_at_p05": 0.05 * len(tested),
-                           "trend_p_monthly": rec["trend_p_monthly"],
-                           "direction": "worse" if rec["diff"] > 0 else "better",
-                           "tier": tier(rec["p_value"], rec["q_value_bh"])})
-    for rec in dealer_summ:
-        if rec["adj_p"] < 0.05:
-            movers.append({"level": "dealer (dept-mix adjusted)", "dealer_code": rec["group"], "department": "All",
-                           "n_h1": rec["n_h1"], "rate_h1": rec["adj_h1"], "n_h2": rec["n_h2"],
-                           "rate_h2": rec["adj_h2"], "diff": rec["adj_diff"], "diff_ci_low": rec["adj_ci_low"],
-                           "diff_ci_high": rec["adj_ci_high"], "p_value": rec["adj_p"], "q_value_bh": rec["adj_q_bh"],
-                           "bonferroni_sig": int(rec["adj_p"] < 0.05 / len(dealer_summ)),
-                           "tests_in_family": len(dealer_summ),
-                           "expected_false_positives_at_p05": 0.05 * len(dealer_summ),
-                           "trend_p_monthly": rec["trend_p_monthly_raw"],
-                           "direction": "worse" if rec["adj_diff"] > 0 else "better",
-                           "tier": tier(rec["adj_p"], rec["adj_q_bh"])})
-    movers.sort(key=lambda m: (m["level"] != "dealer (dept-mix adjusted)", m["p_value"]))
-    write_csv(out, "movers.csv", movers, list(movers[0]) if movers else ["level"])
-    files["movers.csv"] = "cells and dealers with p<0.05 for H1 vs H2, tiered by Benjamini-Hochberg q"
-
-    # 8. Sensitivity ----------------------------------------------------------
+    # 6. Sensitivity ----------------------------------------------------------
     primary_rank = cell_ranking(rows)
     p_worst, p_best = worst_best(primary_rank)
     p_movers = {k: v for k, v in cell_movers(A).items() if v["q"] < 0.05}
@@ -767,7 +685,7 @@ def main():
     write_csv(out, "sensitivity.csv", sens, list(sens[0]))
     files["sensitivity.csv"] = "each headline under each sensitivity scenario, with survives yes/NO"
 
-    # 9. Representativeness: text coverage ------------------------------------
+    # 7. Representativeness: text coverage ------------------------------------
     ind_all = [r for r in rows if r["kind"] == "individual"]
     recs = []
     for code in sorted({r["dealer"] for r in ind_all}) + ["ALL (primary set)"]:
@@ -812,24 +730,11 @@ def main():
             if rec["department"] == d:
                 rec["share_of_model_eligible"] = rec["model_eligible"] / tot_me
     write_csv(out, "text_coverage_band.csv", recs, list(recs[0]))
-    t_ind = defaultdict(lambda: [0, 0, 0, 0])
-    for r in ind_all:
-        c = t_ind[(r["dealer"], r["dept"])]
-        c[0] += 1
-        c[1] += r["neg"]
-        c[2] += r["model_eligible"]
-        c[3] += r["neg"] * r["model_eligible"]
-    recs = [{"dealer_code": k[0], "department": k[1], "n_rated_individual": v[0], "n_negative": v[1],
-             "model_eligible": v[2], "neg_model_eligible": v[3],
-             "neg_model_eligible_share": v[3] / v[1] if v[1] else None}
-            for k, v in sorted(t_ind.items())]
-    write_csv(out, "text_coverage_dealer_dept.csv", recs, list(recs[0]))
     files["text_coverage_dealer.csv"] = ("text and model-eligible coverage by dealer; negative vs non-negative "
                                          "comment rates (individual responses only)")
     files["text_coverage_band.csv"] = "comment and model-eligible share by rating band and department (Noosa excluded)"
-    files["text_coverage_dealer_dept.csv"] = "theme base: model-eligible negative responses per dealer x department"
 
-    # 10. Response volume per activity (coverage, not satisfaction) -----------
+    # 8. Response volume per activity (coverage, not satisfaction) -------------
     act = defaultdict(lambda: [0, 0])
     for code, month, d, a in con.execute(
             "SELECT dealer_code, month, department, activity_count FROM business_monthly "

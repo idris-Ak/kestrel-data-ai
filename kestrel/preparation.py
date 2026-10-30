@@ -1,7 +1,7 @@
 """Complete local data preparation; source content never supplies instructions.
 
-The pilot is kept intact. This module extends its provenance conventions and
-reference loader, with an explicit full-source registry and versioned schema.
+Shared source readers preserve provenance and strict reference validation;
+an explicit full-source registry and versioned schema cover the complete pack.
 """
 from collections import Counter, defaultdict
 from dataclasses import dataclass
@@ -475,7 +475,7 @@ def report_data(db,checks,run_id):
               'Copied Google reviews have unknown capture dates/overlap and remain a separate population.',
               'Redaction rules-3 replaces residual names it can locate with [NAME] and withholds only remaining contact, identifier or name signals; unknown single first names without a person cue can still pass.',
               'Missing feedback, collection bias, ambiguous duplicates and uncertain dates remain visible.',
-              'No AI labels, human reference annotations, causal effects or financial uplift have been produced.']}
+              'This preparation artifact contains no AI labels, reference annotations, causal effects or financial uplift estimates.']}
 
 
 def validate_model_input(db,path,input_snapshot,redactor):
@@ -517,8 +517,8 @@ def write_outputs(db,directory,checks,run_id,input_snapshot,redactor):
     if not all(c['passed'] for c in checks):raise PilotError('Model-input boundary validation failed')
     report=report_data(db,checks,run_id)
     (directory/'quality_report.json').write_text(json.dumps(report,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
-    lines=['# Stage 2 — Complete data preparation','',
-      'Status: built and validated; user checkpoint required before the AI pilot.','',
+    lines=['# Prepared feedback data','',
+      'Status: built and validated.','',
       '**7,257 individual observations → 7,073 retained individual events; 180 copy links and four test exclusions.**',
       'Eight copied Google reviews and 71 aggregate responses remain separate. All 52 feedback files and both references are registered.','',
       f"Checks: **{sum(c['passed'] for c in checks)}/{len(checks)}** passed. Run: `{run_id}`.",'',
@@ -602,7 +602,7 @@ def run_preparation(root,output_dir=None):
         artifacts={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(directory.iterdir())}
         manifest={'run_id':run_id,'input_snapshot':snapshot,'code_sha256':code_hash,'schema_version':2,
             'redaction_version':REDACTION_VERSION,'source_sha256':before,'artifacts':artifacts,'runtime':runtime,
-            'model_input_status':'automatically_checked; user review checkpoint pending','model_calls':0}
+            'model_input_status':'automatically_checked; privacy_screen_is_not_human_certification','model_calls':0}
         (directory/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
         for p in directory.iterdir():p.chmod(0o600)
         runs=output_dir/'runs';runs.mkdir(exist_ok=True,mode=0o700);target=runs/run_id

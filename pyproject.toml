@@ -1,11 +1,10 @@
 [project]
-name = "kestrel-data-pilot"
+name = "kestrel-feedback-analysis"
 version = "0.1.0"
-description = "Local, source-traceable data foundation pilot for Kestrel feedback"
+description = "Source-traceable customer feedback preparation, classification and analysis"
 requires-python = ">=3.12,<3.13"
 dependencies = [
     "anthropic==2.3.0",
-    "openai==3.41.0",
     "openpyxl==3.1.5",
 ]
 
