@@ -19,7 +19,7 @@
 
 ## Reproduce locally
 
-Install uv and Python 3.12. Place the original assignment pack's `feedback/`, `reference/` and `PS_Data_AI_Assignment.pdf` beside the unchanged supplied `README.md`. Inputs are deliberately excluded from Git. Integration tests require the complete original pack.
+Install uv and Python 3.12. Place the original assignment pack's `feedback/`, `reference/` and `PS_Data_AI_Assignment.pdf` in the repository root (the unchanged supplied brief is `docs/BRIEF.md`). Inputs are deliberately excluded from Git. Integration tests require the complete original pack.
 
 ```bash
 uv sync --locked

@@ -1,8 +1,8 @@
 # Kestrel: project record
 
-**Step 01 — Discovery and solution proposal · 28–30 October 2026**
+**Project record · 28–30 October 2026** · The submission report is [README.md](README.md).
 
-Discovery is documented and stages one and two are complete, as confirmed by the user. Stage three's AI pilot is complete; stage four awaits a budget decision. Consolidated on 30 October from earlier reviews and discussion. Success criteria were drafted before implementation; AI classification has been piloted on a 100-comment test sample, not yet run on the full dataset.
+All planned stages are complete except the optional assistant (stage 6, skipped). Stage four classified every eligible comment with Haiku 5.5, the user's budget choice over the pilot's Sonnet pick (decision D13). Business analysis is in [`analysis/`](analysis/) and the report in [README.md](README.md). Success criteria were drafted before implementation.
 
 ## 1. Problem space
 
@@ -10,7 +10,7 @@ Discovery is documented and stages one and two are complete, as confirmed by the
 
 **Goal.** Help the Head of Customer Experience understand negative-feedback themes, differences and trends, prioritise improvements, and assess approximate value.
 
-**Scope.** Consolidated data, applied quality rules, evaluated AI comment analysis, business recommendations, reproducible code and a concise report/AI usage record. The [assignment brief](README.md) supplies the requirements. An assistant is optional.
+**Scope.** Consolidated data, applied quality rules, evaluated AI comment analysis, business recommendations, reproducible code and a concise report/AI usage record. The [assignment brief](docs/BRIEF.md) supplies the requirements. An assistant is optional.
 
 **Draft success criteria, established before solution implementation:**
 
@@ -52,19 +52,19 @@ Discovery is documented and stages one and two are complete, as confirmed by the
 
 **Trade-off.** Saved labels add preparation effort; compare with analysis performed when requested that also caches results. Savings are unmeasured. The pilot uses Python 3.12, pinned openpyxl and standard-library CSV/SQLite, with a uv dependency lock.
 
-## Build plan — proposed
+## Build plan
 
-Stages one and two are complete. Stage three's AI pilot is complete (Sonnet 5.5 selected); stage four awaits a budget decision. Stages four to seven remain pending. Complete one stage, show its output, checks and open issues, then obtain user confirmation before starting the next. Evaluation accompanies each stage.
+Stages 1–5 and 7 are complete; stage 6 was skipped. Each stage showed its output, checks and open issues before the next began.
 
 | Stage | Deliverable | Checkpoint before progressing |
 |---|---|---|
 | 1. Data foundation pilot | Project setup, working schema and a queryable sample covering ordinary and difficult source formats. | Confirm structure, initial counting rules, source links and sample reconciliation. |
 | [2. Complete data preparation](docs/STAGE_2_DATA_PREPARATION.md) | All supplied files ingested; cleaned tables, quality findings and redacted analytical text. | Reconcile all observations; review uncertain mappings, exclusions, rating/date handling and privacy checks. |
 | [3. AI pilot](docs/STAGE_3_AI_PILOT.md) | Human-reviewed reference examples, trial classifications and measured error, cost and runtime. | Set acceptance criteria before testing; confirm the approach, model, batching and full-run budget from the evidence. |
-| 4. Full comment analysis | Versioned theme/sentiment labels, supporting text, cached results and unresolved cases. | Account for every eligible comment; inspect coverage, errors and supporting evidence. |
-| 5. Business analysis | Tested metric queries, answers to the business questions, priorities and value scenarios. | Verify calculations, comparisons, evidence and sensitivity to assumptions. |
+| 4. Full comment analysis (`python -m kestrel classify`) | Versioned theme/sentiment labels, supporting text, cached results and unresolved cases. | Account for every eligible comment; inspect coverage, errors and supporting evidence. |
+| [5. Business analysis](analysis/README.md) | Tested metric queries, answers to the business questions, priorities and value scenarios. | Verify calculations, comparisons, evidence and sensitivity to assumptions. |
 | 6. Assistant, if included | A question interface over the same metrics and redacted evidence. | Test known answers, paraphrases, ambiguous requests and unsupported questions; confirm whether to include it. |
-| 7. Final delivery | Reproducible solution, concise report and AI usage record. | Rerun from original files and saved annotations; confirm the submission meets the brief. |
+| [7. Final delivery](README.md) | Reproducible solution, concise report and AI usage record. | Rerun from original files and saved annotations; confirm the submission meets the brief. |
 
 Stage 6 can be skipped. Refine later stages as evidence emerges.
 
@@ -77,7 +77,7 @@ Stage 6 can be skipped. Refine later stages as evidence emerges.
 - Open policies: seven source/layout findings lack an explicit rating direction; Noosa's selective-collection note remains visible. No negative-rating bands are inferred.
 - Generated data remains local and ignored by source control. The pilot database contains raw text; stage two supplies separate redacted candidates, while AI processing remains later work.
 
-Review the [reconciliation report and query examples](outputs/pilot/summary.md), [schema](kestrel/schema.sql) and [database](outputs/pilot/pilot.sqlite).
+Review the [schema](kestrel/schema.sql). The reconciliation report (`outputs/pilot/summary.md`) and database (`outputs/pilot/pilot.sqlite`) are generated locally by `python -m kestrel pilot` and are not in Git.
 
 From this project directory:
 
@@ -99,7 +99,7 @@ Review the [concise implementation and handoff](docs/STAGE_2_DATA_PREPARATION.md
 
 ## Build stage 3 checkpoint — 30 October 2026
 
-**Status:** pilot complete; Sonnet 5.5 selected and meets the acceptance targets. The stage-4 budget awaits the user.
+**Status:** pilot complete; the frozen rule selected Sonnet 5.5 (≈US$26 for the full run, over the US$10 cap). The user chose Haiku 5.5 for stage 4 (≈US$1.30), which also meets the targets (D13).
 
 On 100 untouched test comments, three models were compared on reference labels from two independent blind AI annotators (kappa 1.00 overall; disclosed as AI-made, not human):
 

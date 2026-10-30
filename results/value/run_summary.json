@@ -1,0 +1,239 @@
+{
+  "inputs": {
+    "db": "prepared.sqlite",
+    "db_sha256": "0c0263314651aa30cbf8a4e6794bbdaa4a2627fb0a92166a677b0b1578fbba7d",
+    "policy": "analysis_policy.sql",
+    "policy_sha256": "949cad9a813ffad9e7a542c6444815f8758033b636b5733164ae925228c1e1d5",
+    "rates_source": "neg_rate_dealer_dept.csv",
+    "rates_file_matches_db": true,
+    "theme_shares": null
+  },
+  "parameters": {
+    "assumptions_low_base_high": {
+      "representativeness": [
+        0.5,
+        0.75,
+        1.0
+      ],
+      "p_loss": [
+        0.1,
+        0.2,
+        0.35
+      ],
+      "service_visits_per_year": [
+        1.0,
+        1.5,
+        2.0
+      ],
+      "sales_cycle_years": [
+        7.0,
+        6.0,
+        5.0
+      ],
+      "parts_purchases_per_year": [
+        1.0,
+        2.0,
+        4.0
+      ]
+    },
+    "gap_measures_low_base_high": [
+      "ci_low",
+      "shrunk",
+      "observed"
+    ],
+    "horizon_years": 1,
+    "gross_margin_low_base_high": {
+      "Sales": [
+        0.04,
+        0.08,
+        0.11
+      ],
+      "Service": [
+        0.45,
+        0.55,
+        0.63
+      ],
+      "Parts": [
+        0.2,
+        0.23,
+        0.25
+      ]
+    },
+    "min_n": 30,
+    "draws": 4000,
+    "seed": 20261030
+  },
+  "shrinkage_prior": {
+    "Sales": {
+      "pooled_rate": 0.10132450331125828,
+      "between_cell_sd": 0.04696066702279479,
+      "prior_strength": 40.29037907333313
+    },
+    "Service": {
+      "pooled_rate": 0.2732689541812205,
+      "between_cell_sd": 0.02761737198643647,
+      "prior_strength": 259.37501564790745
+    },
+    "Parts": {
+      "pooled_rate": 0.16142857142857142,
+      "between_cell_sd": 0.0,
+      "prior_strength": 1000000000.0
+    }
+  },
+  "targets": {
+    "Sales": {
+      "median": 0.1015446082684528,
+      "best_quartile": 0.0674080433797253,
+      "cells": 19
+    },
+    "Service": {
+      "median": 0.2705569701071592,
+      "best_quartile": 0.26206547606909064,
+      "cells": 22
+    },
+    "Parts": {
+      "median": 0.1614285723571428,
+      "best_quartile": 0.16142857051857148,
+      "cells": 13
+    }
+  },
+  "totals": {
+    "Sales": {
+      "rar_median_low": 16357,
+      "rar_median_base": 264611,
+      "rar_median_high": 1120116,
+      "rar_median_mc_p10": 187790,
+      "rar_median_mc_p50": 278698,
+      "rar_median_mc_p90": 400714,
+      "gp_median_base": 21169,
+      "gp_median_low": 654,
+      "gp_median_high": 123213,
+      "rar_bq_low": 55681,
+      "rar_bq_base": 631507,
+      "rar_bq_high": 2104652,
+      "rar_bq_mc_p10": 448169,
+      "rar_bq_mc_p50": 665128,
+      "rar_bq_mc_p90": 956325,
+      "gp_bq_base": 50521,
+      "gp_bq_low": 2227,
+      "gp_bq_high": 231512,
+      "rar_per_1pt_base": 184131,
+      "gp_per_1pt_base": 14731
+    },
+    "Service": {
+      "rar_median_low": 16653,
+      "rar_median_base": 154123,
+      "rar_median_high": 857895,
+      "rar_median_mc_p10": 104352,
+      "rar_median_mc_p50": 161094,
+      "rar_median_mc_p90": 236439,
+      "gp_median_base": 84768,
+      "gp_median_low": 7494,
+      "gp_median_high": 540474,
+      "rar_bq_low": 20962,
+      "rar_bq_base": 254907,
+      "rar_bq_high": 1101608,
+      "rar_bq_mc_p10": 172590,
+      "rar_bq_mc_p50": 266436,
+      "rar_bq_mc_p90": 391050,
+      "gp_bq_base": 140199,
+      "gp_bq_low": 9433,
+      "gp_bq_high": 694013,
+      "rar_per_1pt_base": 185421,
+      "gp_per_1pt_base": 101981
+    },
+    "Parts": {
+      "rar_median_low": 0,
+      "rar_median_base": 0,
+      "rar_median_high": 274112,
+      "rar_median_mc_p10": 0,
+      "rar_median_mc_p50": 0,
+      "rar_median_mc_p90": 0,
+      "gp_median_base": 0,
+      "gp_median_low": 0,
+      "gp_median_high": 68528,
+      "rar_bq_low": 0,
+      "rar_bq_base": 0,
+      "rar_bq_high": 274112,
+      "rar_bq_mc_p10": 0,
+      "rar_bq_mc_p50": 0,
+      "rar_bq_mc_p90": 0,
+      "gp_bq_base": 0,
+      "gp_bq_low": 0,
+      "gp_bq_high": 68528,
+      "rar_per_1pt_base": 34323,
+      "gp_per_1pt_base": 7894
+    },
+    "All": {
+      "rar_median_low": 33009,
+      "rar_median_base": 418734,
+      "rar_median_high": 2252123,
+      "rar_median_mc_p10": 296659,
+      "rar_median_mc_p50": 439323,
+      "rar_median_mc_p90": 634965,
+      "gp_median_base": 105937,
+      "gp_median_low": 8148,
+      "gp_median_high": 732215,
+      "rar_bq_low": 76643,
+      "rar_bq_base": 886414,
+      "rar_bq_high": 3480371,
+      "rar_bq_mc_p10": 629855,
+      "rar_bq_mc_p50": 930841,
+      "rar_bq_mc_p90": 1340301,
+      "gp_bq_base": 190719,
+      "gp_bq_low": 11660,
+      "gp_bq_high": 994052,
+      "rar_per_1pt_base": 403875,
+      "gp_per_1pt_base": 124606
+    }
+  },
+  "top5_base_median": [
+    "NSW01 Service: A$59k (P10-P90 A$40k-A$91k), stretch A$69k",
+    "QLD04 Sales: A$58k (P10-P90 A$41k-A$89k), stretch A$85k",
+    "VIC05 Sales: A$54k (P10-P90 A$38k-A$82k), stretch A$81k",
+    "VIC01 Service: A$48k (P10-P90 A$32k-A$73k), stretch A$58k",
+    "NSW04 Sales: A$39k (P10-P90 A$28k-A$59k), stretch A$66k"
+  ],
+  "business_checks": [
+    {
+      "check": "grid complete",
+      "result": "pass",
+      "detail": "864 rows = 24 dealers x 3 departments x 12 months (2025-10..2026-09)"
+    },
+    {
+      "check": "total revenue (AUD)",
+      "result": "info",
+      "detail": "838,685,990"
+    },
+    {
+      "check": "zero activity/revenue rows",
+      "result": "pass",
+      "detail": "18 rows, all after a recorded closure (Shepparton VIC09 closed 2026-03-31)"
+    },
+    {
+      "check": "activity and revenue zero together",
+      "result": "pass",
+      "detail": "0 mismatches"
+    },
+    {
+      "check": "Sales revenue per unit outliers (|robust z| > 5)",
+      "result": "pass",
+      "detail": "median A$46,357, range A$41,164-A$51,208, 0 outliers []"
+    },
+    {
+      "check": "Service revenue per unit outliers (|robust z| > 5)",
+      "result": "pass",
+      "detail": "median A$415, range A$394-A$436, 0 outliers []"
+    },
+    {
+      "check": "Parts revenue per unit outliers (|robust z| > 5)",
+      "result": "pass",
+      "detail": "median A$185, range A$173-A$199, 0 outliers []"
+    },
+    {
+      "check": "month-to-month activity jumps (>1.6x or <0.5x dealer median)",
+      "result": "pass",
+      "detail": "0 found []"
+    }
+  ]
+}

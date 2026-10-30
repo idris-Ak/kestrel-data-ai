@@ -1,0 +1,9 @@
+check,expected,observed,status,note
+rated individual responses = policy.sql rated_responses (individual),7055,7055,pass,
+aggregate responses = policy.sql rated_responses (aggregate),71,71,pass,
+aggregate responses = SUM(rating_aggregates.response_count),71,71,pass,
+rated individual responses vs expected default comparison set,7055,7055,pass,pass --expect-individual N after a deliberate rebuild
+aggregate responses vs expected default comparison set,71,71,pass,pass --expect-aggregate N after a deliberate rebuild
+individual events = rated comparison set + unrated + not comparable,7073,7073,pass,7073 individual events = 7055 rated & comparable + 10 comparable but no valid rating + 8 not comparable (time-ineligible or outside Oct 2025-Sep 2026)
+Noosa responses = policy.sql selective_collection rows,49,49,pass,
+primary analysis set (Noosa excluded) = policy.sql non-selective rows,7077,7077,pass,7126 comparison set = 7077 primary (ranked) + 49 Noosa

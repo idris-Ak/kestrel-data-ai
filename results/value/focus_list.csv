@@ -1,0 +1,31 @@
+rank,dealer_code,dealership_name,department,n,negative_rate,ci_low,ci_high,shrunk_rate,target_median,target_best_quartile,confidence_above_median,p_top3,annual_activity,avoidable_negatives_base,rar_median_base,rar_median_range,rar_bq_base,rar_bq_range,gp_median_base,gp_bq_base
+1,NSW01,Kestrel Parramatta,Service,311,0.3633,0.3119,0.4182,0.3224,0.2706,0.2621,clear,0.534,12265,476.7,59499,A$40k-A$91k,69248,A$47k-A$106k,32725,38086
+2,QLD04,Kestrel Southport,Sales,68,0.2206,0.1385,0.3326,0.1762,0.1015,0.0674,clear,0.542,666,37.3,58461,A$41k-A$89k,85188,A$60k-A$129k,4677,6815
+3,VIC05,Kestrel Box Hill,Sales,77,0.2078,0.1321,0.3112,0.1712,0.1015,0.0674,clear,0.46,687,35.9,54202,A$38k-A$82k,80758,A$57k-A$122k,4336,6461
+4,VIC01,Kestrel Dandenong,Service,319,0.3448,0.2948,0.3986,0.3127,0.2706,0.2621,clear,0.332,12179,385.3,47899,A$32k-A$73k,57542,A$39k-A$88k,26344,31648
+5,NSW04,Kestrel Liverpool,Sales,80,0.175,0.1072,0.2726,0.1503,0.1015,0.0674,clear,0.252,678,24.8,38910,A$28k-A$59k,66140,A$47k-A$100k,3113,5291
+6,NSW02,Kestrel Penrith,Sales,115,0.1391,0.0875,0.2141,0.1293,0.1015,0.0674,likely,0.314,1152,24.0,37146,A$26k-A$56k,82797,A$59k-A$125k,2972,6624
+7,QLD01,Kestrel Chermside,Sales,109,0.1284,0.0781,0.2041,0.1211,0.1015,0.0674,likely,0.202,1155,17.0,26100,A$19k-A$40k,71609,A$51k-A$108k,2088,5729
+8,NSW03,Kestrel Chatswood,Sales,66,0.1515,0.0844,0.2569,0.1325,0.1015,0.0674,likely,0.108,657,15.2,23723,A$17k-A$36k,49892,A$35k-A$76k,1898,3991
+9,NSW01,Kestrel Parramatta,Sales,122,0.1148,0.0696,0.1834,0.1114,0.1015,0.0674,likely,0.121,1180,8.7,13512,A$10k-A$20k,60219,A$43k-A$91k,1081,4817
+10,NSW03,Kestrel Chatswood,Service,180,0.3111,0.248,0.3821,0.2888,0.2706,0.2621,likely,0.007,7693,105.1,13122,A$9k-A$20k,19239,A$13k-A$30k,7217,10581
+11,VIC03,Kestrel Essendon,Service,225,0.3022,0.246,0.3651,0.2867,0.2706,0.2621,likely,0.004,7656,92.8,11550,A$8k-A$18k,17618,A$12k-A$27k,6352,9690
+12,VIC04,Kestrel Frankston,Sales,67,0.1194,0.0618,0.2183,0.1126,0.1015,0.0674,likely,0.037,668,5.5,8515,A$6k-A$13k,34775,A$25k-A$53k,681,2782
+13,VIC06,Kestrel Geelong,Service,204,0.2892,0.2313,0.3549,0.2803,0.2706,0.2621,likely,0.005,7829,57.1,7103,A$5k-A$11k,13299,A$9k-A$20k,3906,7315
+14,QLD01,Kestrel Chermside,Service,314,0.2771,0.2305,0.329,0.2754,0.2706,0.2621,likely,0.016,12826,46.1,5758,A$4k-A$9k,15958,A$11k-A$24k,3167,8777
+15,NSW07,Kestrel Tamworth,Sales,32,0.125,0.0497,0.2807,0.1118,0.1015,0.0674,likely,0.004,342,2.6,4041,A$3k-A$6k,17488,A$12k-A$26k,323,1399
+16,QLD07,Kestrel Rockhampton,Service,167,0.2814,0.2187,0.354,0.2765,0.2706,0.2621,likely,0.0,6606,29.3,3619,A$2k-A$6k,8817,A$6k-A$14k,1990,4849
+17,QLD04,Kestrel Southport,Service,164,0.2744,0.2119,0.3473,0.2737,0.2706,0.2621,likely,0.001,7525,17.8,2238,A$2k-A$3k,8278,A$6k-A$13k,1231,4553
+18,QLD03,Kestrel Ipswich,Service,190,0.2737,0.2152,0.3411,0.2734,0.2706,0.2621,likely,0.001,7613,16.5,2045,A$1k-A$3k,8058,A$5k-A$12k,1125,4432
+19,VIC04,Kestrel Frankston,Service,211,0.2701,0.2147,0.3338,0.2719,0.2706,0.2621,likely,0.001,7707,7.6,941,A$637-A$1k,7047,A$5k-A$11k,518,3876
+20,VIC07,Kestrel Ballarat,Service,194,0.268,0.2107,0.3344,0.271,0.2706,0.2621,likely,0.002,7880,2.8,350,A$237-A$538,6613,A$4k-A$10k,193,3637
+21,NSW05,Kestrel Newcastle,Sales,69,0.1014,0.05,0.1949,0.1014,0.1015,0.0674,at_or_below_target,0.013,664,0.0,0,A$0-A$0,26149,A$19k-A$40k,0,2092
+22,QLD03,Kestrel Ipswich,Sales,59,0.1017,0.0474,0.2046,0.1015,0.1015,0.0674,at_or_below_target,0.015,653,0.0,0,A$0-A$0,25892,A$18k-A$39k,0,2071
+23,VIC07,Kestrel Ballarat,Sales,61,0.082,0.0355,0.1779,0.0897,0.1015,0.0674,at_or_below_target,0.007,666,0.0,0,A$0-A$0,17468,A$12k-A$26k,0,1397
+24,VIC06,Kestrel Geelong,Sales,69,0.0725,0.0313,0.1587,0.0831,0.1015,0.0674,at_or_below_target,0.004,660,0.0,0,A$0-A$0,11993,A$9k-A$18k,0,959
+25,VIC02,Kestrel Ringwood,Service,309,0.2621,0.2162,0.3139,0.2672,0.2706,0.2621,at_or_below_target,0.006,12642,0.0,0,A$0-A$0,6092,A$4k-A$9k,0,3350
+26,VIC05,Kestrel Box Hill,Service,203,0.266,0.21,0.3307,0.2701,0.2706,0.2621,at_or_below_target,0.0,7636,0.0,0,A$0-A$0,5716,A$4k-A$9k,0,3144
+27,QLD06,Kestrel Toowoomba,Service,277,0.2599,0.2118,0.3146,0.2664,0.2706,0.2621,at_or_below_target,0.004,11993,0.0,0,A$0-A$0,4832,A$3k-A$7k,0,2657
+28,NSW05,Kestrel Newcastle,Service,204,0.2598,0.2045,0.324,0.2673,0.2706,0.2621,at_or_below_target,0.001,7791,0.0,0,A$0-A$0,3871,A$3k-A$6k,0,2129
+29,VIC08,Kestrel Bendigo,Service,97,0.2577,0.1811,0.3528,0.269,0.2706,0.2621,at_or_below_target,0.0,4111,0.0,0,A$0-A$0,2680,A$2k-A$4k,0,1474
+30,VIC08,Kestrel Bendigo,Sales,32,0.0312,0.0055,0.1574,0.0703,0.1015,0.0674,at_or_below_target,0.0,340,0.0,0,A$0-A$0,1140,A$809-A$2k,0,91
