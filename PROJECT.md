@@ -24,7 +24,7 @@ Counts below describe their recorded checkpoint, not today's total test suite.
 | 4. Full classification | **5,342/5,349** successful classifications; seven failures (**0.13%**) accounted for. Cumulative token-priced API ledger **US$3.49**, within the US$10 cap. Conditional rating agreement **4,265/4,285** clear positive/negative pairs. Evidence is validated but stored as hashes/positions; changed request contexts invalidate cached labels. |
 | [5. Business analysis](analysis/README.md) | Rating comparisons, fixed-mix trends, negative themes, uncertainty and nine rating-policy sensitivities. Revenue joins reconcile to **A$838,685,990**; value scenarios disclose representativeness, churn and margin assumptions. |
 | 6. Optional assistant | Omitted. Saved labels and explicit metric queries answer the required questions directly. |
-| [7. Final delivery](README.md) | Original brief moved verbatim; report plus aggregate-only `results/` and analysis code. TODO(internal): verified clean-clone test/reproduction result from orchestrator. |
+| [7. Final delivery](README.md) | Original brief moved verbatim; report plus aggregate-only `results/` and analysis code. Clean remote clone of snapshot `630bf81` passed **160 tests**, pilot **40/40** and preparation **122/122** checks. All **36 CSVs** reproduced byte for byte; four JSONs matched numerically apart from expected run-ID/database-hash metadata. All 56 original hashes and the saved classification hashes matched. No API calls were needed. |
 
 ## Decisions carried into delivery
 

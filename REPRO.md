@@ -1,6 +1,8 @@
 # Reproducing the submission
 
-**Verification:** TODO(internal): insert the orchestrator's clean-clone results after final integration. The commands below are the intended reproduction path; a new live model run can vary from the saved one.
+**Verified 30 October 2026** from a fresh remote clone of code/results snapshot `630bf8169653e5d3223809dd53a3bc9d4ba6eb38`, with the unchanged assignment pack and private saved labels supplied separately. Fresh `uv sync --locked`; **160 tests passed in 11.3 seconds**, pilot **40/40** checks and preparation **122/122** checks. All **36 aggregate CSVs reproduced byte for byte**, including line endings. Four JSONs matched numerically apart from expected run-ID/database-hash metadata.
+
+All 56 original hashes, the verbatim brief, saved-label hash and model-input hash matched. Verification used Python **3.12.13**, SQLite **3.54.1** and openpyxl **3.1.5**; rebuilt run `c468fc4311fc74da90a2da3cf4f84c03fb58d63f9bfa6ceb913ecdae5f28991a`. No API calls, keys, `.env`, caches or private pilot splits were needed. Final documentation updates record this verification; a new live model run can vary from the saved one.
 
 ## Inputs and environment
 
