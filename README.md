@@ -28,7 +28,7 @@ Assumptions include higher-is-better where no legend exists, explicit negative b
 
 **AI evaluation:** on 100 untouched test comments, Haiku scored **0.97 sentiment accuracy / 0.91 negative-theme F1**, versus a keyword baseline's 0.40/0.36 and Sonnet's 1.00/0.98. References came from two blind Opus instances and adjudication: **AI references, not human gold**, with shared-family bias. The budget choice was Haiku; broader exploration and additional Sonnet validation were limited by API cost.
 
-**Timeliness leans high:** Haiku found nine reference complaints plus four false positives. Full classification accepted **5,342/5,349 comments**, retaining **seven failures (0.13%)**. The cumulative token-priced API ledger totals **US$3.49**; assistant subscriptions are outside that figure. Only redacted comments reach the model; saved evidence uses hashes/positions. Privacy review was automated/AI, with residual name risk.
+**Timeliness leans high:** Haiku found nine reference complaints plus four false positives. Full classification accepted **5,342/5,349 comments**, retaining **seven failures (0.13%)**. Classification/evaluation API spend totals **US$3.49**; assistant subscriptions are outside that figure. Only redacted comments reach the model; saved evidence uses hashes/positions. Privacy review was automated/AI, with residual name risk.
 
 ## Reproduce
 
@@ -45,6 +45,12 @@ uv run --locked python -I analysis/value_model.py --rates results/metrics/neg_ra
 ```
 
 Without saved labels, set `ANTHROPIC_API_KEY` in your environment and run `uv run --locked python -m kestrel classify --run outputs/prepared/current` (paid API calls, **US$10 cumulative ledger cap**), then use the printed label path in the analysis commands above; fresh labels can vary.
+
+For terminal Q&A, set `ANTHROPIC_API_KEY` in your shell or ignored `.env`. Answers use committed aggregates with source citations. Run `uv run --locked python -m kestrel ask` for independent questions in a loop (`/quit` exits). These paid calls share the US$10 ledger cap; generated summaries can be incorrect.
+
+```bash
+uv run --locked python -m kestrel ask "Which department should we prioritise?"
+```
 
 ## AI use
 

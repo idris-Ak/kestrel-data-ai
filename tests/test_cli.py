@@ -22,7 +22,7 @@ class CommandTests(unittest.TestCase):
     def test_help_exposes_only_current_workflow(self):
         code, output = self.invoke("--help")
         self.assertEqual(code, 0)
-        self.assertIn("{prepare,classify}", output)
+        self.assertIn("{prepare,classify,ask}", output)
         self.assertNotIn("pilot", output)
 
     def test_obsolete_commands_are_rejected_before_work(self):
@@ -30,6 +30,13 @@ class CommandTests(unittest.TestCase):
             with self.subTest(command=command):
                 code, _ = self.invoke(command)
                 self.assertEqual(code, 2)
+
+    def test_ask_help_makes_no_provider_request(self):
+        with patch("kestrel.ask.anthropic.Anthropic") as client:
+            code, output = self.invoke("ask", "--help")
+        self.assertEqual(code, 0)
+        self.assertIn("question", output)
+        client.assert_not_called()
 
     def test_classification_requires_a_run_and_one_configuration(self):
         code, _ = self.invoke("classify")
