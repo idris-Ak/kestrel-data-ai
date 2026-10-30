@@ -1,86 +1,51 @@
-# Kestrel Motor Group: where customer experience needs attention
+# Kestrel Motor Group: customer feedback
 
-Across Kestrel's 24 dealerships, the strongest action is a group-wide Service improvement programme, starting at Parramatta and Dandenong. Service supplies **83% of negative ratings**; its scale and margin make it the clearest profit priority.
+**Prioritise Service across the group, starting at Parramatta and Dandenong.** Service contributes **83% of negative ratings** and offers the strongest gross-profit opportunity. Improve communication, waiting-time commitments and work quality; investigate Sales pressure and handover at Southport, Box Hill and Liverpool.
 
-The original [brief](docs/BRIEF.md) is preserved verbatim. [Reproduction instructions](REPRO.md) distinguish rebuilding data from replaying saved AI results.
+## Findings
 
-## What the business should know
+The data cover October 2025–September 2026. The primary comparison contains **7,077 rated responses**, including 71 summary-only responses and excluding Noosa's selective collection. Of these, **1,596 are negative**.
 
-Among **7,077 eligible rated responses** (7,006 individual responses plus 71 summary-only responses; selectively collected Noosa feedback excluded), 1,596 are negative:
+| Department | Negative / rated | Negative rate | Leading negative themes |
+|---|---:|---:|---|
+| Service | 1,330 / 4,867 | **27.3%** | Communication 34.7%; timeliness 32.2%; work quality 16.6% |
+| Sales | 153 / 1,510 | 10.1% | Pressure 27.1%; handover 27.1%; communication 22.9% |
+| Parts | 113 / 700 | 16.1% | Timeliness 47.2%; availability 43.4%; communication 31.1% |
 
-| Department | Negative / rated | Negative rate, 95% interval |
-|---|---:|---:|
-| Service | 1,330 / 4,867 | **27.3% (26.1–28.6%)** |
-| Parts | 113 / 700 | 16.1% (13.6–19.1%) |
-| Sales | 153 / 1,510 | 10.1% (8.7–11.8%) |
+Theme percentages use successfully classified negative comments: Service n=1,238, Sales n=144, Parts n=106. Across **1,488 comments**, communication leads (33.3%), followed by timeliness (31.2%) and billing (15.2%). This covers **93.2% of negative responses**; comments can carry several themes. [Theme evidence](results/themes/theme_share_department.csv).
 
-**Reported drivers:** among **1,488 successfully classified comments on negative ratings**, communication leads (**33.3%, 95% interval 31.0–35.8%**), followed by timeliness (**31.2%, 28.9–33.6%**) and billing (**15.2%, 13.5–17.1%**). This covers **93.2% of all 1,596 negative responses**, including summary-only ratings in the denominator. Comments can carry several themes.
+**Dealership differences:** Parramatta has 27% more negatives than expected after department-mix adjustment (95% interval: 9–46% more). Most dealers do not differ clearly from expected rates. Parramatta and Dandenong Service, plus Southport, Box Hill and Liverpool Sales, warrant investigation. Sales site samples are too small for reliable theme proportions.
 
-- **Service (n=1,238):** communication 34.7%, timeliness 32.2%, work quality 16.6%.
-- **Sales (n=144):** sales pressure and handover each 27.1%; communication 22.9%.
-- **Parts (n=106):** timeliness 47.2%, parts availability 43.4%, communication 31.1%.
+**Change:** negatives rose from **19.9% in the first six months to 25.0% in the last six**, **+5.1 percentage points** (95% interval: 3.2–7.0). Fixing dealer/department mix gives +5.2 points. Parramatta Service, Dandenong Service and Liverpool Sales explain approximately half the increase. Parts availability and process friction became more common among negative comments. These associations identify investigation priorities, not causes. [Trend evidence](results/metrics/change_h1_h2_summary.csv).
 
-Timeliness and communication lead at both Service hotspots; Dandenong also shows process friction. Sales hotspot comment samples are too small for site-level theme proportions, so the department themes guide investigation. [Theme tables and intervals](results/themes/).
+**Value:** a one-point reduction in Service negatives represents approximately **A$185k annual revenue at risk / A$102k gross profit** under the base assumptions. Closing all dealer gaps to department medians represents **A$419k revenue (P10–P90 A$297–635k) / A$106k gross profit**. These overlapping scenarios must not be added. Representativeness, customer loss and benchmark margins are assumptions; the figures are neither measured losses nor guaranteed savings. [Priority list](results/value/focus_list.csv).
 
-**Location:** after allowing for department mix, Parramatta has 27% more negatives than expected at the group's department rates (95% interval: 9–46% more). Most dealerships do not differ clearly from expected group rates; a league table would exaggerate differences. Five department-level hotspots warrant investigation: Parramatta Service (36.3%, n=311), Dandenong Service (34.5%, n=319), Southport Sales (22.1%, n=68), Box Hill Sales (20.8%, n=77) and Liverpool Sales (17.5%, n=80). Treat these as investigation priorities.
+## Approach and trust
 
-**Time:** negatives increased from **19.9% in October 2025–March 2026 to 25.0% in April–September 2026**, a rise of **5.1 percentage points** (95% interval: 3.2–7.0). Holding dealer/department mix constant gives 5.2 points, so changing mix does not explain the rise. Parramatta Service, Dandenong Service and Liverpool Sales account for approximately half the increase; their changes survive multiple-comparison correction. Service rose most; Parts was approximately flat. Dandenong's recorded booking-system change on 5 May is a useful investigation lead, not evidence of causation.
+Python, openpyxl and SQLite keep this small pipeline inspectable and portable. Explicit readers preserve source context and provenance: **52 files → 7,073 individual events**, with 180 proven copies linked and four test rows excluded. Online reviews and aggregate-only ratings remain separate. Validation reconciles counts, original hashes and revenue joins, and checks dates, ratings and privacy boundaries.
 
-Parts availability increased from **5.1% to 14.9%** of negative comments and process friction from **6.5% to 11.4%**, surviving multiple-comparison correction. These are reported issues, not established causes of the rating decline. Parramatta has no statistically clear theme-share change after correction; Dandenong's first-half base is only 27. Liverpool Sales has **one then 13 negative comments**, including eight pressure complaints in the second half: counts justify investigation, not precise theme-change estimates.
+Assumptions include higher-is-better where no legend exists, explicit negative bands, Hunter→Newcastle and Bendigo department mappings. Alternative bands and excluded mappings test sensitivity. Findings describe voluntary respondents; collection bias and twelve-month seasonality remain limitations. Standardised templates and invitation tracking would improve future comparisons. [Methods, quality findings and assumptions](docs/METHODS.md).
 
-## Where to act, and roughly what it is worth
+**AI evaluation:** on 100 untouched test comments, Haiku scored **0.97 sentiment accuracy / 0.91 negative-theme F1**, versus a keyword baseline's 0.40/0.36 and Sonnet's 1.00/0.98. References came from two blind Opus instances and adjudication: **AI references, not human gold**, with shared-family bias. The budget choice was Haiku; broader exploration and additional Sonnet validation were limited by API cost.
 
-1. **Improve Service across the group**, beginning at Parramatta and Dandenong: test clearer updates and waiting-time commitments; investigate work quality, booking friction and billing explanations.
-2. **Investigate Sales pressure and handover** at Southport, Box Hill and Liverpool, using the department evidence to structure local review.
-3. **Standardise collection:** one template with dealer code, department, explicit rating direction and ISO dates; consistent invitation rules; and transactions plus invitations recorded as coverage denominators. Measure the same indicators monthly before and after changes.
+**Timeliness leans high:** Haiku found nine reference complaints plus four false positives. Full classification accepted **5,342/5,349 comments**, retaining **seven failures (0.13%)**. The cumulative token-priced API ledger totals **US$3.49**; assistant subscriptions are outside that figure. Only redacted comments reach the model; saved evidence uses hashes/positions. Privacy review was automated/AI, with residual name risk.
 
-A **one-percentage-point reduction in Service negatives** corresponds to approximately **A$185,000 annual revenue at risk and A$102,000 gross profit** under the base assumptions. A five-point reduction scales that to approximately A$0.93m revenue / A$0.51m gross profit. This illustrates a possible improvement's size; it is not a forecast of recoverable savings.
+## Reproduce
 
-| Closing a dealership gap to its department median | Annual revenue at risk, base (P10–P90) | Indicative gross profit |
-|---|---:|---:|
-| Parramatta Service | A$59k (40–91k) | A$33k |
-| Dandenong Service | A$48k (32–73k) | A$26k |
-| Southport / Box Hill / Liverpool Sales | A$58k / 54k / 39k | A$5k / 4k / 3k |
-| All dealer gaps combined | **A$419k (297–635k)** | **A$106k** |
+Use Python 3.12 and uv. Clone the repository and place the unchanged `feedback/`, `reference/` and `PS_Data_AI_Assignment.pdf` in its root. The original [brief](docs/BRIEF.md) is included. Exact AI replay also requires the author's private `labels.jsonl` and adjacent `summary.json`; committed results contain aggregates only. Set the path below to the supplied labels. Replay needs no API key; fresh model calls can vary.
 
-The group-wide Service lever and dealer-gap scenarios overlap and must not be added. Sales' larger transaction values mask thinner margins. The model shrinks noisy rates, uses annual activity and spend, then applies explicit assumptions about representativeness, customer loss and repeat purchases. The weakest input is the extra probability of losing a customer after a negative experience (10/20/35%). These are scenarios, with benchmark margins and assumption ranges, rather than measured churn or causal benefits. [Methods and sources](analysis/VALUE.md), [assumptions](analysis/assumptions.md).
+```bash
+uv sync --locked
+uv run --locked python -m unittest discover -s tests
+uv run --locked python -m kestrel prepare
+uv run --locked python -I analysis/metrics.py
+KESTREL_LABELS_PATH=/absolute/path/to/labels.jsonl
+uv run --locked python -I analysis/themes.py --labels "$KESTREL_LABELS_PATH"
+uv run --locked python -I analysis/value_model.py --rates results/metrics/neg_rate_dealer_dept.csv --theme-shares results/themes/theme_shares.csv
+```
 
-A fractional theme allocation assigns about **A$50k** of the Service one-point lever to communication and **A$43k** to timeliness. It partitions the existing scenario, assuming comment-theme shares represent avoidable negatives; it does not prove that fixing either theme delivers those amounts. [Value allocation](results/value/lever_by_theme.csv).
+Without saved labels, set `ANTHROPIC_API_KEY` in your environment and run `uv run --locked python -m kestrel classify --run outputs/prepared/current` (paid API calls, **US$10 cumulative ledger cap**), then use the printed label path in the analysis commands above; fresh labels can vary.
 
-## A traceable foundation
+## AI use
 
-**52 feedback files become 7,073 individual events**, linked to their physical source rows. Of 7,257 individual observations, 180 proven copies are linked and four identified test rows excluded. Eight copied online reviews remain separate, as do Toowoomba's 71 summary-only ratings. Business data retains all 864 dealership/month/department rows and **A$838,685,990** revenue. Aggregating feedback before joining revenue prevents multiplication.
-
-Source-specific readers preserve spreadsheet context, native ratings, date precision and provenance. Material issues include Chermside's repeated quarter, Penrith's copied June tab (no genuine June), Essendon's cross-department copies, Geelong's reversed scale, Ringwood's scale change, Liverpool's US-format dates and six post-closure Shepparton dates. Uncertain records are flagged or excluded from affected calculations; original files stay unchanged. All **122 stored preparation checks** pass, including reconciliation, source hashes, reference amounts, integrity and the model-input boundary. [Data-quality detail](docs/STAGE_2_DATA_PREPARATION.md).
-
-**Technology:** Python 3.12, a locked environment, pinned openpyxl, standard-library CSV/SQLite and explicit SQL policies. A local database makes joins and provenance inspectable without a server, at the cost of more reader code and limited concurrent writing.
-
-**Working assumptions:** unspecified scales mean higher is better (explicit reversed legends take precedence); negatives are 1–2 of five, 1–4 of ten, or “bad”; Hunter maps to Newcastle; Bendigo's S/SV/P codes map to Sales/Service/Parts. These remain documented assumptions, supported by source/context diagnostics and tested through alternative bands or excluded mappings. Department ordering and the main deterioration survive nine sensitivity scenarios. Noosa is excluded from comparisons because collection is selective; Shepparton contributes only valid open periods. [Metric definitions and sensitivity results](analysis/METRICS.md).
-
-## How the AI analysis was checked
-
-Local redaction produces **5,349 eligible comments**; 1,724 individual events contain no text. Rules-3 releases the 547 comments previously withheld by name signals. Automated identifier scans and 77 stratified AI-reviewed examples found no residual known identifiers. This is **AI review, not human privacy certification**, and unknown names can still escape detection. Only allowlisted redacted text and department context reach the classifier; ratings and the raw database stay local.
-
-One comment is classified per request into multiple themes and sentiment. Evidence is validated against its input; persisted labels retain hashes and positions instead of comment quotations. Cached results are keyed to the full request context. The business analysis queries saved labels and ratings; it does not ask a chatbot to invent totals.
-
-The pilot reserved 100 untouched test comments. Two blind Opus 5.5 annotator instances, followed by adjudication, supplied **AI reference labels, not a human gold standard**. Agreement was high (sentiment kappa 1.00; pooled theme kappa 0.996), but shared-model agreement can share errors.
-
-| Method | Sentiment accuracy | Negative-theme F1 |
-|---|---:|---:|
-| Keyword baseline | 0.40 | 0.36 |
-| **Haiku 5.5** | **0.97 (0.92–0.99)** | **0.91 (0.84–0.97)** |
-| Sonnet 5.5 | 1.00 | 0.98 |
-
-The frozen selection rule preferred Sonnet. The user chose **Haiku for the US$10 budget**: it meets the pre-agreed targets (accuracy ≥0.85, F1 ≥0.75, failures ≤2%). It had one rejected test output. **Timeliness is over-tagged:** nine reference complaints were found plus four false positives. Its reported shares therefore lean high; this sample does not establish a correction factor for every site. Rare themes have insufficient test support, and same-family reference labels can flatter both models. [Full evaluation](docs/STAGE_3_CHECKPOINT.md).
-
-Full classification produced **5,342 successful results from 5,349 comments**, with seven failures (0.13%) retained as failures. Sentiment agrees with ratings in **4,265/4,285 clear positive/negative pairs (99.5%)**; that conditional check is not accuracy over every comment. The cumulative token-priced API ledger for pilot and full classification totals **US$3.49**, within the US$10 cap. Coding/annotation assistant sessions and subscriptions are not metered in that ledger. A clean-clone reproduction passed **160 tests** and reproduced all **36 aggregate CSVs** byte for byte. [Verification details](REPRO.md).
-
-## Limits and AI usage
-
-These findings describe **respondents**, whose ratings cover roughly 1–10% of transactions, with uneven collection. Comment themes describe available comments, not every negative experience. Twelve months cannot separate seasonality; association cannot establish causes. Intervals express sampling uncertainty, not all collection, mapping, privacy or model error.
-
-**ChatGPT/Codex** supported discovery, research, the initial design and stages 1–2; **Claude Code** orchestrated the pilot, privacy changes, analysis workstreams and first report draft. **ChatGPT/Codex then took over orchestration and delegated final classification, analysis and reporting.** Checks included source reconciliation, blinded AI comparison, rating-band agreement, sensitivity analysis, tests and reproduction. Review caught a revenue join dropping empty-feedback months, over-broad name redaction, and a cache key missing changed department context; these were corrected. Budget and model choices stayed with the user.
-
-**TODO(user):** confirm exact tools used in the earliest discovery/stages 1–2; add 2–3 representative prompts/interactions, a rejected AI suggestion, and what you personally reviewed or kept outside delegation.
-
-Detailed journey: [PROJECT.md](PROJECT.md). Reproducible methods and aggregate tables: [analysis](analysis/README.md), [results](results/).
+**Claude Code led development**, data foundation/preparation and substantial orchestration. **ChatGPT/Codex supported research, review and final integration/delegation.** Checks caught a revenue join dropping empty-feedback months, excessive name masking and a cache key missing department context. [Project approach](docs/PROJECT.md) explains the work; [methods](docs/METHODS.md) explain verification.

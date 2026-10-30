@@ -1,6 +1,6 @@
-"""Stage-three AI pilot: frozen inputs, sample splits, labelling and scoring.
+"""Internal controls for the frozen classifier comparison and reference study.
 
-Only the redacted, allowlisted stage-two export is read. The untouched test
+Only the redacted, allowlisted export is read. The untouched test
 split is drawn first, before any comment text is inspected, and split files
 record identifiers and hashes, never comment text.
 """
@@ -8,11 +8,11 @@ record identifiers and hashes, never comment text.
 from collections import Counter
 import hashlib
 import json
-import math
 from pathlib import Path
 import random
 
 from .classifier import CONFIGS, OVERALL, POLARITY, TAXONOMY, THEMES, Budget, cached_rows, run_config
+from .evaluation import band_agreement, rating_band, wilson
 from .pilot import PilotError
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -116,7 +116,7 @@ def split_records(root=ROOT, split="design"):
     try:
         manifest = json.loads(manifest_path(root).read_text(encoding="utf-8"))
     except OSError as exc:
-        raise PilotError("No split manifest; run `python -m kestrel pilot-sample` first") from exc
+        raise PilotError("No frozen split manifest is available for this evaluation study") from exc
     if split not in manifest["splits"]:
         raise PilotError(f"Unknown split: {split}")
     by_id = {r["event_id"]: r for r in records}
@@ -133,27 +133,6 @@ def manifest_sha256(root=ROOT):
 # ---------------------------------------------------------------- labelling
 
 LABEL_SPLITS = ("calibration", "test")
-
-
-def write_label_sheet(root=ROOT, split="calibration"):
-    """A self-contained offline page: comment text and department only, no ratings or predictions."""
-    if split not in LABEL_SPLITS:
-        raise PilotError(f"Human labels are collected only for {', '.join(LABEL_SPLITS)}")
-    records = split_records(root, split)
-    data = {"split": split, "manifest_sha256": manifest_sha256(root),
-            "taxonomy_version": TAXONOMY["taxonomy_version"],
-            "overall": TAXONOMY["overall_sentiment"],
-            "themes": {k: {"label": t["label"], "definition": t["definition"]} for k, t in TAXONOMY["themes"].items()},
-            "records": [{"event_id": r["event_id"], "text_sha256": r["text_sha256"],
-                         "text": r["text"], "department": r["department"]} for r in records]}
-    # Escaping "<" keeps comment text from closing the script element.
-    payload = json.dumps(data, ensure_ascii=False).replace("<", "\\u003c")
-    template = (Path(__file__).parent / "label_sheet.html").read_text(encoding="utf-8")
-    path = Path(root) / PILOT_DIR / "labelling" / f"{split}.html"
-    path.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
-    path.write_text(template.replace("__DATA__", payload), encoding="utf-8")
-    path.chmod(0o600)
-    return path
 
 
 def validate_labels(value, records, expected_manifest):
@@ -249,7 +228,7 @@ def run_pilot_configs(names, split, root=ROOT, cap_usd=10.0, workers=4):
     if split == "test":
         frozen_path = Path(root) / PILOT_DIR / "frozen_config.json"
         if not frozen_path.exists():
-            raise PilotError("The test split stays untouched until `pilot-freeze` records the comparison")
+            raise PilotError("The test split stays untouched until the comparison is frozen")
         frozen = json.loads(frozen_path.read_text(encoding="utf-8"))
         for name in names:
             if frozen["configs"].get(name, {}).get("fingerprint") != CONFIGS[name].fingerprint():
@@ -263,15 +242,6 @@ def run_pilot_configs(names, split, root=ROOT, cap_usd=10.0, workers=4):
 
 
 # ------------------------------------------------------------------ scoring
-
-def wilson(successes, n, z=1.96):
-    if n == 0:
-        return (None, None)
-    p = successes / n
-    centre = (p + z * z / (2 * n)) / (1 + z * z / n)
-    half = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / (1 + z * z / n)
-    return (round(centre - half, 3), round(centre + half, 3))
-
 
 def prf(tp, fp, fn):
     precision = tp / (tp + fp) if tp + fp else None
@@ -308,7 +278,7 @@ def bootstrap_ci(gold_sets, pred_sets, reps=1000, seed=SEED):
 
 
 def score(rows, gold):
-    """Score one configuration against human labels. Failures count as empty predictions."""
+    """Score one configuration against reference labels. Failures count as empty predictions."""
     by_id = {row["event_id"]: row for row in rows}
     ids = sorted(gold)
     preds = [by_id.get(i) for i in ids]
@@ -367,7 +337,7 @@ def select(scores):
 
 
 def write_scorecard(split, names, root=ROOT):
-    """Score saved results against human labels; makes no model calls."""
+    """Score saved results against reference labels; makes no model calls."""
     gold = load_labels(root, split)
     records = split_records(root, split)
     cache_dir = Path(root) / PILOT_DIR / "cache"
@@ -515,52 +485,6 @@ def run_adjudication(file_a, file_b, file_adjudication, root=ROOT, split="test")
 
 
 # ------------------------------------------------------ model-free check
-
-def rating_band(value, scale, kind, direction):
-    """Band a native rating on the oriented (higher-is-better) scale: bottom-2/top-2 box on 5 points.
-
-    Unlabelled scales are treated as higher-is-better (analysis decision D1); explicit reversed
-    legends are honoured. Ratings are read locally and never sent to a model.
-    """
-    if value is None:
-        return None
-    oriented = scale + 1 - value if direction == "low_is_good" else value
-    if scale == 3:
-        return {1: "negative", 2: "neutral", 3: "positive"}[oriented]
-    five = math.ceil(oriented / 2) if scale == 10 else oriented
-    return "negative" if five <= 2 else "neutral" if five == 3 else "positive"
-
-
-def band_agreement(records, rows, database):
-    """Compare predicted overall sentiment with each customer's rating band (no reference labels involved)."""
-    import sqlite3
-    rows = {r["event_id"]: r for r in rows}
-    db = sqlite3.connect(f"file:{Path(database)}?mode=ro", uri=True)
-    try:
-        ratings = {e: (v, s, k, d, path) for e, v, s, k, d, path in db.execute(
-            """SELECT e.event_id, e.rating_value, e.rating_scale_max, e.rating_kind, e.rating_direction, f.path
-               FROM feedback_events e JOIN source_observations o ON o.observation_id = e.canonical_observation_id
-               JOIN source_files f USING(source_id)""")}
-    finally:
-        db.close()
-    pairs, by_source = Counter(), {}
-    for record in records:
-        row = rows.get(record["event_id"])
-        value, scale, kind, direction, path = ratings[record["event_id"]]
-        band = rating_band(value, scale, kind, direction)
-        predicted = row["labels"]["overall_sentiment"] if row and row["status"] == "ok" else "failed"
-        pairs[(band or "no_rating", predicted)] += 1
-        source = by_source.setdefault(Path(path).stem, Counter())
-        if band in ("positive", "negative") and predicted in ("positive", "negative"):
-            source["comparable"] += 1
-            source["agree"] += band == predicted
-    comparable = sum(n for (b, p), n in pairs.items() if b in ("positive", "negative") and p in ("positive", "negative"))
-    agree = sum(n for (b, p), n in pairs.items() if b == p and b in ("positive", "negative"))
-    return {"comparable": comparable, "agree": agree,
-            "agreement": round(agree / comparable, 3) if comparable else None, "agreement_ci": wilson(agree, comparable),
-            "pairs": {f"{b}->{p}": n for (b, p), n in sorted(pairs.items())},
-            "disagreeing_sources": {s: dict(c) for s, c in sorted(by_source.items()) if c["comparable"] > c["agree"]}}
-
 
 def rating_agreement(config_name, split="test", root=ROOT):
     records = split_records(root, split)

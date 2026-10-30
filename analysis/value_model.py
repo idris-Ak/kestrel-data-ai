@@ -8,7 +8,7 @@ Standard library only; opens the prepared database read-only and applies kestrel
         [--rates results/metrics/neg_rate_dealer_dept.csv] \
         [--theme-shares results/themes/theme_shares.csv] [--draws 4000] [--seed 20261030] [--min-n 30]
 
-Chain per dealer x department cell (all assumptions documented in assumptions.md):
+Chain per dealer x department cell (assumptions: docs/METHODS.md):
     avoidable negatives = annual activity x max(0, negative rate - target) x representativeness
     customers lost      = avoidable negatives x P(negative experience loses the customer's business)
     revenue at risk     = customers lost x one year of that customer's spend   (revenue, not profit)
@@ -169,15 +169,6 @@ def compare_rates(rates, db_rates):
     if not all(r['match'] for r in rows):
         raise ValueError('Rates file does not match this prepared database and analysis policy')
     return rows
-
-
-def write_rates_csv(path, rates):
-    rows = []
-    for (d, dep), (n, k) in sorted(rates.items(), key=lambda x: (x[0][0], x[0][1])):
-        lo, hi = wilson(k, n)
-        rows.append({'dealer_code': d, 'department': dep, 'n': fmt_count(n), 'negative': fmt_count(k),
-                     'rate': round(k / n, 4), 'ci_low': round(lo, 4), 'ci_high': round(hi, 4)})
-    write_csv(path, rows, RATES_COLUMNS)
 
 
 def fmt_count(x):
@@ -369,7 +360,7 @@ def sensitivity(dealers, business, rates, alt_rates, min_n):
     return rows
 
 
-# ---------------------------------------------------------------- theme split (stage 4 hook)
+# ---------------------------------------------------------------- theme allocation
 
 def read_shares(shares_path):
     dept_sets, dealer_sets, dealer_n = {}, {}, {}
@@ -407,7 +398,7 @@ def lever_split(dept_rows, shares_path):
 
 
 def theme_split(cells, values, shares_path):
-    """Split each cell's opportunity by stage-4 theme shares of negative comments.
+    """Split each cell's opportunity by theme shares of negative comments.
 
     Input columns: department, theme, share, [dealer_code], [n_negative_text]. A dealer-specific share set is
     used when its n_negative_text >= THEME_MIN_N (or n is not given); otherwise the department set. Multi-label
@@ -471,7 +462,7 @@ def main():
     ap.add_argument('--policy', default=str(REPO / 'kestrel/analysis_policy.sql'))
     ap.add_argument('--out', default=str(REPO / 'results/value'))
     ap.add_argument('--rates', help='drop-in rates CSV (dealer_code,department,n,negative,rate,ci_low,ci_high)')
-    ap.add_argument('--theme-shares', help='stage-4 theme shares CSV (see theme_split docstring)')
+    ap.add_argument('--theme-shares', help='fractional theme shares CSV (see theme_split docstring)')
     ap.add_argument('--draws', type=int, default=4000)
     ap.add_argument('--seed', type=int, default=20261030)
     ap.add_argument('--min-n', type=int, default=30)
@@ -483,13 +474,11 @@ def main():
     dealers, monthly, business = load_business(con)
     checks = business_checks(dealers, monthly, business)
     db_rates = compute_rates(con)
-    write_rates_csv(out / 'neg_rate_dealer_dept.csv', db_rates)
 
     rates, rate_source, comparison = db_rates, 'computed from DB with policy.sql', []
     if a.rates:
         rates, rate_source = read_rates_csv(a.rates), Path(a.rates).name
         comparison = compare_rates(rates, db_rates)
-        write_csv(out / 'rates_comparison.csv', comparison)
     if any(k not in business for k in rates):
         print('warning: rates rows without business data ignored:', [k for k in rates if k not in business])
 
@@ -596,14 +585,7 @@ def main():
     sens = sensitivity(dealers, business, rates, alt_rates, a.min_n)
     write_csv(out / 'sensitivity.csv', sens)
 
-    # theme-ready table and optional split
-    theme_ready = [{'dealer_code': r['dealer_code'], 'department': r['department'],
-                    'negative_responses': r['negative'], 'avoidable_negatives_median_base': r['avoidable_negatives_median_base'],
-                    'rar_median_low': r['rar_median_low'], 'rar_median_base': r['rar_median_base'], 'rar_median_high': r['rar_median_high'],
-                    'rar_bq_base': r['rar_bq_base']} for r in rows if r['eligible']]
-    write_csv(out / 'opportunity_theme_ready.csv', theme_ready)
-    write_csv(out / 'theme_shares_template.csv',
-              [{'department': dep, 'theme': 'example_theme', 'share': '', 'dealer_code': '', 'n_negative_text': ''} for dep in DEPARTMENTS])
+    # optional theme allocation
     if a.theme_shares:
         vals = [{k: r[k] for k in ('rar_median_low', 'rar_median_base', 'rar_median_high', 'rar_bq_base')} for r in rows]
         split = theme_split(cells, vals, a.theme_shares)

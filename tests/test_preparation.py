@@ -1,7 +1,7 @@
-"""Stage-two controls and adversarial fixtures; originals are never edited.
+"""Complete-preparation controls and adversarial fixtures; originals are never edited.
 
-Population controls come from the archived discovery audit, independently of
-the production registry. Failure fixtures use temporary files or in-memory
+Population controls were frozen independently of the production registry.
+Failure fixtures use temporary files or in-memory
 workbooks. Assertions avoid displaying real customer content.
 """
 from copy import deepcopy

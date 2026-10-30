@@ -1,4 +1,4 @@
-"""Stage-four run classification. Synthetic run directory; keyword config only, no network."""
+"""Prepared-run classification. Synthetic run directory; keyword config only, no network."""
 import hashlib
 import json
 from pathlib import Path

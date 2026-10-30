@@ -1,12 +1,12 @@
 {
   "db": "prepared.sqlite",
-  "db_sha256": "7c4aa876a8847b8ffd02c828dc70a0bf9f6598b9ce19a62c71e2ec78e568d805",
+  "db_sha256": "cee543a396b817b86ae912bba66d34a908e67eed79752c22649378890f8ba31e",
   "policy_sha256": "949cad9a813ffad9e7a542c6444815f8758033b636b5733164ae925228c1e1d5",
   "run_metadata": {
     "input_snapshot": "6a48c384afbd1a19b711dd90a4796e4c1d8774ded8084afefba9e97c6772c1fc",
     "parser_version": "2.0.0",
     "redaction_version": "rules-3",
-    "run_id": "7527f3dab3ebfec24a944876a111691d886aec577c5a9444cbdcd01448aa00e7",
+    "run_id": "672c7049a03c6421dfc03aab9d3a2528f200f4b9c8a262fe70090e985e2078d7",
     "schema_version": "2"
   },
   "comparison_set": {
@@ -21,20 +21,14 @@
   "files": {
     "neg_rate_department.csv": "negative rate by department (primary set, Noosa excluded)",
     "neg_rate_dealer.csv": "negative rate by dealer, raw and department-adjusted (observed/expected at group department rates); rank 1 = worst",
-    "neg_rate_dealer_dept.csv": "dealer x department negative rate, all 24 dealers incl. Noosa and n<30 cells (fixed columns for the value workstream; filter n>=30, drop QLD05)",
-    "neg_rate_dealer_dept_detail.csv": "same cells with precision, ranking within department and flags",
-    "neg_rate_region_state.csv": "by state and region, all departments and each department (Noosa excluded)",
+    "neg_rate_dealer_dept.csv": "dealer x department negative rate, all 24 dealers incl. Noosa and n<30 cells (value-model input; filter n>=30, drop QLD05)",
     "series_month_department.csv": "monthly negative rate by department and All (Noosa excluded)",
-    "series_quarter_department.csv": "quarterly negative rate by department and All (Noosa excluded)",
     "series_month_dealer.csv": "monthly negative rate and 5-point mean rating by dealer (all dealers)",
-    "series_quarter_dealer.csv": "quarterly negative rate and 5-point mean rating by dealer (all dealers)",
     "change_h1_h2_dealer_dept.csv": "H1 (Oct-Mar) vs H2 (Apr-Sep) within dealer x department: Wilson CIs, Newcombe CI for the difference, pooled z-test, BH q over tested cells (n>=30 both halves), monthly Cochran-Armitage trend, contribution to the mix-adjusted group change (pp)",
     "change_h1_h2_summary.csv": "H1 vs H2 raw and mix-adjusted change: group (fixed dealer x dept mix), department (fixed dealer mix), state/region, dealer (fixed dept mix; BH q across dealers)",
-    "movers.csv": "cells and dealers with p<0.05 for H1 vs H2, tiered by Benjamini-Hochberg q",
     "sensitivity.csv": "each headline under each sensitivity scenario, with survives yes/NO",
     "text_coverage_dealer.csv": "text and model-eligible coverage by dealer; negative vs non-negative comment rates (individual responses only)",
     "text_coverage_band.csv": "comment and model-eligible share by rating band and department (Noosa excluded)",
-    "text_coverage_dealer_dept.csv": "theme base: model-eligible negative responses per dealer x department",
     "response_coverage_dealer_dept.csv": "rated responses per 1,000 sales/service jobs/parts transactions by dealer x department and half (coverage indicator only)",
     "reconciliation.csv": "reconciliation checks (script raises on FAIL)"
   }

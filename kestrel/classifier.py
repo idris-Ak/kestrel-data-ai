@@ -25,13 +25,11 @@ OVERALL = tuple(TAXONOMY["overall_sentiment"])
 POLARITY = ("positive", "negative")
 PROMPT_VERSION = "prompt-2"
 
-# USD per million tokens, standard uncached rates checked 30 October 2026.
+# USD per million tokens, at the delivered run's standard uncached rates.
 PRICES = {
     "claude-haiku-5-5": (0.10, 0.50),
     "claude-sonnet-5-5": (2.00, 10.00),
     "claude-opus-5-5": (4.00, 20.00),
-    "gpt-6-luna": (0.10, 0.50),
-    "gpt-6.1-sol": (2.00, 10.00),
 }
 MAX_OUTPUT_TOKENS = 2000
 # Generous per-request input bound used only to reserve budget before a call.
@@ -58,7 +56,6 @@ CONFIGS = {c.name: c for c in (
     Config("haiku-5.5", "anthropic", "claude-haiku-5-5", "low"),
     Config("sonnet-5.5", "anthropic", "claude-sonnet-5-5", "low"),
     Config("opus-5.5", "anthropic", "claude-opus-5-5", "low"),
-    Config("luna", "openai", "gpt-6-luna", "low"),
 )}
 
 OUTPUT_SCHEMA = {
@@ -231,31 +228,8 @@ def call_anthropic(config, record):
     return text, usage, None
 
 
-def call_openai(config, record):
-    import openai
-
-    client = openai.OpenAI(max_retries=2)
-    try:
-        response = client.responses.create(
-            model=config.model,
-            instructions=SYSTEM_PROMPT,
-            input=user_message(record),
-            reasoning={"effort": config.effort},
-            max_output_tokens=MAX_OUTPUT_TOKENS,
-            store=False,
-            text={"format": {"type": "json_schema", "name": "feedback_labels",
-                             "schema": OUTPUT_SCHEMA, "strict": True}},
-        )
-    except (openai.RateLimitError, openai.APIConnectionError, openai.InternalServerError) as exc:
-        raise TransientError(type(exc).__name__) from exc
-    usage = {"input_tokens": response.usage.input_tokens, "output_tokens": response.usage.output_tokens}
-    if response.status == "incomplete":
-        return None, usage, "incomplete"
-    return response.output_text, usage, None
-
-
-PROVIDERS = {"anthropic": call_anthropic, "openai": call_openai}
-CREDENTIALS = {"anthropic": "ANTHROPIC_API_KEY", "openai": "OPENAI_API_KEY"}
+PROVIDERS = {"anthropic": call_anthropic}
+CREDENTIALS = {"anthropic": "ANTHROPIC_API_KEY"}
 
 
 def cost_usd(model, usage):

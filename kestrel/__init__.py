@@ -1,3 +1,3 @@
-"""Kestrel stage-one data foundation. No model or external data service calls."""
+"""Source-traceable feedback preparation, classification and analysis."""
 
 __version__ = "0.1.0"

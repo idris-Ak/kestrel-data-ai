@@ -1,4 +1,4 @@
-"""Deterministic local import, reconciliation and reporting for stage one."""
+"""Shared source/reference readers and independent subset regression controls."""
 
 from collections import defaultdict
 from dataclasses import dataclass
@@ -497,8 +497,8 @@ DEMO_QUERIES = {
 
 
 def write_summary(db, path, checks):
-    lines = ["# Stage 1 — Data foundation pilot", "", "Status: built and reconciled; awaiting user confirmation before stage two.", "",
-             "Eight feedback files and both reference tables. Counts describe this pilot, not unique customers or group-wide feedback coverage.", "",
+    lines = ["# Source-reader regression summary", "", "Status: built and reconciled.", "",
+             "Eight feedback files and both reference tables. Counts describe this regression subset, not unique customers or group-wide feedback coverage.", "",
              "## Source reconciliation", "", "| Source | Individual observations | Retained events | Version copies | Aggregate source rows |",
              "|---|---:|---:|---:|---:|"]
     query = """SELECT f.path,
@@ -529,14 +529,14 @@ def write_summary(db, path, checks):
               "- Aggregate ratings remain separate weighted buckets; missing comments still permit valid ratings.",
               "- Business-context joins retain all business rows. Unavailable pilot feedback is NULL, not zero complaints.",
               "- Department aliases are explicit; New Cars, Used Cars and parts subtypes retain their original context.",
-              "- The SQLite database contains raw source fields and comments locally. Redaction and AI preparation belong to stage two; this report includes no customer text or contacts.", ""]
+              "- The local regression database contains raw source fields and comments. The complete preparation command applies redaction; this summary includes no customer text or contacts.", ""]
     for row in db.execute("SELECT rule_id,severity,COUNT(*) n FROM quality_issues GROUP BY rule_id,severity ORDER BY rule_id"):
         lines.append(f"- Issue `{row['rule_id']}` ({row['severity']}): {row['n']} record(s). Details and source locations are in `quality_issues`.")
     lines += ["", "## Query examples", "", "Open `pilot.sqlite` locally. These views return counts and business amounts without customer text.", ""]
     for label, query in DEMO_QUERIES.items():
         lines += [f"**{label}**", "", "```sql", query + ";", "```", ""]
     lines += ["Source hashes, profiles, notes and structural rows: `source_files`. Original row values and event links: `source_observations`. Data snapshot and schema/runtime versions: `run_metadata`.",
-              "", "Run: `uv run --locked python -m kestrel pilot`. Tests: `uv run --locked python -m unittest discover -s tests -v`.", ""]
+              "", "Run these controls with `uv run --locked python -m unittest discover -s tests -v`.", ""]
     path.write_text("\n".join(lines), encoding="utf-8")
 
 

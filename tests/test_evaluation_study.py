@@ -1,4 +1,4 @@
-"""Stage-three AI pilot controls. Synthetic comments only; no network calls.
+"""Frozen evaluation study controls. Synthetic comments only; no network calls.
 
 A temporary project root holds a synthetic frozen export, so the real
 customer data and outputs are never read or written by these tests.
@@ -12,7 +12,7 @@ from tempfile import TemporaryDirectory
 import unittest
 from unittest.mock import patch
 
-from kestrel import ai_pilot, classifier
+from kestrel import evaluation_study as study, classifier
 from kestrel.classifier import (CONFIGS, Budget, Config, classify_one, classify_rules,
                                 run_config, validate_output)
 from kestrel.pilot import PilotError
@@ -40,11 +40,11 @@ class SyntheticRoot:
         test_case.addCleanup(self.temporary.cleanup)
         self.root = Path(self.temporary.name)
         self.records = records or synthetic_records()
-        path = self.root / ai_pilot.FROZEN_RUN / "model_input.jsonl"
+        path = self.root / study.FROZEN_RUN / "model_input.jsonl"
         path.parent.mkdir(parents=True)
         payload = "".join(json.dumps(r) + "\n" for r in self.records).encode()
         path.write_bytes(payload)
-        patcher = patch.object(ai_pilot, "FROZEN_INPUT_SHA256", hashlib.sha256(payload).hexdigest())
+        patcher = patch.object(study, "FROZEN_INPUT_SHA256", hashlib.sha256(payload).hexdigest())
         patcher.start()
         test_case.addCleanup(patcher.stop)
 
@@ -57,45 +57,45 @@ def good_output(text, theme="timeliness", sentiment="negative", evidence="waited
 class SplitTests(unittest.TestCase):
     def test_splits_are_disjoint_deterministic_and_meet_quotas(self):
         records = synthetic_records()
-        first, second = ai_pilot.draw_splits(records), ai_pilot.draw_splits(list(reversed(records)))
+        first, second = study.draw_splits(records), study.draw_splits(list(reversed(records)))
         self.assertEqual({k: [r["event_id"] for r in v] for k, v in first.items()},
                          {k: [r["event_id"] for r in v] for k, v in second.items()})
         ids = [r["event_id"] for rows in first.values() for r in rows]
         self.assertEqual(len(ids), len(set(ids)))
-        self.assertEqual(len(first["test"]), ai_pilot.TEST_SIZE)
-        self.assertEqual(Counter(r["department"] for r in first["calibration"]), Counter(ai_pilot.CALIBRATION_QUOTAS))
+        self.assertEqual(len(first["test"]), study.TEST_SIZE)
+        self.assertEqual(Counter(r["department"] for r in first["calibration"]), Counter(study.CALIBRATION_QUOTAS))
 
     def test_test_split_is_drawn_before_and_independent_of_calibration_design(self):
         records = synthetic_records()
-        baseline = [r["event_id"] for r in ai_pilot.draw_splits(records)["test"]]
-        with patch.object(ai_pilot, "CALIBRATION_QUOTAS", {"Service": 1, "Sales": 1, "Parts": 1, None: 1}), \
-             patch.object(ai_pilot, "DESIGN_SIZE", 5):
-            changed = [r["event_id"] for r in ai_pilot.draw_splits(records)["test"]]
+        baseline = [r["event_id"] for r in study.draw_splits(records)["test"]]
+        with patch.object(study, "CALIBRATION_QUOTAS", {"Service": 1, "Sales": 1, "Parts": 1, None: 1}), \
+             patch.object(study, "DESIGN_SIZE", 5):
+            changed = [r["event_id"] for r in study.draw_splits(records)["test"]]
         self.assertEqual(baseline, changed)
 
     def test_manifest_holds_ids_and_hashes_but_no_comment_text(self):
         setup = SyntheticRoot(self)
-        manifest, created = ai_pilot.run_sample(setup.root)
+        manifest, created = study.run_sample(setup.root)
         self.assertTrue(created)
-        text = ai_pilot.manifest_path(setup.root).read_text()
+        text = study.manifest_path(setup.root).read_text()
         self.assertNotIn("Synthetic comment", text)
         self.assertEqual(manifest["counts"], {"test": 100, "calibration": 20, "design": 80})
-        self.assertFalse(ai_pilot.run_sample(setup.root)[1])
+        self.assertFalse(study.run_sample(setup.root)[1])
 
     def test_changed_export_is_refused(self):
         setup = SyntheticRoot(self)
-        path = setup.root / ai_pilot.FROZEN_RUN / "model_input.jsonl"
+        path = setup.root / study.FROZEN_RUN / "model_input.jsonl"
         path.write_bytes(path.read_bytes() + b"\n")
         with self.assertRaisesRegex(PilotError, "hash differs"):
-            ai_pilot.load_frozen_input(setup.root)
+            study.load_frozen_input(setup.root)
 
     def test_frozen_files_cannot_be_silently_rewritten(self):
         with TemporaryDirectory() as folder:
             path = Path(folder) / "frozen.json"
-            self.assertTrue(ai_pilot.write_frozen(path, {"a": 1}))
-            self.assertFalse(ai_pilot.write_frozen(path, {"a": 1}))
+            self.assertTrue(study.write_frozen(path, {"a": 1}))
+            self.assertFalse(study.write_frozen(path, {"a": 1}))
             with self.assertRaisesRegex(PilotError, "frozen"):
-                ai_pilot.write_frozen(path, {"a": 2})
+                study.write_frozen(path, {"a": 2})
 
 
 class OutputValidationTests(unittest.TestCase):
@@ -240,66 +240,53 @@ class RunnerTests(unittest.TestCase):
 class LabelAndScoringTests(unittest.TestCase):
     def setUp(self):
         self.setup = SyntheticRoot(self)
-        ai_pilot.run_sample(self.setup.root)
+        study.run_sample(self.setup.root)
 
     def export(self, split="calibration", **changes):
-        records = ai_pilot.split_records(self.setup.root, split)
+        records = study.split_records(self.setup.root, split)
         labels = [{"event_id": r["event_id"], "text_sha256": r["text_sha256"], "overall_sentiment": "mixed",
                    "themes": [{"theme": "timeliness", "sentiment": "negative"}],
                    "other": False, "privacy_issue": False, "not_english": False, "note": ""} for r in records]
-        value = {"label_format": 1, "split": split, "manifest_sha256": ai_pilot.manifest_sha256(self.setup.root),
+        value = {"label_format": 1, "split": split, "manifest_sha256": study.manifest_sha256(self.setup.root),
                  "taxonomy_version": classifier.TAXONOMY["taxonomy_version"], "reviewer": "test", "labels": labels}
         value.update(changes)
         path = self.setup.root / f"export-{split}.json"
         path.write_text(json.dumps(value))
         return path, value
 
-    def test_label_sheet_is_offline_and_escapes_markup(self):
-        records = synthetic_records()
-        records[0]["text"] = "</script><img src=x onerror=alert(1)>"
-        records[0]["text_sha256"] = hashlib.sha256(records[0]["text"].encode()).hexdigest()
-        setup = SyntheticRoot(self, records)
-        ai_pilot.run_sample(setup.root)
-        page = ai_pilot.write_label_sheet(setup.root, "test").read_text()
-        self.assertNotIn("</script><img", page)
-        self.assertIn("default-src 'none'", page)
-        self.assertNotIn("rating", json.dumps(json.loads(page.split("const DATA = ")[1].split(";\nconst KEY")[0])))
-        with self.assertRaisesRegex(PilotError, "only for"):
-            ai_pilot.write_label_sheet(setup.root, "design")
-
     def test_valid_labels_import_once(self):
         path, _ = self.export()
-        target, value = ai_pilot.import_labels(path, self.setup.root)
+        target, value = study.import_labels(path, self.setup.root)
         self.assertEqual(len(value["labels"]), 20)
-        self.assertEqual(len(ai_pilot.load_labels(self.setup.root, "calibration")), 20)
+        self.assertEqual(len(study.load_labels(self.setup.root, "calibration")), 20)
 
     def test_mismatched_or_incomplete_labels_are_rejected(self):
         path, value = self.export(manifest_sha256="0" * 64)
         with self.assertRaisesRegex(PilotError, "different split manifest"):
-            ai_pilot.import_labels(path, self.setup.root)
+            study.import_labels(path, self.setup.root)
         path, value = self.export()
         value["labels"] = value["labels"][:-1]
         value["labels"][0]["overall_sentiment"] = None
         path.write_text(json.dumps(value))
         with self.assertRaisesRegex(PilotError, "exactly the split|overall sentiment missing"):
-            ai_pilot.import_labels(path, self.setup.root)
+            study.import_labels(path, self.setup.root)
 
     def test_test_split_requires_a_frozen_unchanged_comparison(self):
         with self.assertRaisesRegex(PilotError, "untouched"):
-            ai_pilot.run_pilot_configs(["rules"], "test", self.setup.root)
-        ai_pilot.freeze_comparison(["rules"], self.setup.root)
-        results, spent = ai_pilot.run_pilot_configs(["rules"], "test", self.setup.root)
+            study.run_pilot_configs(["rules"], "test", self.setup.root)
+        study.freeze_comparison(["rules"], self.setup.root)
+        results, spent = study.run_pilot_configs(["rules"], "test", self.setup.root)
         self.assertEqual((len(results["rules"]), spent), (100, 0.0))
         with self.assertRaisesRegex(PilotError, "not in the frozen comparison"):
-            ai_pilot.run_pilot_configs(["haiku-5.5"], "test", self.setup.root)
+            study.run_pilot_configs(["haiku-5.5"], "test", self.setup.root)
 
     def test_scorecard_scores_saved_results_without_comment_text(self):
         path, _ = self.export()
-        ai_pilot.import_labels(path, self.setup.root)
-        ai_pilot.run_pilot_configs(["rules"], "calibration", self.setup.root)
-        report = ai_pilot.write_scorecard("calibration", ["rules"], self.setup.root)
+        study.import_labels(path, self.setup.root)
+        study.run_pilot_configs(["rules"], "calibration", self.setup.root)
+        report = study.write_scorecard("calibration", ["rules"], self.setup.root)
         self.assertEqual(report["scores"]["rules"]["n"], 20)
-        page = (self.setup.root / ai_pilot.PILOT_DIR / "scorecard_calibration.md").read_text()
+        page = (self.setup.root / study.PILOT_DIR / "scorecard_calibration.md").read_text()
         self.assertIn("| rules | 20/20 |", page)
         self.assertNotIn("Synthetic comment", page)
 
@@ -311,7 +298,7 @@ class LabelAndScoringTests(unittest.TestCase):
                      {"theme": "timeliness", "sentiment": "negative", "evidence": "x"},
                      {"theme": "billing", "sentiment": "negative", "evidence": "y"}]}},
                 {"event_id": "b", "status": "failed", "cost_usd": 0.01, "usage": {}, "seconds": 1.0, "labels": None}]
-        result = ai_pilot.score(rows, gold)
+        result = study.score(rows, gold)
         self.assertEqual((result["coverage"], result["failures"], result["overall_accuracy"]), (1, 1, 0.5))
         self.assertEqual(result["negative_theme_micro_f1"], round(2 * 1 / (2 * 1 + 1 + 0), 3))
         self.assertEqual(result["theme_sentiment_micro_f1"], 0.5)
@@ -322,22 +309,22 @@ class LabelAndScoringTests(unittest.TestCase):
         _, b = self.export("test")
         b["labels"][0]["overall_sentiment"] = "negative"
         b["labels"][1]["themes"] = [{"theme": "timeliness", "sentiment": "positive"}]
-        result = ai_pilot.agreement(a, b)
+        result = study.agreement(a, b)
         self.assertEqual(len(result["disagreements"]), 2)
         self.assertEqual(result["disagreements"][0]["fields"] if result["disagreements"][0]["event_id"] == a["labels"][0]["event_id"]
                          else result["disagreements"][1]["fields"], ["overall_sentiment"])
         self.assertLess(result["overall_kappa"], 1.0)
         disputed = [d["event_id"] for d in result["disagreements"]]
         decision = {"reviewer": "adjudicator", "labels": [{"event_id": i, "overall_sentiment": "neutral", "themes": []} for i in disputed]}
-        merged = ai_pilot.adjudicate(a, b, decision)
+        merged = study.adjudicate(a, b, decision)
         sources = Counter(label["reference_source"] for label in merged["labels"])
         self.assertEqual(sources, Counter(annotators_agreed=98, adjudicated=2))
         self.assertIn("Not human labels", merged["reviewer"])
         with self.assertRaisesRegex(PilotError, "exactly the 2 disputed"):
-            ai_pilot.adjudicate(a, b, {"labels": decision["labels"][:1]})
+            study.adjudicate(a, b, {"labels": decision["labels"][:1]})
 
     def test_rating_bands_follow_scale_and_direction(self):
-        band = ai_pilot.rating_band
+        band = study.rating_band
         self.assertEqual([band(v, 5, "numeric", "unspecified") for v in (1, 2, 3, 4, 5)],
                          ["negative", "negative", "neutral", "positive", "positive"])
         self.assertEqual(band(1, 5, "numeric", "low_is_good"), "positive", "explicit reversed legend honoured")
@@ -347,21 +334,21 @@ class LabelAndScoringTests(unittest.TestCase):
         self.assertIsNone(band(None, 5, "numeric", "unspecified"))
 
     def test_kappa_known_values(self):
-        self.assertEqual(ai_pilot.cohen_kappa(list("aabb"), list("abab")), 0.0)
-        self.assertEqual(ai_pilot.cohen_kappa(list("aabb"), list("aabb")), 1.0)
-        self.assertEqual(ai_pilot.cohen_kappa(list("aaab"), list("aabb")), 0.5)
+        self.assertEqual(study.cohen_kappa(list("aabb"), list("abab")), 0.0)
+        self.assertEqual(study.cohen_kappa(list("aabb"), list("aabb")), 1.0)
+        self.assertEqual(study.cohen_kappa(list("aaab"), list("aabb")), 0.5)
 
     def test_wilson_interval_and_selection_rule(self):
-        self.assertEqual(ai_pilot.wilson(85, 100), (0.767, 0.907))
+        self.assertEqual(study.wilson(85, 100), (0.767, 0.907))
         base = {"n": 100, "failures": 0, "overall_accuracy": 0.90, "negative_theme_micro_f1": 0.80}
         scores = {"rules": {**base, "cost_usd": 0.0},
                   "big": {**base, "overall_accuracy": 0.93, "negative_theme_micro_f1": 0.84, "cost_usd": 1.0},
                   "small": {**base, "cost_usd": 0.02},
                   "flaky": {**base, "failures": 5, "cost_usd": 0.001}}
-        chosen, verdict = ai_pilot.select(scores)
+        chosen, verdict = study.select(scores)
         self.assertEqual((chosen, verdict), ("small", "meets acceptance targets"))
         self_eval = {**scores, "opus-5.5": {**base, "overall_accuracy": 1.0, "negative_theme_micro_f1": 1.0, "cost_usd": 0.0001}}
-        self.assertEqual(ai_pilot.select(self_eval)[0], "small", "the annotators' own model is never selected")
+        self.assertEqual(study.select(self_eval)[0], "small", "the annotators' own model is never selected")
 
 
 if __name__ == "__main__":

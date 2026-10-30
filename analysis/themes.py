@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Theme drivers of negative feedback (stage 6, Kestrel take-home).
+"""Theme drivers of negative feedback.
 
 Usage:
     python3 -I analysis/themes.py [--db PATH] [--policy PATH] [--labels PATH] [--out DIR]
 
-Joins the stage-4 labels (outputs/classified/<run_id>/labels.jsonl) to kestrel/analysis_policy.sql by
+Joins saved labels (outputs/classified/<run_id>/labels.jsonl) to kestrel/analysis_policy.sql by
 event_id and writes aggregate CSVs only: no comment text, evidence spans or event IDs leave this script.
 
 Primary base: classified comments on rating-negative, comparable responses (Noosa excluded). A theme's
@@ -47,8 +47,8 @@ def sha256(path):
 def verify_label_lineage(db, labels_path, summary_path=None):
     """Bind saved labels to this prepared export without requiring an identical run ID.
 
-    A code/runtime change or the brief migration changes the prepared run ID even
-    when its model input is byte-identical. Content hashes are the replay boundary.
+    Code/runtime changes can alter prepared run identity with byte-identical
+    model input. Content hashes are the replay boundary.
     """
     db, labels_path = Path(db).resolve(), Path(labels_path).resolve()
     summary_path = Path(summary_path or labels_path.with_name("summary.json"))

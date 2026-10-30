@@ -1,9 +1,0 @@
-level,dealer_code,department,n_h1,rate_h1,n_h2,rate_h2,diff,diff_ci_low,diff_ci_high,p_value,q_value_bh,bonferroni_sig,tests_in_family,expected_false_positives_at_p05,trend_p_monthly,direction,tier
-dealer (dept-mix adjusted),VIC01,All,221,0.1513,263,0.3389,0.1876,0.1159,0.2594,0.0,0.0,1,22,1.1,0.0,worse,robust (BH q<0.05)
-dealer (dept-mix adjusted),NSW01,All,235,0.1788,244,0.372,0.1933,0.1175,0.269,0.0,0.0,1,22,1.1,0.0,worse,robust (BH q<0.05)
-dealer (dept-mix adjusted),NSW04,All,155,0.1441,156,0.2897,0.1456,0.0544,0.2369,0.0018,0.0129,1,22,1.1,0.0144,worse,robust (BH q<0.05)
-dealer (dept-mix adjusted),VIC08,All,68,0.1115,76,0.2821,0.1706,0.0383,0.3029,0.0115,0.0632,0,22,1.1,0.0179,worse,suggestive (BH q<0.10)
-dealer_x_department,VIC01,Service,145,0.2,174,0.4655,0.2655,0.163,0.359,0.0,0.0,1,35,1.75,0.0,worse,robust (BH q<0.05)
-dealer_x_department,NSW01,Service,152,0.2303,159,0.4906,0.2603,0.1545,0.3578,0.0,0.0,1,35,1.75,0.0,worse,robust (BH q<0.05)
-dealer_x_department,NSW04,Sales,42,0.0238,38,0.3421,0.3183,0.1547,0.4785,0.0002,0.0021,1,35,1.75,0.0003,worse,robust (BH q<0.05)
-dealer_x_department,VIC08,Service,40,0.15,57,0.3333,0.1833,0.0057,0.3352,0.0421,0.3687,0,35,1.75,0.025,worse,"nominal only (p<0.05, not significant after BH)"

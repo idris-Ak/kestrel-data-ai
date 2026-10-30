@@ -136,6 +136,11 @@ class ValueAllocation(unittest.TestCase):
 
 
 class CommittedResultsAreAggregates(unittest.TestCase):
+    def test_metric_publication_index_matches_saved_tables(self):
+        folder = ROOT / "results/metrics"
+        index = json.loads((folder / "run_info.json").read_text())["files"]
+        self.assertEqual(set(index), {p.name for p in folder.glob("*.csv")})
+
     def test_no_customer_text_or_identifiers(self):
         files = sorted((ROOT / "results").rglob("*.csv"))
         self.assertTrue(files)
