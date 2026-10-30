@@ -99,7 +99,6 @@ def main():
     print(f"Checks: {sum(c['passed'] for c in result['checks'])}/{len(result['checks'])} passed.")
     print(f"Database: {result['database']}")
     print(f"Report: {result['report']}")
-    print(('Stage two' if args.command == 'pilot' else 'Stage three')+' awaits user confirmation.')
     return 0
 
 

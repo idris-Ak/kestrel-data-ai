@@ -1,0 +1,5 @@
+department,n,negative,rate,ci_low,ci_high,share_of_all_negatives,share_of_responses,precision
+Sales,1510,153,0.1013,0.0871,0.1176,0.0959,0.2134,ok
+Service,4867,1330,0.2733,0.2609,0.286,0.8333,0.6877,ok
+Parts,700,113,0.1614,0.136,0.1905,0.0708,0.0989,ok
+All,7077,1596,0.2255,0.2159,0.2354,1.0,1.0,ok

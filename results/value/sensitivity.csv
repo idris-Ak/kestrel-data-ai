@@ -1,0 +1,21 @@
+assumption,setting,value,total_Sales,total_Service,total_Parts,total_All,change_vs_base_pct,top3,top3_same_as_base
+base case,base,,264611,154123,0,418734,0.0,NSW01 Service; QLD04 Sales; VIC05 Sales,True
+representativeness,low,0.5,176407,102749,0,279156,-33.3,NSW01 Service; QLD04 Sales; VIC05 Sales,True
+representativeness,high,1.0,352815,205498,0,558312,33.3,NSW01 Service; QLD04 Sales; VIC05 Sales,True
+p_loss,low,0.1,132305,77062,0,209367,-50.0,NSW01 Service; QLD04 Sales; VIC05 Sales,True
+p_loss,high,0.35,463069,269716,0,732785,75.0,NSW01 Service; QLD04 Sales; VIC05 Sales,True
+service_visits_per_year,low,1.0,264611,102749,0,367360,-12.3,QLD04 Sales; VIC05 Sales; NSW01 Service,False
+service_visits_per_year,high,2.0,264611,205498,0,470109,12.3,NSW01 Service; VIC01 Service; QLD04 Sales,False
+sales_cycle_years,low,7.0,226809,154123,0,380933,-9.0,NSW01 Service; QLD04 Sales; VIC01 Service,False
+sales_cycle_years,high,5.0,317533,154123,0,471657,12.6,QLD04 Sales; VIC05 Sales; NSW01 Service,False
+parts_purchases_per_year,low,1.0,264611,154123,0,418734,-0.0,NSW01 Service; QLD04 Sales; VIC05 Sales,True
+parts_purchases_per_year,high,4.0,264611,154123,0,418734,0.0,NSW01 Service; QLD04 Sales; VIC05 Sales,True
+gap_measure,low,ci_low,57249,74937,0,132185,-68.4,NSW01 Service; QLD04 Sales; VIC01 Service,False
+gap_measure,high,observed,400041,275752,58738,734532,75.4,NSW01 Service; QLD04 Sales; VIC01 Service,False
+target,stretch,best_quartile,631507,254907,0,886414,111.7,QLD04 Sales; NSW02 Sales; VIC05 Sales,False
+horizon_years,high,3,793833,462370,0,1256203,200.0,NSW01 Service; QLD04 Sales; VIC05 Sales,True
+rating bands (D2),strict,strict bands,208954,42584,0,251538,-39.9,QLD04 Sales; NSW02 Sales; VIC05 Sales,False
+rating bands (D2),broad,broad bands,318879,401450,0,720329,72.0,NSW01 Service; VIC01 Service; NSW04 Sales,False
+Hunter file -> NSW05 (D3),exclude,assumed-dealer events dropped,229693,155916,0,385609,-7.9,NSW01 Service; QLD04 Sales; VIC05 Sales,True
+min_n,stricter,50,260569,154123,0,414693,-1.0,NSW01 Service; QLD04 Sales; VIC05 Sales,True
+Noosa (D5),include,QLD05 ranked,267705,178085,0,445790,6.5,NSW01 Service; QLD04 Sales; VIC01 Service,False

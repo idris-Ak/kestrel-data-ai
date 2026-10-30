@@ -1,0 +1,37 @@
+department,theme,n,k,share,ci_low,ci_high,precision
+Sales,sales_pressure,144,39,0.2708,0.2049,0.3487,ok
+Sales,vehicle_handover,144,39,0.2708,0.2049,0.3487,ok
+Sales,communication,144,33,0.2292,0.1681,0.3043,ok
+Sales,explanation,144,33,0.2292,0.1681,0.3043,ok
+Sales,staff_attitude,144,22,0.1528,0.1031,0.2205,ok
+Sales,billing,144,19,0.1319,0.0861,0.1969,ok
+Sales,timeliness,144,15,0.1042,0.0641,0.1648,ok
+Sales,process_ease,144,8,0.0556,0.0284,0.1058,ok
+Sales,price_value,144,5,0.0347,0.0149,0.0787,ok
+Sales,work_quality,144,1,0.0069,0.0012,0.0383,ok
+Sales,parts_availability,144,0,0.0,0.0,0.026,ok
+Sales,(no negative theme),144,3,0.0208,0.0071,0.0595,ok
+Service,communication,1238,430,0.3473,0.3213,0.3743,ok
+Service,timeliness,1238,399,0.3223,0.2968,0.3488,ok
+Service,work_quality,1238,205,0.1656,0.1459,0.1873,ok
+Service,billing,1238,192,0.1551,0.136,0.1763,ok
+Service,process_ease,1238,130,0.105,0.0891,0.1233,ok
+Service,parts_availability,1238,114,0.0921,0.0772,0.1095,ok
+Service,staff_attitude,1238,103,0.0832,0.0691,0.0999,ok
+Service,explanation,1238,63,0.0509,0.04,0.0646,ok
+Service,price_value,1238,38,0.0307,0.0224,0.0418,ok
+Service,vehicle_handover,1238,28,0.0226,0.0157,0.0325,ok
+Service,sales_pressure,1238,0,0.0,0.0,0.0031,ok
+Service,(no negative theme),1238,25,0.0202,0.0137,0.0296,ok
+Parts,timeliness,106,50,0.4717,0.3793,0.566,ok
+Parts,parts_availability,106,46,0.434,0.3436,0.529,ok
+Parts,communication,106,33,0.3113,0.2311,0.4048,ok
+Parts,staff_attitude,106,16,0.1509,0.0951,0.2312,ok
+Parts,billing,106,15,0.1415,0.0877,0.2204,ok
+Parts,explanation,106,3,0.0283,0.0097,0.0799,ok
+Parts,price_value,106,2,0.0189,0.0052,0.0662,ok
+Parts,process_ease,106,1,0.0094,0.0017,0.0515,ok
+Parts,work_quality,106,0,0.0,0.0,0.035,ok
+Parts,sales_pressure,106,0,0.0,0.0,0.035,ok
+Parts,vehicle_handover,106,0,0.0,0.0,0.035,ok
+Parts,(no negative theme),106,0,0.0,0.0,0.035,ok

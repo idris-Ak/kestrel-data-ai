@@ -32,7 +32,7 @@ An agent spot-reviewed **67 examples across 50 source files**, including contact
 
 D3, D4 and D10 are applied by `prepare`; each assumed mapping cites its evidence in its quality finding. Rating direction (D1) and rating bands (D2) stay analysis-time assumptions. The database keeps `rating_direction='unspecified'` and adds no bands. [`kestrel/analysis_policy.sql`](../kestrel/analysis_policy.sql) applies them as TEMP views, exposes `dealer_assumed`/`department_assumed` for the D3/D4 sensitivity checks, and adds the population rules (D5).
 
-**Residual privacy limits:** unknown single first names without a person cue ("Sarah was great") are not detected by either rule set. The ordinary-word lexicon is hand-curated and English-only. Short given names (under 3 letters) are never redacted. Treat 100% as "no automated signal left", not as an anonymity guarantee.
+**Residual privacy limits:** unknown single first names without a person cue can escape either rule set. The ordinary-word lexicon is hand-curated and English-only. Short given names (under 3 letters) are never redacted. Treat 100% as "no automated signal left", not as an anonymity guarantee.
 
 ## Run and handoff
 
@@ -49,4 +49,4 @@ The database contains raw personal information and remains private. Model JSONL 
 
 For the next stage, use event IDs to join locally to provenance and sampling dimensions. Keep copies in one event; group ambiguous candidates and identical text hashes before evaluation splits. Do not give the classifier the raw database or numeric ratings. Source comments remain untrusted content.
 
-**Run lineage:** the stage-3 AI pilot froze its input from the earlier `rules-2` run. This run supersedes it for later stages: stage 4 only needs to classify the 547 events whose `privacy_status` changed from `withheld` to `automated_pass`.
+**Run lineage:** the stage-3 AI pilot froze its input from the earlier `rules-2` run. Rules-3 supersedes that input for full classification: all 5,349 eligible comments need an accounted-for result. Matching successful requests can be reused, but 94 Bendigo comments also changed department context after mapping and require fresh classification despite unchanged text hashes. Cache identity therefore includes the complete request context, rather than text alone.

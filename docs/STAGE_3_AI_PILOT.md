@@ -1,8 +1,8 @@
 # Stage 3 — AI pilot plan
 
-**30 October 2026 · Pilot complete: Sonnet 5.5 selected · Stage-4 budget pending**
+**30 October 2026 · Historical pilot plan · Pilot rule selected Sonnet; user chose Haiku for full classification (D13)**
 
-Current status is in the [checkpoint](STAGE_3_CHECKPOINT.md). The sections after "Decisions on resume" are the original plan and research, kept for rationale; where they differ, the decisions below apply.
+Current evaluation and full-run status are in the [checkpoint](STAGE_3_CHECKPOINT.md) and [project record](../PROJECT.md). The material below preserves the original plan and its research; proposed human review, rules-2 coverage and budget-pending language describe that earlier checkpoint. The user subsequently chose blind AI reference labels, adopted rules-3 for all 5,349 comments, and selected Haiku within the US$10 cumulative cap. The completed report discloses the deviations, limitations and actual costs.
 
 ## Decisions on resume (user, 30 October)
 
@@ -21,7 +21,7 @@ Current status is in the [checkpoint](STAGE_3_CHECKPOINT.md). The sections after
 
 The user confirmed stages 1 and 2 complete. Reviewed their reports, schemas and databases, and obtained clarification from the stage-two session. The handoff supplies the technical inputs needed for this plan. Privacy review and human reference labels remain work to perform; the recommendations below replace the earlier requests for unfamiliar reviewer/provider choices.
 
-The [local intake evidence](../outputs/ai_pilot/intake_review.json) records **18 passing read-only checks**: all 56 original hashes and four published artifacts match; generating-code provenance is reconciled; SQLite integrity/relationships pass; all 4,802 exported records align with the database; and all 732 stage-one event IDs survive. The 118 stored preparation checks also passed. This review did not rerun the full automated test suite or certify privacy.
+The local intake evidence (`outputs/ai_pilot/intake_review.json`, not in Git) records **18 passing read-only checks**: all 56 original hashes and four published artifacts match; generating-code provenance is reconciled; SQLite integrity/relationships pass; all 4,802 exported records align with the database; and all 732 stage-one event IDs survive. The 118 stored preparation checks also passed. This review did not rerun the full automated test suite or certify privacy.
 
 **Version note:** the published run records code fingerprint `68055342…`; later commit `4773197` has fingerprint `835d4acb…`. Reversing its single output-directory symlink guard change in memory reproduces the generating fingerprint exactly. Export/processing logic is unchanged and all four artifact hashes were rechecked. Keep the original run's generation identity; do not relabel it as produced by the later code.
 

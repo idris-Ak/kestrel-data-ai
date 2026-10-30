@@ -1,0 +1,136 @@
+scenario,scenario_description,n,headline_id,headline,value,survives,detail
+primary,"Primary: bottom-2-box bands, Noosa excluded",7077,H1,Service has the highest negative rate (CI separated from Sales and Parts),Service 27.3% / Parts 16.1% / Sales 10.1%,yes,Service CI 26.1%-28.6%
+primary,"Primary: bottom-2-box bands, Noosa excluded",7077,H1b,Parts negative rate above Sales (CI separated),Parts 16.1% vs Sales 10.1%,yes,Parts CI 13.6%-19.1%; Sales CI 8.7%-11.8%
+primary,"Primary: bottom-2-box bands, Noosa excluded",7077,H2,"Group negative rate rose from H1 to H2 (raw, CI excludes 0)",19.9% -> 25.0% (+5.1pp),yes,95% CI +3.2pp to +7.0pp
+primary,"Primary: bottom-2-box bands, Noosa excluded",7077,H3,Rise is not a mix shift: change at fixed dealer x dept mix (CI excludes 0),19.9% -> 25.1% (+5.2pp),yes,95% CI +3.2pp to +7.1pp; mix component -0.1pp
+primary,"Primary: bottom-2-box bands, Noosa excluded",7077,H4,Primary worst-5 dealer x dept cells stay in the scenario's worst 10,5/5,yes,"scenario worst 5: NSW01 Service, VIC01 Service, NSW03 Service, VIC03 Service, VIC06 Service"
+primary,"Primary: bottom-2-box bands, Noosa excluded",7077,H5,Primary best-5 dealer x dept cells stay in the scenario's best 10,5/5,yes,"scenario best 5: VIC03 Sales, VIC08 Sales, VIC02 Sales, QLD02 Sales, NSW06 Sales"
+primary,"Primary: bottom-2-box bands, Noosa excluded",7077,H6,Department-adjusted dealer ranking matches primary (Spearman rho >= 0.8),rho = 1.00 over 23 dealers,yes,
+primary,"Primary: bottom-2-box bands, Noosa excluded",7077,H7,Mover VIC01 Service (worse) remains significant (p<0.05),"+26.6pp, p=0.0000, q=0.000",yes,
+primary,"Primary: bottom-2-box bands, Noosa excluded",7077,H7,Mover NSW01 Service (worse) remains significant (p<0.05),"+26.0pp, p=0.0000, q=0.000",yes,
+primary,"Primary: bottom-2-box bands, Noosa excluded",7077,H7,Mover NSW04 Sales (worse) remains significant (p<0.05),"+31.8pp, p=0.0002, q=0.002",yes,
+primary,"Primary: bottom-2-box bands, Noosa excluded",7077,H8,No state differs from the group after department adjustment (all O/E 95% CIs include 1),"NSW 1.02 [0.94-1.10], QLD 0.96 [0.89-1.04], VIC 1.02 [0.95-1.09]",yes,
+primary,"Primary: bottom-2-box bands, Noosa excluded",7077,H9,"Parramatta (NSW01) is the worst dealer after department adjustment, O/E CI above 1",worst = NSW01; NSW01 O/E 1.27 (CI low 1.09),yes,
+primary,"Primary: bottom-2-box bands, Noosa excluded",7077,H10,Group rise persists without the robust-mover cells (mix-adjusted CI excludes 0),+2.7pp,yes,"95% CI +0.7pp to +4.8pp; excluded: NSW01 Service, NSW04 Sales, VIC01 Service"
+primary,"Primary: bottom-2-box bands, Noosa excluded",7077,H11,Service rose H1 to H2 at fixed dealer mix (CI excludes 0),+6.1pp,yes,95% CI +3.6pp to +8.6pp
+primary,"Primary: bottom-2-box bands, Noosa excluded",7077,H12,Sales rose H1 to H2 at fixed dealer mix (CI excludes 0),+4.8pp,yes,95% CI +1.4pp to +8.1pp
+strict_band,Strict band (5-pt = 1; 10-pt 1-2; 3-label bad),7077,H1,Service has the highest negative rate (CI separated from Sales and Parts),Service 16.5% / Parts 9.4% / Sales 6.0%,yes,Service CI 15.5%-17.6%
+strict_band,Strict band (5-pt = 1; 10-pt 1-2; 3-label bad),7077,H1b,Parts negative rate above Sales (CI separated),Parts 9.4% vs Sales 6.0%,yes,Parts CI 7.5%-11.8%; Sales CI 4.9%-7.3%
+strict_band,Strict band (5-pt = 1; 10-pt 1-2; 3-label bad),7077,H2,"Group negative rate rose from H1 to H2 (raw, CI excludes 0)",11.6% -> 15.4% (+3.8pp),yes,95% CI +2.2pp to +5.3pp
+strict_band,Strict band (5-pt = 1; 10-pt 1-2; 3-label bad),7077,H3,Rise is not a mix shift: change at fixed dealer x dept mix (CI excludes 0),11.5% -> 15.3% (+3.8pp),yes,95% CI +2.1pp to +5.4pp; mix component -0.0pp
+strict_band,Strict band (5-pt = 1; 10-pt 1-2; 3-label bad),7077,H4,Primary worst-5 dealer x dept cells stay in the scenario's worst 10,5/5,yes,"scenario worst 5: NSW01 Service, VIC01 Service, VIC03 Service, NSW05 Parts, VIC08 Service"
+strict_band,Strict band (5-pt = 1; 10-pt 1-2; 3-label bad),7077,H5,Primary best-5 dealer x dept cells stay in the scenario's best 10,5/5,yes,"scenario best 5: VIC08 Sales, VIC02 Sales, VIC03 Sales, NSW06 Sales, QLD02 Sales"
+strict_band,Strict band (5-pt = 1; 10-pt 1-2; 3-label bad),7077,H6,Department-adjusted dealer ranking matches primary (Spearman rho >= 0.8),rho = 0.58 over 23 dealers,NO,
+strict_band,Strict band (5-pt = 1; 10-pt 1-2; 3-label bad),7077,H7,Mover VIC01 Service (worse) remains significant (p<0.05),"+20.1pp, p=0.0000, q=0.000",yes,
+strict_band,Strict band (5-pt = 1; 10-pt 1-2; 3-label bad),7077,H7,Mover NSW01 Service (worse) remains significant (p<0.05),"+14.4pp, p=0.0023, q=0.027",yes,
+strict_band,Strict band (5-pt = 1; 10-pt 1-2; 3-label bad),7077,H7,Mover NSW04 Sales (worse) remains significant (p<0.05),"+21.1pp, p=0.0017, q=0.027",yes,
+strict_band,Strict band (5-pt = 1; 10-pt 1-2; 3-label bad),7077,H8,No state differs from the group after department adjustment (all O/E 95% CIs include 1),"NSW 1.08 [0.98-1.19], QLD 0.91 [0.81-1.01], VIC 1.01 [0.92-1.11]",yes,
+strict_band,Strict band (5-pt = 1; 10-pt 1-2; 3-label bad),7077,H9,"Parramatta (NSW01) is the worst dealer after department adjustment, O/E CI above 1",worst = NSW01; NSW01 O/E 1.33 (CI low 1.09),yes,
+strict_band,Strict band (5-pt = 1; 10-pt 1-2; 3-label bad),7077,H10,Group rise persists without the robust-mover cells (mix-adjusted CI excludes 0),+2.2pp,yes,"95% CI +0.5pp to +3.9pp; excluded: NSW01 Service, NSW04 Sales, VIC01 Service"
+strict_band,Strict band (5-pt = 1; 10-pt 1-2; 3-label bad),7077,H11,Service rose H1 to H2 at fixed dealer mix (CI excludes 0),+4.2pp,yes,95% CI +2.1pp to +6.2pp
+strict_band,Strict band (5-pt = 1; 10-pt 1-2; 3-label bad),7077,H12,Sales rose H1 to H2 at fixed dealer mix (CI excludes 0),+4.1pp,yes,95% CI +1.2pp to +6.9pp
+broad_band,Broad band (5-pt 1-3; 10-pt 1-6; 3-label bad+ok),7077,H1,Service has the highest negative rate (CI separated from Sales and Parts),Service 39.4% / Parts 29.1% / Sales 16.7%,yes,Service CI 38.0%-40.7%
+broad_band,Broad band (5-pt 1-3; 10-pt 1-6; 3-label bad+ok),7077,H1b,Parts negative rate above Sales (CI separated),Parts 29.1% vs Sales 16.7%,yes,Parts CI 25.9%-32.6%; Sales CI 14.9%-18.7%
+broad_band,Broad band (5-pt 1-3; 10-pt 1-6; 3-label bad+ok),7077,H2,"Group negative rate rose from H1 to H2 (raw, CI excludes 0)",30.7% -> 36.1% (+5.4pp),yes,95% CI +3.2pp to +7.6pp
+broad_band,Broad band (5-pt 1-3; 10-pt 1-6; 3-label bad+ok),7077,H3,Rise is not a mix shift: change at fixed dealer x dept mix (CI excludes 0),30.7% -> 36.2% (+5.5pp),yes,95% CI +3.3pp to +7.6pp; mix component -0.0pp
+broad_band,Broad band (5-pt 1-3; 10-pt 1-6; 3-label bad+ok),7077,H4,Primary worst-5 dealer x dept cells stay in the scenario's worst 10,5/5,yes,"scenario worst 5: NSW01 Service, VIC01 Service, VIC03 Service, VIC04 Parts, QLD01 Service"
+broad_band,Broad band (5-pt 1-3; 10-pt 1-6; 3-label bad+ok),7077,H5,Primary best-5 dealer x dept cells stay in the scenario's best 10,5/5,yes,"scenario best 5: VIC03 Sales, QLD02 Sales, NSW06 Sales, VIC02 Sales, VIC01 Sales"
+broad_band,Broad band (5-pt 1-3; 10-pt 1-6; 3-label bad+ok),7077,H6,Department-adjusted dealer ranking matches primary (Spearman rho >= 0.8),rho = 0.92 over 23 dealers,yes,
+broad_band,Broad band (5-pt 1-3; 10-pt 1-6; 3-label bad+ok),7077,H7,Mover VIC01 Service (worse) remains significant (p<0.05),"+29.4pp, p=0.0000, q=0.000",yes,
+broad_band,Broad band (5-pt 1-3; 10-pt 1-6; 3-label bad+ok),7077,H7,Mover NSW01 Service (worse) remains significant (p<0.05),"+29.8pp, p=0.0000, q=0.000",yes,
+broad_band,Broad band (5-pt 1-3; 10-pt 1-6; 3-label bad+ok),7077,H7,Mover NSW04 Sales (worse) remains significant (p<0.05),"+35.7pp, p=0.0006, q=0.007",yes,
+broad_band,Broad band (5-pt 1-3; 10-pt 1-6; 3-label bad+ok),7077,H8,No state differs from the group after department adjustment (all O/E 95% CIs include 1),"NSW 1.00 [0.94-1.06], QLD 0.96 [0.91-1.02], VIC 1.03 [0.98-1.08]",yes,
+broad_band,Broad band (5-pt 1-3; 10-pt 1-6; 3-label bad+ok),7077,H9,"Parramatta (NSW01) is the worst dealer after department adjustment, O/E CI above 1",worst = NSW01; NSW01 O/E 1.24 (CI low 1.11),yes,
+broad_band,Broad band (5-pt 1-3; 10-pt 1-6; 3-label bad+ok),7077,H10,Group rise persists without the robust-mover cells (mix-adjusted CI excludes 0),+2.7pp,yes,"95% CI +0.4pp to +5.0pp; excluded: NSW01 Service, NSW04 Sales, VIC01 Service"
+broad_band,Broad band (5-pt 1-3; 10-pt 1-6; 3-label bad+ok),7077,H11,Service rose H1 to H2 at fixed dealer mix (CI excludes 0),+5.7pp,yes,95% CI +3.0pp to +8.4pp
+broad_band,Broad band (5-pt 1-3; 10-pt 1-6; 3-label bad+ok),7077,H12,Sales rose H1 to H2 at fixed dealer mix (CI excludes 0),+6.1pp,yes,95% CI +2.2pp to +10.0pp
+excl_hunter,Exclude Hunter Motors rows (NSW05 dealer assumed),6774,H1,Service has the highest negative rate (CI separated from Sales and Parts),Service 27.4% / Parts 15.8% / Sales 10.1%,yes,Service CI 26.1%-28.7%
+excl_hunter,Exclude Hunter Motors rows (NSW05 dealer assumed),6774,H1b,Parts negative rate above Sales (CI separated),Parts 15.8% vs Sales 10.1%,yes,Parts CI 13.3%-18.8%; Sales CI 8.7%-11.8%
+excl_hunter,Exclude Hunter Motors rows (NSW05 dealer assumed),6774,H2,"Group negative rate rose from H1 to H2 (raw, CI excludes 0)",20.0% -> 25.0% (+5.1pp),yes,95% CI +3.1pp to +7.0pp
+excl_hunter,Exclude Hunter Motors rows (NSW05 dealer assumed),6774,H3,Rise is not a mix shift: change at fixed dealer x dept mix (CI excludes 0),19.9% -> 25.1% (+5.1pp),yes,95% CI +3.1pp to +7.1pp; mix component -0.1pp
+excl_hunter,Exclude Hunter Motors rows (NSW05 dealer assumed),6774,H4,Primary worst-5 dealer x dept cells stay in the scenario's worst 10,5/5,yes,"scenario worst 5: NSW01 Service, VIC01 Service, NSW03 Service, VIC03 Service, VIC06 Service"
+excl_hunter,Exclude Hunter Motors rows (NSW05 dealer assumed),6774,H5,Primary best-5 dealer x dept cells stay in the scenario's best 10,5/5,yes,"scenario best 5: VIC03 Sales, VIC08 Sales, VIC02 Sales, QLD02 Sales, NSW06 Sales"
+excl_hunter,Exclude Hunter Motors rows (NSW05 dealer assumed),6774,H6,Department-adjusted dealer ranking matches primary (Spearman rho >= 0.8),rho = 1.00 over 22 dealers,yes,
+excl_hunter,Exclude Hunter Motors rows (NSW05 dealer assumed),6774,H7,Mover VIC01 Service (worse) remains significant (p<0.05),"+26.6pp, p=0.0000, q=0.000",yes,
+excl_hunter,Exclude Hunter Motors rows (NSW05 dealer assumed),6774,H7,Mover NSW01 Service (worse) remains significant (p<0.05),"+26.0pp, p=0.0000, q=0.000",yes,
+excl_hunter,Exclude Hunter Motors rows (NSW05 dealer assumed),6774,H7,Mover NSW04 Sales (worse) remains significant (p<0.05),"+31.8pp, p=0.0002, q=0.002",yes,
+excl_hunter,Exclude Hunter Motors rows (NSW05 dealer assumed),6774,H8,No state differs from the group after department adjustment (all O/E 95% CIs include 1),"NSW 1.02 [0.94-1.11], QLD 0.96 [0.89-1.04], VIC 1.02 [0.95-1.09]",yes,
+excl_hunter,Exclude Hunter Motors rows (NSW05 dealer assumed),6774,H9,"Parramatta (NSW01) is the worst dealer after department adjustment, O/E CI above 1",worst = NSW01; NSW01 O/E 1.27 (CI low 1.09),yes,
+excl_hunter,Exclude Hunter Motors rows (NSW05 dealer assumed),6774,H10,Group rise persists without the robust-mover cells (mix-adjusted CI excludes 0),+2.6pp,yes,"95% CI +0.5pp to +4.7pp; excluded: NSW01 Service, NSW04 Sales, VIC01 Service"
+excl_hunter,Exclude Hunter Motors rows (NSW05 dealer assumed),6774,H11,Service rose H1 to H2 at fixed dealer mix (CI excludes 0),+6.0pp,yes,95% CI +3.4pp to +8.5pp
+excl_hunter,Exclude Hunter Motors rows (NSW05 dealer assumed),6774,H12,Sales rose H1 to H2 at fixed dealer mix (CI excludes 0),+4.9pp,yes,95% CI +1.5pp to +8.3pp
+incl_noosa,Include Noosa (selective collection),7126,H1,Service has the highest negative rate (CI separated from Sales and Parts),Service 27.2% / Parts 16.0% / Sales 10.0%,yes,Service CI 26.0%-28.5%
+incl_noosa,Include Noosa (selective collection),7126,H1b,Parts negative rate above Sales (CI separated),Parts 16.0% vs Sales 10.0%,yes,Parts CI 13.5%-18.9%; Sales CI 8.6%-11.6%
+incl_noosa,Include Noosa (selective collection),7126,H2,"Group negative rate rose from H1 to H2 (raw, CI excludes 0)",19.8% -> 24.9% (+5.0pp),yes,95% CI +3.1pp to +7.0pp
+incl_noosa,Include Noosa (selective collection),7126,H3,Rise is not a mix shift: change at fixed dealer x dept mix (CI excludes 0),19.8% -> 24.9% (+5.1pp),yes,95% CI +3.2pp to +7.1pp; mix component -0.1pp
+incl_noosa,Include Noosa (selective collection),7126,H4,Primary worst-5 dealer x dept cells stay in the scenario's worst 10,5/5,yes,"scenario worst 5: NSW01 Service, VIC01 Service, NSW03 Service, VIC03 Service, VIC06 Service"
+incl_noosa,Include Noosa (selective collection),7126,H5,Primary best-5 dealer x dept cells stay in the scenario's best 10,5/5,yes,"scenario best 5: VIC03 Sales, VIC08 Sales, VIC02 Sales, QLD02 Sales, NSW06 Sales"
+incl_noosa,Include Noosa (selective collection),7126,H6,Department-adjusted dealer ranking matches primary (Spearman rho >= 0.8),rho = 1.00 over 23 dealers,yes,
+incl_noosa,Include Noosa (selective collection),7126,H7,Mover VIC01 Service (worse) remains significant (p<0.05),"+26.6pp, p=0.0000, q=0.000",yes,
+incl_noosa,Include Noosa (selective collection),7126,H7,Mover NSW01 Service (worse) remains significant (p<0.05),"+26.0pp, p=0.0000, q=0.000",yes,
+incl_noosa,Include Noosa (selective collection),7126,H7,Mover NSW04 Sales (worse) remains significant (p<0.05),"+31.8pp, p=0.0002, q=0.002",yes,
+incl_noosa,Include Noosa (selective collection),7126,H8,No state differs from the group after department adjustment (all O/E 95% CIs include 1),"NSW 1.02 [0.95-1.10], QLD 0.95 [0.88-1.03], VIC 1.02 [0.95-1.10]",yes,
+incl_noosa,Include Noosa (selective collection),7126,H9,"Parramatta (NSW01) is the worst dealer after department adjustment, O/E CI above 1",worst = NSW01; NSW01 O/E 1.28 (CI low 1.10),yes,
+incl_noosa,Include Noosa (selective collection),7126,H10,Group rise persists without the robust-mover cells (mix-adjusted CI excludes 0),+2.7pp,yes,"95% CI +0.7pp to +4.7pp; excluded: NSW01 Service, NSW04 Sales, VIC01 Service"
+incl_noosa,Include Noosa (selective collection),7126,H11,Service rose H1 to H2 at fixed dealer mix (CI excludes 0),+6.0pp,yes,95% CI +3.6pp to +8.5pp
+incl_noosa,Include Noosa (selective collection),7126,H12,Sales rose H1 to H2 at fixed dealer mix (CI excludes 0),+4.7pp,yes,95% CI +1.4pp to +8.0pp
+excl_toowoomba_agg,Exclude Toowoomba Q4 2025 aggregate buckets,7006,H1,Service has the highest negative rate (CI separated from Sales and Parts),Service 27.3% / Parts 16.4% / Sales 10.1%,yes,Service CI 26.1%-28.6%
+excl_toowoomba_agg,Exclude Toowoomba Q4 2025 aggregate buckets,7006,H1b,Parts negative rate above Sales (CI separated),Parts 16.4% vs Sales 10.1%,yes,Parts CI 13.8%-19.3%; Sales CI 8.7%-11.8%
+excl_toowoomba_agg,Exclude Toowoomba Q4 2025 aggregate buckets,7006,H2,"Group negative rate rose from H1 to H2 (raw, CI excludes 0)",19.9% -> 25.0% (+5.2pp),yes,95% CI +3.2pp to +7.1pp
+excl_toowoomba_agg,Exclude Toowoomba Q4 2025 aggregate buckets,7006,H3,Rise is not a mix shift: change at fixed dealer x dept mix (CI excludes 0),19.8% -> 25.1% (+5.2pp),yes,95% CI +3.3pp to +7.2pp; mix component -0.1pp
+excl_toowoomba_agg,Exclude Toowoomba Q4 2025 aggregate buckets,7006,H4,Primary worst-5 dealer x dept cells stay in the scenario's worst 10,5/5,yes,"scenario worst 5: NSW01 Service, VIC01 Service, NSW03 Service, VIC03 Service, VIC06 Service"
+excl_toowoomba_agg,Exclude Toowoomba Q4 2025 aggregate buckets,7006,H5,Primary best-5 dealer x dept cells stay in the scenario's best 10,5/5,yes,"scenario best 5: VIC03 Sales, VIC08 Sales, VIC02 Sales, QLD02 Sales, NSW06 Sales"
+excl_toowoomba_agg,Exclude Toowoomba Q4 2025 aggregate buckets,7006,H6,Department-adjusted dealer ranking matches primary (Spearman rho >= 0.8),rho = 1.00 over 23 dealers,yes,
+excl_toowoomba_agg,Exclude Toowoomba Q4 2025 aggregate buckets,7006,H7,Mover VIC01 Service (worse) remains significant (p<0.05),"+26.6pp, p=0.0000, q=0.000",yes,
+excl_toowoomba_agg,Exclude Toowoomba Q4 2025 aggregate buckets,7006,H7,Mover NSW01 Service (worse) remains significant (p<0.05),"+26.0pp, p=0.0000, q=0.000",yes,
+excl_toowoomba_agg,Exclude Toowoomba Q4 2025 aggregate buckets,7006,H7,Mover NSW04 Sales (worse) remains significant (p<0.05),"+31.8pp, p=0.0002, q=0.002",yes,
+excl_toowoomba_agg,Exclude Toowoomba Q4 2025 aggregate buckets,7006,H8,No state differs from the group after department adjustment (all O/E 95% CIs include 1),"NSW 1.02 [0.94-1.10], QLD 0.96 [0.89-1.04], VIC 1.02 [0.95-1.09]",yes,
+excl_toowoomba_agg,Exclude Toowoomba Q4 2025 aggregate buckets,7006,H9,"Parramatta (NSW01) is the worst dealer after department adjustment, O/E CI above 1",worst = NSW01; NSW01 O/E 1.27 (CI low 1.09),yes,
+excl_toowoomba_agg,Exclude Toowoomba Q4 2025 aggregate buckets,7006,H10,Group rise persists without the robust-mover cells (mix-adjusted CI excludes 0),+2.8pp,yes,"95% CI +0.7pp to +4.8pp; excluded: NSW01 Service, NSW04 Sales, VIC01 Service"
+excl_toowoomba_agg,Exclude Toowoomba Q4 2025 aggregate buckets,7006,H11,Service rose H1 to H2 at fixed dealer mix (CI excludes 0),+6.2pp,yes,95% CI +3.7pp to +8.7pp
+excl_toowoomba_agg,Exclude Toowoomba Q4 2025 aggregate buckets,7006,H12,Sales rose H1 to H2 at fixed dealer mix (CI excludes 0),+4.8pp,yes,95% CI +1.4pp to +8.1pp
+excl_ringwood_10pt,Exclude Ringwood 10-point rows (Feb-Sep 2026),6756,H1,Service has the highest negative rate (CI separated from Sales and Parts),Service 27.3% / Parts 15.9% / Sales 10.5%,yes,Service CI 26.1%-28.6%
+excl_ringwood_10pt,Exclude Ringwood 10-point rows (Feb-Sep 2026),6756,H1b,Parts negative rate above Sales (CI separated),Parts 15.9% vs Sales 10.5%,yes,Parts CI 13.4%-18.9%; Sales CI 9.0%-12.2%
+excl_ringwood_10pt,Exclude Ringwood 10-point rows (Feb-Sep 2026),6756,H2,"Group negative rate rose from H1 to H2 (raw, CI excludes 0)",20.0% -> 25.2% (+5.1pp),yes,95% CI +3.1pp to +7.1pp
+excl_ringwood_10pt,Exclude Ringwood 10-point rows (Feb-Sep 2026),6756,H3,Rise is not a mix shift: change at fixed dealer x dept mix (CI excludes 0),20.1% -> 25.2% (+5.1pp),yes,95% CI +3.1pp to +7.1pp; mix component +0.0pp
+excl_ringwood_10pt,Exclude Ringwood 10-point rows (Feb-Sep 2026),6756,H4,Primary worst-5 dealer x dept cells stay in the scenario's worst 10,5/5,yes,"scenario worst 5: NSW01 Service, VIC01 Service, NSW03 Service, VIC03 Service, VIC06 Service"
+excl_ringwood_10pt,Exclude Ringwood 10-point rows (Feb-Sep 2026),6756,H5,Primary best-5 dealer x dept cells stay in the scenario's best 10,5/5,yes,"scenario best 5: VIC03 Sales, VIC08 Sales, QLD02 Sales, NSW06 Sales, VIC01 Sales"
+excl_ringwood_10pt,Exclude Ringwood 10-point rows (Feb-Sep 2026),6756,H6,Department-adjusted dealer ranking matches primary (Spearman rho >= 0.8),rho = 1.00 over 23 dealers,yes,
+excl_ringwood_10pt,Exclude Ringwood 10-point rows (Feb-Sep 2026),6756,H7,Mover VIC01 Service (worse) remains significant (p<0.05),"+26.6pp, p=0.0000, q=0.000",yes,
+excl_ringwood_10pt,Exclude Ringwood 10-point rows (Feb-Sep 2026),6756,H7,Mover NSW01 Service (worse) remains significant (p<0.05),"+26.0pp, p=0.0000, q=0.000",yes,
+excl_ringwood_10pt,Exclude Ringwood 10-point rows (Feb-Sep 2026),6756,H7,Mover NSW04 Sales (worse) remains significant (p<0.05),"+31.8pp, p=0.0002, q=0.002",yes,
+excl_ringwood_10pt,Exclude Ringwood 10-point rows (Feb-Sep 2026),6756,H8,No state differs from the group after department adjustment (all O/E 95% CIs include 1),"NSW 1.01 [0.94-1.09], QLD 0.96 [0.89-1.04], VIC 1.02 [0.95-1.10]",yes,
+excl_ringwood_10pt,Exclude Ringwood 10-point rows (Feb-Sep 2026),6756,H9,"Parramatta (NSW01) is the worst dealer after department adjustment, O/E CI above 1",worst = NSW01; NSW01 O/E 1.26 (CI low 1.09),yes,
+excl_ringwood_10pt,Exclude Ringwood 10-point rows (Feb-Sep 2026),6756,H10,Group rise persists without the robust-mover cells (mix-adjusted CI excludes 0),+2.4pp,yes,"95% CI +0.3pp to +4.6pp; excluded: NSW01 Service, NSW04 Sales, VIC01 Service"
+excl_ringwood_10pt,Exclude Ringwood 10-point rows (Feb-Sep 2026),6756,H11,Service rose H1 to H2 at fixed dealer mix (CI excludes 0),+6.0pp,yes,95% CI +3.4pp to +8.5pp
+excl_ringwood_10pt,Exclude Ringwood 10-point rows (Feb-Sep 2026),6756,H12,Sales rose H1 to H2 at fixed dealer mix (CI excludes 0),+5.2pp,yes,95% CI +1.6pp to +8.7pp
+excl_bendigo_assumed,Exclude Bendigo assumed departments,6933,H1,Service has the highest negative rate (CI separated from Sales and Parts),Service 27.4% / Parts 16.1% / Sales 10.3%,yes,Service CI 26.1%-28.6%
+excl_bendigo_assumed,Exclude Bendigo assumed departments,6933,H1b,Parts negative rate above Sales (CI separated),Parts 16.1% vs Sales 10.3%,yes,Parts CI 13.5%-19.0%; Sales CI 8.8%-11.9%
+excl_bendigo_assumed,Exclude Bendigo assumed departments,6933,H2,"Group negative rate rose from H1 to H2 (raw, CI excludes 0)",20.1% -> 24.9% (+4.8pp),yes,95% CI +2.9pp to +6.8pp
+excl_bendigo_assumed,Exclude Bendigo assumed departments,6933,H3,Rise is not a mix shift: change at fixed dealer x dept mix (CI excludes 0),20.1% -> 25.0% (+4.9pp),yes,95% CI +3.0pp to +6.9pp; mix component -0.1pp
+excl_bendigo_assumed,Exclude Bendigo assumed departments,6933,H4,Primary worst-5 dealer x dept cells stay in the scenario's worst 10,5/5,yes,"scenario worst 5: NSW01 Service, VIC01 Service, NSW03 Service, VIC03 Service, VIC06 Service"
+excl_bendigo_assumed,Exclude Bendigo assumed departments,6933,H5,Primary best-5 dealer x dept cells stay in the scenario's best 10,4/4,yes,"scenario best 5: VIC03 Sales, VIC02 Sales, QLD02 Sales, NSW06 Sales, VIC01 Sales"
+excl_bendigo_assumed,Exclude Bendigo assumed departments,6933,H6,Department-adjusted dealer ranking matches primary (Spearman rho >= 0.8),rho = 1.00 over 22 dealers,yes,
+excl_bendigo_assumed,Exclude Bendigo assumed departments,6933,H7,Mover VIC01 Service (worse) remains significant (p<0.05),"+26.6pp, p=0.0000, q=0.000",yes,
+excl_bendigo_assumed,Exclude Bendigo assumed departments,6933,H7,Mover NSW01 Service (worse) remains significant (p<0.05),"+26.0pp, p=0.0000, q=0.000",yes,
+excl_bendigo_assumed,Exclude Bendigo assumed departments,6933,H7,Mover NSW04 Sales (worse) remains significant (p<0.05),"+31.8pp, p=0.0002, q=0.002",yes,
+excl_bendigo_assumed,Exclude Bendigo assumed departments,6933,H8,No state differs from the group after department adjustment (all O/E 95% CIs include 1),"NSW 1.01 [0.94-1.10], QLD 0.96 [0.89-1.04], VIC 1.02 [0.95-1.10]",yes,
+excl_bendigo_assumed,Exclude Bendigo assumed departments,6933,H9,"Parramatta (NSW01) is the worst dealer after department adjustment, O/E CI above 1",worst = NSW01; NSW01 O/E 1.27 (CI low 1.09),yes,
+excl_bendigo_assumed,Exclude Bendigo assumed departments,6933,H10,Group rise persists without the robust-mover cells (mix-adjusted CI excludes 0),+2.4pp,yes,"95% CI +0.4pp to +4.5pp; excluded: NSW01 Service, NSW04 Sales, VIC01 Service"
+excl_bendigo_assumed,Exclude Bendigo assumed departments,6933,H11,Service rose H1 to H2 at fixed dealer mix (CI excludes 0),+5.9pp,yes,95% CI +3.3pp to +8.4pp
+excl_bendigo_assumed,Exclude Bendigo assumed departments,6933,H12,Sales rose H1 to H2 at fixed dealer mix (CI excludes 0),+4.7pp,yes,95% CI +1.3pp to +8.1pp
+all_exclusions,"Exclude Hunter, Toowoomba aggregates, Ringwood 10-pt and Bendigo together",6238,H1,Service has the highest negative rate (CI separated from Sales and Parts),Service 27.5% / Parts 15.7% / Sales 10.7%,yes,Service CI 26.1%-28.8%
+all_exclusions,"Exclude Hunter, Toowoomba aggregates, Ringwood 10-pt and Bendigo together",6238,H1b,Parts negative rate above Sales (CI separated),Parts 15.7% vs Sales 10.7%,yes,Parts CI 13.0%-18.8%; Sales CI 9.2%-12.5%
+all_exclusions,"Exclude Hunter, Toowoomba aggregates, Ringwood 10-pt and Bendigo together",6238,H2,"Group negative rate rose from H1 to H2 (raw, CI excludes 0)",20.2% -> 25.1% (+4.8pp),yes,95% CI +2.8pp to +6.9pp
+all_exclusions,"Exclude Hunter, Toowoomba aggregates, Ringwood 10-pt and Bendigo together",6238,H3,Rise is not a mix shift: change at fixed dealer x dept mix (CI excludes 0),20.3% -> 25.1% (+4.8pp),yes,95% CI +2.7pp to +6.9pp; mix component +0.0pp
+all_exclusions,"Exclude Hunter, Toowoomba aggregates, Ringwood 10-pt and Bendigo together",6238,H4,Primary worst-5 dealer x dept cells stay in the scenario's worst 10,5/5,yes,"scenario worst 5: NSW01 Service, VIC01 Service, NSW03 Service, VIC03 Service, VIC06 Service"
+all_exclusions,"Exclude Hunter, Toowoomba aggregates, Ringwood 10-pt and Bendigo together",6238,H5,Primary best-5 dealer x dept cells stay in the scenario's best 10,4/4,yes,"scenario best 5: VIC03 Sales, QLD02 Sales, NSW06 Sales, VIC01 Sales, VIC02 Sales"
+all_exclusions,"Exclude Hunter, Toowoomba aggregates, Ringwood 10-pt and Bendigo together",6238,H6,Department-adjusted dealer ranking matches primary (Spearman rho >= 0.8),rho = 1.00 over 21 dealers,yes,
+all_exclusions,"Exclude Hunter, Toowoomba aggregates, Ringwood 10-pt and Bendigo together",6238,H7,Mover VIC01 Service (worse) remains significant (p<0.05),"+26.6pp, p=0.0000, q=0.000",yes,
+all_exclusions,"Exclude Hunter, Toowoomba aggregates, Ringwood 10-pt and Bendigo together",6238,H7,Mover NSW01 Service (worse) remains significant (p<0.05),"+26.0pp, p=0.0000, q=0.000",yes,
+all_exclusions,"Exclude Hunter, Toowoomba aggregates, Ringwood 10-pt and Bendigo together",6238,H7,Mover NSW04 Sales (worse) remains significant (p<0.05),"+31.8pp, p=0.0002, q=0.002",yes,
+all_exclusions,"Exclude Hunter, Toowoomba aggregates, Ringwood 10-pt and Bendigo together",6238,H8,No state differs from the group after department adjustment (all O/E 95% CIs include 1),"NSW 1.01 [0.93-1.10], QLD 0.96 [0.89-1.04], VIC 1.03 [0.95-1.11]",yes,
+all_exclusions,"Exclude Hunter, Toowoomba aggregates, Ringwood 10-pt and Bendigo together",6238,H9,"Parramatta (NSW01) is the worst dealer after department adjustment, O/E CI above 1",worst = NSW01; NSW01 O/E 1.26 (CI low 1.09),yes,
+all_exclusions,"Exclude Hunter, Toowoomba aggregates, Ringwood 10-pt and Bendigo together",6238,H10,Group rise persists without the robust-mover cells (mix-adjusted CI excludes 0),+1.9pp,NO,"95% CI -0.4pp to +4.1pp; excluded: NSW01 Service, NSW04 Sales, VIC01 Service"
+all_exclusions,"Exclude Hunter, Toowoomba aggregates, Ringwood 10-pt and Bendigo together",6238,H11,Service rose H1 to H2 at fixed dealer mix (CI excludes 0),+5.6pp,yes,95% CI +2.9pp to +8.3pp
+all_exclusions,"Exclude Hunter, Toowoomba aggregates, Ringwood 10-pt and Bendigo together",6238,H12,Sales rose H1 to H2 at fixed dealer mix (CI excludes 0),+5.3pp,yes,95% CI +1.6pp to +9.0pp

@@ -1,0 +1,9 @@
+check,result,detail
+grid complete,pass,864 rows = 24 dealers x 3 departments x 12 months (2025-10..2026-09)
+total revenue (AUD),info,"838,685,990"
+zero activity/revenue rows,pass,"18 rows, all after a recorded closure (Shepparton VIC09 closed 2026-03-31)"
+activity and revenue zero together,pass,0 mismatches
+Sales revenue per unit outliers (|robust z| > 5),pass,"median A$46,357, range A$41,164-A$51,208, 0 outliers []"
+Service revenue per unit outliers (|robust z| > 5),pass,"median A$415, range A$394-A$436, 0 outliers []"
+Parts revenue per unit outliers (|robust z| > 5),pass,"median A$185, range A$173-A$199, 0 outliers []"
+month-to-month activity jumps (>1.6x or <0.5x dealer median),pass,0 found []

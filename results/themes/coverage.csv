@@ -1,0 +1,6 @@
+scope,model_eligible_in_db,classified_ok,failed,negative_responses,negative_with_classified_comment,coverage
+labels,5349,5342,7,,,
+Sales,,,,153,144,0.9412
+Service,,,,1330,1238,0.9308
+Parts,,,,113,106,0.9381
+All,,,,1596,1488,0.9323

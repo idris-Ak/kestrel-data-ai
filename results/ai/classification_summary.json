@@ -1,0 +1,122 @@
+{
+  "run_id": "5b074a08a2745a111dc5fc931d3183f263c62fc76b39c948e0822457a30b7bad",
+  "input_snapshot": "6a48c384afbd1a19b711dd90a4796e4c1d8774ded8084afefba9e97c6772c1fc",
+  "redaction_version": "rules-3",
+  "model_input_sha256": "0ccb01b3caba0d7117c783200662b49d14264e6512c6e26995253573c948fef0",
+  "config": "haiku-5.5",
+  "model": "claude-haiku-5-5",
+  "effort": "low",
+  "config_fingerprint": "abd37feedbfbab89",
+  "labels_sha256": "8e65c0fd26ade15c2cbcfe7ea3a9657b6f19a5613063f3c989593e5b7e3c119a",
+  "evidence_format": "sha256_and_offsets_in_whitespace_normalised_casefolded_comment",
+  "eligible": 5349,
+  "classified": 5342,
+  "failed": 7,
+  "overall_sentiment": {
+    "mixed": 787,
+    "negative": 1613,
+    "positive": 2904,
+    "neutral": 38
+  },
+  "themes": {
+    "billing:negative": 348,
+    "billing:positive": 28,
+    "communication:negative": 759,
+    "communication:positive": 555,
+    "explanation:negative": 135,
+    "explanation:positive": 748,
+    "parts_availability:negative": 245,
+    "parts_availability:positive": 15,
+    "price_value:negative": 59,
+    "price_value:positive": 456,
+    "process_ease:negative": 207,
+    "process_ease:positive": 434,
+    "sales_pressure:negative": 66,
+    "sales_pressure:positive": 37,
+    "staff_attitude:negative": 210,
+    "staff_attitude:positive": 1324,
+    "timeliness:negative": 701,
+    "timeliness:positive": 734,
+    "vehicle_handover:negative": 112,
+    "vehicle_handover:positive": 13,
+    "work_quality:negative": 318,
+    "work_quality:positive": 16
+  },
+  "cost_usd_this_config": 1.3121,
+  "pilot_and_stage4_spend_usd": 3.4859,
+  "rating_band_check": {
+    "comparable": 4285,
+    "agree": 4265,
+    "agreement": 0.995,
+    "agreement_ci": [
+      0.993,
+      0.997
+    ],
+    "pairs": {
+      "negative->failed": 4,
+      "negative->mixed": 120,
+      "negative->negative": 1366,
+      "negative->neutral": 5,
+      "neutral->failed": 1,
+      "neutral->mixed": 449,
+      "neutral->negative": 224,
+      "no_rating->negative": 3,
+      "no_rating->positive": 5,
+      "positive->failed": 2,
+      "positive->mixed": 218,
+      "positive->negative": 20,
+      "positive->neutral": 33,
+      "positive->positive": 2899
+    },
+    "disagreeing_sources": {
+      "Ballarat - Customer Satisfaction": {
+        "comparable": 184,
+        "agree": 182
+      },
+      "Chermside Q4 2025": {
+        "comparable": 56,
+        "agree": 55
+      },
+      "Dandenong Customer Feedback 2025-26": {
+        "comparable": 294,
+        "agree": 291
+      },
+      "Frankston_CX_tracker": {
+        "comparable": 191,
+        "agree": 190
+      },
+      "Geelong Feedback": {
+        "comparable": 181,
+        "agree": 178
+      },
+      "Noosa feedback cards": {
+        "comparable": 36,
+        "agree": 35
+      },
+      "Parramatta_Feedback_2025-11": {
+        "comparable": 21,
+        "agree": 20
+      },
+      "Penrith Feedback": {
+        "comparable": 288,
+        "agree": 286
+      },
+      "Ringwood feedback Q3 2026": {
+        "comparable": 70,
+        "agree": 68
+      },
+      "Springwood feedback": {
+        "comparable": 187,
+        "agree": 185
+      },
+      "Tamworth": {
+        "comparable": 74,
+        "agree": 73
+      },
+      "chatswood_2026_q3": {
+        "comparable": 55,
+        "agree": 54
+      }
+    }
+  }
+}

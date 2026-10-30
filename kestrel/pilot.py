@@ -432,7 +432,7 @@ def load_aggregate(db, source):
 
 
 def protected_hashes(root):
-    paths = [root / "README.md", root / "PS_Data_AI_Assignment.pdf"]
+    paths = [root / "docs" / "BRIEF.md", root / "PS_Data_AI_Assignment.pdf"]
     paths.extend(p for folder in (root / "feedback", root / "reference") for p in folder.iterdir() if p.is_file())
     return {str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths) if p.is_file()}
 
