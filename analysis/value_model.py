@@ -158,6 +158,19 @@ def read_rates_csv(path):
     return rates
 
 
+def compare_rates(rates, db_rates):
+    rows = []
+    for key in sorted(set(rates) | set(db_rates)):
+        n1, k1 = db_rates.get(key, (0, 0))
+        n2, k2 = rates.get(key, (0, 0))
+        rows.append({'dealer_code': key[0], 'department': key[1], 'n_db': n1, 'negative_db': k1,
+                     'n_file': n2, 'negative_file': k2,
+                     'match': key in rates and key in db_rates and (n1, k1) == (n2, k2)})
+    if not all(r['match'] for r in rows):
+        raise ValueError('Rates file does not match this prepared database and analysis policy')
+    return rows
+
+
 def write_rates_csv(path, rates):
     rows = []
     for (d, dep), (n, k) in sorted(rates.items(), key=lambda x: (x[0][0], x[0][1])):
@@ -475,11 +488,7 @@ def main():
     rates, rate_source, comparison = db_rates, 'computed from DB with policy.sql', []
     if a.rates:
         rates, rate_source = read_rates_csv(a.rates), Path(a.rates).name
-        for key in sorted(set(rates) | set(db_rates)):
-            n1, k1 = db_rates.get(key, (0, 0))
-            n2, k2 = rates.get(key, (0, 0))
-            comparison.append({'dealer_code': key[0], 'department': key[1], 'n_db': n1, 'negative_db': k1,
-                               'n_file': n2, 'negative_file': k2, 'match': (n1, k1) == (n2, k2)})
+        comparison = compare_rates(rates, db_rates)
         write_csv(out / 'rates_comparison.csv', comparison)
     if any(k not in business for k in rates):
         print('warning: rates rows without business data ignored:', [k for k in rates if k not in business])
@@ -604,7 +613,9 @@ def main():
     summary = {
         'inputs': {'db': Path(a.db).name, 'db_sha256': sha256(a.db), 'policy': Path(a.policy).name, 'policy_sha256': sha256(a.policy),
                    'rates_source': rate_source, 'rates_file_matches_db': all(r['match'] for r in comparison) if comparison else None,
-                   'theme_shares': a.theme_shares and Path(a.theme_shares).name},
+                   'rates_sha256': sha256(a.rates) if a.rates else None,
+                   'theme_shares': a.theme_shares and Path(a.theme_shares).name,
+                   'theme_shares_sha256': sha256(a.theme_shares) if a.theme_shares else None},
         'parameters': {'assumptions_low_base_high': ASSUMPTIONS, 'gap_measures_low_base_high': GAP_MEASURES,
                        'horizon_years': HORIZON_YEARS, 'gross_margin_low_base_high': GROSS_MARGIN, 'min_n': a.min_n,
                        'draws': a.draws, 'seed': a.seed},

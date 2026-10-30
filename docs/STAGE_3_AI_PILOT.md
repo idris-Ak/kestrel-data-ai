@@ -1,8 +1,8 @@
 # Stage 3 — AI pilot plan
 
-**30 October 2026 · Pilot complete: Sonnet 5.5 selected · Stage-4 budget pending**
+**30 October 2026 · Historical pilot plan · Pilot rule selected Sonnet; user chose Haiku for full classification (D13)**
 
-Current status is in the [checkpoint](STAGE_3_CHECKPOINT.md). The sections after "Decisions on resume" are the original plan and research, kept for rationale; where they differ, the decisions below apply.
+Current evaluation and full-run status are in the [checkpoint](STAGE_3_CHECKPOINT.md) and [project record](../PROJECT.md). The material below preserves the original plan and its research; proposed human review, rules-2 coverage and budget-pending language describe that earlier checkpoint. The user subsequently chose blind AI reference labels, adopted rules-3 for all 5,349 comments, and selected Haiku within the US$10 cumulative cap. The completed report discloses the deviations, limitations and actual costs.
 
 ## Decisions on resume (user, 30 October)
 

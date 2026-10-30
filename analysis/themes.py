@@ -40,13 +40,38 @@ FROM analysis_events
 """
 
 
+def sha256(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def verify_label_lineage(db, labels_path, summary_path=None):
+    """Bind saved labels to this prepared export without requiring an identical run ID.
+
+    A code/runtime change or the brief migration changes the prepared run ID even
+    when its model input is byte-identical. Content hashes are the replay boundary.
+    """
+    db, labels_path = Path(db).resolve(), Path(labels_path).resolve()
+    summary_path = Path(summary_path or labels_path.with_name("summary.json"))
+    summary = json.loads(summary_path.read_text())
+    manifest = json.loads((db.parent / "manifest.json").read_text())
+    for name, path in (("prepared.sqlite", db), ("model_input.jsonl", db.parent / "model_input.jsonl")):
+        if sha256(path) != manifest["artifacts"][name]:
+            raise ValueError(f"{name} does not match the prepared run manifest")
+    if sha256(labels_path) != summary["labels_sha256"]:
+        raise ValueError("labels.jsonl does not match the classification summary")
+    if summary["model_input_sha256"] != manifest["artifacts"]["model_input.jsonl"]:
+        raise ValueError("classification model-input hash does not match this prepared run")
+    return summary, manifest
+
+
 def load_labels(path):
-    labels, failed = {}, 0
+    labels, failed, seen = {}, 0, set()
     with open(path, encoding="utf-8") as f:
         for line in f:
             r = json.loads(line)
-            if r["event_id"] in labels:
+            if r["event_id"] in seen:
                 raise ValueError("duplicate event_id in labels")
+            seen.add(r["event_id"])
             if r["status"] != "ok":
                 failed += 1
                 continue
@@ -151,6 +176,7 @@ def main():
     ap.add_argument("--db", default=str(REPO / "outputs/prepared/current/prepared.sqlite"))
     ap.add_argument("--policy", default=str(REPO / "kestrel/analysis_policy.sql"))
     ap.add_argument("--labels", help="labels.jsonl (default: outputs/classified/<run_id of --db>/labels.jsonl)")
+    ap.add_argument("--summary", help="classification summary.json (default: beside --labels)")
     ap.add_argument("--out", default=str(REPO / "results/themes"))
     args = ap.parse_args()
     out = Path(args.out)
@@ -162,8 +188,13 @@ def main():
     con.executescript(policy_text)
     run_id = con.execute("SELECT value FROM run_metadata WHERE key = 'run_id'").fetchone()[0]
     labels_path = Path(args.labels or REPO / "outputs/classified" / run_id / "labels.jsonl")
+    summary, manifest = verify_label_lineage(db, labels_path, args.summary)
+    if manifest["run_id"] != run_id:
+        raise ValueError("prepared database run ID does not match its manifest")
     labels, failed = load_labels(labels_path)
     recs, names, model_eligible = join(con, labels)
+    if (summary["eligible"], summary["classified"], summary["failed"]) != (model_eligible, len(labels), failed):
+        raise ValueError("classification counts do not cover this prepared model-input population")
     neg = base(recs)
 
     # 1. Coverage: how many negative responses carry a classified comment
@@ -222,7 +253,9 @@ def main():
 
     info = {"db": db.name, "db_sha256": hashlib.sha256(db.read_bytes()).hexdigest(), "run_id": run_id,
             "policy_sha256": hashlib.sha256(policy_text.encode()).hexdigest(),
-            "labels_sha256": hashlib.sha256(labels_path.read_bytes()).hexdigest(),
+            "labels_sha256": summary["labels_sha256"],
+            "classification_run_id": summary["run_id"],
+            "model_input_sha256": summary["model_input_sha256"],
             "labels_ok": len(labels), "labels_failed": failed, "negative_comments_primary": len(neg),
             "min_n": MIN_N, "themes": list(THEMES)}
     (out / "run_info.json").write_text(json.dumps(info, indent=2) + "\n")

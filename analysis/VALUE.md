@@ -39,7 +39,7 @@ The other 22 cells with value are each under A$14k. Note that Noosa (QLD05, sele
 ## Method
 
 1. **Activity:** 12-month activity per dealer × department from `business_monthly`. The business data passed every check (`business_checks.csv`): complete 864-row grid, revenue reconciles to A$838,685,990, no per-unit outliers or month jumps. The only zeros are Shepparton's 18 post-closure rows. Revenue per unit is very stable (Service A$394–436/job), so revenue per unit is taken from the data.
-2. **Negative rates:** computed with `kestrel/analysis_policy.sql` (bottom-2-box, Wilson CI) and written to `neg_rate_dealer_dept.csv`. This matches the metrics session's file in all 72 cells (`rates_comparison.csv`). The model accepts that file with `--rates`.
+2. **Negative rates:** computed with `kestrel/analysis_policy.sql` (bottom-2-box, Wilson CI) and written to `neg_rate_dealer_dept.csv`. This matches the metrics session's file in all 72 cells (`rates_comparison.csv`). The model accepts that file with `--rates` and stops if its cell set or counts differ from the database/policy result. `run_summary.json` records content hashes for supplied rates and theme-share files. This enforces input provenance; it does not change the value assumptions.
 3. **Avoid chasing noise:** rank only cells with n ≥ 30. Shrink each rate toward its department mean (empirical-Bayes beta-binomial), so small or noisy cells count for less. Label each cell *clear* (lower 95% bound above target) or *likely* (shrunk rate above target). Targets are the median and best quartile of shrunk rates among ranked cells.
 4. **Value chain:** avoidable negatives = activity × (shrunk rate − target) × representativeness (A1). Customers lost = avoidable × P(loss) (A2). Revenue at risk = lost × annual value per customer: Service = revenue/job × visits/yr (A3); Sales = revenue/vehicle ÷ purchase cycle (A4); Parts = revenue/transaction × purchases/yr (A5).
 5. **Uncertainty**, in three separate views:
@@ -63,15 +63,16 @@ The other 22 cells with value are each under A$14k. Note that Noosa (QLD05, sele
 - **Rating band definition:** strict bands (1 only) push Sales up (Southport, Penrith, Box Hill top 3); broad bands (1–3) push Service up (Parramatta, Dandenong, Liverpool Sales).
 - **Best-quartile target:** brings Penrith Sales into the top 3.
 - **Not affected:** the representativeness factor, P(loss) and the horizon scale every cell equally, so they never change the order.
-- **Stage-4 themes:** they will not change the dealer ranking, but they say *what* to fix. See below.
+- **Stage-4 themes:** they do not change the dealer ranking; they identify issues to investigate. See below.
 
-## Stage-4 hook: splitting each opportunity by theme
+## Splitting each opportunity by theme
 
 `opportunity_theme_ready.csv` holds each ranked cell's value. [`themes.py`](themes.py) writes `results/themes/theme_shares.csv` (fractional: each negative comment counts once, split across its negative themes). Pass `--theme-shares shares.csv` (columns `department,theme,share[,dealer_code,n_negative_text]`, template in `theme_shares_template.csv`) to write `opportunity_by_theme.csv` and `lever_by_theme.csv` (the group-wide per-point lever split by department theme shares):
 - Dealer-level shares are used where there are at least 20 negative comments; otherwise department shares.
 - Multi-label shares that sum above 1 are normalised to 1, and any shortfall becomes `unassigned`.
-- Tested with synthetic shares: the split rows add back to each cell's value, to within A$1.
+- Tested with synthetic shares, including department fallback and unassigned value. The complete theme/value rerun reproduces all 20 generated files byte for byte.
 - Assumption: a theme's share of negative comments equals its share of avoidable negatives. Comment coverage differs by dealer (negatives with no text; before rules-3 also withheld text at Ipswich and Essendon), so prefer department-level shares where coverage is thin.
+- On the completed labels, Service's one-point lever is allocated A$49,934 revenue / A$27,463 GP to communication, A$42,610 / A$23,435 to timeliness, and A$23,400 / A$12,870 to work quality. These partition the existing Service total; they are prioritisation heuristics, not measured causal savings. Timeliness may lean high because Haiku over-tagged it in evaluation.
 
 ## Files and rerun
 

@@ -1,12 +1,14 @@
 {
   "inputs": {
     "db": "prepared.sqlite",
-    "db_sha256": "0c0263314651aa30cbf8a4e6794bbdaa4a2627fb0a92166a677b0b1578fbba7d",
+    "db_sha256": "7c4aa876a8847b8ffd02c828dc70a0bf9f6598b9ce19a62c71e2ec78e568d805",
     "policy": "analysis_policy.sql",
     "policy_sha256": "949cad9a813ffad9e7a542c6444815f8758033b636b5733164ae925228c1e1d5",
     "rates_source": "neg_rate_dealer_dept.csv",
     "rates_file_matches_db": true,
-    "theme_shares": null
+    "rates_sha256": "643e8e199f4432138200ab8a36636d29dd3d4e6bf1efdd0302728bbc693ea9dd",
+    "theme_shares": "theme_shares.csv",
+    "theme_shares_sha256": "0ad11799183877dd37a4fdf7afb926e7b247d572b81146182d9b038693c5b3e6"
   },
   "parameters": {
     "assumptions_low_base_high": {
@@ -66,13 +68,13 @@
   "shrinkage_prior": {
     "Sales": {
       "pooled_rate": 0.10132450331125828,
-      "between_cell_sd": 0.04696066702279479,
-      "prior_strength": 40.29037907333313
+      "between_cell_sd": 0.046960667022794805,
+      "prior_strength": 40.2903790733331
     },
     "Service": {
       "pooled_rate": 0.2732689541812205,
-      "between_cell_sd": 0.02761737198643647,
-      "prior_strength": 259.37501564790745
+      "between_cell_sd": 0.027617371986436465,
+      "prior_strength": 259.3750156479075
     },
     "Parts": {
       "pooled_rate": 0.16142857142857142,
@@ -82,8 +84,8 @@
   },
   "targets": {
     "Sales": {
-      "median": 0.1015446082684528,
-      "best_quartile": 0.0674080433797253,
+      "median": 0.10154460826845278,
+      "best_quartile": 0.06740804337972528,
       "cells": 19
     },
     "Service": {

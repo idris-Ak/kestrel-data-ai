@@ -1,6 +1,6 @@
 # Stage 5: what the ratings say about negative feedback
 
-Ratings only (themes come later, in stage 4). "Negative" means the bottom two boxes on a 5-point scale (1–4 on Ringwood's 10-point scale, "bad" on Tamworth's labels), using [`kestrel/analysis_policy.sql`](../kestrel/analysis_policy.sql). Outputs: [`results/metrics/`](../results/metrics/). Rerun on the rules-3 run (`5b074a08…`): every rating table is byte-identical; only text coverage changed (no comments withheld). Primary set: **7,077 rated responses** (7,006 individual plus 71 Toowoomba aggregate responses), Oct 2025 – Sep 2026, with Noosa excluded. Rates are shown with Wilson 95% intervals, and a rate is quoted only when n ≥ 30.
+Ratings only; theme results use the separate stage-4 labels. "Negative" means the bottom two boxes on a 5-point scale (1–4 on Ringwood's 10-point scale, "bad" on Tamworth's labels), using [`kestrel/analysis_policy.sql`](../kestrel/analysis_policy.sql). Outputs: [`results/metrics/`](../results/metrics/). Every rating table reproduces on the rules-3 run; only text coverage changed (no comments withheld). Primary set: **7,077 rated responses** (7,006 individual plus 71 Toowoomba aggregate responses), Oct 2025 – Sep 2026, with Noosa excluded. Rates are shown with Wilson 95% intervals, and a rate is quoted only when n ≥ 30.
 
 ## Findings for the Head of Customer Experience
 
@@ -28,7 +28,7 @@ Ratings only (themes come later, in stage 4). "Negative" means the bottom two bo
 
 **4. States and regions barely differ.** After department adjustment, NSW, QLD and VIC are all within ±4% of the group, and every interval includes 1. NSW Metro is the highest region (O/E 1.10, CI 1.01–1.21), and that is mostly Parramatta and Liverpool. NSW Regional is the lowest (0.84). QLD Regional looks bad on raw numbers (23.5%), but that comes from department mix: it collects almost no Sales feedback (24 responses in a year).
 
-**5. Things got worse over the year, and it is a real change, not a mix shift.**
+**5. Negative feedback rose over the year; the measured dealer × department mix does not explain the rise.**
 - **Group:** 19.9% negative in H1 (Oct–Mar) → 25.0% in H2 (Apr–Sep), **+5.1pp (CI +3.2 to +7.0)**. Holding the dealer × department mix fixed gives +5.2pp, so the mix component is about 0. The step appears in April 2026: every H1 month is 17.5–22.3% and every H2 month is 22.7–27.1%.
 - **By department:** Service +6.1pp, Sales +4.8pp, Parts flat (−0.3pp).
 - **Three cells account for about half the rise.** They pass Benjamini–Hochberg (q < 0.05) and Bonferroni across the 35 cells tested:
@@ -37,13 +37,13 @@ Ratings only (themes come later, in stage 4). "Negative" means the bottom two bo
   - **Liverpool Sales** 2.4% → 34.2% (+32pp). It had no negatives Oct–Feb and climbed from March. The cell is small (n = 42 / 38).
 - At dealer level (department-adjusted), Parramatta, Dandenong and Liverpool are robust movers, and Bendigo is suggestive (+17pp, q = 0.06).
 - **The rest of the group also drifted up slightly:** +2.7pp (CI +0.7 to +4.8) without the three cells. This part is fragile: it loses significance once all the data-assumption exclusions are combined (+1.9pp, CI −0.4 to +4.1).
-- **Not a collection artefact:** responses per 1,000 jobs or vehicles in the three cells barely changed between halves (H2/H1 ratio 0.88–1.20).
+- Responses per 1,000 jobs or vehicles in the three cells had H2/H1 ratios of 0.88–1.20. These are coverage indicators, not invitation response rates, and cannot rule out changes in who chose to respond.
 - **No dealer improved significantly.** Geelong −7.6pp is not significant.
 
 **6. Coverage caveats for the theme analysis (stage 4).**
-- Negative responses are much more likely to carry a comment: **94% of negatives have text vs 70% of non-negatives**, and 85% vs 64% are model-eligible. Themes will therefore over-represent negatives, which suits a drivers analysis. Negatives are 28% of model-eligible comments but 22% of responses.
-- *Superseded by rules-3 (D10):* coverage was weakest at Ipswich (55%) and Essendon (67%) because of privacy withholding. With every comment released, 94% of negatives are model-eligible (all of those with text).
-- Response volume differs by collection practice, not by satisfaction. Sales gets about 100 responses per 1,000 vehicles, Service about 25 per 1,000 jobs and Parts about 12 per 1,000 transactions. Toowoomba, Rockhampton and Townsville collect Sales feedback at 1/3 to 1/5 of the norm, and Noosa at about 1/4 in every department. So compare rates, never complaint counts.
+- Negative individual responses are much more likely to carry a comment: **94.4% of negatives have text vs 70.1% of non-negatives**. Rules-3 makes all of that text model-eligible; no comments remain withheld. Negatives are 28.2% of model-eligible rated comments but 22.6% of rated individual responses. Theme shares therefore describe the comments in their stated base, not all customers.
+- Toowoomba's 71 aggregate responses have no comments and cannot contribute themes. Classified-comment coverage is reported separately against all rated negative responses in `results/themes/coverage.csv`.
+- Collection practices vary, so response volume cannot serve as a satisfaction measure. Sales gets about 100 responses per 1,000 vehicles, Service about 25 per 1,000 jobs and Parts about 12 per 1,000 transactions. Toowoomba, Rockhampton and Townsville collect Sales feedback at 1/3 to 1/5 of the norm, and Noosa at about 1/4 in every department. Compare rates within responses, with the selection caveat, rather than complaint counts.
 
 ### Robust vs fragile (`sensitivity.csv`, 9 scenarios × 12 headlines)
 

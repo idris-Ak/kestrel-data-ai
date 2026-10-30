@@ -1,0 +1,25 @@
+basis,theme,n,k,share,ci_low,ci_high,precision
+rating_negative,communication,1488,496,0.3333,0.3098,0.3577,ok
+rating_negative,timeliness,1488,464,0.3118,0.2888,0.3358,ok
+rating_negative,billing,1488,226,0.1519,0.1345,0.171,ok
+rating_negative,work_quality,1488,206,0.1384,0.1218,0.1569,ok
+rating_negative,parts_availability,1488,160,0.1075,0.0928,0.1243,ok
+rating_negative,staff_attitude,1488,141,0.0948,0.0809,0.1107,ok
+rating_negative,process_ease,1488,139,0.0934,0.0797,0.1093,ok
+rating_negative,explanation,1488,99,0.0665,0.055,0.0803,ok
+rating_negative,vehicle_handover,1488,67,0.045,0.0356,0.0568,ok
+rating_negative,price_value,1488,45,0.0302,0.0227,0.0402,ok
+rating_negative,sales_pressure,1488,39,0.0262,0.0192,0.0356,ok
+rating_negative,(no negative theme),1488,28,0.0188,0.0131,0.0271,ok
+ai_negative,communication,2395,757,0.3161,0.2978,0.335,ok
+ai_negative,timeliness,2395,693,0.2894,0.2715,0.3078,ok
+ai_negative,billing,2395,347,0.1449,0.1314,0.1596,ok
+ai_negative,work_quality,2395,317,0.1324,0.1194,0.1465,ok
+ai_negative,parts_availability,2395,244,0.1019,0.0904,0.1146,ok
+ai_negative,staff_attitude,2395,210,0.0877,0.077,0.0997,ok
+ai_negative,process_ease,2395,206,0.086,0.0754,0.0979,ok
+ai_negative,explanation,2395,134,0.0559,0.0474,0.0659,ok
+ai_negative,vehicle_handover,2395,112,0.0468,0.039,0.056,ok
+ai_negative,sales_pressure,2395,66,0.0276,0.0217,0.0349,ok
+ai_negative,price_value,2395,58,0.0242,0.0188,0.0312,ok
+ai_negative,(no negative theme),2395,45,0.0188,0.0141,0.025,ok

@@ -1,0 +1,481 @@
+dealer_code,dealership,department,theme,n,k,share,ci_low,ci_high,precision
+NSW01,Kestrel Parramatta,All,timeliness,122,35,0.2869,0.2141,0.3727,ok
+NSW01,Kestrel Parramatta,All,communication,122,31,0.2541,0.1852,0.338,ok
+NSW01,Kestrel Parramatta,All,billing,122,19,0.1557,0.102,0.2305,ok
+NSW01,Kestrel Parramatta,All,process_ease,122,18,0.1475,0.0954,0.2212,ok
+NSW01,Kestrel Parramatta,All,work_quality,122,16,0.1311,0.0824,0.2025,ok
+NSW01,Kestrel Parramatta,All,parts_availability,122,12,0.0984,0.0572,0.1641,ok
+NSW01,Kestrel Parramatta,All,staff_attitude,122,8,0.0656,0.0336,0.1241,ok
+NSW01,Kestrel Parramatta,All,sales_pressure,122,8,0.0656,0.0336,0.1241,ok
+NSW01,Kestrel Parramatta,All,explanation,122,7,0.0574,0.0281,0.1137,ok
+NSW01,Kestrel Parramatta,All,vehicle_handover,122,6,0.0492,0.0227,0.1032,ok
+NSW01,Kestrel Parramatta,All,price_value,122,3,0.0246,0.0084,0.0698,ok
+NSW01,Kestrel Parramatta,All,(no negative theme),122,1,0.0082,0.0014,0.045,ok
+NSW01,Kestrel Parramatta,Service,timeliness,104,30,0.2885,0.2102,0.3818,ok
+NSW01,Kestrel Parramatta,Service,communication,104,28,0.2692,0.1933,0.3616,ok
+NSW01,Kestrel Parramatta,Service,billing,104,19,0.1827,0.1202,0.2678,ok
+NSW01,Kestrel Parramatta,Service,process_ease,104,17,0.1635,0.1046,0.2463,ok
+NSW01,Kestrel Parramatta,Service,work_quality,104,15,0.1442,0.0894,0.2244,ok
+NSW01,Kestrel Parramatta,Service,parts_availability,104,10,0.0962,0.0531,0.168,ok
+NSW01,Kestrel Parramatta,Service,staff_attitude,104,4,0.0385,0.0151,0.0947,ok
+NSW01,Kestrel Parramatta,Service,explanation,104,4,0.0385,0.0151,0.0947,ok
+NSW01,Kestrel Parramatta,Service,vehicle_handover,104,4,0.0385,0.0151,0.0947,ok
+NSW01,Kestrel Parramatta,Service,price_value,104,3,0.0288,0.0099,0.0814,ok
+NSW01,Kestrel Parramatta,Service,sales_pressure,104,0,0.0,0.0,0.0356,ok
+NSW01,Kestrel Parramatta,Service,(no negative theme),104,1,0.0096,0.0017,0.0525,ok
+NSW02,Kestrel Penrith,All,communication,91,37,0.4066,0.3114,0.5093,ok
+NSW02,Kestrel Penrith,All,timeliness,91,26,0.2857,0.2031,0.3857,ok
+NSW02,Kestrel Penrith,All,staff_attitude,91,10,0.1099,0.0608,0.1906,ok
+NSW02,Kestrel Penrith,All,billing,91,9,0.0989,0.0529,0.1774,ok
+NSW02,Kestrel Penrith,All,work_quality,91,8,0.0879,0.0452,0.164,ok
+NSW02,Kestrel Penrith,All,sales_pressure,91,8,0.0879,0.0452,0.164,ok
+NSW02,Kestrel Penrith,All,process_ease,91,8,0.0879,0.0452,0.164,ok
+NSW02,Kestrel Penrith,All,parts_availability,91,5,0.0549,0.0237,0.1222,ok
+NSW02,Kestrel Penrith,All,price_value,91,4,0.044,0.0172,0.1076,ok
+NSW02,Kestrel Penrith,All,explanation,91,3,0.033,0.0113,0.0925,ok
+NSW02,Kestrel Penrith,All,vehicle_handover,91,2,0.022,0.006,0.0766,ok
+NSW02,Kestrel Penrith,All,(no negative theme),91,2,0.022,0.006,0.0766,ok
+NSW02,Kestrel Penrith,Service,communication,65,27,0.4154,0.3036,0.5366,ok
+NSW02,Kestrel Penrith,Service,timeliness,65,24,0.3692,0.2623,0.4908,ok
+NSW02,Kestrel Penrith,Service,work_quality,65,8,0.1231,0.0637,0.2245,ok
+NSW02,Kestrel Penrith,Service,process_ease,65,8,0.1231,0.0637,0.2245,ok
+NSW02,Kestrel Penrith,Service,billing,65,6,0.0923,0.043,0.1871,ok
+NSW02,Kestrel Penrith,Service,staff_attitude,65,5,0.0769,0.0333,0.1678,ok
+NSW02,Kestrel Penrith,Service,explanation,65,3,0.0462,0.0158,0.1271,ok
+NSW02,Kestrel Penrith,Service,parts_availability,65,3,0.0462,0.0158,0.1271,ok
+NSW02,Kestrel Penrith,Service,price_value,65,2,0.0308,0.0085,0.1054,ok
+NSW02,Kestrel Penrith,Service,sales_pressure,65,0,0.0,0.0,0.0558,ok
+NSW02,Kestrel Penrith,Service,vehicle_handover,65,0,0.0,0.0,0.0558,ok
+NSW02,Kestrel Penrith,Service,(no negative theme),65,2,0.0308,0.0085,0.1054,ok
+NSW03,Kestrel Chatswood,All,communication,66,25,0.3788,0.2715,0.4994,ok
+NSW03,Kestrel Chatswood,All,timeliness,66,20,0.303,0.2055,0.4222,ok
+NSW03,Kestrel Chatswood,All,explanation,66,13,0.197,0.1189,0.3084,ok
+NSW03,Kestrel Chatswood,All,billing,66,10,0.1515,0.0844,0.2569,ok
+NSW03,Kestrel Chatswood,All,staff_attitude,66,9,0.1364,0.0734,0.2393,ok
+NSW03,Kestrel Chatswood,All,work_quality,66,7,0.1061,0.0523,0.2031,ok
+NSW03,Kestrel Chatswood,All,sales_pressure,66,4,0.0606,0.0238,0.1457,ok
+NSW03,Kestrel Chatswood,All,process_ease,66,4,0.0606,0.0238,0.1457,ok
+NSW03,Kestrel Chatswood,All,price_value,66,2,0.0303,0.0083,0.1039,ok
+NSW03,Kestrel Chatswood,All,parts_availability,66,2,0.0303,0.0083,0.1039,ok
+NSW03,Kestrel Chatswood,All,vehicle_handover,66,1,0.0152,0.0027,0.081,ok
+NSW03,Kestrel Chatswood,All,(no negative theme),66,2,0.0303,0.0083,0.1039,ok
+NSW03,Kestrel Chatswood,Service,communication,53,23,0.434,0.3095,0.5673,ok
+NSW03,Kestrel Chatswood,Service,timeliness,53,18,0.3396,0.2269,0.4741,ok
+NSW03,Kestrel Chatswood,Service,billing,53,9,0.1698,0.092,0.2923,ok
+NSW03,Kestrel Chatswood,Service,explanation,53,8,0.1509,0.0785,0.2705,ok
+NSW03,Kestrel Chatswood,Service,work_quality,53,7,0.1321,0.0655,0.2484,ok
+NSW03,Kestrel Chatswood,Service,staff_attitude,53,5,0.0943,0.041,0.2025,ok
+NSW03,Kestrel Chatswood,Service,parts_availability,53,2,0.0377,0.0104,0.1275,ok
+NSW03,Kestrel Chatswood,Service,process_ease,53,2,0.0377,0.0104,0.1275,ok
+NSW03,Kestrel Chatswood,Service,price_value,53,1,0.0189,0.0033,0.0994,ok
+NSW03,Kestrel Chatswood,Service,vehicle_handover,53,1,0.0189,0.0033,0.0994,ok
+NSW03,Kestrel Chatswood,Service,sales_pressure,53,0,0.0,0.0,0.0676,ok
+NSW03,Kestrel Chatswood,Service,(no negative theme),53,2,0.0377,0.0104,0.1275,ok
+NSW04,Kestrel Liverpool,All,communication,63,21,0.3333,0.2295,0.4563,ok
+NSW04,Kestrel Liverpool,All,timeliness,63,21,0.3333,0.2295,0.4563,ok
+NSW04,Kestrel Liverpool,All,parts_availability,63,11,0.1746,0.1004,0.2862,ok
+NSW04,Kestrel Liverpool,All,billing,63,8,0.127,0.0658,0.2311,ok
+NSW04,Kestrel Liverpool,All,sales_pressure,63,8,0.127,0.0658,0.2311,ok
+NSW04,Kestrel Liverpool,All,staff_attitude,63,5,0.0794,0.0344,0.1727,ok
+NSW04,Kestrel Liverpool,All,vehicle_handover,63,5,0.0794,0.0344,0.1727,ok
+NSW04,Kestrel Liverpool,All,work_quality,63,4,0.0635,0.025,0.1522,ok
+NSW04,Kestrel Liverpool,All,explanation,63,3,0.0476,0.0163,0.1309,ok
+NSW04,Kestrel Liverpool,All,process_ease,63,2,0.0317,0.0087,0.1086,ok
+NSW04,Kestrel Liverpool,All,price_value,63,1,0.0159,0.0028,0.0846,ok
+NSW04,Kestrel Liverpool,All,(no negative theme),63,1,0.0159,0.0028,0.0846,ok
+NSW04,Kestrel Liverpool,Service,communication,46,18,0.3913,0.2639,0.5354,low
+NSW04,Kestrel Liverpool,Service,timeliness,46,16,0.3478,0.2268,0.4923,low
+NSW04,Kestrel Liverpool,Service,parts_availability,46,9,0.1957,0.1065,0.3317,low
+NSW04,Kestrel Liverpool,Service,billing,46,6,0.1304,0.0612,0.2567,low
+NSW04,Kestrel Liverpool,Service,work_quality,46,4,0.087,0.0343,0.2032,low
+NSW04,Kestrel Liverpool,Service,staff_attitude,46,3,0.0652,0.0224,0.175,low
+NSW04,Kestrel Liverpool,Service,explanation,46,2,0.0435,0.012,0.1453,low
+NSW04,Kestrel Liverpool,Service,price_value,46,1,0.0217,0.0038,0.1134,low
+NSW04,Kestrel Liverpool,Service,process_ease,46,1,0.0217,0.0038,0.1134,low
+NSW04,Kestrel Liverpool,Service,vehicle_handover,46,1,0.0217,0.0038,0.1134,low
+NSW04,Kestrel Liverpool,Service,sales_pressure,46,0,0.0,0.0,0.0771,low
+NSW04,Kestrel Liverpool,Service,(no negative theme),46,1,0.0217,0.0038,0.1134,low
+NSW05,Kestrel Newcastle,All,communication,63,24,0.381,0.2712,0.5044,ok
+NSW05,Kestrel Newcastle,All,timeliness,63,19,0.3016,0.2024,0.4236,ok
+NSW05,Kestrel Newcastle,All,explanation,63,8,0.127,0.0658,0.2311,ok
+NSW05,Kestrel Newcastle,All,billing,63,7,0.1111,0.0549,0.212,ok
+NSW05,Kestrel Newcastle,All,staff_attitude,63,6,0.0952,0.0444,0.1926,ok
+NSW05,Kestrel Newcastle,All,parts_availability,63,6,0.0952,0.0444,0.1926,ok
+NSW05,Kestrel Newcastle,All,work_quality,63,3,0.0476,0.0163,0.1309,ok
+NSW05,Kestrel Newcastle,All,process_ease,63,2,0.0317,0.0087,0.1086,ok
+NSW05,Kestrel Newcastle,All,vehicle_handover,63,2,0.0317,0.0087,0.1086,ok
+NSW05,Kestrel Newcastle,All,price_value,63,1,0.0159,0.0028,0.0846,ok
+NSW05,Kestrel Newcastle,All,sales_pressure,63,0,0.0,0.0,0.0575,ok
+NSW05,Kestrel Newcastle,All,(no negative theme),63,3,0.0476,0.0163,0.1309,ok
+NSW05,Kestrel Newcastle,Service,communication,50,22,0.44,0.3116,0.5769,ok
+NSW05,Kestrel Newcastle,Service,timeliness,50,17,0.34,0.2244,0.4785,ok
+NSW05,Kestrel Newcastle,Service,billing,50,6,0.12,0.0562,0.238,ok
+NSW05,Kestrel Newcastle,Service,parts_availability,50,5,0.1,0.0435,0.2136,ok
+NSW05,Kestrel Newcastle,Service,explanation,50,3,0.06,0.0206,0.1622,ok
+NSW05,Kestrel Newcastle,Service,work_quality,50,3,0.06,0.0206,0.1622,ok
+NSW05,Kestrel Newcastle,Service,staff_attitude,50,2,0.04,0.011,0.1346,ok
+NSW05,Kestrel Newcastle,Service,process_ease,50,2,0.04,0.011,0.1346,ok
+NSW05,Kestrel Newcastle,Service,price_value,50,1,0.02,0.0035,0.105,ok
+NSW05,Kestrel Newcastle,Service,sales_pressure,50,0,0.0,0.0,0.0713,ok
+NSW05,Kestrel Newcastle,Service,vehicle_handover,50,0,0.0,0.0,0.0713,ok
+NSW05,Kestrel Newcastle,Service,(no negative theme),50,3,0.06,0.0206,0.1622,ok
+NSW06,Kestrel Wollongong,All,communication,44,19,0.4318,0.2968,0.5778,low
+NSW06,Kestrel Wollongong,All,timeliness,44,12,0.2727,0.1635,0.4185,low
+NSW06,Kestrel Wollongong,All,billing,44,7,0.1591,0.0793,0.2937,low
+NSW06,Kestrel Wollongong,All,parts_availability,44,6,0.1364,0.064,0.2671,low
+NSW06,Kestrel Wollongong,All,work_quality,44,5,0.1136,0.0495,0.2398,low
+NSW06,Kestrel Wollongong,All,process_ease,44,3,0.0682,0.0235,0.1823,low
+NSW06,Kestrel Wollongong,All,vehicle_handover,44,2,0.0455,0.0126,0.1513,low
+NSW06,Kestrel Wollongong,All,staff_attitude,44,1,0.0227,0.004,0.1181,low
+NSW06,Kestrel Wollongong,All,explanation,44,1,0.0227,0.004,0.1181,low
+NSW06,Kestrel Wollongong,All,price_value,44,1,0.0227,0.004,0.1181,low
+NSW06,Kestrel Wollongong,All,sales_pressure,44,0,0.0,0.0,0.0803,low
+NSW06,Kestrel Wollongong,All,(no negative theme),44,0,0.0,0.0,0.0803,low
+NSW06,Kestrel Wollongong,Service,communication,36,13,0.3611,0.2248,0.5242,low
+NSW06,Kestrel Wollongong,Service,timeliness,36,12,0.3333,0.2021,0.4967,low
+NSW06,Kestrel Wollongong,Service,billing,36,7,0.1944,0.0975,0.3503,low
+NSW06,Kestrel Wollongong,Service,work_quality,36,5,0.1389,0.0608,0.2866,low
+NSW06,Kestrel Wollongong,Service,parts_availability,36,5,0.1389,0.0608,0.2866,low
+NSW06,Kestrel Wollongong,Service,process_ease,36,3,0.0833,0.0287,0.2183,low
+NSW06,Kestrel Wollongong,Service,vehicle_handover,36,2,0.0556,0.0154,0.1814,low
+NSW06,Kestrel Wollongong,Service,explanation,36,1,0.0278,0.0049,0.1417,low
+NSW06,Kestrel Wollongong,Service,price_value,36,1,0.0278,0.0049,0.1417,low
+NSW06,Kestrel Wollongong,Service,staff_attitude,36,0,0.0,0.0,0.0964,low
+NSW06,Kestrel Wollongong,Service,sales_pressure,36,0,0.0,0.0,0.0964,low
+NSW06,Kestrel Wollongong,Service,(no negative theme),36,0,0.0,0.0,0.0964,low
+QLD01,Kestrel Chermside,All,communication,98,37,0.3776,0.2879,0.4764,ok
+QLD01,Kestrel Chermside,All,timeliness,98,28,0.2857,0.2057,0.3819,ok
+QLD01,Kestrel Chermside,All,billing,98,15,0.1531,0.095,0.2373,ok
+QLD01,Kestrel Chermside,All,explanation,98,14,0.1429,0.087,0.2256,ok
+QLD01,Kestrel Chermside,All,work_quality,98,14,0.1429,0.087,0.2256,ok
+QLD01,Kestrel Chermside,All,process_ease,98,8,0.0816,0.0419,0.1529,ok
+QLD01,Kestrel Chermside,All,staff_attitude,98,5,0.051,0.022,0.1139,ok
+QLD01,Kestrel Chermside,All,parts_availability,98,5,0.051,0.022,0.1139,ok
+QLD01,Kestrel Chermside,All,vehicle_handover,98,3,0.0306,0.0105,0.0862,ok
+QLD01,Kestrel Chermside,All,price_value,98,2,0.0204,0.0056,0.0714,ok
+QLD01,Kestrel Chermside,All,sales_pressure,98,2,0.0204,0.0056,0.0714,ok
+QLD01,Kestrel Chermside,All,(no negative theme),98,1,0.0102,0.0018,0.0556,ok
+QLD01,Kestrel Chermside,Service,communication,79,31,0.3924,0.2921,0.5027,ok
+QLD01,Kestrel Chermside,Service,timeliness,79,23,0.2911,0.2025,0.3991,ok
+QLD01,Kestrel Chermside,Service,work_quality,79,14,0.1772,0.1086,0.2758,ok
+QLD01,Kestrel Chermside,Service,explanation,79,10,0.1266,0.0702,0.2176,ok
+QLD01,Kestrel Chermside,Service,billing,79,10,0.1266,0.0702,0.2176,ok
+QLD01,Kestrel Chermside,Service,process_ease,79,7,0.0886,0.0436,0.1718,ok
+QLD01,Kestrel Chermside,Service,staff_attitude,79,4,0.0506,0.0199,0.1231,ok
+QLD01,Kestrel Chermside,Service,parts_availability,79,2,0.0253,0.007,0.0877,ok
+QLD01,Kestrel Chermside,Service,price_value,79,1,0.0127,0.0022,0.0683,ok
+QLD01,Kestrel Chermside,Service,vehicle_handover,79,1,0.0127,0.0022,0.0683,ok
+QLD01,Kestrel Chermside,Service,sales_pressure,79,0,0.0,0.0,0.0464,ok
+QLD01,Kestrel Chermside,Service,(no negative theme),79,1,0.0127,0.0022,0.0683,ok
+QLD02,Kestrel Springwood,All,communication,47,18,0.383,0.2579,0.5257,low
+QLD02,Kestrel Springwood,All,timeliness,47,14,0.2979,0.1865,0.4398,low
+QLD02,Kestrel Springwood,All,billing,47,7,0.1489,0.0741,0.2769,low
+QLD02,Kestrel Springwood,All,process_ease,47,7,0.1489,0.0741,0.2769,low
+QLD02,Kestrel Springwood,All,work_quality,47,6,0.1277,0.0598,0.2517,low
+QLD02,Kestrel Springwood,All,staff_attitude,47,3,0.0638,0.0219,0.1716,low
+QLD02,Kestrel Springwood,All,parts_availability,47,3,0.0638,0.0219,0.1716,low
+QLD02,Kestrel Springwood,All,vehicle_handover,47,3,0.0638,0.0219,0.1716,low
+QLD02,Kestrel Springwood,All,explanation,47,2,0.0426,0.0117,0.1425,low
+QLD02,Kestrel Springwood,All,price_value,47,2,0.0426,0.0117,0.1425,low
+QLD02,Kestrel Springwood,All,sales_pressure,47,0,0.0,0.0,0.0756,low
+QLD02,Kestrel Springwood,All,(no negative theme),47,1,0.0213,0.0038,0.1111,low
+QLD02,Kestrel Springwood,Service,communication,42,18,0.4286,0.2912,0.5779,low
+QLD02,Kestrel Springwood,Service,timeliness,42,13,0.3095,0.1907,0.4603,low
+QLD02,Kestrel Springwood,Service,process_ease,42,7,0.1667,0.0832,0.306,low
+QLD02,Kestrel Springwood,Service,billing,42,6,0.1429,0.0672,0.2784,low
+QLD02,Kestrel Springwood,Service,work_quality,42,6,0.1429,0.0672,0.2784,low
+QLD02,Kestrel Springwood,Service,staff_attitude,42,2,0.0476,0.0132,0.1579,low
+QLD02,Kestrel Springwood,Service,price_value,42,2,0.0476,0.0132,0.1579,low
+QLD02,Kestrel Springwood,Service,parts_availability,42,2,0.0476,0.0132,0.1579,low
+QLD02,Kestrel Springwood,Service,explanation,42,1,0.0238,0.0042,0.1232,low
+QLD02,Kestrel Springwood,Service,vehicle_handover,42,1,0.0238,0.0042,0.1232,low
+QLD02,Kestrel Springwood,Service,sales_pressure,42,0,0.0,0.0,0.0838,low
+QLD02,Kestrel Springwood,Service,(no negative theme),42,1,0.0238,0.0042,0.1232,low
+QLD03,Kestrel Ipswich,All,timeliness,56,20,0.3571,0.2446,0.4881,ok
+QLD03,Kestrel Ipswich,All,communication,56,18,0.3214,0.214,0.4518,ok
+QLD03,Kestrel Ipswich,All,work_quality,56,9,0.1607,0.0869,0.2781,ok
+QLD03,Kestrel Ipswich,All,process_ease,56,8,0.1429,0.0742,0.2574,ok
+QLD03,Kestrel Ipswich,All,billing,56,6,0.1071,0.05,0.2147,ok
+QLD03,Kestrel Ipswich,All,parts_availability,56,6,0.1071,0.05,0.2147,ok
+QLD03,Kestrel Ipswich,All,staff_attitude,56,5,0.0893,0.0387,0.1926,ok
+QLD03,Kestrel Ipswich,All,explanation,56,3,0.0536,0.0184,0.1461,ok
+QLD03,Kestrel Ipswich,All,price_value,56,2,0.0357,0.0098,0.1212,ok
+QLD03,Kestrel Ipswich,All,sales_pressure,56,2,0.0357,0.0098,0.1212,ok
+QLD03,Kestrel Ipswich,All,vehicle_handover,56,2,0.0357,0.0098,0.1212,ok
+QLD03,Kestrel Ipswich,All,(no negative theme),56,1,0.0179,0.0032,0.0945,ok
+QLD03,Kestrel Ipswich,Service,timeliness,48,19,0.3958,0.2702,0.5369,low
+QLD03,Kestrel Ipswich,Service,communication,48,12,0.25,0.1492,0.3878,low
+QLD03,Kestrel Ipswich,Service,work_quality,48,9,0.1875,0.1019,0.3194,low
+QLD03,Kestrel Ipswich,Service,billing,48,6,0.125,0.0586,0.247,low
+QLD03,Kestrel Ipswich,Service,process_ease,48,6,0.125,0.0586,0.247,low
+QLD03,Kestrel Ipswich,Service,staff_attitude,48,5,0.1042,0.0453,0.2217,low
+QLD03,Kestrel Ipswich,Service,parts_availability,48,5,0.1042,0.0453,0.2217,low
+QLD03,Kestrel Ipswich,Service,explanation,48,2,0.0417,0.0115,0.1398,low
+QLD03,Kestrel Ipswich,Service,price_value,48,2,0.0417,0.0115,0.1398,low
+QLD03,Kestrel Ipswich,Service,vehicle_handover,48,1,0.0208,0.0037,0.109,low
+QLD03,Kestrel Ipswich,Service,sales_pressure,48,0,0.0,0.0,0.0741,low
+QLD03,Kestrel Ipswich,Service,(no negative theme),48,1,0.0208,0.0037,0.109,low
+QLD04,Kestrel Southport,All,communication,59,18,0.3051,0.2025,0.4315,ok
+QLD04,Kestrel Southport,All,timeliness,59,16,0.2712,0.1744,0.396,ok
+QLD04,Kestrel Southport,All,explanation,59,11,0.1864,0.1074,0.3038,ok
+QLD04,Kestrel Southport,All,staff_attitude,59,9,0.1525,0.0824,0.2652,ok
+QLD04,Kestrel Southport,All,work_quality,59,9,0.1525,0.0824,0.2652,ok
+QLD04,Kestrel Southport,All,billing,59,7,0.1186,0.0587,0.2252,ok
+QLD04,Kestrel Southport,All,parts_availability,59,6,0.1017,0.0474,0.2046,ok
+QLD04,Kestrel Southport,All,vehicle_handover,59,5,0.0847,0.0367,0.1835,ok
+QLD04,Kestrel Southport,All,process_ease,59,3,0.0508,0.0174,0.1392,ok
+QLD04,Kestrel Southport,All,price_value,59,1,0.0169,0.003,0.09,ok
+QLD04,Kestrel Southport,All,sales_pressure,59,0,0.0,0.0,0.0611,ok
+QLD04,Kestrel Southport,All,(no negative theme),59,1,0.0169,0.003,0.09,ok
+QLD04,Kestrel Southport,Service,communication,43,15,0.3488,0.2242,0.4983,low
+QLD04,Kestrel Southport,Service,timeliness,43,12,0.2791,0.1675,0.4269,low
+QLD04,Kestrel Southport,Service,work_quality,43,9,0.2093,0.1142,0.3521,low
+QLD04,Kestrel Southport,Service,explanation,43,6,0.1395,0.0656,0.2726,low
+QLD04,Kestrel Southport,Service,staff_attitude,43,4,0.093,0.0368,0.216,low
+QLD04,Kestrel Southport,Service,billing,43,4,0.093,0.0368,0.216,low
+QLD04,Kestrel Southport,Service,parts_availability,43,4,0.093,0.0368,0.216,low
+QLD04,Kestrel Southport,Service,process_ease,43,2,0.0465,0.0128,0.1546,low
+QLD04,Kestrel Southport,Service,price_value,43,1,0.0233,0.0041,0.1206,low
+QLD04,Kestrel Southport,Service,vehicle_handover,43,1,0.0233,0.0041,0.1206,low
+QLD04,Kestrel Southport,Service,sales_pressure,43,0,0.0,0.0,0.082,low
+QLD04,Kestrel Southport,Service,(no negative theme),43,1,0.0233,0.0041,0.1206,low
+QLD06,Kestrel Toowoomba,All,timeliness,54,18,0.3333,0.2224,0.4664,ok
+QLD06,Kestrel Toowoomba,All,communication,54,17,0.3148,0.2068,0.4474,ok
+QLD06,Kestrel Toowoomba,All,billing,54,12,0.2222,0.132,0.3494,ok
+QLD06,Kestrel Toowoomba,All,work_quality,54,10,0.1852,0.1038,0.3084,ok
+QLD06,Kestrel Toowoomba,All,parts_availability,54,6,0.1111,0.0519,0.2219,ok
+QLD06,Kestrel Toowoomba,All,staff_attitude,54,5,0.0926,0.0402,0.1991,ok
+QLD06,Kestrel Toowoomba,All,process_ease,54,5,0.0926,0.0402,0.1991,ok
+QLD06,Kestrel Toowoomba,All,explanation,54,1,0.0185,0.0033,0.0977,ok
+QLD06,Kestrel Toowoomba,All,price_value,54,1,0.0185,0.0033,0.0977,ok
+QLD06,Kestrel Toowoomba,All,vehicle_handover,54,1,0.0185,0.0033,0.0977,ok
+QLD06,Kestrel Toowoomba,All,sales_pressure,54,0,0.0,0.0,0.0664,ok
+QLD06,Kestrel Toowoomba,All,(no negative theme),54,1,0.0185,0.0033,0.0977,ok
+QLD06,Kestrel Toowoomba,Service,communication,52,17,0.3269,0.2152,0.4624,ok
+QLD06,Kestrel Toowoomba,Service,timeliness,52,17,0.3269,0.2152,0.4624,ok
+QLD06,Kestrel Toowoomba,Service,billing,52,11,0.2115,0.1224,0.3403,ok
+QLD06,Kestrel Toowoomba,Service,work_quality,52,10,0.1923,0.108,0.319,ok
+QLD06,Kestrel Toowoomba,Service,parts_availability,52,6,0.1154,0.054,0.2297,ok
+QLD06,Kestrel Toowoomba,Service,process_ease,52,5,0.0962,0.0418,0.2061,ok
+QLD06,Kestrel Toowoomba,Service,staff_attitude,52,4,0.0769,0.0303,0.1817,ok
+QLD06,Kestrel Toowoomba,Service,explanation,52,1,0.0192,0.0034,0.1012,ok
+QLD06,Kestrel Toowoomba,Service,price_value,52,1,0.0192,0.0034,0.1012,ok
+QLD06,Kestrel Toowoomba,Service,vehicle_handover,52,1,0.0192,0.0034,0.1012,ok
+QLD06,Kestrel Toowoomba,Service,sales_pressure,52,0,0.0,0.0,0.0688,ok
+QLD06,Kestrel Toowoomba,Service,(no negative theme),52,1,0.0192,0.0034,0.1012,ok
+QLD07,Kestrel Rockhampton,All,timeliness,51,19,0.3725,0.2532,0.5097,ok
+QLD07,Kestrel Rockhampton,All,communication,51,16,0.3137,0.2033,0.4503,ok
+QLD07,Kestrel Rockhampton,All,billing,51,10,0.1961,0.1102,0.3246,ok
+QLD07,Kestrel Rockhampton,All,staff_attitude,51,8,0.1569,0.0817,0.2801,ok
+QLD07,Kestrel Rockhampton,All,work_quality,51,8,0.1569,0.0817,0.2801,ok
+QLD07,Kestrel Rockhampton,All,parts_availability,51,4,0.0784,0.0309,0.185,ok
+QLD07,Kestrel Rockhampton,All,price_value,51,3,0.0588,0.0202,0.1592,ok
+QLD07,Kestrel Rockhampton,All,explanation,51,2,0.0392,0.0108,0.1322,ok
+QLD07,Kestrel Rockhampton,All,process_ease,51,1,0.0196,0.0035,0.103,ok
+QLD07,Kestrel Rockhampton,All,vehicle_handover,51,1,0.0196,0.0035,0.103,ok
+QLD07,Kestrel Rockhampton,All,sales_pressure,51,0,0.0,0.0,0.07,ok
+QLD07,Kestrel Rockhampton,All,(no negative theme),51,0,0.0,0.0,0.07,ok
+QLD07,Kestrel Rockhampton,Service,timeliness,46,17,0.3696,0.2452,0.514,low
+QLD07,Kestrel Rockhampton,Service,communication,46,16,0.3478,0.2268,0.4923,low
+QLD07,Kestrel Rockhampton,Service,billing,46,8,0.1739,0.0909,0.3072,low
+QLD07,Kestrel Rockhampton,Service,work_quality,46,8,0.1739,0.0909,0.3072,low
+QLD07,Kestrel Rockhampton,Service,staff_attitude,46,6,0.1304,0.0612,0.2567,low
+QLD07,Kestrel Rockhampton,Service,price_value,46,3,0.0652,0.0224,0.175,low
+QLD07,Kestrel Rockhampton,Service,explanation,46,2,0.0435,0.012,0.1453,low
+QLD07,Kestrel Rockhampton,Service,parts_availability,46,2,0.0435,0.012,0.1453,low
+QLD07,Kestrel Rockhampton,Service,process_ease,46,1,0.0217,0.0038,0.1134,low
+QLD07,Kestrel Rockhampton,Service,vehicle_handover,46,1,0.0217,0.0038,0.1134,low
+QLD07,Kestrel Rockhampton,Service,sales_pressure,46,0,0.0,0.0,0.0771,low
+QLD07,Kestrel Rockhampton,Service,(no negative theme),46,0,0.0,0.0,0.0771,low
+QLD08,Kestrel Townsville,All,timeliness,77,30,0.3896,0.2884,0.5013,ok
+QLD08,Kestrel Townsville,All,communication,77,25,0.3247,0.2306,0.4354,ok
+QLD08,Kestrel Townsville,All,billing,77,15,0.1948,0.1218,0.2969,ok
+QLD08,Kestrel Townsville,All,parts_availability,77,12,0.1558,0.0915,0.2529,ok
+QLD08,Kestrel Townsville,All,work_quality,77,8,0.1039,0.0536,0.1918,ok
+QLD08,Kestrel Townsville,All,staff_attitude,77,7,0.0909,0.0447,0.176,ok
+QLD08,Kestrel Townsville,All,process_ease,77,5,0.0649,0.0281,0.1432,ok
+QLD08,Kestrel Townsville,All,price_value,77,2,0.026,0.0072,0.0898,ok
+QLD08,Kestrel Townsville,All,vehicle_handover,77,2,0.026,0.0072,0.0898,ok
+QLD08,Kestrel Townsville,All,explanation,77,1,0.013,0.0023,0.07,ok
+QLD08,Kestrel Townsville,All,sales_pressure,77,0,0.0,0.0,0.0475,ok
+QLD08,Kestrel Townsville,All,(no negative theme),77,0,0.0,0.0,0.0475,ok
+QLD08,Kestrel Townsville,Service,timeliness,67,24,0.3582,0.254,0.4778,ok
+QLD08,Kestrel Townsville,Service,communication,67,22,0.3284,0.2279,0.4474,ok
+QLD08,Kestrel Townsville,Service,billing,67,15,0.2239,0.1406,0.3371,ok
+QLD08,Kestrel Townsville,Service,work_quality,67,8,0.1194,0.0618,0.2183,ok
+QLD08,Kestrel Townsville,Service,staff_attitude,67,7,0.1045,0.0515,0.2003,ok
+QLD08,Kestrel Townsville,Service,parts_availability,67,7,0.1045,0.0515,0.2003,ok
+QLD08,Kestrel Townsville,Service,process_ease,67,5,0.0746,0.0323,0.1631,ok
+QLD08,Kestrel Townsville,Service,price_value,67,2,0.0299,0.0082,0.1025,ok
+QLD08,Kestrel Townsville,Service,explanation,67,1,0.0149,0.0026,0.0798,ok
+QLD08,Kestrel Townsville,Service,vehicle_handover,67,1,0.0149,0.0026,0.0798,ok
+QLD08,Kestrel Townsville,Service,sales_pressure,67,0,0.0,0.0,0.0542,ok
+QLD08,Kestrel Townsville,Service,(no negative theme),67,0,0.0,0.0,0.0542,ok
+VIC01,Kestrel Dandenong,All,timeliness,119,41,0.3445,0.2652,0.4336,ok
+VIC01,Kestrel Dandenong,All,communication,119,36,0.3025,0.2272,0.3902,ok
+VIC01,Kestrel Dandenong,All,process_ease,119,22,0.1849,0.1254,0.2641,ok
+VIC01,Kestrel Dandenong,All,work_quality,119,20,0.1681,0.1115,0.2454,ok
+VIC01,Kestrel Dandenong,All,parts_availability,119,16,0.1345,0.0845,0.2073,ok
+VIC01,Kestrel Dandenong,All,billing,119,12,0.1008,0.0586,0.168,ok
+VIC01,Kestrel Dandenong,All,staff_attitude,119,10,0.084,0.0463,0.1478,ok
+VIC01,Kestrel Dandenong,All,explanation,119,7,0.0588,0.0288,0.1165,ok
+VIC01,Kestrel Dandenong,All,vehicle_handover,119,6,0.0504,0.0233,0.1056,ok
+VIC01,Kestrel Dandenong,All,sales_pressure,119,1,0.0084,0.0015,0.0461,ok
+VIC01,Kestrel Dandenong,All,price_value,119,0,0.0,0.0,0.0313,ok
+VIC01,Kestrel Dandenong,All,(no negative theme),119,3,0.0252,0.0086,0.0715,ok
+VIC01,Kestrel Dandenong,Service,timeliness,106,37,0.3491,0.265,0.4436,ok
+VIC01,Kestrel Dandenong,Service,communication,106,33,0.3113,0.2311,0.4048,ok
+VIC01,Kestrel Dandenong,Service,process_ease,106,22,0.2075,0.1412,0.2943,ok
+VIC01,Kestrel Dandenong,Service,work_quality,106,20,0.1887,0.1256,0.2735,ok
+VIC01,Kestrel Dandenong,Service,parts_availability,106,12,0.1132,0.066,0.1875,ok
+VIC01,Kestrel Dandenong,Service,billing,106,10,0.0943,0.0521,0.165,ok
+VIC01,Kestrel Dandenong,Service,staff_attitude,106,9,0.0849,0.0453,0.1535,ok
+VIC01,Kestrel Dandenong,Service,explanation,106,4,0.0377,0.0148,0.093,ok
+VIC01,Kestrel Dandenong,Service,vehicle_handover,106,3,0.0283,0.0097,0.0799,ok
+VIC01,Kestrel Dandenong,Service,price_value,106,0,0.0,0.0,0.035,ok
+VIC01,Kestrel Dandenong,Service,sales_pressure,106,0,0.0,0.0,0.035,ok
+VIC01,Kestrel Dandenong,Service,(no negative theme),106,3,0.0283,0.0097,0.0799,ok
+VIC02,Kestrel Ringwood,All,timeliness,84,26,0.3095,0.2208,0.4149,ok
+VIC02,Kestrel Ringwood,All,billing,84,22,0.2619,0.1798,0.3648,ok
+VIC02,Kestrel Ringwood,All,communication,84,21,0.25,0.1697,0.3521,ok
+VIC02,Kestrel Ringwood,All,parts_availability,84,13,0.1548,0.0927,0.247,ok
+VIC02,Kestrel Ringwood,All,work_quality,84,12,0.1429,0.0837,0.2333,ok
+VIC02,Kestrel Ringwood,All,staff_attitude,84,10,0.119,0.066,0.2054,ok
+VIC02,Kestrel Ringwood,All,process_ease,84,8,0.0952,0.0491,0.1768,ok
+VIC02,Kestrel Ringwood,All,vehicle_handover,84,4,0.0476,0.0187,0.1161,ok
+VIC02,Kestrel Ringwood,All,explanation,84,3,0.0357,0.0122,0.0998,ok
+VIC02,Kestrel Ringwood,All,price_value,84,3,0.0357,0.0122,0.0998,ok
+VIC02,Kestrel Ringwood,All,sales_pressure,84,0,0.0,0.0,0.0437,ok
+VIC02,Kestrel Ringwood,All,(no negative theme),84,2,0.0238,0.0066,0.0827,ok
+VIC02,Kestrel Ringwood,Service,timeliness,77,25,0.3247,0.2306,0.4354,ok
+VIC02,Kestrel Ringwood,Service,communication,77,20,0.2597,0.1749,0.3674,ok
+VIC02,Kestrel Ringwood,Service,billing,77,19,0.2468,0.164,0.3535,ok
+VIC02,Kestrel Ringwood,Service,work_quality,77,12,0.1558,0.0915,0.2529,ok
+VIC02,Kestrel Ringwood,Service,parts_availability,77,11,0.1429,0.0817,0.238,ok
+VIC02,Kestrel Ringwood,Service,staff_attitude,77,8,0.1039,0.0536,0.1918,ok
+VIC02,Kestrel Ringwood,Service,process_ease,77,8,0.1039,0.0536,0.1918,ok
+VIC02,Kestrel Ringwood,Service,explanation,77,3,0.039,0.0133,0.1084,ok
+VIC02,Kestrel Ringwood,Service,price_value,77,3,0.039,0.0133,0.1084,ok
+VIC02,Kestrel Ringwood,Service,vehicle_handover,77,3,0.039,0.0133,0.1084,ok
+VIC02,Kestrel Ringwood,Service,sales_pressure,77,0,0.0,0.0,0.0475,ok
+VIC02,Kestrel Ringwood,Service,(no negative theme),77,1,0.013,0.0023,0.07,ok
+VIC03,Kestrel Essendon,All,communication,72,28,0.3889,0.2847,0.5044,ok
+VIC03,Kestrel Essendon,All,timeliness,72,23,0.3194,0.2233,0.4339,ok
+VIC03,Kestrel Essendon,All,parts_availability,72,13,0.1806,0.1087,0.2848,ok
+VIC03,Kestrel Essendon,All,work_quality,72,12,0.1667,0.098,0.2691,ok
+VIC03,Kestrel Essendon,All,billing,72,10,0.1389,0.0772,0.2371,ok
+VIC03,Kestrel Essendon,All,process_ease,72,6,0.0833,0.0388,0.1701,ok
+VIC03,Kestrel Essendon,All,staff_attitude,72,5,0.0694,0.03,0.1525,ok
+VIC03,Kestrel Essendon,All,explanation,72,4,0.0556,0.0218,0.1343,ok
+VIC03,Kestrel Essendon,All,sales_pressure,72,1,0.0139,0.0025,0.0746,ok
+VIC03,Kestrel Essendon,All,vehicle_handover,72,1,0.0139,0.0025,0.0746,ok
+VIC03,Kestrel Essendon,All,price_value,72,0,0.0,0.0,0.0507,ok
+VIC03,Kestrel Essendon,All,(no negative theme),72,2,0.0278,0.0077,0.0957,ok
+VIC03,Kestrel Essendon,Service,communication,65,26,0.4,0.2897,0.5214,ok
+VIC03,Kestrel Essendon,Service,timeliness,65,19,0.2923,0.1958,0.412,ok
+VIC03,Kestrel Essendon,Service,work_quality,65,12,0.1846,0.1089,0.2955,ok
+VIC03,Kestrel Essendon,Service,billing,65,10,0.1538,0.0858,0.2606,ok
+VIC03,Kestrel Essendon,Service,parts_availability,65,10,0.1538,0.0858,0.2606,ok
+VIC03,Kestrel Essendon,Service,process_ease,65,6,0.0923,0.043,0.1871,ok
+VIC03,Kestrel Essendon,Service,staff_attitude,65,4,0.0615,0.0242,0.1478,ok
+VIC03,Kestrel Essendon,Service,explanation,65,4,0.0615,0.0242,0.1478,ok
+VIC03,Kestrel Essendon,Service,vehicle_handover,65,1,0.0154,0.0027,0.0821,ok
+VIC03,Kestrel Essendon,Service,price_value,65,0,0.0,0.0,0.0558,ok
+VIC03,Kestrel Essendon,Service,sales_pressure,65,0,0.0,0.0,0.0558,ok
+VIC03,Kestrel Essendon,Service,(no negative theme),65,2,0.0308,0.0085,0.1054,ok
+VIC04,Kestrel Frankston,All,timeliness,67,24,0.3582,0.254,0.4778,ok
+VIC04,Kestrel Frankston,All,communication,67,23,0.3433,0.2409,0.4627,ok
+VIC04,Kestrel Frankston,All,billing,67,9,0.1343,0.0723,0.236,ok
+VIC04,Kestrel Frankston,All,staff_attitude,67,8,0.1194,0.0618,0.2183,ok
+VIC04,Kestrel Frankston,All,parts_availability,67,8,0.1194,0.0618,0.2183,ok
+VIC04,Kestrel Frankston,All,work_quality,67,6,0.0896,0.0417,0.1819,ok
+VIC04,Kestrel Frankston,All,process_ease,67,5,0.0746,0.0323,0.1631,ok
+VIC04,Kestrel Frankston,All,explanation,67,3,0.0448,0.0153,0.1236,ok
+VIC04,Kestrel Frankston,All,vehicle_handover,67,3,0.0448,0.0153,0.1236,ok
+VIC04,Kestrel Frankston,All,price_value,67,2,0.0299,0.0082,0.1025,ok
+VIC04,Kestrel Frankston,All,sales_pressure,67,1,0.0149,0.0026,0.0798,ok
+VIC04,Kestrel Frankston,All,(no negative theme),67,1,0.0149,0.0026,0.0798,ok
+VIC04,Kestrel Frankston,Service,communication,52,21,0.4038,0.2816,0.5393,ok
+VIC04,Kestrel Frankston,Service,timeliness,52,20,0.3846,0.2647,0.5204,ok
+VIC04,Kestrel Frankston,Service,staff_attitude,52,6,0.1154,0.054,0.2297,ok
+VIC04,Kestrel Frankston,Service,billing,52,6,0.1154,0.054,0.2297,ok
+VIC04,Kestrel Frankston,Service,work_quality,52,6,0.1154,0.054,0.2297,ok
+VIC04,Kestrel Frankston,Service,process_ease,52,5,0.0962,0.0418,0.2061,ok
+VIC04,Kestrel Frankston,Service,parts_availability,52,4,0.0769,0.0303,0.1817,ok
+VIC04,Kestrel Frankston,Service,price_value,52,2,0.0385,0.0106,0.1298,ok
+VIC04,Kestrel Frankston,Service,explanation,52,1,0.0192,0.0034,0.1012,ok
+VIC04,Kestrel Frankston,Service,sales_pressure,52,0,0.0,0.0,0.0688,ok
+VIC04,Kestrel Frankston,Service,vehicle_handover,52,0,0.0,0.0,0.0688,ok
+VIC04,Kestrel Frankston,Service,(no negative theme),52,0,0.0,0.0,0.0688,ok
+VIC05,Kestrel Box Hill,All,work_quality,67,19,0.2836,0.1897,0.4009,ok
+VIC05,Kestrel Box Hill,All,communication,67,15,0.2239,0.1406,0.3371,ok
+VIC05,Kestrel Box Hill,All,timeliness,67,14,0.209,0.1288,0.3207,ok
+VIC05,Kestrel Box Hill,All,staff_attitude,67,10,0.1493,0.0831,0.2534,ok
+VIC05,Kestrel Box Hill,All,explanation,67,10,0.1493,0.0831,0.2534,ok
+VIC05,Kestrel Box Hill,All,billing,67,9,0.1343,0.0723,0.236,ok
+VIC05,Kestrel Box Hill,All,vehicle_handover,67,7,0.1045,0.0515,0.2003,ok
+VIC05,Kestrel Box Hill,All,price_value,67,6,0.0896,0.0417,0.1819,ok
+VIC05,Kestrel Box Hill,All,process_ease,67,5,0.0746,0.0323,0.1631,ok
+VIC05,Kestrel Box Hill,All,parts_availability,67,3,0.0448,0.0153,0.1236,ok
+VIC05,Kestrel Box Hill,All,sales_pressure,67,1,0.0149,0.0026,0.0798,ok
+VIC05,Kestrel Box Hill,All,(no negative theme),67,1,0.0149,0.0026,0.0798,ok
+VIC05,Kestrel Box Hill,Service,work_quality,49,19,0.3878,0.2643,0.5275,low
+VIC05,Kestrel Box Hill,Service,communication,49,12,0.2449,0.146,0.3809,low
+VIC05,Kestrel Box Hill,Service,staff_attitude,49,10,0.2041,0.1148,0.3364,low
+VIC05,Kestrel Box Hill,Service,timeliness,49,9,0.1837,0.0998,0.3136,low
+VIC05,Kestrel Box Hill,Service,billing,49,6,0.1224,0.0573,0.2424,low
+VIC05,Kestrel Box Hill,Service,explanation,49,5,0.102,0.0444,0.2176,low
+VIC05,Kestrel Box Hill,Service,price_value,49,4,0.0816,0.0322,0.1919,low
+VIC05,Kestrel Box Hill,Service,process_ease,49,4,0.0816,0.0322,0.1919,low
+VIC05,Kestrel Box Hill,Service,parts_availability,49,1,0.0204,0.0036,0.1069,low
+VIC05,Kestrel Box Hill,Service,vehicle_handover,49,1,0.0204,0.0036,0.1069,low
+VIC05,Kestrel Box Hill,Service,sales_pressure,49,0,0.0,0.0,0.0727,low
+VIC05,Kestrel Box Hill,Service,(no negative theme),49,0,0.0,0.0,0.0727,low
+VIC06,Kestrel Geelong,All,communication,68,22,0.3235,0.2244,0.4416,ok
+VIC06,Kestrel Geelong,All,timeliness,68,22,0.3235,0.2244,0.4416,ok
+VIC06,Kestrel Geelong,All,billing,68,13,0.1912,0.1153,0.3001,ok
+VIC06,Kestrel Geelong,All,work_quality,68,13,0.1912,0.1153,0.3001,ok
+VIC06,Kestrel Geelong,All,parts_availability,68,11,0.1618,0.0928,0.2669,ok
+VIC06,Kestrel Geelong,All,staff_attitude,68,6,0.0882,0.0411,0.1794,ok
+VIC06,Kestrel Geelong,All,process_ease,68,6,0.0882,0.0411,0.1794,ok
+VIC06,Kestrel Geelong,All,vehicle_handover,68,5,0.0735,0.0318,0.1609,ok
+VIC06,Kestrel Geelong,All,price_value,68,3,0.0441,0.0151,0.1219,ok
+VIC06,Kestrel Geelong,All,explanation,68,0,0.0,0.0,0.0535,ok
+VIC06,Kestrel Geelong,All,sales_pressure,68,0,0.0,0.0,0.0535,ok
+VIC06,Kestrel Geelong,All,(no negative theme),68,2,0.0294,0.0081,0.101,ok
+VIC06,Kestrel Geelong,Service,communication,58,19,0.3276,0.2208,0.4558,ok
+VIC06,Kestrel Geelong,Service,timeliness,58,17,0.2931,0.1918,0.4201,ok
+VIC06,Kestrel Geelong,Service,work_quality,58,13,0.2241,0.1359,0.3466,ok
+VIC06,Kestrel Geelong,Service,billing,58,11,0.1897,0.1093,0.3085,ok
+VIC06,Kestrel Geelong,Service,parts_availability,58,9,0.1552,0.0838,0.2693,ok
+VIC06,Kestrel Geelong,Service,process_ease,58,6,0.1034,0.0483,0.2079,ok
+VIC06,Kestrel Geelong,Service,staff_attitude,58,5,0.0862,0.0374,0.1864,ok
+VIC06,Kestrel Geelong,Service,vehicle_handover,58,3,0.0517,0.0177,0.1414,ok
+VIC06,Kestrel Geelong,Service,price_value,58,2,0.0345,0.0095,0.1173,ok
+VIC06,Kestrel Geelong,Service,explanation,58,0,0.0,0.0,0.0621,ok
+VIC06,Kestrel Geelong,Service,sales_pressure,58,0,0.0,0.0,0.0621,ok
+VIC06,Kestrel Geelong,Service,(no negative theme),58,2,0.0345,0.0095,0.1173,ok
+VIC07,Kestrel Ballarat,All,communication,64,26,0.4062,0.2946,0.5285,ok
+VIC07,Kestrel Ballarat,All,timeliness,64,15,0.2344,0.1475,0.3513,ok
+VIC07,Kestrel Ballarat,All,billing,64,10,0.1562,0.0871,0.2643,ok
+VIC07,Kestrel Ballarat,All,work_quality,64,10,0.1562,0.0871,0.2643,ok
+VIC07,Kestrel Ballarat,All,staff_attitude,64,7,0.1094,0.054,0.209,ok
+VIC07,Kestrel Ballarat,All,parts_availability,64,7,0.1094,0.054,0.209,ok
+VIC07,Kestrel Ballarat,All,process_ease,64,7,0.1094,0.054,0.209,ok
+VIC07,Kestrel Ballarat,All,explanation,64,3,0.0469,0.0161,0.129,ok
+VIC07,Kestrel Ballarat,All,price_value,64,3,0.0469,0.0161,0.129,ok
+VIC07,Kestrel Ballarat,All,sales_pressure,64,2,0.0312,0.0086,0.107,ok
+VIC07,Kestrel Ballarat,All,vehicle_handover,64,1,0.0156,0.0028,0.0833,ok
+VIC07,Kestrel Ballarat,All,(no negative theme),64,2,0.0312,0.0086,0.107,ok
+VIC07,Kestrel Ballarat,Service,communication,52,21,0.4038,0.2816,0.5393,ok
+VIC07,Kestrel Ballarat,Service,timeliness,52,11,0.2115,0.1224,0.3403,ok
+VIC07,Kestrel Ballarat,Service,billing,52,10,0.1923,0.108,0.319,ok
+VIC07,Kestrel Ballarat,Service,work_quality,52,10,0.1923,0.108,0.319,ok
+VIC07,Kestrel Ballarat,Service,staff_attitude,52,7,0.1346,0.0668,0.2527,ok
+VIC07,Kestrel Ballarat,Service,process_ease,52,7,0.1346,0.0668,0.2527,ok
+VIC07,Kestrel Ballarat,Service,price_value,52,3,0.0577,0.0198,0.1564,ok
+VIC07,Kestrel Ballarat,Service,explanation,52,2,0.0385,0.0106,0.1298,ok
+VIC07,Kestrel Ballarat,Service,parts_availability,52,1,0.0192,0.0034,0.1012,ok
+VIC07,Kestrel Ballarat,Service,sales_pressure,52,0,0.0,0.0,0.0688,ok
+VIC07,Kestrel Ballarat,Service,vehicle_handover,52,0,0.0,0.0,0.0688,ok
+VIC07,Kestrel Ballarat,Service,(no negative theme),52,2,0.0385,0.0106,0.1298,ok
