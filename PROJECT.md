@@ -2,7 +2,7 @@
 
 **Step 01 — Discovery and solution proposal · 28–30 October 2026**
 
-Discovery is documented and the stage-one pilot is complete. Consolidated on 30 October from earlier reviews and discussion. Success criteria were drafted before implementation; the AI stages remain proposed.
+Discovery is documented, the stage-one pilot is complete and stage-two preparation is implemented. Consolidated on 30 October from earlier reviews and discussion. Success criteria were drafted before implementation; the AI stages remain proposed.
 
 ## 1. Problem space
 
@@ -37,11 +37,11 @@ Discovery is documented and the stage-one pilot is complete. Consolidated on 30 
 
 **AI usage.** AI assisted research, design and verification scripts. Review corrected a revenue-join example and qualified batching/savings suggestions. No production classification, external customer-data upload or independent human labelling has occurred.
 
-**Open questions.** Remaining file layouts, uncertain mappings and full privacy preparation require later review. Model, batching, cost and label quality need a pilot. Revenue does not establish profit, churn or causal benefit.
+**Open questions.** Stage two preserves candidate aliases, uncertain dates and weak duplicates with explicit eligibility. Acceptance and privacy review remain checkpoints. Model, batching, cost and label quality need a pilot. Revenue does not establish profit, churn or causal benefit.
 
 ## 3. Ready to make it — proposed solution
 
-**Context:** heterogeneous files, short comments and quantitative business questions. **Status:** the data pilot is implemented; remaining preparation and AI components remain proposed.
+**Context:** heterogeneous files, short comments and quantitative business questions. **Status:** the data pilot and full preparation are implemented; AI components remain proposed.
 
 | Component | Approach and reason |
 |---|---|
@@ -54,12 +54,12 @@ Discovery is documented and the stage-one pilot is complete. Consolidated on 30 
 
 ## Build plan — proposed
 
-Stage one is complete; stages two to seven remain pending in this snapshot. Complete one stage, show its output, checks and open issues, then obtain user confirmation before starting the next. Evaluation accompanies each stage.
+Stage one is complete. Stage two is built and verified, awaiting user review; stages three to seven remain pending. Complete one stage, show its output, checks and open issues, then obtain user confirmation before starting the next. Evaluation accompanies each stage.
 
 | Stage | Deliverable | Checkpoint before progressing |
 |---|---|---|
 | 1. Data foundation pilot | Project setup, working schema and a queryable sample covering ordinary and difficult source formats. | Confirm structure, initial counting rules, source links and sample reconciliation. |
-| 2. Complete data preparation | All supplied files ingested; cleaned tables, quality findings and redacted analytical text. | Reconcile all observations; review uncertain mappings, exclusions, rating/date handling and privacy checks. |
+| [2. Complete data preparation](docs/STAGE_2_DATA_PREPARATION.md) | All supplied files ingested; cleaned tables, quality findings and redacted analytical text. | Reconcile all observations; review uncertain mappings, exclusions, rating/date handling and privacy checks. |
 | 3. AI pilot | Human-reviewed reference examples, trial classifications and measured error, cost and runtime. | Set acceptance criteria before testing; confirm the approach, model, batching and full-run budget from the evidence. |
 | 4. Full comment analysis | Versioned theme/sentiment labels, supporting text, cached results and unresolved cases. | Account for every eligible comment; inspect coverage, errors and supporting evidence. |
 | 5. Business analysis | Tested metric queries, answers to the business questions, priorities and value scenarios. | Verify calculations, comparisons, evidence and sensitivity to assumptions. |
@@ -70,12 +70,12 @@ Stage 6 can be skipped. Refine later stages as evidence emerges.
 
 ## Build stage 1 checkpoint — 30 October 2026
 
-**Status:** implemented and verified; checkpoint ready for review. This commit covers stage one only.
+**Status:** complete; stage-two implementation authorised by the user.
 
 - Eight feedback files plus both references produce 844 individual source observations, 732 resolved events and 112 retained version links. Six aggregate rows separately represent 71 responses.
 - All 40 reconciliation checks and 43 automated tests pass. Repeat builds preserve logical database contents and query results. All 56 supplied files, including the brief, match their earlier hashes.
 - Open policies: seven source/layout findings lack an explicit rating direction; Noosa's selective-collection note remains visible. No negative-rating bands are inferred.
-- Generated data remains local and ignored by source control. The pilot database contains raw text; privacy preparation and AI processing remain later work.
+- Generated data remains local and ignored by source control. The pilot database contains raw text; stage two supplies separate redacted candidates, while AI processing remains later work.
 
 Review the [reconciliation report and query examples](outputs/pilot/summary.md), [schema](kestrel/schema.sql) and [database](outputs/pilot/pilot.sqlite).
 
@@ -85,6 +85,17 @@ From this project directory:
 uv run --locked python -m kestrel pilot
 uv run --locked python -m unittest discover -s tests -v
 ```
+
+## Build stage 2 checkpoint — 30 October 2026
+
+**Status:** implemented and verified; user review pending before stage three.
+
+- All 52 feedback files and both references reconcile: 7,257 individual observations → 7,073 events, with 180 copy links and four test exclusions. Eight copied reviews and 71 aggregate responses remain separate.
+- All 118 stored preparation checks and 99 automated tests pass. All 56 originals and the pilot outputs remain unchanged; failed publication preserves the previous run.
+- There are 4,802 redacted model-input candidates and 547 withheld primary comments. Targeted agent privacy review covers 67 examples; automated-pass status is not independent privacy approval.
+- Mapping candidates, native rating uncertainty, approximate dates, ambiguous duplicates and collection bias remain visible. No inference API calls or AI classifications have been run.
+
+Review the [concise implementation and handoff](docs/STAGE_2_DATA_PREPARATION.md). The generated local report is `outputs/prepared/current/summary.md`; outputs are excluded from Git. Rebuild with `uv run --locked python -m kestrel prepare`.
 
 **Documentation basis.** Structure: [Atlassian Project Poster](https://www.atlassian.com/team-playbook/plays/project-poster). Discovery: [GOV.UK guidance](https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works). Decision status and rationale: [Nygard's ADR principles](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions). Update evidence and status as work progresses.
 

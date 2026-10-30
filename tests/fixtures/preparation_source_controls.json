@@ -1,0 +1,213 @@
+{
+  "provenance": "Frozen from discovery PROJECT_REVIEW.md Appendix A, archived 30 October 2026; independent of the stage-two reader registry.",
+  "sources": {
+    "Ballarat - Customer Satisfaction.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 292
+    },
+    "Chermside Q1 2026 FINAL v2.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 118
+    },
+    "Chermside Q1 2026 FINAL.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 112
+    },
+    "Chermside Q2 2026.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 116
+    },
+    "Chermside Q3 2026.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 124
+    },
+    "Chermside Q4 2025.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 102
+    },
+    "Dandenong Customer Feedback 2025-26.xlsx": {
+      "surfaces": 13,
+      "individual_observations": 484
+    },
+    "ESSENDON - feedback register.xlsx": {
+      "surfaces": 3,
+      "individual_observations": 346
+    },
+    "Frankston_CX_tracker.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 308
+    },
+    "Geelong Feedback.xlsx": {
+      "surfaces": 2,
+      "individual_observations": 304
+    },
+    "Hunter Motors feedback 25-26.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 303
+    },
+    "IPS_feedback_log.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 277
+    },
+    "Noosa feedback cards.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 49
+    },
+    "North QLD feedback (Rocky + TSV).xlsx": {
+      "surfaces": 4,
+      "individual_observations": 556
+    },
+    "Parramatta_Feedback_2025-10.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 47
+    },
+    "Parramatta_Feedback_2025-11.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 36
+    },
+    "Parramatta_Feedback_2025-12.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 37
+    },
+    "Parramatta_Feedback_2026-01.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 42
+    },
+    "Parramatta_Feedback_2026-02.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 33
+    },
+    "Parramatta_Feedback_2026-03.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 40
+    },
+    "Parramatta_Feedback_2026-04.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 34
+    },
+    "Parramatta_Feedback_2026-05.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 45
+    },
+    "Parramatta_Feedback_2026-06.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 49
+    },
+    "Parramatta_Feedback_2026-07.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 37
+    },
+    "Parramatta_Feedback_2026-08.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 39
+    },
+    "Parramatta_Feedback_2026-09.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 40
+    },
+    "Penrith Feedback.xlsx": {
+      "surfaces": 12,
+      "individual_observations": 497
+    },
+    "Ringwood feedback Q1 2026.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 112
+    },
+    "Ringwood feedback Q2 2026.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 115
+    },
+    "Ringwood feedback Q3 2026.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 127
+    },
+    "Ringwood feedback Q4 2025.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 100
+    },
+    "Shepparton feedback FINAL - site closed.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 52
+    },
+    "Southport Feedback Tracker.xlsx": {
+      "surfaces": 2,
+      "individual_observations": 254
+    },
+    "Springwood feedback.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 310
+    },
+    "Tamworth.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 143
+    },
+    "Toowoomba Q4 2025 summary.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 0
+    },
+    "Toowoomba feedback 2026.xlsx": {
+      "surfaces": 1,
+      "individual_observations": 250
+    },
+    "Wollongong_Apr26-Sep26.csv": {
+      "surfaces": 1,
+      "individual_observations": 147
+    },
+    "Wollongong_Oct25-Mar26.csv": {
+      "surfaces": 1,
+      "individual_observations": 138
+    },
+    "bendigo feedback.csv": {
+      "surfaces": 1,
+      "individual_observations": 144
+    },
+    "boxhill_survey_export_2025Q4.csv": {
+      "surfaces": 1,
+      "individual_observations": 64
+    },
+    "boxhill_survey_export_2026Q1.csv": {
+      "surfaces": 1,
+      "individual_observations": 77
+    },
+    "boxhill_survey_export_2026Q2.csv": {
+      "surfaces": 1,
+      "individual_observations": 83
+    },
+    "boxhill_survey_export_2026Q3.csv": {
+      "surfaces": 1,
+      "individual_observations": 85
+    },
+    "chatswood_2025_q4.csv": {
+      "surfaces": 1,
+      "individual_observations": 68
+    },
+    "chatswood_2026_q1.csv": {
+      "surfaces": 1,
+      "individual_observations": 56
+    },
+    "chatswood_2026_q2.csv": {
+      "surfaces": 1,
+      "individual_observations": 76
+    },
+    "chatswood_2026_q3.csv": {
+      "surfaces": 1,
+      "individual_observations": 78
+    },
+    "liverpool_q1_2026.csv": {
+      "surfaces": 1,
+      "individual_observations": 73
+    },
+    "liverpool_q2_2026.csv": {
+      "surfaces": 1,
+      "individual_observations": 71
+    },
+    "liverpool_q3_2026.csv": {
+      "surfaces": 1,
+      "individual_observations": 85
+    },
+    "liverpool_q4_2025.csv": {
+      "surfaces": 1,
+      "individual_observations": 82
+    }
+  }
+}
