@@ -1,4 +1,4 @@
-"""Prepare source-traceable feedback and classify its redacted model input."""
+"""Prepare, classify and question source-traceable feedback aggregates."""
 
 import argparse
 from pathlib import Path
@@ -24,6 +24,10 @@ def main():
     classify.add_argument("--configs", choices=tuple(CONFIGS), default="haiku-5.5", metavar="CONFIG",
                           help="Classifier configuration (default: haiku-5.5)")
     classify.add_argument("--cap", type=float, default=10.0, help="Cumulative API spending cap in USD")
+    ask = commands.add_parser("ask", help="Ask an independent question about saved aggregate results")
+    ask.add_argument("question", nargs="?", help="Question (omit for an interactive terminal session)")
+    ask.add_argument("--input-root", type=Path, default=ROOT, help="Project directory holding aggregates and private spend state")
+    ask.add_argument("--cap", type=float, default=10.0, help="Cumulative API spending cap in USD (at most 10)")
     args = parser.parse_args()
     try:
         if args.command == "prepare":
@@ -36,7 +40,7 @@ def main():
             print(f"Checks: {sum(c['passed'] for c in result['checks'])}/{len(result['checks'])} passed.")
             print(f"Database: {result['database']}")
             print(f"Report: {result['report']}")
-        else:
+        elif args.command == "classify":
             out, summary = run_classification(args.run, args.configs, args.input_root, cap_usd=args.cap)
             check = summary["rating_band_check"]
             print(f"Classified {summary['classified']}/{summary['eligible']} comments "
@@ -45,6 +49,13 @@ def main():
                   f"of US${args.cap:.2f} cap")
             print(f"Rating-band agreement: {check['agree']}/{check['comparable']} clear-cut cases")
             print(f"Labels: {out / 'labels.jsonl'}")
+        else:
+            from .ask import ask_question, interactive
+            if args.question is None:
+                return interactive(args.input_root, args.cap)
+            result = ask_question(args.question, args.input_root, args.cap)
+            print(result['answer'])
+            print(f"Cost: US${result['cost_usd']:.4f}; cumulative US${result['total_spend_usd']:.4f}/US${args.cap:.2f}")
     except PilotError as exc:
         print(f"{args.command.capitalize()} failed: {exc}", file=sys.stderr)
         return 1

@@ -4,7 +4,7 @@
 
 Head office receives inconsistent feedback from 24 dealerships and cannot compare customer experience reliably. The goal was to consolidate those files, establish what can be trusted, analyse negative-feedback themes and trends, and recommend priorities with approximate value. The [brief](BRIEF.md) defines the required deliverables; the [README](../README.md) gives the business answers.
 
-Success meant reconciling every source observation, preserving context and uncertainty, measuring AI performance, answering each business question with clear denominators, and reproducing the calculations. An interactive assistant was omitted because saved classifications and explicit queries meet the required analytical workload.
+Success meant reconciling every source observation, preserving context and uncertainty, measuring AI performance, answering each business question with clear denominators, and reproducing the calculations. A terminal Q&A interface explains committed aggregate results with source citations; each question is independent and has no raw-comment access.
 
 ## Discovery and solution design
 

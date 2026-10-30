@@ -82,7 +82,8 @@ positives, so reported timeliness shares may lean high; no universal correction 
 
 Full classification accepted 5,342/5,349 results, with seven failures (0.13%). Sentiment matched ratings
 in 4,265/4,285 clear positive/negative pairs; this conditional corroboration is not full-run accuracy.
-Metered API spend totals US$3.49, excluding coding/annotation assistant sessions and subscriptions.
+Classification/evaluation API spend totals US$3.49, excluding coding/annotation assistant sessions and subscriptions.
+Exploratory Q&A calls are additional metered usage under the same US$10 cumulative ledger cap.
 Theme shares use 1,488 classified comments on negative ratings, covering 93.2% of all 1,596 negatives.
 Multi-label shares can exceed 100%; small cells retain counts with proportions suppressed.
 
