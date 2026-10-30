@@ -1,8 +1,9 @@
 """Comment classifier: one redacted comment per request, validated outputs.
 
 The model sees only the comment text and its department. It has no tools.
-Every accepted output must use allowed labels and quote its evidence verbatim
-from the comment; anything else is recorded as a failure, never dropped.
+Every accepted output must use allowed labels and evidence found in the comment
+(normalising case and whitespace). Saved results retain evidence references,
+not quotes; invalid outputs are counted as failures, never dropped.
 """
 
 from concurrent.futures import ThreadPoolExecutor
@@ -112,6 +113,15 @@ SYSTEM_PROMPT = system_prompt()
 def user_message(record):
     department = record.get("department") or "unknown"
     return f"Department: {department}\n<comment>\n{record['text']}\n</comment>"
+
+
+def request_sha256(record):
+    """Include department context as well as text in the cache identity."""
+    return hashlib.sha256(user_message(record).encode()).hexdigest()
+
+
+def record_key(record):
+    return record["event_id"], record["text_sha256"], request_sha256(record)
 
 
 def collapse(text):
@@ -285,7 +295,8 @@ class Budget:
 def classify_one(config, record, budget, attempts=2):
     """Classify one record. Returns a result row whatever happens."""
     base = {"event_id": record["event_id"], "text_sha256": record["text_sha256"], "config": config.name,
-            "config_fingerprint": config.fingerprint(), "attempts": 0, "usage": {}, "cost_usd": 0.0}
+            "config_fingerprint": config.fingerprint(), "request_sha256": request_sha256(record),
+            "attempts": 0, "usage": {}, "cost_usd": 0.0}
     if config.provider == "rules":
         value, usage = classify_rules(record)
         labels, problems = validate_output(value, record["text"])
@@ -318,7 +329,7 @@ def classify_one(config, record, budget, attempts=2):
         except (TypeError, ValueError):
             labels, problems = None, ["invalid_json"]
         if not labels:
-            # Kept locally for error analysis; contains only redacted text the model returned.
+            # Retained in memory only; run_config strips this before persistence.
             raw_outputs.append(text)
         if labels:
             return {**base, "status": "ok", "labels": labels, "problems": [],
@@ -332,7 +343,7 @@ def load_cache(path):
     if path.exists():
         for line in path.read_text(encoding="utf-8").splitlines():
             row = json.loads(line)
-            rows[(row["event_id"], row["text_sha256"])] = row
+            rows[(row["event_id"], row["text_sha256"], row.get("request_sha256"))] = row
     return rows
 
 
@@ -343,7 +354,7 @@ def cache_path(config, cache_dir):
 def cached_rows(config, records, cache_dir):
     """Saved results only; never calls a provider. Missing records are omitted."""
     cache = load_cache(cache_path(config, cache_dir))
-    return [cache[key] for key in ((r["event_id"], r["text_sha256"]) for r in records) if key in cache]
+    return [cache[key] for key in map(record_key, records) if key in cache]
 
 
 def load_env_file(path=MODULE.parent / ".env"):
@@ -356,24 +367,50 @@ def load_env_file(path=MODULE.parent / ".env"):
             os.environ[key.strip()] = value.strip().strip("'\"")
 
 
+def result_without_text(row, record):
+    """Persist labels and evidence references, never model-returned comment text.
+
+    Evidence is validated in memory first. Offsets address collapse(comment),
+    which normalises whitespace and case in exactly the same way as validation.
+    This also accepts older cached rows without changing the model fingerprint.
+    """
+    result = {key: value for key, value in row.items() if key != "raw_outputs"}
+    if row.get("labels") is not None:
+        themes = []
+        for item in row["labels"]["themes"]:
+            theme = {key: value for key, value in item.items() if key != "evidence"}
+            if "evidence" in item:
+                evidence = item["evidence"]
+                start = collapse(record["text"]).index(collapse(evidence))
+                theme["evidence_reference"] = {
+                    "sha256": hashlib.sha256(evidence.encode()).hexdigest(),
+                    "normalised_start": start,
+                    "normalised_end": start + len(collapse(evidence)),
+                }
+            themes.append(theme)
+        result["labels"] = {**row["labels"], "themes": themes}
+    return result
+
+
 def run_config(config, records, cache_dir, budget, workers=4):
     """Classify records with one configuration, reusing cached successes."""
-    load_env_file()
-    if config.provider in CREDENTIALS and not os.environ.get(CREDENTIALS[config.provider]):
-        raise PilotError(f"{CREDENTIALS[config.provider]} is not set (shell or project .env); cannot run {config.name}")
     path = cache_path(config, cache_dir)
     cache = load_cache(path)
-    pending = [r for r in records if cache.get((r["event_id"], r["text_sha256"]), {}).get("status") != "ok"]
+    pending = [r for r in records if cache.get(record_key(r), {}).get("status") != "ok"]
+    if pending:
+        load_env_file()
+        if config.provider in CREDENTIALS and not os.environ.get(CREDENTIALS[config.provider]):
+            raise PilotError(f"{CREDENTIALS[config.provider]} is not set (shell or project .env); cannot run {config.name}")
     lock = threading.Lock()
     path.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
 
     def work(record):
-        row = classify_one(config, record, budget)
+        row = result_without_text(classify_one(config, record, budget), record)
         with lock, path.open("a", encoding="utf-8") as stream:
             stream.write(json.dumps(row, sort_keys=True) + "\n")
         return row
 
     with ThreadPoolExecutor(max_workers=1 if config.provider == "rules" else workers) as pool:
         for row in pool.map(work, pending):
-            cache[(row["event_id"], row["text_sha256"])] = row
-    return [cache[(r["event_id"], r["text_sha256"])] for r in records]
+            cache[(row["event_id"], row["text_sha256"], row["request_sha256"])] = row
+    return [result_without_text(cache[record_key(r)], r) for r in records]
