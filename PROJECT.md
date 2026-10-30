@@ -2,7 +2,7 @@
 
 **Step 01 — Discovery and solution proposal · 28–30 October 2026**
 
-Discovery is documented, the stage-one pilot is complete and stage-two preparation is implemented. Consolidated on 30 October from earlier reviews and discussion. Success criteria were drafted before implementation; the AI stages remain proposed.
+Discovery is documented and stages one and two are complete, as confirmed by the user. Stage three's AI pilot is complete; stage four awaits a budget decision. Consolidated on 30 October from earlier reviews and discussion. Success criteria were drafted before implementation; AI classification has been piloted on a 100-comment test sample, not yet run on the full dataset.
 
 ## 1. Problem space
 
@@ -37,7 +37,7 @@ Discovery is documented, the stage-one pilot is complete and stage-two preparati
 
 **AI usage.** AI assisted research, design and verification scripts. Review corrected a revenue-join example and qualified batching/savings suggestions. No production classification, external customer-data upload or independent human labelling has occurred.
 
-**Open questions.** Stage two preserves candidate aliases, uncertain dates and weak duplicates with explicit eligibility. Acceptance and privacy review remain checkpoints. Model, batching, cost and label quality need a pilot. Revenue does not establish profit, churn or causal benefit.
+**Open questions.** Stage two preserves candidate aliases, uncertain dates and weak duplicates with explicit eligibility. Human privacy review remains a checkpoint before inference. Model, batching, actual cost and label quality need a pilot. Revenue does not establish profit, churn or causal benefit.
 
 ## 3. Ready to make it — proposed solution
 
@@ -54,13 +54,13 @@ Discovery is documented, the stage-one pilot is complete and stage-two preparati
 
 ## Build plan — proposed
 
-Stage one is complete. Stage two is built and verified, awaiting user review; stages three to seven remain pending. Complete one stage, show its output, checks and open issues, then obtain user confirmation before starting the next. Evaluation accompanies each stage.
+Stages one and two are complete. Stage three's AI pilot is complete (Sonnet 5.5 selected); stage four awaits a budget decision. Stages four to seven remain pending. Complete one stage, show its output, checks and open issues, then obtain user confirmation before starting the next. Evaluation accompanies each stage.
 
 | Stage | Deliverable | Checkpoint before progressing |
 |---|---|---|
 | 1. Data foundation pilot | Project setup, working schema and a queryable sample covering ordinary and difficult source formats. | Confirm structure, initial counting rules, source links and sample reconciliation. |
 | [2. Complete data preparation](docs/STAGE_2_DATA_PREPARATION.md) | All supplied files ingested; cleaned tables, quality findings and redacted analytical text. | Reconcile all observations; review uncertain mappings, exclusions, rating/date handling and privacy checks. |
-| 3. AI pilot | Human-reviewed reference examples, trial classifications and measured error, cost and runtime. | Set acceptance criteria before testing; confirm the approach, model, batching and full-run budget from the evidence. |
+| [3. AI pilot](docs/STAGE_3_AI_PILOT.md) | Human-reviewed reference examples, trial classifications and measured error, cost and runtime. | Set acceptance criteria before testing; confirm the approach, model, batching and full-run budget from the evidence. |
 | 4. Full comment analysis | Versioned theme/sentiment labels, supporting text, cached results and unresolved cases. | Account for every eligible comment; inspect coverage, errors and supporting evidence. |
 | 5. Business analysis | Tested metric queries, answers to the business questions, priorities and value scenarios. | Verify calculations, comparisons, evidence and sensitivity to assumptions. |
 | 6. Assistant, if included | A question interface over the same metrics and redacted evidence. | Test known answers, paraphrases, ambiguous requests and unsupported questions; confirm whether to include it. |
@@ -88,7 +88,7 @@ uv run --locked python -m unittest discover -s tests -v
 
 ## Build stage 2 checkpoint — 30 October 2026
 
-**Status:** implemented and verified; user review pending before stage three.
+**Status:** complete, as confirmed by the user. Human privacy review and inference readiness remain stage-three checkpoints.
 
 - All 52 feedback files and both references reconcile: 7,257 individual observations → 7,073 events, with 180 copy links and four test exclusions. Eight copied reviews and 71 aggregate responses remain separate.
 - All 118 stored preparation checks and 99 automated tests pass. All 56 originals and the pilot outputs remain unchanged; failed publication preserves the previous run.
@@ -96,6 +96,22 @@ uv run --locked python -m unittest discover -s tests -v
 - Mapping candidates, native rating uncertainty, approximate dates, ambiguous duplicates and collection bias remain visible. No inference API calls or AI classifications have been run.
 
 Review the [concise implementation and handoff](docs/STAGE_2_DATA_PREPARATION.md). The generated local report is `outputs/prepared/current/summary.md`; outputs are excluded from Git. Rebuild with `uv run --locked python -m kestrel prepare`.
+
+## Build stage 3 checkpoint — 30 October 2026
+
+**Status:** pilot complete; Sonnet 5.5 selected and meets the acceptance targets. The stage-4 budget awaits the user.
+
+On 100 untouched test comments, three models were compared on reference labels from two independent blind AI annotators (kappa 1.00 overall; disclosed as AI-made, not human):
+
+| Model | Overall accuracy | Negative-theme F1 | Cost per 1,000 comments |
+|---|---:|---:|---:|
+| Sonnet 5.5 | 1.00 | 0.98 | US$4.80 |
+| Haiku 5.5 | 0.97 | 0.91 | US$0.24 |
+| Keyword baseline | 0.40 | 0.36 | US$0 |
+
+Opus scored like Sonnet but was excluded as self-evaluation. A model-free check agrees with customers' own rating bands in all 87 clear-cut cases. Pilot spend: US$2.03. 125 automated tests pass.
+
+The [checkpoint](docs/STAGE_3_CHECKPOINT.md) has the results, limits and stage-4 options; the [plan](docs/STAGE_3_AI_PILOT.md) has the decisions and sources.
 
 **Documentation basis.** Structure: [Atlassian Project Poster](https://www.atlassian.com/team-playbook/plays/project-poster). Discovery: [GOV.UK guidance](https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works). Decision status and rationale: [Nygard's ADR principles](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions). Update evidence and status as work progresses.
 

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'">
+<title>Kestrel labelling</title>
+<style>
+  :root { --bg:#fafaf8; --card:#fff; --ink:#1d1d1b; --muted:#6b6b66; --line:#deded8; --neg:#b3261e; --pos:#1b6e3a; --sel:#1d4ed8; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#161615; --card:#1f1f1d; --ink:#ecece8; --muted:#a3a39c; --line:#3a3a36; --neg:#f2867d; --pos:#7ccf9a; --sel:#8fb3ff; } }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.45 system-ui,-apple-system,sans-serif; }
+  header { position:sticky; top:0; background:var(--bg); border-bottom:1px solid var(--line); padding:12px 16px; display:flex; gap:12px; align-items:center; flex-wrap:wrap; z-index:2; }
+  header h1 { font-size:16px; margin:0; flex:1; min-width:200px; }
+  main { max-width:880px; margin:0 auto; padding:16px; }
+  details.guide { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:10px 14px; margin-bottom:16px; }
+  details.guide dt { font-weight:600; margin-top:6px; }
+  details.guide dd { margin:0 0 4px; color:var(--muted); }
+  .item { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:14px; margin-bottom:14px; }
+  .item.done { border-left:4px solid var(--pos); }
+  .meta { color:var(--muted); font-size:13px; margin-bottom:6px; }
+  .text { font-size:16px; margin:0 0 12px; white-space:pre-wrap; }
+  .row { display:flex; flex-wrap:wrap; gap:6px; margin:6px 0; align-items:center; }
+  .row > span.k { color:var(--muted); font-size:13px; width:100%; }
+  button, label.chip { font:inherit; font-size:13px; border:1px solid var(--line); background:transparent; color:var(--ink); border-radius:999px; padding:4px 10px; cursor:pointer; }
+  button.on { border-color:var(--sel); color:var(--sel); font-weight:600; }
+  .theme { display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; font-size:13px; }
+  .theme span { padding:4px 8px; }
+  .theme button { border:0; border-left:1px solid var(--line); border-radius:0; padding:4px 9px; }
+  .theme button.neg.on { color:var(--neg); }
+  .theme button.pos.on { color:var(--pos); }
+  input[type=text] { width:100%; font:inherit; padding:6px 8px; border:1px solid var(--line); border-radius:6px; background:transparent; color:var(--ink); }
+  .primary { background:var(--sel); color:#fff; border-color:var(--sel); }
+</style>
+</head>
+<body>
+<header>
+  <h1 id="title"></h1>
+  <span id="progress"></span>
+  <input id="reviewer" type="text" placeholder="Your name" style="width:160px">
+  <button class="primary" id="export">Export labels</button>
+</header>
+<main>
+  <details class="guide" open>
+    <summary><strong>How to label</strong> (open/close)</summary>
+    <p>For each comment: pick the <strong>overall sentiment</strong>, then mark each theme the customer has an opinion about as <strong>−</strong> (negative) or <strong>+</strong> (positive). Leave other themes blank. Judge meaning, not keywords: sarcasm is negative. Ignore placeholders like [NAME]. Use <em>Other</em> when an opinion fits no theme. Tick <em>Personal info visible</em> if the text still identifies someone (a name, phone, plate). Work at a natural pace; labels autosave in this browser.</p>
+    <dl id="defs"></dl>
+  </details>
+  <div id="items"></div>
+</main>
+<script>
+const DATA = __DATA__;
+const KEY = "kestrel-labels-" + DATA.split + "-" + DATA.manifest_sha256.slice(0, 12);
+let state = {};
+try { state = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { state = {}; }
+state.items = state.items || {};
+state.started = state.started || new Date().toISOString();
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} render(); };
+
+document.getElementById("title").textContent = `Kestrel feedback labelling: ${DATA.split} (${DATA.records.length} comments)`;
+const reviewer = document.getElementById("reviewer");
+reviewer.value = state.reviewer || "";
+reviewer.oninput = () => { state.reviewer = reviewer.value; save(); };
+
+const defs = document.getElementById("defs");
+defs.innerHTML = "";
+for (const [k, v] of Object.entries(DATA.overall)) { defs.insertAdjacentHTML("beforeend", `<dt>Overall: ${k}</dt><dd></dd>`); defs.lastElementChild.textContent = v; }
+for (const [k, t] of Object.entries(DATA.themes)) { defs.insertAdjacentHTML("beforeend", `<dt></dt><dd></dd>`); defs.children[defs.children.length - 2].textContent = t.label; defs.lastElementChild.textContent = t.definition; }
+
+function entry(id) { return state.items[id] = state.items[id] || { overall: null, themes: {}, other: false, privacy: false, not_english: false, note: "" }; }
+function complete(e) { return !!e.overall; }
+
+function render() {
+  const done = DATA.records.filter(r => state.items[r.event_id] && complete(state.items[r.event_id])).length;
+  document.getElementById("progress").textContent = `${done} / ${DATA.records.length} done`;
+  DATA.records.forEach(r => {
+    const node = document.getElementById("i-" + r.event_id);
+    if (node) node.classList.toggle("done", !!(state.items[r.event_id] && complete(state.items[r.event_id])));
+  });
+}
+
+const items = document.getElementById("items");
+DATA.records.forEach((r, index) => {
+  const e = entry(r.event_id);
+  const card = document.createElement("section");
+  card.className = "item"; card.id = "i-" + r.event_id;
+  const meta = document.createElement("div"); meta.className = "meta"; meta.textContent = `#${index + 1} · ${r.department || "unknown department"}`;
+  const text = document.createElement("p"); text.className = "text"; text.textContent = r.text;
+  card.append(meta, text);
+
+  const overall = document.createElement("div"); overall.className = "row";
+  overall.innerHTML = `<span class="k">Overall sentiment</span>`;
+  Object.keys(DATA.overall).forEach(o => {
+    const b = document.createElement("button"); b.textContent = o; b.className = e.overall === o ? "on" : "";
+    b.onclick = () => { e.overall = o; overall.querySelectorAll("button").forEach(x => x.className = x === b ? "on" : ""); save(); };
+    overall.append(b);
+  });
+  card.append(overall);
+
+  const themes = document.createElement("div"); themes.className = "row";
+  themes.innerHTML = `<span class="k">Themes (− negative, + positive)</span>`;
+  Object.entries(DATA.themes).forEach(([k, t]) => {
+    const box = document.createElement("span"); box.className = "theme";
+    const name = document.createElement("span"); name.textContent = t.label;
+    const neg = document.createElement("button"); neg.textContent = "−"; neg.title = "negative";
+    const pos = document.createElement("button"); pos.textContent = "+"; pos.title = "positive";
+    const paint = () => { neg.className = "neg" + (e.themes[k] === "negative" ? " on" : ""); pos.className = "pos" + (e.themes[k] === "positive" ? " on" : ""); };
+    neg.onclick = () => { e.themes[k] = e.themes[k] === "negative" ? undefined : "negative"; if (!e.themes[k]) delete e.themes[k]; paint(); save(); };
+    pos.onclick = () => { e.themes[k] = e.themes[k] === "positive" ? undefined : "positive"; if (!e.themes[k]) delete e.themes[k]; paint(); save(); };
+    paint(); box.append(name, neg, pos); themes.append(box);
+  });
+  card.append(themes);
+
+  const flags = document.createElement("div"); flags.className = "row";
+  [["other", "Other opinion (no theme fits)"], ["privacy", "Personal info visible"], ["not_english", "Not English"]].forEach(([k, label]) => {
+    const b = document.createElement("button"); b.textContent = label; b.className = e[k] ? "on" : "";
+    b.onclick = () => { e[k] = !e[k]; b.className = e[k] ? "on" : ""; save(); };
+    flags.append(b);
+  });
+  card.append(flags);
+  const note = document.createElement("input"); note.type = "text"; note.placeholder = "Optional note"; note.value = e.note || "";
+  note.oninput = () => { e.note = note.value; save(); };
+  card.append(note);
+  items.append(card);
+});
+render();
+
+document.getElementById("export").onclick = () => {
+  const labels = DATA.records.map(r => {
+    const e = entry(r.event_id);
+    return { event_id: r.event_id, text_sha256: r.text_sha256, overall_sentiment: e.overall,
+             themes: Object.entries(e.themes).map(([theme, sentiment]) => ({ theme, sentiment })),
+             other: !!e.other, privacy_issue: !!e.privacy, not_english: !!e.not_english, note: e.note || "" };
+  });
+  const out = { label_format: 1, split: DATA.split, manifest_sha256: DATA.manifest_sha256, taxonomy_version: DATA.taxonomy_version,
+                reviewer: state.reviewer || "", started: state.started, exported: new Date().toISOString(), labels };
+  const blob = new Blob([JSON.stringify(out, null, 2)], { type: "application/json" });
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = `kestrel_labels_${DATA.split}.json`; a.click();
+};
+</script>
+</body>
+</html>
