@@ -1,6 +1,6 @@
 # Stage 3 — AI pilot plan
 
-**30 October 2026 · Resumed 15:00 · Tooling built; awaiting human labels and API key**
+**30 October 2026 · Pilot complete: Sonnet 5.5 selected · Stage-4 budget pending**
 
 Current status is in the [checkpoint](STAGE_3_CHECKPOINT.md). The sections after "Decisions on resume" are the original plan and research, kept for rationale; where they differ, the decisions below apply.
 
@@ -9,8 +9,8 @@ Current status is in the [checkpoint](STAGE_3_CHECKPOINT.md). The sections after
 | Question | Decision |
 |---|---|
 | Processing boundary | Redacted, automated-pass comments only (the 4,802-record export) may go to external models, including the coding assistant reading samples to draft themes. Raw data, the 547 withheld comments and ratings stay local. |
-| Models | Test several rather than pick one: Claude Haiku 5.5 (user's lead candidate), GPT-6 Luna (if an OpenAI key is supplied), Claude Sonnet 5.5 and Opus 5.5 as higher-capability references, and a keyword baseline. Public research found no head-to-head on this task type, only general benchmarks and one small classification test where Haiku and Luna tied. |
-| Human labels | About 120 by the user: 20 calibration + 100 untouched test (instead of 60 + 200). Overall-accuracy intervals are about ±7–10 points; rare themes will have too little support for firm claims, and the scorecard shows support per theme. |
+| Models | Test several rather than pick one: Claude Haiku 5.5 (user's lead candidate), Claude Sonnet 5.5 and Opus 5.5, and a keyword baseline. GPT-6 Luna was skipped by the user. Public research found no head-to-head on this task type, only general benchmarks and one small classification test where Haiku and Luna tied. |
+| Reference labels | The user chose not to hand-label (originally about 120: 20 calibration + 100 test). Calibration: one blind Claude annotator, used for prompt development only. Test: two independent blind Claude Opus 5.5 annotators, with disagreements adjudicated and Cohen's kappa reported. Opus is excluded from selection as self-evaluation, and a model-free check against rating bands is added. All disclosed as AI-made, not human. |
 | Budget | US$10 pilot cap, enforced by a local ledger that reserves each call's worst case before sending it. |
 
 **Selection rule, fixed before any test call:** among model configurations with at most 2% failures, choose the cheapest per comment whose negative-theme micro-F1 and overall-sentiment accuracy are each within 0.05 of the best. Proposed acceptance targets: overall accuracy ≥ 0.85, negative-theme micro-F1 ≥ 0.75. The rule is written into `frozen_config.json` before the test split can be run.

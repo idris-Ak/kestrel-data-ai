@@ -306,6 +306,16 @@ class LabelAndScoringTests(unittest.TestCase):
         with self.assertRaisesRegex(PilotError, "exactly the 2 disputed"):
             ai_pilot.adjudicate(a, b, {"labels": decision["labels"][:1]})
 
+    def test_rating_bands_follow_scale_and_direction(self):
+        band = ai_pilot.rating_band
+        self.assertEqual([band(v, 5, "numeric", "unspecified") for v in (1, 2, 3, 4, 5)],
+                         ["negative", "negative", "neutral", "positive", "positive"])
+        self.assertEqual(band(1, 5, "numeric", "low_is_good"), "positive", "explicit reversed legend honoured")
+        self.assertEqual([band(v, 10, "numeric", "unspecified") for v in (4, 5, 6, 7)],
+                         ["negative", "neutral", "neutral", "positive"])
+        self.assertEqual([band(v, 3, "three_labels", "high_is_good") for v in (1, 2, 3)], ["negative", "neutral", "positive"])
+        self.assertIsNone(band(None, 5, "numeric", "unspecified"))
+
     def test_kappa_known_values(self):
         self.assertEqual(ai_pilot.cohen_kappa(list("aabb"), list("abab")), 0.0)
         self.assertEqual(ai_pilot.cohen_kappa(list("aabb"), list("aabb")), 1.0)

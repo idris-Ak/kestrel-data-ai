@@ -2,7 +2,7 @@
 
 **Step 01 — Discovery and solution proposal · 28–30 October 2026**
 
-Discovery is documented and stages one and two are complete, as confirmed by the user. Stage-three pilot tooling is built; human labels and model runs are next. Consolidated on 30 October from earlier reviews and discussion. Success criteria were drafted before implementation; AI classification has not run.
+Discovery is documented and stages one and two are complete, as confirmed by the user. Stage three's AI pilot is complete; stage four awaits a budget decision. Consolidated on 30 October from earlier reviews and discussion. Success criteria were drafted before implementation; AI classification has been piloted on a 100-comment test sample, not yet run on the full dataset.
 
 ## 1. Problem space
 
@@ -54,7 +54,7 @@ Discovery is documented and stages one and two are complete, as confirmed by the
 
 ## Build plan — proposed
 
-Stages one and two are complete. Stage three's pilot tooling is built and tested; it waits on human labels and an API key. Stages four to seven remain pending. Complete one stage, show its output, checks and open issues, then obtain user confirmation before starting the next. Evaluation accompanies each stage.
+Stages one and two are complete. Stage three's AI pilot is complete (Sonnet 5.5 selected); stage four awaits a budget decision. Stages four to seven remain pending. Complete one stage, show its output, checks and open issues, then obtain user confirmation before starting the next. Evaluation accompanies each stage.
 
 | Stage | Deliverable | Checkpoint before progressing |
 |---|---|---|
@@ -99,24 +99,19 @@ Review the [concise implementation and handoff](docs/STAGE_2_DATA_PREPARATION.md
 
 ## Build stage 3 checkpoint — 30 October 2026
 
-**Status:** pilot tooling built and tested; waiting on human calibration labels and an API key. No paid model calls yet.
+**Status:** pilot complete; Sonnet 5.5 selected and meets the acceptance targets. The stage-4 budget awaits the user.
 
-Planning and an 18-check input audit were done first (in ChatGPT). On resume the user approved:
-- sending redacted text to external models;
-- a multi-model comparison;
-- about 120 human labels;
-- a US$10 cap.
+On 100 untouched test comments, three models were compared on reference labels from two independent blind AI annotators (kappa 1.00 overall; disclosed as AI-made, not human):
 
-Built so far:
-- frozen sample splits (100 test drawn first, 20 calibration, 80 design);
-- an 11-theme list drafted from the design comments only;
-- an offline labelling page;
-- a validated, cached, budget-capped classifier for Claude and OpenAI models, plus a keyword baseline;
-- scoring with confidence intervals and a selection rule fixed before testing.
+| Model | Overall accuracy | Negative-theme F1 | Cost per 1,000 comments |
+|---|---:|---:|---:|
+| Sonnet 5.5 | 1.00 | 0.98 | US$4.80 |
+| Haiku 5.5 | 0.97 | 0.91 | US$0.24 |
+| Keyword baseline | 0.40 | 0.36 | US$0 |
 
-120 automated tests pass.
+Opus scored like Sonnet but was excluded as self-evaluation. A model-free check agrees with customers' own rating bands in all 87 clear-cut cases. Pilot spend: US$2.03. 125 automated tests pass.
 
-The [checkpoint](docs/STAGE_3_CHECKPOINT.md) has the next steps; the [plan](docs/STAGE_3_AI_PILOT.md) has the decisions, rationale and sources.
+The [checkpoint](docs/STAGE_3_CHECKPOINT.md) has the results, limits and stage-4 options; the [plan](docs/STAGE_3_AI_PILOT.md) has the decisions and sources.
 
 **Documentation basis.** Structure: [Atlassian Project Poster](https://www.atlassian.com/team-playbook/plays/project-poster). Discovery: [GOV.UK guidance](https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works). Decision status and rationale: [Nygard's ADR principles](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions). Update evidence and status as work progresses.
 

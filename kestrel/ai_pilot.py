@@ -386,7 +386,7 @@ def write_scorecard(split, names, root=ROOT):
         return f"{value:.2f}" + (f" ({ci[0]:.2f}–{ci[1]:.2f})" if ci and ci[0] is not None else "")
 
     lines = [f"# AI pilot scorecard: {split} split", "",
-             f"{len(gold)} human-labelled comments. Reviewer flags: {flags['privacy_issue']} personal-info, "
+             f"{len(gold)} reference-labelled comments. Reviewer flags: {flags['privacy_issue']} personal-info, "
              f"{flags['not_english']} not English, {flags['other']} other-opinion. 95% intervals in brackets.", "",
              "Reference labels are AI-generated, not human: " + (SELECTION["reference"] if split == "test"
                  else "one blind AI annotator, used for prompt development only."), "",
@@ -512,3 +512,52 @@ def run_adjudication(file_a, file_b, file_adjudication, root=ROOT, split="test")
     path.write_text(json.dumps(value, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     path.chmod(0o600)
     return path, value
+
+
+# ------------------------------------------------------ model-free check
+
+def rating_band(value, scale, kind, direction):
+    """Band a native rating on the oriented (higher-is-better) scale: bottom-2/top-2 box on 5 points.
+
+    Unlabelled scales are treated as higher-is-better (analysis decision D1); explicit reversed
+    legends are honoured. Ratings are read locally and never sent to a model.
+    """
+    if value is None:
+        return None
+    oriented = scale + 1 - value if direction == "low_is_good" else value
+    if scale == 3:
+        return {1: "negative", 2: "neutral", 3: "positive"}[oriented]
+    five = math.ceil(oriented / 2) if scale == 10 else oriented
+    return "negative" if five <= 2 else "neutral" if five == 3 else "positive"
+
+
+def rating_agreement(config_name, split="test", root=ROOT):
+    """Compare predicted overall sentiment with the customer's own rating band (no labels involved)."""
+    import sqlite3
+    records = split_records(root, split)
+    rows = {r["event_id"]: r for r in cached_rows(CONFIGS[config_name], records, Path(root) / PILOT_DIR / "cache")}
+    db = sqlite3.connect(f"file:{Path(root) / FROZEN_RUN / 'prepared.sqlite'}?mode=ro", uri=True)
+    try:
+        ratings = {e: (v, s, k, d, path) for e, v, s, k, d, path in db.execute(
+            """SELECT e.event_id, e.rating_value, e.rating_scale_max, e.rating_kind, e.rating_direction, f.path
+               FROM feedback_events e JOIN source_observations o ON o.observation_id = e.canonical_observation_id
+               JOIN source_files f USING(source_id)""")}
+    finally:
+        db.close()
+    pairs, by_source = Counter(), {}
+    for record in records:
+        row = rows.get(record["event_id"])
+        value, scale, kind, direction, path = ratings[record["event_id"]]
+        band = rating_band(value, scale, kind, direction)
+        predicted = row["labels"]["overall_sentiment"] if row and row["status"] == "ok" else "failed"
+        pairs[(band or "no_rating", predicted)] += 1
+        source = by_source.setdefault(Path(path).stem, Counter())
+        if band in ("positive", "negative") and predicted in ("positive", "negative"):
+            source["comparable"] += 1
+            source["agree"] += band == predicted
+    comparable = sum(n for (b, p), n in pairs.items() if b in ("positive", "negative") and p in ("positive", "negative"))
+    agree = sum(n for (b, p), n in pairs.items() if b == p and b in ("positive", "negative"))
+    return {"config": config_name, "split": split, "comparable": comparable, "agree": agree,
+            "agreement": round(agree / comparable, 3) if comparable else None, "agreement_ci": wilson(agree, comparable),
+            "pairs": {f"{b}->{p}": n for (b, p), n in sorted(pairs.items())},
+            "disagreeing_sources": {s: dict(c) for s, c in sorted(by_source.items()) if c["comparable"] > c["agree"]}}

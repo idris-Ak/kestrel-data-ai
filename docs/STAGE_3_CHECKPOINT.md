@@ -1,65 +1,64 @@
 # Stage 3 — AI pilot checkpoint
 
-**30 October 2026, 15:10 Melbourne time · Tooling built and tested · Waiting on: your 20 calibration labels and an API key**
+**30 October 2026 · Pilot complete · Selected: Claude Sonnet 5.5 (meets acceptance targets) · Next: stage-4 budget decision**
 
-## Where it stands
+## Result
 
-Stages 1–2 are complete and committed (`4773197`). Stage 3 planning and the input audit were done earlier, in ChatGPT; this session built the pilot tooling on that plan. The [plan](STAGE_3_AI_PILOT.md) records your decisions: redacted text may leave the machine, several models get compared, about 120 human labels, and a US$10 cap. No paid model calls have been made.
+On 100 untouched test comments, Sonnet 5.5 was selected by the rule fixed before testing: the cheapest model within 0.05 of the best on both headline measures. Haiku 5.5 also clears the acceptance targets, at about a twentieth of the cost, but trails by 0.07 on negative-theme F1.
 
-**Built and tested (120/120 tests pass, 21 new):**
+| Config | Overall accuracy | Negative-theme F1 | Theme+sentiment F1 | Failed outputs | Cost per 1,000 comments |
+|---|---:|---:|---:|---:|---:|
+| Keyword baseline | 0.40 (0.31–0.50) | 0.36 (0.24–0.48) | 0.35 | 0 | US$0 |
+| Haiku 5.5, effort low | 0.97 (0.92–0.99) | 0.91 (0.84–0.97) | 0.93 | 1 | US$0.24 |
+| **Sonnet 5.5, effort low** | **1.00 (0.96–1.00)** | **0.98 (0.94–1.00)** | **0.98** | 0 | **US$4.80** |
+| Opus 5.5, effort low (self-evaluation, not selectable) | 1.00 (0.96–1.00) | 0.97 (0.94–1.00) | 0.98 | 0 | US$9.62 |
 
-| Piece | What it does |
-|---|---|
-| Frozen splits | `pilot-sample` verifies the export hash (`4f1db5d6…`), then draws **100 test** comments by simple random sampling *first*, then **20 calibration** (Service 12, Sales 4, Parts 2, unresolved 2), then **80 design**. Seed `20261030`. The manifest stores IDs and hashes only and refuses to be redrawn. |
-| Theme list | [`ai_pilot_taxonomy.json`](../kestrel/ai_pilot_taxonomy.json): 11 themes plus overall sentiment, drafted from the 80 design comments only. Test and calibration text has not been read. |
-| Labelling page | `pilot-sheet` writes a self-contained offline page (no network, comment + department only, no ratings or predictions). It autosaves in your browser and exports JSON. `pilot-import` validates the export against the frozen split before accepting it. |
-| Classifier | [`classifier.py`](../kestrel/classifier.py): one comment per request, no tools, the comment wrapped as data. Each output must use allowed labels and quote its evidence verbatim from the comment, or it is retried once and then recorded as a failure. Adapters for Claude (Anthropic SDK) and OpenAI (Responses API, `store=False`). Results are cached per prompt/model fingerprint, so reruns resume without repaying. |
-| Spending stop | Every call reserves its worst-case cost against the US$10 ledger before it is sent. |
-| Scoring | `pilot-score` scores overall accuracy (Wilson 95% CI), negative-theme and theme+sentiment micro-F1 (bootstrap CI), per-theme precision/recall/support, failures, cost and latency. Failures count as misses. It makes no model calls. |
-| Test guard | The test split cannot be run until `pilot-freeze` records the configurations and selection rule. A config whose prompt or settings changed after freezing is refused. |
+Acceptance targets, confirmed by the user before testing: accuracy ≥ 0.85, negative-theme F1 ≥ 0.75, ≤ 2% failed outputs. Brackets show 95% intervals (Wilson for accuracy, comment-level bootstrap for F1).
 
-The design-set keyword baseline works but is weak, as expected; it is the floor the models must beat.
+**Where the models miss:**
+- Haiku over-tags waiting-time complaints: 13 predicted against 9 in the reference (F1 0.82). It mislabelled 2 comments as neutral, and 1 output was rejected because its quote wasn't in the comment.
+- Sonnet's only misses are on themes with support 0–1, such as sales-pressure praise and vehicle handover.
 
-## Calibration results (30 October, 15:40)
+**Pilot spend:** US$2.03 of the US$10 cap.
 
-The user chose not to hand-label. The 20 calibration labels came from a separate Claude session working blind: it read only the guide and those 20 comments, with no ratings or model output. These are **AI reference labels, not human ones**. Because the labelling session ran on the same model as Opus 5.5, Opus's agreement with them is likely inflated.
+## How we know it worked, and the limits
 
-| Config | Overall accuracy | Negative-theme F1 | Cost per 1,000 comments |
-|---|---:|---:|---:|
-| Keyword baseline | 0.25 | 0.00 | US$0 |
-| Haiku 5.5 (effort low) | 1.00 | 0.97 | US$0.24 |
-| Sonnet 5.5 (effort low) | 1.00 | 0.96 | US$4.75 |
-| Opus 5.5 (effort low) | 1.00 | 1.00 | US$9.51 |
+- **The reference labels are AI-generated, not human.** The user chose not to hand-label. Two independent blind Claude Opus 5.5 annotators labelled the test set from the written guide only, never seeing ratings or model outputs. They agreed almost perfectly: overall-sentiment kappa 1.00, pooled theme kappa 0.996, 99/100 comments identical. The one disagreement was adjudicated by the stage-3 session, which saw only that comment and the two annotations.
 
-What changed during calibration:
-- **Guide revision (themes-2).** Before it, all three models added "explanation" on top of billing and call-back complaints. Four boundary rules were added; the label space did not change.
-- **Validator change.** It now merges a theme quoted twice with the same sentiment, which caused Haiku's two failures, and still rejects opposite sentiments. Raw outputs of failed calls are kept locally for analysis.
+  Two instances of the same model agreeing shows consistency, not correctness. Opus is therefore excluded from selection, and Sonnet (same model family) may also be flattered.
+- **A model-free check backs the labels.** Ratings were never shown to any model. Wherever the customer's rating band was clearly positive (4–5) or negative (1–2) and the model said positive or negative, they agreed:
+  - Sonnet: 87/87 (95% CI 0.96–1.00).
+  - Haiku: 85/85.
 
-These scores are optimistic: the guide was tuned on the same 20 comments, and 20 cannot separate the models (intervals overlap). The test split decides. Spend so far: **US$0.56** of US$10.
+  Comments rated 3 mostly come out mixed or negative. This also supports treating unlabelled scales as higher-is-better.
+- **Calibration optimism.** The guide was revised once on the 20 calibration comments (themes-2). Test scores fell from calibration by 0.03–0.06 for Haiku and Opus, and not at all for Sonnet.
+- **Scope.** 100 test comments support the headline measures but not rare themes: sales pressure, vehicle handover and price have support of 1–7. Results cover the 4,802 screened comments; the 547 withheld ones are outside this test.
 
-## What you need to do
+## Decision needed: stage-4 budget
 
-1. **Label the 20 calibration comments** (about 10–15 minutes). Open this page in your browser and press *Export labels* when done:
-   `outputs/ai_pilot/labelling/calibration.html`
-2. **Import the file it downloads:**
-   ```bash
-   uv run --locked python -m kestrel pilot-import --file ~/Downloads/kestrel_labels_calibration.json
-   ```
-3. **Set an API key in your shell** before asking me to run models. `ANTHROPIC_API_KEY` covers Haiku, Sonnet and Opus; add `OPENAI_API_KEY` to include GPT-6 Luna.
+Classifying every comment from the next prepared run means about 5,350 comments: the 4,802 screened, plus the 547 that redaction rules-3 would release.
 
-## What happens next
+| Option | Estimated cost | Basis |
+|---|---:|---|
+| Sonnet 5.5 (selected by the rule) | about US$26 | test-run usage, US$0.0048 per comment |
+| Haiku 5.5 (meets targets; 0.07 lower negative-theme F1) | about US$1.30 | test-run usage, US$0.00024 per comment |
 
-1. Run all configurations on the 20 calibration comments (about US$0.20–0.50) and compare them against your labels. Look for definition problems; adjust the theme list or prompt once if needed. A theme change regenerates the test page before you start it.
-2. Confirm the acceptance targets with you, then `pilot-freeze` the comparison.
-3. You label the 100 test comments (about 45–60 minutes); import them.
-4. Run the frozen configurations on the test split once; `pilot-score` applies the rule and writes `outputs/ai_pilot/scorecard_test.md`.
-5. Report the selection, errors, cost per 1,000 comments and the projected full-run cost, then ask for go-ahead on stage 4 (classifying all 4,802).
+The pilot's US$10 cap doesn't cover the Sonnet run. The rule picks Sonnet; spending above the cap is the user's call.
 
-## Known limits
+## How it was built (reproducible)
 
-- One human reviewer; no second-person agreement check unless someone else labels the 50-comment subset.
-- 100 test comments cannot validate rare themes or per-dealership accuracy; the scorecard shows support so thin results are visible.
-- Results apply to the 4,802 screened comments. The 547 withheld comments (40% of Ipswich's, 37% of Essendon's) are not classified.
-- The theme list came from 80 comments; "Other opinion" flags from your labelling show what it misses.
+- **Frozen splits.** `pilot-sample` checks the export hash `4f1db5d6…`, then draws 100 test comments first, then 20 calibration and 80 design (seed `20261030`). The manifest holds IDs and hashes only.
+- **Theme list.** [`ai_pilot_taxonomy.json`](../kestrel/ai_pilot_taxonomy.json), themes-2: 11 themes and overall sentiment, drafted from the design comments only.
+- **Classifier.** [`classifier.py`](../kestrel/classifier.py): one comment per request, no tools, the comment wrapped as data, structured JSON output.
+  - Labels must come from the allowed set and evidence must be quoted verbatim. Otherwise the call is retried once, then counted as a failure.
+  - Results are cached by prompt and model fingerprint, and a US$10 ledger reserves each call's worst case before it is sent.
+- **Test protocol.**
+  - `pilot-freeze` recorded the configurations and selection rule before any test call. It was re-frozen once, before any test call, to mark Opus as not selectable; the superseded file is kept.
+  - `pilot-agree` / `pilot-adjudicate` build the reference labels.
+  - `pilot-score` scores saved results without making calls.
+  - `rating_agreement` runs the model-free check.
+- **Tests.** 125 automated tests pass (26 for the pilot).
 
-**Frozen input:** `outputs/prepared/runs/ec6f5be3bf88fff169456310a93d249704fab9b3553b9611833d522b7f6b3b3f/`. Pilot outputs (`outputs/ai_pilot/`) are ignored by Git because they hold redacted comment text.
+Commands: `uv run --locked python -m kestrel pilot-sample | pilot-sheet | pilot-import | pilot-freeze | pilot-run | pilot-agree | pilot-adjudicate | pilot-score` (see `--help`).
+
+**Frozen input:** `outputs/prepared/runs/ec6f5be3bf88fff169456310a93d249704fab9b3553b9611833d522b7f6b3b3f/`. Pilot outputs live in `outputs/ai_pilot/`, ignored by Git because they hold redacted comment text: scorecards, labels, caches and the spend ledger.
