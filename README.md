@@ -32,7 +32,7 @@ Assumptions include higher-is-better where no legend exists, explicit negative b
 
 ## Reproduce
 
-Use Python 3.12 and uv. Clone the repository and place the unchanged `feedback/`, `reference/` and `PS_Data_AI_Assignment.pdf` in its root. The original [brief](docs/BRIEF.md) is included. Exact AI replay also requires the author's private `labels.jsonl` and adjacent `summary.json`; committed results contain aggregates only. Set the path below to the supplied labels. Replay needs no API key; fresh model calls can vary.
+Use Python 3.12 and uv. Clone the repository and place the unchanged `feedback/`, `reference/` and `PS_Data_AI_Assignment.pdf` in its root. The original [brief](docs/BRIEF.md) is included. Exact AI replay also requires the author's private `labels.jsonl` and adjacent `summary.json`; committed results contain aggregates only. Set the path below to the supplied labels. Replay needs no API key.
 
 ```bash
 uv sync --locked
@@ -54,4 +54,6 @@ uv run --locked python -m kestrel ask "Which department should we prioritise?"
 
 ## AI use
 
-**Claude Code led development**, data foundation/preparation and substantial orchestration. **ChatGPT/Codex supported research, review and final integration/delegation.** Checks caught a revenue join dropping empty-feedback months, excessive name masking and a cache key missing department context. [Project approach](docs/PROJECT.md) explains the work; [methods](docs/METHODS.md) explain verification.
+**Claude Code led development**, data foundation/preparation and substantial orchestration. **ChatGPT/Codex supported research, review and final integration/delegation.** [Project approach](docs/PROJECT.md) and [methods](docs/METHODS.md) provide detail.
+
+One prompt asked: “Did negative feedback get better or worse between the first and second six months?” A live check withheld an answer when the model combined several source citations. Citation validation was corrected to check every cited group/range. We then checked the **19.9%→25.0% rise (+5.1 percentage points)** against the linked [half-year table](results/metrics/change_h1_h2_summary.csv).
