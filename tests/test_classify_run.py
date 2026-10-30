@@ -59,6 +59,13 @@ class ClassifyRunTests(unittest.TestCase):
         self.assertEqual(summary["redaction_version"], "rules-3")
         self.assertEqual(summary["rating_band_check"]["pairs"].get("negative->negative"), 1)
         self.assertNotIn("Nobody rang", (out / "summary.json").read_text())
+        for path in [out / "labels.jsonl", *self.root.glob("outputs/ai_pilot/cache/*.jsonl")]:
+            payload = path.read_text()
+            self.assertNotIn('"evidence":', payload)
+            self.assertNotIn('"raw_outputs":', payload)
+        reference = lines[0]["themes"][0]["evidence_reference"]
+        self.assertEqual(len(reference["sha256"]), 64)
+        self.assertLess(reference["normalised_start"], reference["normalised_end"])
 
     def test_unknown_config_is_refused(self):
         with self.assertRaisesRegex(PilotError, "Unknown configuration"):

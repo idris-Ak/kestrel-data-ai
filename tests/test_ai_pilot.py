@@ -206,6 +206,36 @@ class RunnerTests(unittest.TestCase):
              self.assertRaisesRegex(PilotError, "ANTHROPIC_API_KEY"):
             run_config(CONFIGS["haiku-5.5"], self.records, self.root / "cache", self.budget())
 
+    def test_cache_stores_references_not_quotes_and_replays_without_credentials(self):
+        config = CONFIGS["haiku-5.5"]
+        with patch.dict(classifier.PROVIDERS, {"anthropic": lambda c, r: (
+                json.dumps(good_output(r["text"])), {"input_tokens": 100, "output_tokens": 50}, None)}), \
+                patch.dict(os.environ, {"ANTHROPIC_API_KEY": "synthetic"}):
+            rows = run_config(config, self.records, self.root / "cache", self.budget())
+        payload = classifier.cache_path(config, self.root / "cache").read_text()
+        self.assertNotIn('"evidence":', payload)
+        self.assertIn('"evidence_reference":', payload)
+        with patch.dict(os.environ, {}, clear=True), patch.object(classifier, "load_env_file"), \
+                patch.dict(classifier.PROVIDERS, {"anthropic": lambda *_: self.fail("cache replay made a paid call")}):
+            self.assertEqual(run_config(config, self.records, self.root / "cache", self.budget()), rows)
+
+    def test_failed_cache_omits_raw_model_output(self):
+        with self.fake(good_output("x", evidence="synthetic secret phrase")):
+            rows = run_config(self.config, self.records[:1], self.root / "cache", self.budget())
+        self.assertEqual(rows[0]["status"], "failed")
+        self.assertNotIn("raw_outputs", rows[0])
+        self.assertNotIn("synthetic secret phrase", classifier.cache_path(self.config, self.root / "cache").read_text())
+
+    def test_cache_identity_includes_department_and_preserves_both_contexts(self):
+        with self.fake(lambda r: good_output(r["text"])):
+            first = run_config(self.config, self.records, self.root / "cache", self.budget())
+            changed = [{**r, "department": "Sales"} if i == 0 else r for i, r in enumerate(self.records)]
+            run_config(self.config, changed, self.root / "cache", self.budget())
+            self.assertEqual(len(self.calls), len(self.records) + 1)
+            replay = run_config(self.config, self.records, self.root / "cache", self.budget())
+            self.assertEqual(first, replay)
+            self.assertEqual(len(self.calls), len(self.records) + 1)
+
 
 class LabelAndScoringTests(unittest.TestCase):
     def setUp(self):

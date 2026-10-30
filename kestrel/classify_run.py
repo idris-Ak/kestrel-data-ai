@@ -2,7 +2,7 @@
 
 The run is identified by its own manifest; the model-input export must match
 the artifact hash recorded there. Classification reuses the pilot's validated
-runner, cache and spending ledger, so identical comments are never re-billed.
+runner, cache and spending ledger, so successful identical requests are reused.
 """
 
 from collections import Counter
@@ -48,6 +48,7 @@ def run_classification(run_dir, config_name="haiku-5.5", root=ROOT, cap_usd=10.0
         for row in rows:
             labels = row["labels"] or {}
             stream.write(json.dumps({"event_id": row["event_id"], "text_sha256": row["text_sha256"],
+                                     "request_sha256": row["request_sha256"],
                                      "config": config.name, "model": config.model,
                                      "config_fingerprint": row["config_fingerprint"], "status": row["status"],
                                      "overall_sentiment": labels.get("overall_sentiment"),
@@ -60,6 +61,8 @@ def run_classification(run_dir, config_name="haiku-5.5", root=ROOT, cap_usd=10.0
         "model_input_sha256": manifest["artifacts"]["model_input.jsonl"],
         "config": config.name, "model": config.model, "effort": config.effort,
         "config_fingerprint": config.fingerprint(),
+        "labels_sha256": hashlib.sha256((out / "labels.jsonl").read_bytes()).hexdigest(),
+        "evidence_format": "sha256_and_offsets_in_whitespace_normalised_casefolded_comment",
         "eligible": len(records), "classified": len(ok), "failed": len(rows) - len(ok),
         "overall_sentiment": dict(Counter(r["labels"]["overall_sentiment"] for r in ok)),
         "themes": dict(sorted(Counter(f"{t['theme']}:{t['sentiment']}" for r in ok for t in r["labels"]["themes"]).items())),
