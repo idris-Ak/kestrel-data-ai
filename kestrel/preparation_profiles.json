@@ -1,0 +1,3674 @@
+{
+  "registry_version": 2,
+  "sources": [
+    {
+      "path": "feedback/Ballarat - Customer Satisfaction.xlsx",
+      "dealer": "VIC07",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Responses",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 2,
+              "first_row": 3,
+              "last_row": 294,
+              "headers": [
+                "Date",
+                "Dept",
+                "Name",
+                "Phone",
+                "How satisfied?",
+                "Comments"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Dept",
+                "name": "Name",
+                "phone": "Phone",
+                "rating": "How satisfied?",
+                "comment": "Comments"
+              },
+              "expected_records": 292,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "satisfaction_labels",
+              "direction": "high_is_good",
+              "period_start": "2025-10-01",
+              "period_end": "2026-10-01"
+            }
+          ],
+          "context": [
+            {
+              "row": 1,
+              "role": "preamble",
+              "sha256": "2079d4c0bd968dcffbc726a2a2a579f8490da69f91986d21ac0b421ee32f22cc"
+            }
+          ]
+        }
+      ],
+      "expected_individual_records": 292
+    },
+    {
+      "path": "feedback/Chermside Q1 2026 FINAL v2.xlsx",
+      "dealer": "QLD01",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Feedback",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 119,
+              "headers": [
+                "Date",
+                "Department",
+                "Model",
+                "Rating",
+                "Comments",
+                "Ref",
+                "Customer No"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Department",
+                "vehicle": "Model",
+                "rating": "Rating",
+                "comment": "Comments",
+                "reference": "Ref",
+                "customer_id": "Customer No"
+              },
+              "expected_records": 118,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-01-01",
+              "period_end": "2026-04-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 118
+    },
+    {
+      "path": "feedback/Chermside Q1 2026 FINAL.xlsx",
+      "dealer": "QLD01",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Feedback",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 113,
+              "headers": [
+                "Date",
+                "Department",
+                "Model",
+                "Rating",
+                "Comments",
+                "Ref",
+                "Customer No"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Department",
+                "vehicle": "Model",
+                "rating": "Rating",
+                "comment": "Comments",
+                "reference": "Ref",
+                "customer_id": "Customer No"
+              },
+              "expected_records": 112,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-01-01",
+              "period_end": "2026-04-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 112
+    },
+    {
+      "path": "feedback/Chermside Q2 2026.xlsx",
+      "dealer": "QLD01",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Feedback",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 117,
+              "headers": [
+                "Date",
+                "Department",
+                "Model",
+                "Rating",
+                "Comments",
+                "Ref",
+                "Customer No"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Department",
+                "vehicle": "Model",
+                "rating": "Rating",
+                "comment": "Comments",
+                "reference": "Ref",
+                "customer_id": "Customer No"
+              },
+              "expected_records": 116,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-04-01",
+              "period_end": "2026-07-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 116
+    },
+    {
+      "path": "feedback/Chermside Q3 2026.xlsx",
+      "dealer": "QLD01",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Feedback",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 125,
+              "headers": [
+                "Date",
+                "Department",
+                "Model",
+                "Rating",
+                "Comments",
+                "Ref",
+                "Customer No"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Department",
+                "vehicle": "Model",
+                "rating": "Rating",
+                "comment": "Comments",
+                "reference": "Ref",
+                "customer_id": "Customer No"
+              },
+              "expected_records": 124,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-07-01",
+              "period_end": "2026-10-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 124
+    },
+    {
+      "path": "feedback/Chermside Q4 2025.xlsx",
+      "dealer": "QLD01",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Feedback",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 103,
+              "headers": [
+                "Date",
+                "Department",
+                "Model",
+                "Rating",
+                "Comments",
+                "Ref",
+                "Customer No"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Department",
+                "vehicle": "Model",
+                "rating": "Rating",
+                "comment": "Comments",
+                "reference": "Ref",
+                "customer_id": "Customer No"
+              },
+              "expected_records": 102,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2025-10-01",
+              "period_end": "2026-01-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 102
+    },
+    {
+      "path": "feedback/Dandenong Customer Feedback 2025-26.xlsx",
+      "dealer": "VIC01",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Oct 25",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 4,
+              "first_row": 5,
+              "last_row": 45,
+              "headers": [
+                "Date",
+                "Dept",
+                "Customer",
+                "Vehicle",
+                "Rego",
+                "Rating (1-5)",
+                "Comments",
+                "Action taken"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Dept",
+                "name": "Customer",
+                "vehicle": "Vehicle",
+                "rego": "Rego",
+                "rating": "Rating (1-5)",
+                "comment": "Comments",
+                "action": "Action taken"
+              },
+              "expected_records": 41,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2025-10-01",
+              "period_end": "2025-11-01"
+            }
+          ],
+          "context": [
+            {
+              "row": 1,
+              "role": "preamble",
+              "sha256": "13161e2e2dd0244cd825d8d17ebf0d26b90852d12cff6ee4e0035dfa5b70abc1"
+            },
+            {
+              "row": 2,
+              "role": "preamble",
+              "sha256": "ba54fab13fb8fe72e7417a63702a1665585c6850fa06b6bc49bebb7acc4a5b23"
+            }
+          ]
+        },
+        {
+          "name": "Nov 25",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 4,
+              "first_row": 5,
+              "last_row": 48,
+              "headers": [
+                "Date",
+                "Dept",
+                "Customer",
+                "Vehicle",
+                "Rego",
+                "Rating (1-5)",
+                "Comments",
+                "Action taken"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Dept",
+                "name": "Customer",
+                "vehicle": "Vehicle",
+                "rego": "Rego",
+                "rating": "Rating (1-5)",
+                "comment": "Comments",
+                "action": "Action taken"
+              },
+              "expected_records": 44,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2025-11-01",
+              "period_end": "2025-12-01"
+            }
+          ],
+          "context": [
+            {
+              "row": 1,
+              "role": "preamble",
+              "sha256": "13161e2e2dd0244cd825d8d17ebf0d26b90852d12cff6ee4e0035dfa5b70abc1"
+            },
+            {
+              "row": 2,
+              "role": "preamble",
+              "sha256": "56aa10beea75cf9c078b3a490d6f63522cff8607eb8479aa78f57bdb2aceae14"
+            }
+          ]
+        },
+        {
+          "name": "Dec 25",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 4,
+              "first_row": 5,
+              "last_row": 41,
+              "headers": [
+                "Date",
+                "Dept",
+                "Customer",
+                "Vehicle",
+                "Rego",
+                "Rating (1-5)",
+                "Comments",
+                "Action taken"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Dept",
+                "name": "Customer",
+                "vehicle": "Vehicle",
+                "rego": "Rego",
+                "rating": "Rating (1-5)",
+                "comment": "Comments",
+                "action": "Action taken"
+              },
+              "expected_records": 37,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2025-12-01",
+              "period_end": "2026-01-01"
+            }
+          ],
+          "context": [
+            {
+              "row": 1,
+              "role": "preamble",
+              "sha256": "13161e2e2dd0244cd825d8d17ebf0d26b90852d12cff6ee4e0035dfa5b70abc1"
+            },
+            {
+              "row": 2,
+              "role": "preamble",
+              "sha256": "0f2043239586201a66f64a831d1d8f737fbcce79e046afc5cae60cd6b058b81c"
+            }
+          ]
+        },
+        {
+          "name": "Jan 26",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 4,
+              "first_row": 5,
+              "last_row": 40,
+              "headers": [
+                "Date",
+                "Dept",
+                "Customer",
+                "Vehicle",
+                "Rego",
+                "Rating (1-5)",
+                "Comments",
+                "Action taken"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Dept",
+                "name": "Customer",
+                "vehicle": "Vehicle",
+                "rego": "Rego",
+                "rating": "Rating (1-5)",
+                "comment": "Comments",
+                "action": "Action taken"
+              },
+              "expected_records": 36,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-01-01",
+              "period_end": "2026-02-01"
+            }
+          ],
+          "context": [
+            {
+              "row": 1,
+              "role": "preamble",
+              "sha256": "13161e2e2dd0244cd825d8d17ebf0d26b90852d12cff6ee4e0035dfa5b70abc1"
+            },
+            {
+              "row": 2,
+              "role": "preamble",
+              "sha256": "250d88a7263e4cd70c1285a874612ce684519a65af959ba1aea2a12d0e6afc1c"
+            }
+          ]
+        },
+        {
+          "name": "Feb 26",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 4,
+              "first_row": 5,
+              "last_row": 36,
+              "headers": [
+                "Date",
+                "Dept",
+                "Customer",
+                "Vehicle",
+                "Rego",
+                "Rating (1-5)",
+                "Comments",
+                "Action taken"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Dept",
+                "name": "Customer",
+                "vehicle": "Vehicle",
+                "rego": "Rego",
+                "rating": "Rating (1-5)",
+                "comment": "Comments",
+                "action": "Action taken"
+              },
+              "expected_records": 32,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-02-01",
+              "period_end": "2026-03-01"
+            }
+          ],
+          "context": [
+            {
+              "row": 1,
+              "role": "preamble",
+              "sha256": "13161e2e2dd0244cd825d8d17ebf0d26b90852d12cff6ee4e0035dfa5b70abc1"
+            },
+            {
+              "row": 2,
+              "role": "preamble",
+              "sha256": "5aa93e3374c82a54d058d6e73307b3749d7acb7092ec05c49cc25627e5930358"
+            }
+          ]
+        },
+        {
+          "name": "Mar 26",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 4,
+              "first_row": 5,
+              "last_row": 35,
+              "headers": [
+                "Date",
+                "Dept",
+                "Customer",
+                "Vehicle",
+                "Rego",
+                "Rating (1-5)",
+                "Comments",
+                "Action taken"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Dept",
+                "name": "Customer",
+                "vehicle": "Vehicle",
+                "rego": "Rego",
+                "rating": "Rating (1-5)",
+                "comment": "Comments",
+                "action": "Action taken"
+              },
+              "expected_records": 31,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-03-01",
+              "period_end": "2026-04-01"
+            }
+          ],
+          "context": [
+            {
+              "row": 1,
+              "role": "preamble",
+              "sha256": "13161e2e2dd0244cd825d8d17ebf0d26b90852d12cff6ee4e0035dfa5b70abc1"
+            },
+            {
+              "row": 2,
+              "role": "preamble",
+              "sha256": "c50a9f1c09aa91753e649ec2465ea2a3115d5f900670ffdb13c211f254c13ed0"
+            }
+          ]
+        },
+        {
+          "name": "Apr 26",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 4,
+              "first_row": 5,
+              "last_row": 44,
+              "headers": [
+                "Date",
+                "Dept",
+                "Customer",
+                "Vehicle",
+                "Rego",
+                "Rating (1-5)",
+                "Comments",
+                "Action taken"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Dept",
+                "name": "Customer",
+                "vehicle": "Vehicle",
+                "rego": "Rego",
+                "rating": "Rating (1-5)",
+                "comment": "Comments",
+                "action": "Action taken"
+              },
+              "expected_records": 40,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-04-01",
+              "period_end": "2026-05-01"
+            }
+          ],
+          "context": [
+            {
+              "row": 1,
+              "role": "preamble",
+              "sha256": "13161e2e2dd0244cd825d8d17ebf0d26b90852d12cff6ee4e0035dfa5b70abc1"
+            },
+            {
+              "row": 2,
+              "role": "preamble",
+              "sha256": "6f5057f2b88481eaceb76921f0bad3527cfe0dc123e0e382f3f8c180f3daa163"
+            }
+          ]
+        },
+        {
+          "name": "May 26",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 5,
+              "first_row": 6,
+              "last_row": 46,
+              "headers": [
+                "Date",
+                "Dept",
+                "Customer",
+                "Vehicle",
+                "Rego",
+                "Rating (1-5)",
+                "Comments",
+                "Action taken"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Dept",
+                "name": "Customer",
+                "vehicle": "Vehicle",
+                "rego": "Rego",
+                "rating": "Rating (1-5)",
+                "comment": "Comments",
+                "action": "Action taken"
+              },
+              "expected_records": 41,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-05-01",
+              "period_end": "2026-06-01"
+            }
+          ],
+          "context": [
+            {
+              "row": 1,
+              "role": "preamble",
+              "sha256": "13161e2e2dd0244cd825d8d17ebf0d26b90852d12cff6ee4e0035dfa5b70abc1"
+            },
+            {
+              "row": 2,
+              "role": "preamble",
+              "sha256": "fd20260b73cf67d162d6ea2a800ada89ebe5ba94cb1ccc2ca0dd25fba794a7e8"
+            },
+            {
+              "row": 3,
+              "role": "preamble",
+              "sha256": "fc2def4beab9ad0b320a3881f6b3643a5bee31aaaebc934f11b938e8acd15767"
+            }
+          ]
+        },
+        {
+          "name": "Jun 26",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 4,
+              "first_row": 5,
+              "last_row": 57,
+              "headers": [
+                "Date",
+                "Dept",
+                "Customer",
+                "Vehicle",
+                "Rego",
+                "Rating (1-5)",
+                "Comments",
+                "Action taken"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Dept",
+                "name": "Customer",
+                "vehicle": "Vehicle",
+                "rego": "Rego",
+                "rating": "Rating (1-5)",
+                "comment": "Comments",
+                "action": "Action taken"
+              },
+              "expected_records": 53,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-06-01",
+              "period_end": "2026-07-01"
+            }
+          ],
+          "context": [
+            {
+              "row": 1,
+              "role": "preamble",
+              "sha256": "13161e2e2dd0244cd825d8d17ebf0d26b90852d12cff6ee4e0035dfa5b70abc1"
+            },
+            {
+              "row": 2,
+              "role": "preamble",
+              "sha256": "41e3dd2436f35317c4494211090c3996154902822a9a5157a82b216e0c3da044"
+            }
+          ]
+        },
+        {
+          "name": "Jul 26",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 4,
+              "first_row": 5,
+              "last_row": 52,
+              "headers": [
+                "Date",
+                "Dept",
+                "Customer",
+                "Vehicle",
+                "Rego",
+                "Rating (1-5)",
+                "Comments",
+                "Action taken"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Dept",
+                "name": "Customer",
+                "vehicle": "Vehicle",
+                "rego": "Rego",
+                "rating": "Rating (1-5)",
+                "comment": "Comments",
+                "action": "Action taken"
+              },
+              "expected_records": 48,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-07-01",
+              "period_end": "2026-08-01"
+            }
+          ],
+          "context": [
+            {
+              "row": 1,
+              "role": "preamble",
+              "sha256": "13161e2e2dd0244cd825d8d17ebf0d26b90852d12cff6ee4e0035dfa5b70abc1"
+            },
+            {
+              "row": 2,
+              "role": "preamble",
+              "sha256": "827d927e3521eb4ff4e3367083f84383930cd825a3588e3fe7127a5ff3fa35c8"
+            }
+          ]
+        },
+        {
+          "name": "Aug 26",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 4,
+              "first_row": 5,
+              "last_row": 48,
+              "headers": [
+                "Date",
+                "Dept",
+                "Customer",
+                "Vehicle",
+                "Rego",
+                "Rating (1-5)",
+                "Comments",
+                "Action taken"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Dept",
+                "name": "Customer",
+                "vehicle": "Vehicle",
+                "rego": "Rego",
+                "rating": "Rating (1-5)",
+                "comment": "Comments",
+                "action": "Action taken"
+              },
+              "expected_records": 44,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-08-01",
+              "period_end": "2026-09-01"
+            }
+          ],
+          "context": [
+            {
+              "row": 1,
+              "role": "preamble",
+              "sha256": "13161e2e2dd0244cd825d8d17ebf0d26b90852d12cff6ee4e0035dfa5b70abc1"
+            },
+            {
+              "row": 2,
+              "role": "preamble",
+              "sha256": "278c95c231357ac2c493e1d4c3532df1c4d18852b312da6838019fb496ca7f50"
+            }
+          ]
+        },
+        {
+          "name": "Sep 26",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 4,
+              "first_row": 5,
+              "last_row": 41,
+              "headers": [
+                "Date",
+                "Dept",
+                "Customer",
+                "Vehicle",
+                "Rego",
+                "Rating (1-5)",
+                "Comments",
+                "Action taken"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Dept",
+                "name": "Customer",
+                "vehicle": "Vehicle",
+                "rego": "Rego",
+                "rating": "Rating (1-5)",
+                "comment": "Comments",
+                "action": "Action taken"
+              },
+              "expected_records": 37,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-09-01",
+              "period_end": "2026-10-01"
+            }
+          ],
+          "context": [
+            {
+              "row": 1,
+              "role": "preamble",
+              "sha256": "13161e2e2dd0244cd825d8d17ebf0d26b90852d12cff6ee4e0035dfa5b70abc1"
+            },
+            {
+              "row": 2,
+              "role": "preamble",
+              "sha256": "b4a8fa31fadbdbb42819c807e2e8664f9d3d5bc22914ac0d017292a1541b8cab"
+            }
+          ]
+        },
+        {
+          "name": "Sheet3",
+          "kind": "blank",
+          "segments": [],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 484
+    },
+    {
+      "path": "feedback/ESSENDON - feedback register.xlsx",
+      "dealer": "VIC03",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Sales",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 92,
+              "headers": [
+                "Date",
+                "Taken by",
+                "Customer said",
+                "Score",
+                "Action"
+              ],
+              "columns": {
+                "date": "Date",
+                "staff": "Taken by",
+                "comment": "Customer said",
+                "rating": "Score",
+                "action": "Action"
+              },
+              "expected_records": 91,
+              "date_format": "%d/%m/%Y",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2025-10-01",
+              "period_end": "2026-10-01",
+              "department_constant": "Sales"
+            }
+          ],
+          "context": []
+        },
+        {
+          "name": "Service",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 226,
+              "headers": [
+                "Date",
+                "Taken by",
+                "Customer said",
+                "Score",
+                "Action"
+              ],
+              "columns": {
+                "date": "Date",
+                "staff": "Taken by",
+                "comment": "Customer said",
+                "rating": "Score",
+                "action": "Action"
+              },
+              "expected_records": 225,
+              "date_format": "%d/%m/%Y",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2025-10-01",
+              "period_end": "2026-10-01",
+              "department_constant": "Service"
+            }
+          ],
+          "context": []
+        },
+        {
+          "name": "Parts",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 31,
+              "headers": [
+                "Date",
+                "Taken by",
+                "Customer said",
+                "Score",
+                "Action"
+              ],
+              "columns": {
+                "date": "Date",
+                "staff": "Taken by",
+                "comment": "Customer said",
+                "rating": "Score",
+                "action": "Action"
+              },
+              "expected_records": 30,
+              "date_format": "%d/%m/%Y",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2025-10-01",
+              "period_end": "2026-10-01",
+              "department_constant": "Parts"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 346
+    },
+    {
+      "path": "feedback/Frankston_CX_tracker.xlsx",
+      "dealer": "VIC04",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Tracker",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 159,
+              "headers": [
+                "Date",
+                "Area",
+                "Rating",
+                "Comments"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Area",
+                "rating": "Rating",
+                "comment": "Comments"
+              },
+              "expected_records": 145,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2025-10-01",
+              "period_end": "2026-10-01"
+            },
+            {
+              "header_row": 160,
+              "first_row": 161,
+              "last_row": 334,
+              "headers": [
+                "Date",
+                "Area",
+                "CSAT",
+                "Customer comments",
+                "Source",
+                "Customer",
+                "Rego"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Area",
+                "rating": "CSAT",
+                "comment": "Customer comments",
+                "channel": "Source",
+                "name": "Customer",
+                "rego": "Rego"
+              },
+              "expected_records": 163,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2025-10-01",
+              "period_end": "2026-10-01"
+            }
+          ],
+          "context": [
+            {
+              "row": 36,
+              "role": "footer_or_note",
+              "sha256": "68547ffb00b9f0248ee6710d3e0ad9fe02f95476241fba5c6da5e0e6e4f5ce42"
+            },
+            {
+              "row": 60,
+              "role": "footer_or_note",
+              "sha256": "fef5c75ca2d133dd0b97ee324e1f10d5979d8b0ce896608d2666cb6edf1e6829"
+            },
+            {
+              "row": 88,
+              "role": "footer_or_note",
+              "sha256": "dc5d85631fd04f93e7a03673520dd4b65418e71678f0cb19815941cd920b52b4"
+            },
+            {
+              "row": 107,
+              "role": "footer_or_note",
+              "sha256": "8c6c4b5de51fa9451e82822a8fba862a093f01dbff1e2ebb95901a9975c5b9b8"
+            },
+            {
+              "row": 135,
+              "role": "footer_or_note",
+              "sha256": "56d0e3fdf43f89f402384b890214c048955662c676324650f8308297073c8feb"
+            },
+            {
+              "row": 157,
+              "role": "footer_or_note",
+              "sha256": "239f946d9e71e8b8078b79ed3146a5b91cca4c4273b79cc7803f1e4c188334cd"
+            },
+            {
+              "row": 188,
+              "role": "footer_or_note",
+              "sha256": "8537fa0bcddbe16aaff9b6e45c5598e7253597be8ae1e060047e32ca44d53bc8"
+            },
+            {
+              "row": 220,
+              "role": "footer_or_note",
+              "sha256": "93c82ce449589680adf78a72138b262f35eb38e44cf00c09063d31b4d70bf1d5"
+            },
+            {
+              "row": 253,
+              "role": "footer_or_note",
+              "sha256": "82bbccbbde5d8b55eb34f52555c3cb7dbe0a5b2c02a501876c18b2dde5b98766"
+            },
+            {
+              "row": 279,
+              "role": "footer_or_note",
+              "sha256": "684d8ac899f7d8ccefa9cd94712595325817120205f2c006a6c0b9674fa53486"
+            },
+            {
+              "row": 316,
+              "role": "footer_or_note",
+              "sha256": "efb09842e5d668699c39502af8e8f25ca37c28f7f10413c895c4adfe747bd6ea"
+            },
+            {
+              "row": 334,
+              "role": "footer_or_note",
+              "sha256": "0e66297240ed8a9de3bec751bf32aba9a2c123cc701976bb418ef3fb92836444"
+            }
+          ]
+        }
+      ],
+      "expected_individual_records": 308
+    },
+    {
+      "path": "feedback/Geelong Feedback.xlsx",
+      "dealer": "VIC06",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "2025",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 4,
+              "first_row": 5,
+              "last_row": 72,
+              "headers": [
+                "Date",
+                "Department",
+                "Rating",
+                "Feedback",
+                "Customer"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Department",
+                "rating": "Rating",
+                "comment": "Feedback",
+                "name": "Customer"
+              },
+              "expected_records": 68,
+              "date_format": "%d/%m/%y",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "low_is_good",
+              "period_start": "2025-10-01",
+              "period_end": "2026-01-01"
+            }
+          ],
+          "context": [
+            {
+              "row": 1,
+              "role": "preamble",
+              "sha256": "0c40aadd3303fe8585d05d7a2349ad12f2f10514c89a20e9e63c33817609f1aa"
+            },
+            {
+              "row": 2,
+              "role": "preamble",
+              "sha256": "8be8a0311cbfbf87fe0d213f6fcbea6bda3c4bd1d6dd69f6097c5312b8db9b4f"
+            }
+          ]
+        },
+        {
+          "name": "2026",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 4,
+              "first_row": 5,
+              "last_row": 240,
+              "headers": [
+                "Date",
+                "Department",
+                "Rating",
+                "Feedback",
+                "Customer"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Department",
+                "rating": "Rating",
+                "comment": "Feedback",
+                "name": "Customer"
+              },
+              "expected_records": 236,
+              "date_format": "%d/%m/%y",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "high_is_good",
+              "period_start": "2026-01-01",
+              "period_end": "2026-10-01"
+            }
+          ],
+          "context": [
+            {
+              "row": 1,
+              "role": "preamble",
+              "sha256": "0c40aadd3303fe8585d05d7a2349ad12f2f10514c89a20e9e63c33817609f1aa"
+            },
+            {
+              "row": 2,
+              "role": "preamble",
+              "sha256": "2508e901a5fae2c9d4e5d821621be19b2bfa431f3d9c73344196cb9e67b999b1"
+            }
+          ]
+        }
+      ],
+      "expected_individual_records": 304
+    },
+    {
+      "path": "feedback/Hunter Motors feedback 25-26.xlsx",
+      "dealer": null,
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Feedback",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 3,
+              "first_row": 4,
+              "last_row": 306,
+              "headers": [
+                "Dealer",
+                "Date",
+                "Department",
+                "Rating",
+                "Comments",
+                "Vehicle"
+              ],
+              "columns": {
+                "site": "Dealer",
+                "date": "Date",
+                "department": "Department",
+                "rating": "Rating",
+                "comment": "Comments",
+                "vehicle": "Vehicle"
+              },
+              "expected_records": 303,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2025-10-01",
+              "period_end": "2026-10-01"
+            }
+          ],
+          "context": [
+            {
+              "row": 1,
+              "role": "preamble",
+              "sha256": "355d46006041c9ad20e5c76f1e381747e8acac2cc3d6d6abd85d2adafc5928c8"
+            }
+          ]
+        }
+      ],
+      "dealer_candidate": "NSW05",
+      "dealer_status": "unresolved_alias",
+      "expected_individual_records": 303
+    },
+    {
+      "path": "feedback/IPS_feedback_log.xlsx",
+      "dealer": "QLD03",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Log",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 278,
+              "headers": [
+                "Site",
+                "Date",
+                "Dept",
+                "Rating",
+                "Notes",
+                "Logged by"
+              ],
+              "columns": {
+                "site": "Site",
+                "date": "Date",
+                "department": "Dept",
+                "rating": "Rating",
+                "comment": "Notes",
+                "staff": "Logged by"
+              },
+              "expected_records": 277,
+              "date_format": "%d/%m/%Y",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2025-10-01",
+              "period_end": "2026-10-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 277
+    },
+    {
+      "path": "feedback/Noosa feedback cards.xlsx",
+      "dealer": "QLD05",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Cards",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 50,
+              "headers": [
+                "Date",
+                "Department",
+                "Rating",
+                "Comments",
+                "Card given by"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Department",
+                "rating": "Rating",
+                "comment": "Comments",
+                "staff": "Card given by"
+              },
+              "expected_records": 49,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2025-10-01",
+              "period_end": "2026-10-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 49,
+      "notes": [
+        {
+          "sheet": "Cards",
+          "cell": "C1",
+          "sha256": "c044d44783e8f7c4ec6ad7bc4ea5856217ef48af7d1735980c310a93a9b94865"
+        }
+      ]
+    },
+    {
+      "path": "feedback/North QLD feedback (Rocky + TSV).xlsx",
+      "dealer": null,
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Q4 2025",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 147,
+              "headers": [
+                "Site",
+                "Date",
+                "Department",
+                "Rating",
+                "Comments"
+              ],
+              "columns": {
+                "site": "Site",
+                "date": "Date",
+                "department": "Department",
+                "rating": "Rating",
+                "comment": "Comments"
+              },
+              "expected_records": 146,
+              "date_format": "excel_serial",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2025-10-01",
+              "period_end": "2026-01-01"
+            }
+          ],
+          "context": []
+        },
+        {
+          "name": "Q1 2026",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 134,
+              "headers": [
+                "Site",
+                "Date",
+                "Department",
+                "Rating",
+                "Comments"
+              ],
+              "columns": {
+                "site": "Site",
+                "date": "Date",
+                "department": "Department",
+                "rating": "Rating",
+                "comment": "Comments"
+              },
+              "expected_records": 133,
+              "date_format": "excel_serial",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-01-01",
+              "period_end": "2026-04-01"
+            }
+          ],
+          "context": []
+        },
+        {
+          "name": "Q2 2026",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 139,
+              "headers": [
+                "Site",
+                "Date",
+                "Department",
+                "Rating",
+                "Comments"
+              ],
+              "columns": {
+                "site": "Site",
+                "date": "Date",
+                "department": "Department",
+                "rating": "Rating",
+                "comment": "Comments"
+              },
+              "expected_records": 138,
+              "date_format": "excel_serial",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-04-01",
+              "period_end": "2026-07-01"
+            }
+          ],
+          "context": []
+        },
+        {
+          "name": "Q3 2026",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 140,
+              "headers": [
+                "Site",
+                "Date",
+                "Department",
+                "Rating",
+                "Comments"
+              ],
+              "columns": {
+                "site": "Site",
+                "date": "Date",
+                "department": "Department",
+                "rating": "Rating",
+                "comment": "Comments"
+              },
+              "expected_records": 139,
+              "date_format": "excel_serial",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-07-01",
+              "period_end": "2026-10-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 556
+    },
+    {
+      "path": "feedback/Parramatta_Feedback_2025-10.xlsx",
+      "dealer": "NSW01",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Oct 25",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 48,
+              "headers": [
+                "Date",
+                "Cust No",
+                "Mobile",
+                "Department",
+                "Rating",
+                "Comments",
+                "Staff"
+              ],
+              "columns": {
+                "date": "Date",
+                "customer_id": "Cust No",
+                "phone": "Mobile",
+                "department": "Department",
+                "rating": "Rating",
+                "comment": "Comments",
+                "staff": "Staff"
+              },
+              "expected_records": 47,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2025-10-01",
+              "period_end": "2025-11-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 47
+    },
+    {
+      "path": "feedback/Parramatta_Feedback_2025-11.xlsx",
+      "dealer": "NSW01",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Nov 25",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 37,
+              "headers": [
+                "Date",
+                "Cust No",
+                "Mobile",
+                "Department",
+                "Rating",
+                "Comments",
+                "Staff"
+              ],
+              "columns": {
+                "date": "Date",
+                "customer_id": "Cust No",
+                "phone": "Mobile",
+                "department": "Department",
+                "rating": "Rating",
+                "comment": "Comments",
+                "staff": "Staff"
+              },
+              "expected_records": 36,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2025-11-01",
+              "period_end": "2025-12-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 36
+    },
+    {
+      "path": "feedback/Parramatta_Feedback_2025-12.xlsx",
+      "dealer": "NSW01",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Dec 25",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 38,
+              "headers": [
+                "Date",
+                "Cust No",
+                "Mobile",
+                "Department",
+                "Rating",
+                "Comments",
+                "Staff"
+              ],
+              "columns": {
+                "date": "Date",
+                "customer_id": "Cust No",
+                "phone": "Mobile",
+                "department": "Department",
+                "rating": "Rating",
+                "comment": "Comments",
+                "staff": "Staff"
+              },
+              "expected_records": 37,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2025-12-01",
+              "period_end": "2026-01-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 37
+    },
+    {
+      "path": "feedback/Parramatta_Feedback_2026-01.xlsx",
+      "dealer": "NSW01",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Jan 26",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 43,
+              "headers": [
+                "Date",
+                "Cust No",
+                "Mobile",
+                "Department",
+                "Rating",
+                "Comments",
+                "Staff"
+              ],
+              "columns": {
+                "date": "Date",
+                "customer_id": "Cust No",
+                "phone": "Mobile",
+                "department": "Department",
+                "rating": "Rating",
+                "comment": "Comments",
+                "staff": "Staff"
+              },
+              "expected_records": 42,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-01-01",
+              "period_end": "2026-02-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 42
+    },
+    {
+      "path": "feedback/Parramatta_Feedback_2026-02.xlsx",
+      "dealer": "NSW01",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Feb 26",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 34,
+              "headers": [
+                "Date",
+                "Cust No",
+                "Mobile",
+                "Department",
+                "Rating",
+                "Comments",
+                "Staff"
+              ],
+              "columns": {
+                "date": "Date",
+                "customer_id": "Cust No",
+                "phone": "Mobile",
+                "department": "Department",
+                "rating": "Rating",
+                "comment": "Comments",
+                "staff": "Staff"
+              },
+              "expected_records": 33,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-02-01",
+              "period_end": "2026-03-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 33
+    },
+    {
+      "path": "feedback/Parramatta_Feedback_2026-03.xlsx",
+      "dealer": "NSW01",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Mar 26",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 41,
+              "headers": [
+                "Date",
+                "Cust No",
+                "Mobile",
+                "Department",
+                "Rating",
+                "Comments",
+                "Staff"
+              ],
+              "columns": {
+                "date": "Date",
+                "customer_id": "Cust No",
+                "phone": "Mobile",
+                "department": "Department",
+                "rating": "Rating",
+                "comment": "Comments",
+                "staff": "Staff"
+              },
+              "expected_records": 40,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-03-01",
+              "period_end": "2026-04-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 40
+    },
+    {
+      "path": "feedback/Parramatta_Feedback_2026-04.xlsx",
+      "dealer": "NSW01",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Apr 26",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 35,
+              "headers": [
+                "Date",
+                "Cust No",
+                "Mobile",
+                "Department",
+                "Rating",
+                "Comments",
+                "Staff"
+              ],
+              "columns": {
+                "date": "Date",
+                "customer_id": "Cust No",
+                "phone": "Mobile",
+                "department": "Department",
+                "rating": "Rating",
+                "comment": "Comments",
+                "staff": "Staff"
+              },
+              "expected_records": 34,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-04-01",
+              "period_end": "2026-05-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 34
+    },
+    {
+      "path": "feedback/Parramatta_Feedback_2026-05.xlsx",
+      "dealer": "NSW01",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "May 26",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 46,
+              "headers": [
+                "Date",
+                "Cust No",
+                "Mobile",
+                "Department",
+                "Booking ref",
+                "Rating",
+                "Comments",
+                "Staff"
+              ],
+              "columns": {
+                "date": "Date",
+                "customer_id": "Cust No",
+                "phone": "Mobile",
+                "department": "Department",
+                "reference": "Booking ref",
+                "rating": "Rating",
+                "comment": "Comments",
+                "staff": "Staff"
+              },
+              "expected_records": 45,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-05-01",
+              "period_end": "2026-06-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 45
+    },
+    {
+      "path": "feedback/Parramatta_Feedback_2026-06.xlsx",
+      "dealer": "NSW01",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Jun 26",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 50,
+              "headers": [
+                "Date",
+                "Cust No",
+                "Mobile",
+                "Department",
+                "Booking ref",
+                "Rating",
+                "Comments",
+                "Staff"
+              ],
+              "columns": {
+                "date": "Date",
+                "customer_id": "Cust No",
+                "phone": "Mobile",
+                "department": "Department",
+                "reference": "Booking ref",
+                "rating": "Rating",
+                "comment": "Comments",
+                "staff": "Staff"
+              },
+              "expected_records": 49,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-06-01",
+              "period_end": "2026-07-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 49
+    },
+    {
+      "path": "feedback/Parramatta_Feedback_2026-07.xlsx",
+      "dealer": "NSW01",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Jul 26",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 38,
+              "headers": [
+                "Date",
+                "Cust No",
+                "Mobile",
+                "Department",
+                "Booking ref",
+                "Rating",
+                "Comments",
+                "Staff"
+              ],
+              "columns": {
+                "date": "Date",
+                "customer_id": "Cust No",
+                "phone": "Mobile",
+                "department": "Department",
+                "reference": "Booking ref",
+                "rating": "Rating",
+                "comment": "Comments",
+                "staff": "Staff"
+              },
+              "expected_records": 37,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-07-01",
+              "period_end": "2026-08-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 37
+    },
+    {
+      "path": "feedback/Parramatta_Feedback_2026-08.xlsx",
+      "dealer": "NSW01",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Aug 26",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 40,
+              "headers": [
+                "Date",
+                "Cust No",
+                "Mobile",
+                "Department",
+                "Booking ref",
+                "Rating",
+                "Comments",
+                "Staff"
+              ],
+              "columns": {
+                "date": "Date",
+                "customer_id": "Cust No",
+                "phone": "Mobile",
+                "department": "Department",
+                "reference": "Booking ref",
+                "rating": "Rating",
+                "comment": "Comments",
+                "staff": "Staff"
+              },
+              "expected_records": 39,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-08-01",
+              "period_end": "2026-09-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 39
+    },
+    {
+      "path": "feedback/Parramatta_Feedback_2026-09.xlsx",
+      "dealer": "NSW01",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Sep 26",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 41,
+              "headers": [
+                "Date",
+                "Cust No",
+                "Mobile",
+                "Department",
+                "Booking ref",
+                "Rating",
+                "Comments",
+                "Staff"
+              ],
+              "columns": {
+                "date": "Date",
+                "customer_id": "Cust No",
+                "phone": "Mobile",
+                "department": "Department",
+                "reference": "Booking ref",
+                "rating": "Rating",
+                "comment": "Comments",
+                "staff": "Staff"
+              },
+              "expected_records": 40,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-09-01",
+              "period_end": "2026-10-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 40
+    },
+    {
+      "path": "feedback/Penrith Feedback.xlsx",
+      "dealer": "NSW02",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Oct 25",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 33,
+              "headers": [
+                "Date",
+                "Department",
+                "Score",
+                "Comments",
+                "Customer"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Department",
+                "rating": "Score",
+                "comment": "Comments",
+                "name": "Customer"
+              },
+              "expected_records": 32,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2025-10-01",
+              "period_end": "2025-11-01"
+            }
+          ],
+          "context": []
+        },
+        {
+          "name": "Nov 25",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 43,
+              "headers": [
+                "Date",
+                "Department",
+                "Score",
+                "Comments",
+                "Customer"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Department",
+                "rating": "Score",
+                "comment": "Comments",
+                "name": "Customer"
+              },
+              "expected_records": 42,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2025-11-01",
+              "period_end": "2025-12-01"
+            }
+          ],
+          "context": []
+        },
+        {
+          "name": "Dec 25",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 37,
+              "headers": [
+                "Date",
+                "Department",
+                "Score",
+                "Comments",
+                "Customer"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Department",
+                "rating": "Score",
+                "comment": "Comments",
+                "name": "Customer"
+              },
+              "expected_records": 36,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2025-12-01",
+              "period_end": "2026-01-01"
+            }
+          ],
+          "context": []
+        },
+        {
+          "name": "Jan 26",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 31,
+              "headers": [
+                "Date",
+                "Department",
+                "Score",
+                "Comments",
+                "Customer"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Department",
+                "rating": "Score",
+                "comment": "Comments",
+                "name": "Customer"
+              },
+              "expected_records": 30,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-01-01",
+              "period_end": "2026-02-01"
+            }
+          ],
+          "context": []
+        },
+        {
+          "name": "Feb 26",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 46,
+              "headers": [
+                "Date",
+                "Department",
+                "Score",
+                "Comments",
+                "Customer"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Department",
+                "rating": "Score",
+                "comment": "Comments",
+                "name": "Customer"
+              },
+              "expected_records": 45,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-02-01",
+              "period_end": "2026-03-01"
+            }
+          ],
+          "context": []
+        },
+        {
+          "name": "Mar 26",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 46,
+              "headers": [
+                "Date",
+                "Department",
+                "Score",
+                "Comments",
+                "Customer"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Department",
+                "rating": "Score",
+                "comment": "Comments",
+                "name": "Customer"
+              },
+              "expected_records": 45,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-03-01",
+              "period_end": "2026-04-01"
+            }
+          ],
+          "context": []
+        },
+        {
+          "name": "Apr 26",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 38,
+              "headers": [
+                "Date",
+                "Department",
+                "Score",
+                "Comments",
+                "Customer"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Department",
+                "rating": "Score",
+                "comment": "Comments",
+                "name": "Customer"
+              },
+              "expected_records": 37,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-04-01",
+              "period_end": "2026-05-01"
+            }
+          ],
+          "context": []
+        },
+        {
+          "name": "May 26",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 44,
+              "headers": [
+                "Date",
+                "Department",
+                "Score",
+                "Comments",
+                "Customer"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Department",
+                "rating": "Score",
+                "comment": "Comments",
+                "name": "Customer"
+              },
+              "expected_records": 43,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-05-01",
+              "period_end": "2026-06-01"
+            }
+          ],
+          "context": []
+        },
+        {
+          "name": "Jun 26",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 44,
+              "headers": [
+                "Date",
+                "Department",
+                "Score",
+                "Comments",
+                "Customer"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Department",
+                "rating": "Score",
+                "comment": "Comments",
+                "name": "Customer"
+              },
+              "expected_records": 43,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-06-01",
+              "period_end": "2026-07-01"
+            }
+          ],
+          "context": []
+        },
+        {
+          "name": "Jul 26",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 44,
+              "headers": [
+                "Date",
+                "Department",
+                "Score",
+                "Comments",
+                "Customer"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Department",
+                "rating": "Score",
+                "comment": "Comments",
+                "name": "Customer"
+              },
+              "expected_records": 43,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-07-01",
+              "period_end": "2026-08-01"
+            }
+          ],
+          "context": []
+        },
+        {
+          "name": "Aug 26",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 57,
+              "headers": [
+                "Date",
+                "Department",
+                "Score",
+                "Comments",
+                "Customer"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Department",
+                "rating": "Score",
+                "comment": "Comments",
+                "name": "Customer"
+              },
+              "expected_records": 56,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-08-01",
+              "period_end": "2026-09-01"
+            }
+          ],
+          "context": []
+        },
+        {
+          "name": "Sep 26",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 46,
+              "headers": [
+                "Date",
+                "Department",
+                "Score",
+                "Comments",
+                "Customer"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Department",
+                "rating": "Score",
+                "comment": "Comments",
+                "name": "Customer"
+              },
+              "expected_records": 45,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-09-01",
+              "period_end": "2026-10-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 497
+    },
+    {
+      "path": "feedback/Ringwood feedback Q1 2026.xlsx",
+      "dealer": "VIC02",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Feedback",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 36,
+              "headers": [
+                "Date Received",
+                "Department",
+                "Score (1-5)",
+                "Customer comments",
+                "Followed up?"
+              ],
+              "columns": {
+                "date": "Date Received",
+                "department": "Department",
+                "rating": "Score (1-5)",
+                "comment": "Customer comments",
+                "action": "Followed up?"
+              },
+              "expected_records": 33,
+              "date_format": "%d/%m/%Y",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-01-01",
+              "period_end": "2026-02-01"
+            },
+            {
+              "header_row": 37,
+              "first_row": 38,
+              "last_row": 116,
+              "headers": [
+                "Date",
+                "Department",
+                "Model",
+                "Score (out of 10)",
+                "Customer comments",
+                "Follow up (Y/N)",
+                "Staff"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Department",
+                "vehicle": "Model",
+                "rating": "Score (out of 10)",
+                "comment": "Customer comments",
+                "action": "Follow up (Y/N)",
+                "staff": "Staff"
+              },
+              "expected_records": 79,
+              "date_format": "%d/%m/%Y",
+              "scale_max": 10,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-02-01",
+              "period_end": "2026-04-01"
+            }
+          ],
+          "context": [
+            {
+              "row": 36,
+              "role": "footer_or_note",
+              "sha256": "7613ea146748d1a3ec56b083671d48d4e7c192572d3e451eeec93048f0b19ee3"
+            }
+          ]
+        }
+      ],
+      "expected_individual_records": 112
+    },
+    {
+      "path": "feedback/Ringwood feedback Q2 2026.xlsx",
+      "dealer": "VIC02",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Feedback",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 116,
+              "headers": [
+                "Date",
+                "Department",
+                "Model",
+                "Score (out of 10)",
+                "Customer comments",
+                "Follow up (Y/N)",
+                "Staff"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Department",
+                "vehicle": "Model",
+                "rating": "Score (out of 10)",
+                "comment": "Customer comments",
+                "action": "Follow up (Y/N)",
+                "staff": "Staff"
+              },
+              "expected_records": 115,
+              "date_format": "%d/%m/%Y",
+              "scale_max": 10,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-04-01",
+              "period_end": "2026-07-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 115
+    },
+    {
+      "path": "feedback/Ringwood feedback Q3 2026.xlsx",
+      "dealer": "VIC02",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Feedback",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 128,
+              "headers": [
+                "Date",
+                "Department",
+                "Model",
+                "Score (out of 10)",
+                "Customer comments",
+                "Follow up (Y/N)",
+                "Staff"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Department",
+                "vehicle": "Model",
+                "rating": "Score (out of 10)",
+                "comment": "Customer comments",
+                "action": "Follow up (Y/N)",
+                "staff": "Staff"
+              },
+              "expected_records": 127,
+              "date_format": "%d/%m/%Y",
+              "scale_max": 10,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-07-01",
+              "period_end": "2026-10-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 127
+    },
+    {
+      "path": "feedback/Ringwood feedback Q4 2025.xlsx",
+      "dealer": "VIC02",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Feedback",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 101,
+              "headers": [
+                "Date Received",
+                "Department",
+                "Score (1-5)",
+                "Customer comments",
+                "Followed up?"
+              ],
+              "columns": {
+                "date": "Date Received",
+                "department": "Department",
+                "rating": "Score (1-5)",
+                "comment": "Customer comments",
+                "action": "Followed up?"
+              },
+              "expected_records": 100,
+              "date_format": "%d/%m/%Y",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2025-10-01",
+              "period_end": "2026-01-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 100
+    },
+    {
+      "path": "feedback/Shepparton feedback FINAL - site closed.xlsx",
+      "dealer": "VIC09",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Log",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 55,
+              "headers": [
+                "Date",
+                "Dept",
+                "Rating",
+                "Comment"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Dept",
+                "rating": "Rating",
+                "comment": "Comment"
+              },
+              "expected_records": 52,
+              "date_format": "%d/%m/%Y",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2025-10-01",
+              "period_end": "2026-10-01"
+            }
+          ],
+          "context": [
+            {
+              "row": 55,
+              "role": "footer_or_note",
+              "sha256": "73d316a4df9f7619284debb508df3b39a739d938c41449cb29af38f451e05fc9"
+            }
+          ]
+        }
+      ],
+      "expected_individual_records": 52
+    },
+    {
+      "path": "feedback/Southport Feedback Tracker.xlsx",
+      "dealer": "QLD04",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Feedback",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 255,
+              "headers": [
+                "Date",
+                "Department",
+                "Rating",
+                "Comments",
+                "Vehicle",
+                "Rego",
+                "Customer name",
+                "Email"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Department",
+                "rating": "Rating",
+                "comment": "Comments",
+                "vehicle": "Vehicle",
+                "rego": "Rego",
+                "name": "Customer name",
+                "email": "Email"
+              },
+              "expected_records": 254,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2025-10-01",
+              "period_end": "2026-10-01"
+            }
+          ],
+          "context": []
+        },
+        {
+          "name": "Google reviews (copied)",
+          "kind": "external_review",
+          "segments": [
+            {
+              "header_row": 2,
+              "first_row": 3,
+              "last_row": 10,
+              "headers": [
+                "Reviewer",
+                "Stars",
+                "Review",
+                "When"
+              ],
+              "columns": {
+                "name": "Reviewer",
+                "rating": "Stars",
+                "comment": "Review",
+                "date": "When"
+              },
+              "expected_records": 8,
+              "date_format": "relative",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2025-10-01",
+              "period_end": "2026-10-01"
+            }
+          ],
+          "context": [
+            {
+              "row": 1,
+              "role": "collection_context",
+              "sha256": "ad573e0f1cfb7d7bb957412ceadb467059998e76346414c243192ac11342a7a4"
+            }
+          ]
+        }
+      ],
+      "expected_individual_records": 254
+    },
+    {
+      "path": "feedback/Springwood feedback.xlsx",
+      "dealer": "QLD02",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "All",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 311,
+              "headers": [
+                "Date",
+                "Department",
+                "Name",
+                "Mobile",
+                "Email",
+                "Rating",
+                "Comments"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Department",
+                "name": "Name",
+                "phone": "Mobile",
+                "email": "Email",
+                "rating": "Rating",
+                "comment": "Comments"
+              },
+              "expected_records": 310,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2025-10-01",
+              "period_end": "2026-10-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 310
+    },
+    {
+      "path": "feedback/Tamworth.xlsx",
+      "dealer": "NSW07",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 144,
+              "headers": [
+                "DATE",
+                "DEPT",
+                "HOW WAS IT",
+                "COMMENTS"
+              ],
+              "columns": {
+                "date": "DATE",
+                "department": "DEPT",
+                "rating": "HOW WAS IT",
+                "comment": "COMMENTS"
+              },
+              "expected_records": 143,
+              "date_format": "%d/%m/%Y",
+              "scale_max": 3,
+              "rating_kind": "three_labels",
+              "direction": "high_is_good",
+              "period_start": "2025-10-01",
+              "period_end": "2026-10-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 143
+    },
+    {
+      "path": "feedback/Toowoomba Q4 2025 summary.xlsx",
+      "dealer": "QLD06",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "Summary",
+          "kind": "aggregate",
+          "segments": [
+            {
+              "header_row": 3,
+              "first_row": 4,
+              "last_row": 9,
+              "headers": [
+                "Month",
+                "Department",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "Grand Total"
+              ],
+              "columns": {},
+              "expected_records": 6
+            }
+          ],
+          "context": [
+            {
+              "row": 1,
+              "role": "title",
+              "sha256": "4bfc7ec727bb46cf02654dab6a41ca4cc4ef4dcc8624757b49d094723d70f902"
+            },
+            {
+              "row": 10,
+              "role": "control_total",
+              "sha256": "f6d7b00df8e9f16f5cb2a14b109555297ebe2ba3d34fb6d4e8651d64ff5ec469"
+            }
+          ]
+        }
+      ],
+      "expected_individual_records": 0
+    },
+    {
+      "path": "feedback/Toowoomba feedback 2026.xlsx",
+      "dealer": "QLD06",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "2026",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 251,
+              "headers": [
+                "Date",
+                "Department",
+                "Rating",
+                "Comments"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Department",
+                "rating": "Rating",
+                "comment": "Comments"
+              },
+              "expected_records": 250,
+              "date_format": "excel_datetime",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-01-01",
+              "period_end": "2026-10-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 250
+    },
+    {
+      "path": "feedback/Wollongong_Apr26-Sep26.csv",
+      "dealer": "NSW06",
+      "encoding": "cp1252",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "CSV",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 148,
+              "headers": [
+                "Date",
+                "Dept",
+                "Rating",
+                "Customer feedback",
+                "Name",
+                "Mobile"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Dept",
+                "rating": "Rating",
+                "comment": "Customer feedback",
+                "name": "Name",
+                "phone": "Mobile"
+              },
+              "expected_records": 147,
+              "date_format": "%d-%b-%y",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-04-01",
+              "period_end": "2026-10-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 147
+    },
+    {
+      "path": "feedback/Wollongong_Oct25-Mar26.csv",
+      "dealer": "NSW06",
+      "encoding": "cp1252",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "CSV",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 139,
+              "headers": [
+                "Date",
+                "Dept",
+                "Rating",
+                "Customer feedback",
+                "Name",
+                "Mobile"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Dept",
+                "rating": "Rating",
+                "comment": "Customer feedback",
+                "name": "Name",
+                "phone": "Mobile"
+              },
+              "expected_records": 138,
+              "date_format": "%d-%b-%y",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2025-10-01",
+              "period_end": "2026-04-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 138
+    },
+    {
+      "path": "feedback/bendigo feedback.csv",
+      "dealer": "VIC08",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "CSV",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 145,
+              "headers": [
+                "Date",
+                "Dept",
+                "Stars",
+                "What did they say?"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Dept",
+                "rating": "Stars",
+                "comment": "What did they say?"
+              },
+              "expected_records": 144,
+              "date_format": "%d %b %y",
+              "scale_max": 5,
+              "rating_kind": "stars",
+              "direction": "high_is_good",
+              "period_start": "2025-10-01",
+              "period_end": "2026-10-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 144
+    },
+    {
+      "path": "feedback/boxhill_survey_export_2025Q4.csv",
+      "dealer": "VIC05",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "CSV",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 65,
+              "headers": [
+                "response_id",
+                "submitted_at",
+                "department",
+                "csat",
+                "verbatim",
+                "vehicle",
+                "dms_customer_no"
+              ],
+              "columns": {
+                "reference": "response_id",
+                "date": "submitted_at",
+                "department": "department",
+                "rating": "csat",
+                "comment": "verbatim",
+                "vehicle": "vehicle",
+                "customer_id": "dms_customer_no"
+              },
+              "expected_records": 64,
+              "date_format": "%Y-%m-%d %H:%M:%S",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2025-10-01",
+              "period_end": "2026-01-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 64
+    },
+    {
+      "path": "feedback/boxhill_survey_export_2026Q1.csv",
+      "dealer": "VIC05",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "CSV",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 78,
+              "headers": [
+                "response_id",
+                "submitted_at",
+                "department",
+                "csat",
+                "verbatim",
+                "vehicle",
+                "dms_customer_no"
+              ],
+              "columns": {
+                "reference": "response_id",
+                "date": "submitted_at",
+                "department": "department",
+                "rating": "csat",
+                "comment": "verbatim",
+                "vehicle": "vehicle",
+                "customer_id": "dms_customer_no"
+              },
+              "expected_records": 77,
+              "date_format": "%Y-%m-%d %H:%M:%S",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-01-01",
+              "period_end": "2026-04-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 77
+    },
+    {
+      "path": "feedback/boxhill_survey_export_2026Q2.csv",
+      "dealer": "VIC05",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "CSV",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 84,
+              "headers": [
+                "response_id",
+                "submitted_at",
+                "department",
+                "csat",
+                "verbatim",
+                "vehicle",
+                "dms_customer_no"
+              ],
+              "columns": {
+                "reference": "response_id",
+                "date": "submitted_at",
+                "department": "department",
+                "rating": "csat",
+                "comment": "verbatim",
+                "vehicle": "vehicle",
+                "customer_id": "dms_customer_no"
+              },
+              "expected_records": 83,
+              "date_format": "%Y-%m-%d %H:%M:%S",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-04-01",
+              "period_end": "2026-07-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 83
+    },
+    {
+      "path": "feedback/boxhill_survey_export_2026Q3.csv",
+      "dealer": "VIC05",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "CSV",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 86,
+              "headers": [
+                "response_id",
+                "submitted_at",
+                "department",
+                "csat",
+                "verbatim",
+                "vehicle",
+                "dms_customer_no"
+              ],
+              "columns": {
+                "reference": "response_id",
+                "date": "submitted_at",
+                "department": "department",
+                "rating": "csat",
+                "comment": "verbatim",
+                "vehicle": "vehicle",
+                "customer_id": "dms_customer_no"
+              },
+              "expected_records": 85,
+              "date_format": "%Y-%m-%d %H:%M:%S",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-07-01",
+              "period_end": "2026-10-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 85
+    },
+    {
+      "path": "feedback/chatswood_2025_q4.csv",
+      "dealer": "NSW03",
+      "encoding": "utf-8-sig",
+      "delimiter": ";",
+      "sheets": [
+        {
+          "name": "CSV",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 69,
+              "headers": [
+                "Date",
+                "Dept",
+                "Score",
+                "Comment",
+                "Vehicle"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Dept",
+                "rating": "Score",
+                "comment": "Comment",
+                "vehicle": "Vehicle"
+              },
+              "expected_records": 68,
+              "date_format": "%d/%m/%Y",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2025-10-01",
+              "period_end": "2026-01-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 68
+    },
+    {
+      "path": "feedback/chatswood_2026_q1.csv",
+      "dealer": "NSW03",
+      "encoding": "utf-8-sig",
+      "delimiter": ";",
+      "sheets": [
+        {
+          "name": "CSV",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 57,
+              "headers": [
+                "Date",
+                "Dept",
+                "Score",
+                "Comment",
+                "Vehicle"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Dept",
+                "rating": "Score",
+                "comment": "Comment",
+                "vehicle": "Vehicle"
+              },
+              "expected_records": 56,
+              "date_format": "%d/%m/%Y",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-01-01",
+              "period_end": "2026-04-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 56
+    },
+    {
+      "path": "feedback/chatswood_2026_q2.csv",
+      "dealer": "NSW03",
+      "encoding": "utf-8-sig",
+      "delimiter": ";",
+      "sheets": [
+        {
+          "name": "CSV",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 77,
+              "headers": [
+                "Date",
+                "Dept",
+                "Score",
+                "Comment",
+                "Vehicle"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Dept",
+                "rating": "Score",
+                "comment": "Comment",
+                "vehicle": "Vehicle"
+              },
+              "expected_records": 76,
+              "date_format": "%d/%m/%Y",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-04-01",
+              "period_end": "2026-07-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 76
+    },
+    {
+      "path": "feedback/chatswood_2026_q3.csv",
+      "dealer": "NSW03",
+      "encoding": "utf-8-sig",
+      "delimiter": ";",
+      "sheets": [
+        {
+          "name": "CSV",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 79,
+              "headers": [
+                "Date",
+                "Dept",
+                "Score",
+                "Comment",
+                "Vehicle"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Dept",
+                "rating": "Score",
+                "comment": "Comment",
+                "vehicle": "Vehicle"
+              },
+              "expected_records": 78,
+              "date_format": "%d/%m/%Y",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-07-01",
+              "period_end": "2026-10-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 78
+    },
+    {
+      "path": "feedback/liverpool_q1_2026.csv",
+      "dealer": "NSW04",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "CSV",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 74,
+              "headers": [
+                "Date",
+                "Department",
+                "Customer",
+                "Phone",
+                "Rego",
+                "Rating",
+                "Feedback"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Department",
+                "name": "Customer",
+                "phone": "Phone",
+                "rego": "Rego",
+                "rating": "Rating",
+                "comment": "Feedback"
+              },
+              "expected_records": 73,
+              "date_format": "%d/%m/%Y",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-01-01",
+              "period_end": "2026-04-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 73
+    },
+    {
+      "path": "feedback/liverpool_q2_2026.csv",
+      "dealer": "NSW04",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "CSV",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 72,
+              "headers": [
+                "Date",
+                "Department",
+                "Customer",
+                "Phone",
+                "Rego",
+                "Rating",
+                "Feedback"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Department",
+                "name": "Customer",
+                "phone": "Phone",
+                "rego": "Rego",
+                "rating": "Rating",
+                "comment": "Feedback"
+              },
+              "expected_records": 71,
+              "date_format": "%d/%m/%Y",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-04-01",
+              "period_end": "2026-07-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 71
+    },
+    {
+      "path": "feedback/liverpool_q3_2026.csv",
+      "dealer": "NSW04",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "CSV",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 86,
+              "headers": [
+                "Date",
+                "Department",
+                "Customer",
+                "Phone",
+                "Rego",
+                "Rating",
+                "Feedback"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Department",
+                "name": "Customer",
+                "phone": "Phone",
+                "rego": "Rego",
+                "rating": "Rating",
+                "comment": "Feedback"
+              },
+              "expected_records": 85,
+              "date_format": "%m/%d/%Y",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2026-07-01",
+              "period_end": "2026-10-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 85
+    },
+    {
+      "path": "feedback/liverpool_q4_2025.csv",
+      "dealer": "NSW04",
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "sheets": [
+        {
+          "name": "CSV",
+          "kind": "individual",
+          "segments": [
+            {
+              "header_row": 1,
+              "first_row": 2,
+              "last_row": 83,
+              "headers": [
+                "Date",
+                "Department",
+                "Customer",
+                "Phone",
+                "Rego",
+                "Rating",
+                "Feedback"
+              ],
+              "columns": {
+                "date": "Date",
+                "department": "Department",
+                "name": "Customer",
+                "phone": "Phone",
+                "rego": "Rego",
+                "rating": "Rating",
+                "comment": "Feedback"
+              },
+              "expected_records": 82,
+              "date_format": "%d/%m/%Y",
+              "scale_max": 5,
+              "rating_kind": "numeric",
+              "direction": "unspecified",
+              "period_start": "2025-10-01",
+              "period_end": "2026-01-01"
+            }
+          ],
+          "context": []
+        }
+      ],
+      "expected_individual_records": 82
+    }
+  ]
+}
